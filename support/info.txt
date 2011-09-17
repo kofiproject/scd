@@ -1,0 +1,8 @@
+kofi.project@gmail.com
+kofibsuir
+
+github:
+kofiproject
+kofi111
+git@github.com:kofiproject/scd.git
+https://kofiproject@github.com/kofiproject/scd.git
