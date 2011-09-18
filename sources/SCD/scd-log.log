@@ -1,0 +1,306 @@
+Adding type registration boolean -> org.hibernate.type.BooleanType@47df280b
+Adding type registration boolean -> org.hibernate.type.BooleanType@47df280b
+Adding type registration java.lang.Boolean -> org.hibernate.type.BooleanType@47df280b
+Adding type registration numeric_boolean -> org.hibernate.type.NumericBooleanType@7a187814
+Adding type registration true_false -> org.hibernate.type.TrueFalseType@7546c1d4
+Adding type registration yes_no -> org.hibernate.type.YesNoType@462ba11b
+Adding type registration byte -> org.hibernate.type.ByteType@79df8b99
+Adding type registration byte -> org.hibernate.type.ByteType@79df8b99
+Adding type registration java.lang.Byte -> org.hibernate.type.ByteType@79df8b99
+Adding type registration character -> org.hibernate.type.CharacterType@e4ac00c
+Adding type registration char -> org.hibernate.type.CharacterType@e4ac00c
+Adding type registration java.lang.Character -> org.hibernate.type.CharacterType@e4ac00c
+Adding type registration short -> org.hibernate.type.ShortType@2b275d39
+Adding type registration short -> org.hibernate.type.ShortType@2b275d39
+Adding type registration java.lang.Short -> org.hibernate.type.ShortType@2b275d39
+Adding type registration integer -> org.hibernate.type.IntegerType@2b5ac3c9
+Adding type registration int -> org.hibernate.type.IntegerType@2b5ac3c9
+Adding type registration java.lang.Integer -> org.hibernate.type.IntegerType@2b5ac3c9
+Adding type registration long -> org.hibernate.type.LongType@6910fe28
+Adding type registration long -> org.hibernate.type.LongType@6910fe28
+Adding type registration java.lang.Long -> org.hibernate.type.LongType@6910fe28
+Adding type registration float -> org.hibernate.type.FloatType@7df17e77
+Adding type registration float -> org.hibernate.type.FloatType@7df17e77
+Adding type registration java.lang.Float -> org.hibernate.type.FloatType@7df17e77
+Adding type registration double -> org.hibernate.type.DoubleType@1572e449
+Adding type registration double -> org.hibernate.type.DoubleType@1572e449
+Adding type registration java.lang.Double -> org.hibernate.type.DoubleType@1572e449
+Adding type registration big_decimal -> org.hibernate.type.BigDecimalType@7290cb03
+Adding type registration java.math.BigDecimal -> org.hibernate.type.BigDecimalType@7290cb03
+Adding type registration big_integer -> org.hibernate.type.BigIntegerType@f01a1e
+Adding type registration java.math.BigInteger -> org.hibernate.type.BigIntegerType@f01a1e
+Adding type registration string -> org.hibernate.type.StringType@2c41d05d
+Adding type registration java.lang.String -> org.hibernate.type.StringType@2c41d05d
+Adding type registration url -> org.hibernate.type.UrlType@2fb3f8f6
+Adding type registration java.net.URL -> org.hibernate.type.UrlType@2fb3f8f6
+Adding type registration date -> org.hibernate.type.DateType@20c1f10e
+Adding type registration java.sql.Date -> org.hibernate.type.DateType@20c1f10e
+Adding type registration time -> org.hibernate.type.TimeType@32ef2c60
+Adding type registration java.sql.Time -> org.hibernate.type.TimeType@32ef2c60
+Adding type registration timestamp -> org.hibernate.type.TimestampType@6fb000e7
+Adding type registration java.sql.Timestamp -> org.hibernate.type.TimestampType@6fb000e7
+Adding type registration java.util.Date -> org.hibernate.type.TimestampType@6fb000e7
+Adding type registration dbtimestamp -> org.hibernate.type.DbTimestampType@44b01d43
+Adding type registration calendar -> org.hibernate.type.CalendarType@50c4fe76
+Adding type registration java.util.Calendar -> org.hibernate.type.CalendarType@50c4fe76
+Adding type registration java.util.GregorianCalendar -> org.hibernate.type.CalendarType@50c4fe76
+Adding type registration calendar_date -> org.hibernate.type.CalendarDateType@4c5e176f
+Adding type registration locale -> org.hibernate.type.LocaleType@d8d9850
+Adding type registration java.util.Locale -> org.hibernate.type.LocaleType@d8d9850
+Adding type registration currency -> org.hibernate.type.CurrencyType@ac980c9
+Adding type registration java.util.Currency -> org.hibernate.type.CurrencyType@ac980c9
+Adding type registration timezone -> org.hibernate.type.TimeZoneType@54281d4b
+Adding type registration java.util.TimeZone -> org.hibernate.type.TimeZoneType@54281d4b
+Adding type registration class -> org.hibernate.type.ClassType@19e3118a
+Adding type registration java.lang.Class -> org.hibernate.type.ClassType@19e3118a
+Adding type registration uuid-binary -> org.hibernate.type.UUIDBinaryType@1d3c468a
+Adding type registration java.util.UUID -> org.hibernate.type.UUIDBinaryType@1d3c468a
+Adding type registration uuid-char -> org.hibernate.type.UUIDCharType@48ee22f7
+Adding type registration pg-uuid -> org.hibernate.type.PostgresUUIDType@2705d88a
+Adding type registration binary -> org.hibernate.type.BinaryType@2993a66f
+Adding type registration byte[] -> org.hibernate.type.BinaryType@2993a66f
+Adding type registration [B -> org.hibernate.type.BinaryType@2993a66f
+Adding type registration wrapper-binary -> org.hibernate.type.WrapperBinaryType@2abe0e27
+Adding type registration Byte[] -> org.hibernate.type.WrapperBinaryType@2abe0e27
+Adding type registration [Ljava.lang.Byte; -> org.hibernate.type.WrapperBinaryType@2abe0e27
+Adding type registration image -> org.hibernate.type.ImageType@4ac9131c
+Adding type registration characters -> org.hibernate.type.CharArrayType@5ece2187
+Adding type registration char[] -> org.hibernate.type.CharArrayType@5ece2187
+Adding type registration [C -> org.hibernate.type.CharArrayType@5ece2187
+Adding type registration wrapper-characters -> org.hibernate.type.CharacterArrayType@3a64c34e
+Adding type registration [Ljava.lang.Character; -> org.hibernate.type.CharacterArrayType@3a64c34e
+Adding type registration Character[] -> org.hibernate.type.CharacterArrayType@3a64c34e
+Adding type registration text -> org.hibernate.type.TextType@3b835282
+Adding type registration blob -> org.hibernate.type.BlobType@3782da3d
+Adding type registration java.sql.Blob -> org.hibernate.type.BlobType@3782da3d
+Adding type registration materialized_blob -> org.hibernate.type.MaterializedBlobType@2dec8909
+Adding type registration clob -> org.hibernate.type.ClobType@79de256f
+Adding type registration java.sql.Clob -> org.hibernate.type.ClobType@79de256f
+Adding type registration materialized_clob -> org.hibernate.type.MaterializedClobType@596e1fb1
+Adding type registration serializable -> org.hibernate.type.SerializableType@16bdb503
+Adding type registration object -> org.hibernate.type.ObjectType@69945ce
+Adding type registration java.lang.Object -> org.hibernate.type.ObjectType@69945ce
+Adding type registration imm_date -> org.hibernate.type.AdaptedImmutableType@2b2d96f2
+Adding type registration imm_time -> org.hibernate.type.AdaptedImmutableType@3e110003
+Adding type registration imm_timestamp -> org.hibernate.type.AdaptedImmutableType@4e17e4ca
+Adding type registration imm_dbtimestamp -> org.hibernate.type.AdaptedImmutableType@2adb1d4
+Adding type registration imm_calendar -> org.hibernate.type.AdaptedImmutableType@5975d6ab
+Adding type registration imm_calendar_date -> org.hibernate.type.AdaptedImmutableType@4760a26f
+Adding type registration imm_binary -> org.hibernate.type.AdaptedImmutableType@19484a05
+Adding type registration imm_serializable -> org.hibernate.type.AdaptedImmutableType@58f39b3a
+HCANN000001: Hibernate Commons Annotations {4.0.0.CR2}
+HHH000412: Hibernate Core {4.0.0.CR3}
+HHH000206: hibernate.properties not found
+HHH000021: Bytecode provider name : javassist
+Registering IdentifierGenerator strategy [uuid2] -> [org.hibernate.id.UUIDGenerator]
+Registering IdentifierGenerator strategy [guid] -> [org.hibernate.id.GUIDGenerator]
+Registering IdentifierGenerator strategy [uuid] -> [org.hibernate.id.UUIDHexGenerator]
+Registering IdentifierGenerator strategy [uuid.hex] -> [org.hibernate.id.UUIDHexGenerator]
+Registering IdentifierGenerator strategy [hilo] -> [org.hibernate.id.TableHiLoGenerator]
+Registering IdentifierGenerator strategy [assigned] -> [org.hibernate.id.Assigned]
+Registering IdentifierGenerator strategy [identity] -> [org.hibernate.id.IdentityGenerator]
+Registering IdentifierGenerator strategy [select] -> [org.hibernate.id.SelectGenerator]
+Registering IdentifierGenerator strategy [sequence] -> [org.hibernate.id.SequenceGenerator]
+Registering IdentifierGenerator strategy [seqhilo] -> [org.hibernate.id.SequenceHiLoGenerator]
+Registering IdentifierGenerator strategy [increment] -> [org.hibernate.id.IncrementGenerator]
+Registering IdentifierGenerator strategy [foreign] -> [org.hibernate.id.ForeignGenerator]
+Registering IdentifierGenerator strategy [sequence-identity] -> [org.hibernate.id.SequenceIdentityGenerator]
+Registering IdentifierGenerator strategy [enhanced-sequence] -> [org.hibernate.id.enhanced.SequenceStyleGenerator]
+Registering IdentifierGenerator strategy [enhanced-table] -> [org.hibernate.id.enhanced.TableGenerator]
+HHH000043: Configuring from resource: /hibernate.cfg.xml
+HHH000040: Configuration resource: /hibernate.cfg.xml
+Trying to resolve system-id [http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd]
+HHH000223: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+Attempting to resolve on classpath under org/hibernate/
+Located [http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd] in classpath
+dialect=org.hibernate.dialect.Oracle10gDialect
+connection.url=jdbc:oracle:thin:@127.0.0.1:1521:XE
+connection.username=SCD
+connection.password=SCD
+connection.driver_class=oracle.jdbc.OracleDriver
+current_session_context_class=thread
+hibernate.show_sql=false
+Session-factory config [null] named class [by.kofi.scd.entity.Role] for mapping
+Session-factory config [null] named class [by.kofi.scd.entity.SCDUser] for mapping
+HHH000041: Configured SessionFactory: null
+Properties: {hibernate.connection.password=SCD, java.runtime.name=Java(TM) SE Runtime Environment, sun.boot.library.path=C:\glassfish3\jdk\jre\bin, java.vm.version=19.1-b02, hibernate.connection.username=SCD, java.vm.vendor=Sun Microsystems Inc., java.vendor.url=http://java.sun.com/, path.separator=;, java.vm.name=Java HotSpot(TM) 64-Bit Server VM, file.encoding.pkg=sun.io, idea.launcher.port=7532, user.country=RU, sun.java.launcher=SUN_STANDARD, sun.os.patch.level=Service Pack 1, java.vm.specification.name=Java Virtual Machine Specification, user.dir=D:\IDEA_workspace\SCD, java.runtime.version=1.6.0_24-b07, java.awt.graphicsenv=sun.awt.Win32GraphicsEnvironment, hibernate.current_session_context_class=thread, java.endorsed.dirs=C:\glassfish3\jdk\jre\lib\endorsed, os.arch=amd64, java.io.tmpdir=C:\Users\mihm\AppData\Local\Temp\, line.separator=
+, java.vm.specification.vendor=Sun Microsystems Inc., user.variant=, os.name=Windows 7, sun.jnu.encoding=Cp1251, java.library.path=C:\glassfish3\jdk\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\oraclexe\app\oracle\product\10.2.0\server\bin;C:\XEClient\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\TortoiseSVN\bin;c:\glassfish3\jdk\bin;C:\Program Files (x86)\Git\cmd;c:\Program Files (x86)\Git\bin\;C:\Program Files\TortoiseGit\bin;c:\program files (x86)\jetbrains\intellij idea 10.0\jre\jre\bin, java.specification.name=Java Platform API Specification, java.class.version=50.0, sun.management.compiler=HotSpot 64-Bit Server Compiler, os.version=6.1, connection.password=SCD, user.home=C:\Users\mihm, user.timezone=, connection.username=SCD, java.awt.printerjob=sun.awt.windows.WPrinterJob, file.encoding=UTF-8, idea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA 10.0\bin, java.specification.version=1.6, hibernate.connection.driver_class=oracle.jdbc.OracleDriver, java.class.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA 10.0\lib\idea_rt.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA 10.0\plugins\junit\lib\junit-rt.jar;C:\glassfish3\jdk\jre\lib\alt-rt.jar;C:\glassfish3\jdk\jre\lib\alt-string.jar;C:\glassfish3\jdk\jre\lib\charsets.jar;C:\glassfish3\jdk\jre\lib\deploy.jar;C:\glassfish3\jdk\jre\lib\javaws.jar;C:\glassfish3\jdk\jre\lib\jce.jar;C:\glassfish3\jdk\jre\lib\jsse.jar;C:\glassfish3\jdk\jre\lib\management-agent.jar;C:\glassfish3\jdk\jre\lib\plugin.jar;C:\glassfish3\jdk\jre\lib\resources.jar;C:\glassfish3\jdk\jre\lib\rt.jar;C:\glassfish3\jdk\jre\lib\ext\dnsns.jar;C:\glassfish3\jdk\jre\lib\ext\localedata.jar;C:\glassfish3\jdk\jre\lib\ext\sunjce_provider.jar;D:\IDEA_workspace\SCD\out\test\SCD;D:\IDEA_workspace\SCD\out\production\SCD;D:\IDEA_workspace\SCD\lib\antlr-runtime.jar;D:\IDEA_workspace\SCD\lib\commons-codec.jar;D:\IDEA_workspace\SCD\lib\javassist.jar;D:\IDEA_workspace\SCD\lib\log4j.jar;D:\IDEA_workspace\SCD\lib\slf4j-api.jar;D:\IDEA_workspace\SCD\lib\stax2.jar;D:\IDEA_workspace\SCD\lib\tapestry-core.jar;D:\IDEA_workspace\SCD\lib\tapestry-ioc.jar;D:\IDEA_workspace\SCD\lib\tapestry5-annotations.jar;D:\IDEA_workspace\SCD\lib\wstx-asl.jar;D:\IDEA_workspace\SCD\lib\hibernate-core-4.0.0.CR3.jar;D:\IDEA_workspace\SCD\lib\hibernate-commons-annotations-4.0.0.CR2.jar;D:\IDEA_workspace\SCD\lib\ojdbc14_g.jar;D:\IDEA_workspace\SCD\lib\hibernate-jpa-2.0-api-1.0.1.Final.jar;D:\IDEA_workspace\SCD\lib\antlr-2.7.7.jar;D:\IDEA_workspace\SCD\lib\commons-collections-3.1.jar;D:\IDEA_workspace\SCD\lib\classmate-0.5.4.jar;D:\IDEA_workspace\SCD\lib\jta-1.1.jar;D:\IDEA_workspace\SCD\lib\dom4j-1.6.1.jar;D:\IDEA_workspace\SCD\lib\jandex-1.0.3.Final.jar;D:\IDEA_workspace\SCD\lib\javassist-3.12.0.GA.jar;D:\IDEA_workspace\SCD\lib\jboss-logging-3.0.0.GA.jar;D:\IDEA_workspace\SCD\lib-test\jmock-2.5.1.jar;D:\IDEA_workspace\SCD\lib-test\jmock-junit3-2.5.1.jar;D:\IDEA_workspace\SCD\lib-test\jmock-junit4-2.5.1.jar;D:\IDEA_workspace\SCD\lib-test\jmock-legacy-2.5.1.jar;D:\IDEA_workspace\SCD\lib-test\jmock-script-2.5.1.jar;D:\IDEA_workspace\SCD\lib-test\junit-4.8.1.jar;D:\IDEA_workspace\SCD\lib-test\junit-addons-1.4.jar, user.name=mihm, hibernate.bytecode.use_reflection_optimizer=false, hibernate.show_sql=false, current_session_context_class=thread, java.vm.specification.version=1.0, java.home=C:\glassfish3\jdk\jre, sun.arch.data.model=64, hibernate.connection.url=jdbc:oracle:thin:@127.0.0.1:1521:XE, hibernate.dialect=org.hibernate.dialect.Oracle10gDialect, user.language=ru, java.specification.vendor=Sun Microsystems Inc., awt.toolkit=sun.awt.windows.WToolkit, java.vm.info=mixed mode, java.version=1.6.0_24, java.ext.dirs=C:\glassfish3\jdk\jre\lib\ext;C:\Windows\Sun\Java\lib\ext, sun.boot.class.path=C:\glassfish3\jdk\jre\lib\resources.jar;C:\glassfish3\jdk\jre\lib\rt.jar;C:\glassfish3\jdk\jre\lib\sunrsasign.jar;C:\glassfish3\jdk\jre\lib\jsse.jar;C:\glassfish3\jdk\jre\lib\jce.jar;C:\glassfish3\jdk\jre\lib\charsets.jar;C:\glassfish3\jdk\jre\lib\modules\jdk.boot.jar;C:\glassfish3\jdk\jre\classes, java.vendor=Sun Microsystems Inc., connection.driver_class=oracle.jdbc.OracleDriver, file.separator=\, java.vendor.url.bug=http://java.sun.com/cgi-bin/bugreport.cgi, sun.io.unicode.encoding=UnicodeLittle, sun.cpu.endian=little, sun.desktop=windows, connection.url=jdbc:oracle:thin:@127.0.0.1:1521:XE, dialect=org.hibernate.dialect.Oracle10gDialect, sun.cpu.isalist=amd64}
+Adding Integrator [org.hibernate.cfg.beanvalidation.BeanValidationIntegrator].
+Preparing to build session factory with filters : {}
+Processing hbm.xml files
+Process annotated classes
+Binding entity from annotated class: by.kofi.scd.entity.Role
+Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'}
+No value specified for 'javax.persistence.sharedCache.mode'; using UNSPECIFIED
+Import with entity name Role
+Bind entity by.kofi.scd.entity.Role on table ROLES
+Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ROLES), mappingColumn=ROLE_ID, insertable=true, updatable=true, unique=false}
+MetadataSourceProcessor property roleId with lazy=false
+building SimpleValue for roleId
+Building property roleId
+Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ROLES), mappingColumn=NAME, insertable=true, updatable=true, unique=false}
+MetadataSourceProcessor property name with lazy=false
+building SimpleValue for name
+Building property name
+Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='role'}
+Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ROLES), mappingColumn=users, insertable=true, updatable=true, unique=false}
+Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ROLES), mappingColumn=null, insertable=true, updatable=true, unique=false}
+Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ROLES), mappingColumn=element, insertable=true, updatable=true, unique=false}
+Binding column: Ejb3Column{table=org.hibernate.mapping.Table(ROLES), mappingColumn=users_KEY, insertable=true, updatable=true, unique=false}
+Binding column: Ejb3JoinColumn{logicalColumnName='users_KEY', referencedColumn='null', mappedBy='null'}
+Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='role'}
+Binding column: Ejb3JoinColumn{logicalColumnName='null', referencedColumn='null', mappedBy='role'}
+Collection role: by.kofi.scd.entity.Role.users
+Building property users
+Binding entity from annotated class: by.kofi.scd.entity.SCDUser
+Binding column: Ejb3DiscriminatorColumn{logicalColumnName'DTYPE', discriminatorTypeName='string'}
+No value specified for 'javax.persistence.sharedCache.mode'; using UNSPECIFIED
+Import with entity name SCDUser
+Bind entity by.kofi.scd.entity.SCDUser on table USERS
+Binding column: Ejb3Column{table=org.hibernate.mapping.Table(USERS), mappingColumn=USER_ID, insertable=true, updatable=true, unique=false}
+MetadataSourceProcessor property userId with lazy=false
+building SimpleValue for userId
+Building property userId
+Binding column: Ejb3Column{table=org.hibernate.mapping.Table(USERS), mappingColumn=LOGIN, insertable=true, updatable=true, unique=true}
+MetadataSourceProcessor property login with lazy=false
+building SimpleValue for login
+Building property login
+Binding column: Ejb3Column{table=org.hibernate.mapping.Table(USERS), mappingColumn=PASSWORD, insertable=true, updatable=true, unique=false}
+MetadataSourceProcessor property password with lazy=false
+building SimpleValue for password
+Building property password
+Binding column: Ejb3JoinColumn{logicalColumnName='ROLE_ID', referencedColumn='ROLE_ID', mappedBy=''}
+Binding column: Ejb3Column{table=org.hibernate.mapping.Table(USERS), mappingColumn=role, insertable=true, updatable=true, unique=false}
+Building property role
+Setting SimpleValue typeName for roleId
+Setting SimpleValue typeName for name
+Setting SimpleValue typeName for userId
+Setting SimpleValue typeName for login
+Setting SimpleValue typeName for password
+Processing fk mappings (*ToOne and JoinedSubclass)
+Processing extends queue
+Processing extends queue
+Processing collection mappings
+Second pass for collection: by.kofi.scd.entity.Role.users
+Binding a OneToMany: by.kofi.scd.entity.Role.users through a foreign key
+Mapping collection: by.kofi.scd.entity.Role.users -> USERS
+Retrieving property by.kofi.scd.entity.SCDUser.role
+Mapped collection key: ROLE_ID, one-to-many: by.kofi.scd.entity.SCDUser
+Processing native query and ResultSetMapping mappings
+Processing association property references
+Processing foreign key constraints
+Resolving reference to class: by.kofi.scd.entity.Role
+HHH000402: Using Hibernate built-in connection pool (not for production use!)
+HHH000115: Hibernate connection pool size: 20
+HHH000006: Autocommit mode: false
+HHH000401: using driver [oracle.jdbc.OracleDriver] at URL [jdbc:oracle:thin:@127.0.0.1:1521:XE]
+HHH000046: Connection properties: {user=SCD, password=SCD}
+Opening new JDBC connection
+Created connection to: jdbc:oracle:thin:@127.0.0.1:1521:XE, Isolation Level: 2
+Database ->
+       name : Oracle
+    version : Oracle Database 10g Express Edition Release 10.2.0.1.0 - Production
+      major : 10
+      minor : 2
+Driver ->
+       name : Oracle JDBC driver
+    version : 10.2.0.1.0XE
+      major : 10
+      minor : 2
+JDBC version : 10.2
+HHH000400: Using dialect: org.hibernate.dialect.Oracle10gDialect
+HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+Automatic flush during beforeCompletion(): disabled
+Automatic session close at end of transaction: disabled
+JDBC batch size: 15
+JDBC batch updates for versioned data: disabled
+Scrollable result sets: enabled
+Wrap result sets: disabled
+JDBC3 getGeneratedKeys(): disabled
+Connection release mode: auto
+HHH000399: Using default transaction strategy (direct JDBC transactions)
+Default batch fetch size: 1
+Generate SQL with comments: disabled
+Order SQL updates by primary key: disabled
+Order SQL inserts for batching: disabled
+Query translator: org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory
+HHH000397: Using ASTQueryTranslatorFactory
+Query language substitutions: {}
+JPA-QL strict compliance: disabled
+Second-level cache: enabled
+Query cache: disabled
+Cache region factory : org.hibernate.cache.internal.NoCachingRegionFactory
+org.hibernate.cache.internal.NoCachingRegionFactory did not provide constructor accepting java.util.Properties; attempting no-arg constructor.
+Optimize cache for minimal puts: disabled
+Structured second-level cache entries: disabled
+Statistics: disabled
+Deleted entity synthetic identifier rollback: disabled
+Default entity-mode: pojo
+Named query checking : enabled
+Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+multi-tenancy strategy : NONE
+Building session factory
+Session factory constructed with filter configurations : {}
+Instantiating session factory with properties: {java.runtime.name=Java(TM) SE Runtime Environment, hibernate.connection.password=SCD, sun.boot.library.path=C:\glassfish3\jdk\jre\bin, java.vm.version=19.1-b02, hibernate.connection.username=SCD, java.vm.vendor=Sun Microsystems Inc., java.vendor.url=http://java.sun.com/, path.separator=;, java.vm.name=Java HotSpot(TM) 64-Bit Server VM, file.encoding.pkg=sun.io, idea.launcher.port=7532, user.country=RU, sun.java.launcher=SUN_STANDARD, sun.os.patch.level=Service Pack 1, java.vm.specification.name=Java Virtual Machine Specification, user.dir=D:\IDEA_workspace\SCD, java.runtime.version=1.6.0_24-b07, java.awt.graphicsenv=sun.awt.Win32GraphicsEnvironment, hibernate.current_session_context_class=thread, java.endorsed.dirs=C:\glassfish3\jdk\jre\lib\endorsed, os.arch=amd64, java.io.tmpdir=C:\Users\mihm\AppData\Local\Temp\, line.separator=
+, java.vm.specification.vendor=Sun Microsystems Inc., user.variant=, os.name=Windows 7, sun.jnu.encoding=Cp1251, java.library.path=C:\glassfish3\jdk\bin;.;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\oraclexe\app\oracle\product\10.2.0\server\bin;C:\XEClient\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\TortoiseSVN\bin;c:\glassfish3\jdk\bin;C:\Program Files (x86)\Git\cmd;c:\Program Files (x86)\Git\bin\;C:\Program Files\TortoiseGit\bin;c:\program files (x86)\jetbrains\intellij idea 10.0\jre\jre\bin, java.specification.name=Java Platform API Specification, java.class.version=50.0, sun.management.compiler=HotSpot 64-Bit Server Compiler, os.version=6.1, user.home=C:\Users\mihm, connection.password=SCD, user.timezone=, java.awt.printerjob=sun.awt.windows.WPrinterJob, connection.username=SCD, java.specification.version=1.6, idea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA 10.0\bin, file.encoding=UTF-8, hibernate.connection.driver_class=oracle.jdbc.OracleDriver, user.name=mihm, java.class.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA 10.0\lib\idea_rt.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA 10.0\plugins\junit\lib\junit-rt.jar;C:\glassfish3\jdk\jre\lib\alt-rt.jar;C:\glassfish3\jdk\jre\lib\alt-string.jar;C:\glassfish3\jdk\jre\lib\charsets.jar;C:\glassfish3\jdk\jre\lib\deploy.jar;C:\glassfish3\jdk\jre\lib\javaws.jar;C:\glassfish3\jdk\jre\lib\jce.jar;C:\glassfish3\jdk\jre\lib\jsse.jar;C:\glassfish3\jdk\jre\lib\management-agent.jar;C:\glassfish3\jdk\jre\lib\plugin.jar;C:\glassfish3\jdk\jre\lib\resources.jar;C:\glassfish3\jdk\jre\lib\rt.jar;C:\glassfish3\jdk\jre\lib\ext\dnsns.jar;C:\glassfish3\jdk\jre\lib\ext\localedata.jar;C:\glassfish3\jdk\jre\lib\ext\sunjce_provider.jar;D:\IDEA_workspace\SCD\out\test\SCD;D:\IDEA_workspace\SCD\out\production\SCD;D:\IDEA_workspace\SCD\lib\antlr-runtime.jar;D:\IDEA_workspace\SCD\lib\commons-codec.jar;D:\IDEA_workspace\SCD\lib\javassist.jar;D:\IDEA_workspace\SCD\lib\log4j.jar;D:\IDEA_workspace\SCD\lib\slf4j-api.jar;D:\IDEA_workspace\SCD\lib\stax2.jar;D:\IDEA_workspace\SCD\lib\tapestry-core.jar;D:\IDEA_workspace\SCD\lib\tapestry-ioc.jar;D:\IDEA_workspace\SCD\lib\tapestry5-annotations.jar;D:\IDEA_workspace\SCD\lib\wstx-asl.jar;D:\IDEA_workspace\SCD\lib\hibernate-core-4.0.0.CR3.jar;D:\IDEA_workspace\SCD\lib\hibernate-commons-annotations-4.0.0.CR2.jar;D:\IDEA_workspace\SCD\lib\ojdbc14_g.jar;D:\IDEA_workspace\SCD\lib\hibernate-jpa-2.0-api-1.0.1.Final.jar;D:\IDEA_workspace\SCD\lib\antlr-2.7.7.jar;D:\IDEA_workspace\SCD\lib\commons-collections-3.1.jar;D:\IDEA_workspace\SCD\lib\classmate-0.5.4.jar;D:\IDEA_workspace\SCD\lib\jta-1.1.jar;D:\IDEA_workspace\SCD\lib\dom4j-1.6.1.jar;D:\IDEA_workspace\SCD\lib\jandex-1.0.3.Final.jar;D:\IDEA_workspace\SCD\lib\javassist-3.12.0.GA.jar;D:\IDEA_workspace\SCD\lib\jboss-logging-3.0.0.GA.jar;D:\IDEA_workspace\SCD\lib-test\jmock-2.5.1.jar;D:\IDEA_workspace\SCD\lib-test\jmock-junit3-2.5.1.jar;D:\IDEA_workspace\SCD\lib-test\jmock-junit4-2.5.1.jar;D:\IDEA_workspace\SCD\lib-test\jmock-legacy-2.5.1.jar;D:\IDEA_workspace\SCD\lib-test\jmock-script-2.5.1.jar;D:\IDEA_workspace\SCD\lib-test\junit-4.8.1.jar;D:\IDEA_workspace\SCD\lib-test\junit-addons-1.4.jar, hibernate.bytecode.use_reflection_optimizer=false, hibernate.show_sql=false, current_session_context_class=thread, java.vm.specification.version=1.0, sun.arch.data.model=64, java.home=C:\glassfish3\jdk\jre, hibernate.dialect=org.hibernate.dialect.Oracle10gDialect, hibernate.connection.url=jdbc:oracle:thin:@127.0.0.1:1521:XE, java.specification.vendor=Sun Microsystems Inc., user.language=ru, awt.toolkit=sun.awt.windows.WToolkit, java.vm.info=mixed mode, java.version=1.6.0_24, java.ext.dirs=C:\glassfish3\jdk\jre\lib\ext;C:\Windows\Sun\Java\lib\ext, sun.boot.class.path=C:\glassfish3\jdk\jre\lib\resources.jar;C:\glassfish3\jdk\jre\lib\rt.jar;C:\glassfish3\jdk\jre\lib\sunrsasign.jar;C:\glassfish3\jdk\jre\lib\jsse.jar;C:\glassfish3\jdk\jre\lib\jce.jar;C:\glassfish3\jdk\jre\lib\charsets.jar;C:\glassfish3\jdk\jre\lib\modules\jdk.boot.jar;C:\glassfish3\jdk\jre\classes, java.vendor=Sun Microsystems Inc., file.separator=\, connection.driver_class=oracle.jdbc.OracleDriver, java.vendor.url.bug=http://java.sun.com/cgi-bin/bugreport.cgi, sun.cpu.endian=little, sun.io.unicode.encoding=UnicodeLittle, sun.desktop=windows, connection.url=jdbc:oracle:thin:@127.0.0.1:1521:XE, sun.cpu.isalist=amd64, dialect=org.hibernate.dialect.Oracle10gDialect}
+Setting dialect [org.hibernate.dialect.Oracle10gDialect]
+Setting dialect [org.hibernate.dialect.Oracle10gDialect]
+Static SQL for entity: by.kofi.scd.entity.SCDUser
+ Version select: select USER_ID from USERS where USER_ID =?
+ Snapshot select: select scduser_.USER_ID, scduser_.LOGIN as LOGIN1_, scduser_.PASSWORD as PASSWORD1_, scduser_.ROLE_ID as ROLE4_1_ from USERS scduser_ where scduser_.USER_ID=?
+ Insert 0: insert into USERS (LOGIN, PASSWORD, ROLE_ID, USER_ID) values (?, ?, ?, ?)
+ Update 0: update USERS set LOGIN=?, PASSWORD=?, ROLE_ID=? where USER_ID=?
+ Delete 0: delete from USERS where USER_ID=?
+Static SQL for entity: by.kofi.scd.entity.Role
+ Version select: select ROLE_ID from ROLES where ROLE_ID =?
+ Snapshot select: select role_.ROLE_ID, role_.NAME as NAME0_ from ROLES role_ where role_.ROLE_ID=?
+ Insert 0: insert into ROLES (NAME, ROLE_ID) values (?, ?)
+ Update 0: update ROLES set NAME=? where ROLE_ID=?
+ Delete 0: delete from ROLES where ROLE_ID=?
+Static SQL for collection: by.kofi.scd.entity.Role.users
+ Row insert: update USERS set ROLE_ID=? where USER_ID=?
+ Row delete: update USERS set ROLE_ID=null where ROLE_ID=? and USER_ID=?
+ One-shot delete: update USERS set ROLE_ID=null where ROLE_ID=?
+Static select for entity by.kofi.scd.entity.SCDUser [NONE]: select scduser0_.USER_ID as USER1_1_1_, scduser0_.LOGIN as LOGIN1_1_, scduser0_.PASSWORD as PASSWORD1_1_, scduser0_.ROLE_ID as ROLE4_1_1_, role1_.ROLE_ID as ROLE1_0_0_, role1_.NAME as NAME0_0_ from USERS scduser0_ left outer join ROLES role1_ on scduser0_.ROLE_ID=role1_.ROLE_ID where scduser0_.USER_ID=?
+Static select for entity by.kofi.scd.entity.SCDUser [READ]: select scduser0_.USER_ID as USER1_1_1_, scduser0_.LOGIN as LOGIN1_1_, scduser0_.PASSWORD as PASSWORD1_1_, scduser0_.ROLE_ID as ROLE4_1_1_, role1_.ROLE_ID as ROLE1_0_0_, role1_.NAME as NAME0_0_ from USERS scduser0_ left outer join ROLES role1_ on scduser0_.ROLE_ID=role1_.ROLE_ID where scduser0_.USER_ID=?
+Static select for entity by.kofi.scd.entity.SCDUser [UPGRADE]: select scduser0_.USER_ID as USER1_1_0_, scduser0_.LOGIN as LOGIN1_0_, scduser0_.PASSWORD as PASSWORD1_0_, scduser0_.ROLE_ID as ROLE4_1_0_ from USERS scduser0_ where scduser0_.USER_ID=? for update
+Static select for entity by.kofi.scd.entity.SCDUser [UPGRADE_NOWAIT]: select scduser0_.USER_ID as USER1_1_0_, scduser0_.LOGIN as LOGIN1_0_, scduser0_.PASSWORD as PASSWORD1_0_, scduser0_.ROLE_ID as ROLE4_1_0_ from USERS scduser0_ where scduser0_.USER_ID=? for update nowait
+Static select for entity by.kofi.scd.entity.SCDUser [FORCE]: select scduser0_.USER_ID as USER1_1_0_, scduser0_.LOGIN as LOGIN1_0_, scduser0_.PASSWORD as PASSWORD1_0_, scduser0_.ROLE_ID as ROLE4_1_0_ from USERS scduser0_ where scduser0_.USER_ID=? for update nowait
+Static select for entity by.kofi.scd.entity.SCDUser [PESSIMISTIC_READ]: select scduser0_.USER_ID as USER1_1_0_, scduser0_.LOGIN as LOGIN1_0_, scduser0_.PASSWORD as PASSWORD1_0_, scduser0_.ROLE_ID as ROLE4_1_0_ from USERS scduser0_ where scduser0_.USER_ID=? for update
+Static select for entity by.kofi.scd.entity.SCDUser [PESSIMISTIC_WRITE]: select scduser0_.USER_ID as USER1_1_0_, scduser0_.LOGIN as LOGIN1_0_, scduser0_.PASSWORD as PASSWORD1_0_, scduser0_.ROLE_ID as ROLE4_1_0_ from USERS scduser0_ where scduser0_.USER_ID=? for update
+Static select for entity by.kofi.scd.entity.SCDUser [PESSIMISTIC_FORCE_INCREMENT]: select scduser0_.USER_ID as USER1_1_0_, scduser0_.LOGIN as LOGIN1_0_, scduser0_.PASSWORD as PASSWORD1_0_, scduser0_.ROLE_ID as ROLE4_1_0_ from USERS scduser0_ where scduser0_.USER_ID=? for update nowait
+Static select for entity by.kofi.scd.entity.SCDUser [OPTIMISTIC]: select scduser0_.USER_ID as USER1_1_1_, scduser0_.LOGIN as LOGIN1_1_, scduser0_.PASSWORD as PASSWORD1_1_, scduser0_.ROLE_ID as ROLE4_1_1_, role1_.ROLE_ID as ROLE1_0_0_, role1_.NAME as NAME0_0_ from USERS scduser0_ left outer join ROLES role1_ on scduser0_.ROLE_ID=role1_.ROLE_ID where scduser0_.USER_ID=?
+Static select for entity by.kofi.scd.entity.SCDUser [OPTIMISTIC_FORCE_INCREMENT]: select scduser0_.USER_ID as USER1_1_1_, scduser0_.LOGIN as LOGIN1_1_, scduser0_.PASSWORD as PASSWORD1_1_, scduser0_.ROLE_ID as ROLE4_1_1_, role1_.ROLE_ID as ROLE1_0_0_, role1_.NAME as NAME0_0_ from USERS scduser0_ left outer join ROLES role1_ on scduser0_.ROLE_ID=role1_.ROLE_ID where scduser0_.USER_ID=?
+Static select for action ACTION_MERGE on entity by.kofi.scd.entity.SCDUser: select scduser0_.USER_ID as USER1_1_0_, scduser0_.LOGIN as LOGIN1_0_, scduser0_.PASSWORD as PASSWORD1_0_, scduser0_.ROLE_ID as ROLE4_1_0_ from USERS scduser0_ where scduser0_.USER_ID=?
+Static select for action ACTION_REFRESH on entity by.kofi.scd.entity.SCDUser: select scduser0_.USER_ID as USER1_1_0_, scduser0_.LOGIN as LOGIN1_0_, scduser0_.PASSWORD as PASSWORD1_0_, scduser0_.ROLE_ID as ROLE4_1_0_ from USERS scduser0_ where scduser0_.USER_ID=?
+Static select for entity by.kofi.scd.entity.Role [NONE]: select role0_.ROLE_ID as ROLE1_0_0_, role0_.NAME as NAME0_0_ from ROLES role0_ where role0_.ROLE_ID=?
+Static select for entity by.kofi.scd.entity.Role [READ]: select role0_.ROLE_ID as ROLE1_0_0_, role0_.NAME as NAME0_0_ from ROLES role0_ where role0_.ROLE_ID=?
+Static select for entity by.kofi.scd.entity.Role [UPGRADE]: select role0_.ROLE_ID as ROLE1_0_0_, role0_.NAME as NAME0_0_ from ROLES role0_ where role0_.ROLE_ID=? for update
+Static select for entity by.kofi.scd.entity.Role [UPGRADE_NOWAIT]: select role0_.ROLE_ID as ROLE1_0_0_, role0_.NAME as NAME0_0_ from ROLES role0_ where role0_.ROLE_ID=? for update nowait
+Static select for entity by.kofi.scd.entity.Role [FORCE]: select role0_.ROLE_ID as ROLE1_0_0_, role0_.NAME as NAME0_0_ from ROLES role0_ where role0_.ROLE_ID=? for update nowait
+Static select for entity by.kofi.scd.entity.Role [PESSIMISTIC_READ]: select role0_.ROLE_ID as ROLE1_0_0_, role0_.NAME as NAME0_0_ from ROLES role0_ where role0_.ROLE_ID=? for update
+Static select for entity by.kofi.scd.entity.Role [PESSIMISTIC_WRITE]: select role0_.ROLE_ID as ROLE1_0_0_, role0_.NAME as NAME0_0_ from ROLES role0_ where role0_.ROLE_ID=? for update
+Static select for entity by.kofi.scd.entity.Role [PESSIMISTIC_FORCE_INCREMENT]: select role0_.ROLE_ID as ROLE1_0_0_, role0_.NAME as NAME0_0_ from ROLES role0_ where role0_.ROLE_ID=? for update nowait
+Static select for entity by.kofi.scd.entity.Role [OPTIMISTIC]: select role0_.ROLE_ID as ROLE1_0_0_, role0_.NAME as NAME0_0_ from ROLES role0_ where role0_.ROLE_ID=?
+Static select for entity by.kofi.scd.entity.Role [OPTIMISTIC_FORCE_INCREMENT]: select role0_.ROLE_ID as ROLE1_0_0_, role0_.NAME as NAME0_0_ from ROLES role0_ where role0_.ROLE_ID=?
+Static select for action ACTION_MERGE on entity by.kofi.scd.entity.Role: select role0_.ROLE_ID as ROLE1_0_0_, role0_.NAME as NAME0_0_ from ROLES role0_ where role0_.ROLE_ID=?
+Static select for action ACTION_REFRESH on entity by.kofi.scd.entity.Role: select role0_.ROLE_ID as ROLE1_0_0_, role0_.NAME as NAME0_0_ from ROLES role0_ where role0_.ROLE_ID=?
+Static select for one-to-many by.kofi.scd.entity.Role.users: select users0_.ROLE_ID as ROLE4_0_1_, users0_.USER_ID as USER1_1_, users0_.USER_ID as USER1_1_0_, users0_.LOGIN as LOGIN1_0_, users0_.PASSWORD as PASSWORD1_0_, users0_.ROLE_ID as ROLE4_1_0_ from USERS users0_ where users0_.ROLE_ID=?
+Initializing SessionFactoryRegistry : org.hibernate.internal.SessionFactoryRegistry@31df5f21
+Registering SessionFactory: 1e8e1faf-584b-4852-b658-6d55d0def3e7 (<unnamed>)
+Not binding factory to JNDI, no JNDI name configured
+Instantiated session factory
+Checking 0 named HQL queries
+Checking 0 named SQL queries
+Statistics initialized [enabled=false]
+Opened session at timestamp: 13163642836
+begin
+Obtaining JDBC connection
+Opening new JDBC connection
+Created connection to: jdbc:oracle:thin:@127.0.0.1:1521:XE, Isolation Level: 2
+Obtained JDBC connection
+initial autocommit status: false
+committing
+committed JDBC Connection
+Releasing JDBC connection
+Released JDBC connection
