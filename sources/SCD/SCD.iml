@@ -29,6 +29,13 @@
         </sourceRoots>
       </configuration>
     </facet>
+    <facet type="Spring" name="Spring">
+      <configuration />
+    </facet>
+  </component>
+  <component name="Loomy">
+    <option name="newPagesClassesSourceDirectory" value="$MODULE_DIR$/src" />
+    <option name="newPagesTemplatesSourceDirectory" value="$MODULE_DIR$/web" />
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />

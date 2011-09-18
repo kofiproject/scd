@@ -6,6 +6,16 @@
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
+  <component name="FacetAutodetectingManager">
+    <autodetection-disabled>
+      <facet-type id="Spring">
+        <modules>
+          <module name="SCD" />
+          <module name="SCD" />
+        </modules>
+      </facet-type>
+    </autodetection-disabled>
+  </component>
   <component name="IdProvider" IDEtalkID="1CDB818DF503A64C09C64F5E8B54C5F2" />
   <component name="JavadocGenerationManager">
     <option name="OUTPUT_DIRECTORY" />
