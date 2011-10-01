@@ -1,0 +1,17 @@
+<?xml version="1.0"?><component name="dataSourceStorage">
+  <data-source source="LOCAL" name="hibernate.cfg.xml" product="" version="" jdbc-version="" driver-version="" uuid="a6ee9218-ca6a-46fc-80a3-dcf065c70b4e">
+    <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+    <jdbc-url>jdbc:oracle:thin:@127.0.0.1:1521:XE</jdbc-url>
+    <user-name>SCD</user-name>
+    <user-password>dff9dfe9dfee</user-password>
+    <driver-properties>
+      <property name="-Duser.language" value="en" />
+      <property name="-Duser.country" value="GB" />
+    </driver-properties>
+    <libraries>
+      <library>
+        <url>file://$PROJECT_DIR$/lib-include/ojdbc14.jar</url>
+      </library>
+    </libraries>
+  </data-source>
+</component>
