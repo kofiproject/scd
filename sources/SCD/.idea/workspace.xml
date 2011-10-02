@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="scd:war" />
       <artifact name="scd:war exploded" />
     </artifacts-to-build>
   </component>
@@ -81,7 +80,16 @@
       <file leaf-file-name="template.xhtml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/templates/template.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="20" selection-start="979" selection-end="979" vertical-scroll-proportion="0.61864406">
+            <state line="30" column="36" selection-start="805" selection-end="805" vertical-scroll-proportion="0.7543353">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/resources/js/test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="26" selection-start="171" selection-end="171" vertical-scroll-proportion="-7.1923075">
               <folding />
             </state>
           </provider>
@@ -90,14 +98,14 @@
       <file leaf-file-name="welcome.xhtml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/welcome.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="39" selection-start="1136" selection-end="1136" vertical-scroll-proportion="-17.538462">
+            <state line="9" column="24" selection-start="442" selection-end="442" vertical-scroll-proportion="-5.8846154">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="screen.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/resources/styles/screen.css">
+        <entry file="file://$PROJECT_DIR$/web/resources/css/screen.css">
           <provider selected="true" editor-type-id="text-editor">
             <state line="1" column="26" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
               <folding />
@@ -119,9 +127,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/HibernateCRUDDataService.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/CRUDDataService.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/AbstractDataService.java" />
         <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/AbstractDataServiceBean.java" />
         <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/department/DepartmentDataServiceBean.java" />
         <option value="$PROJECT_DIR$/src/by/kofi/scd/business/DepartmentBusinessBean.java" />
@@ -133,6 +138,9 @@
         <option value="D:/IDEA_workspace/untitled/css/style.css" />
         <option value="D:/IDEA_workspace/untitled/index.html" />
         <option value="$PROJECT_DIR$/web/resources/styles/screen.css" />
+        <option value="$PROJECT_DIR$/web/resources/js/jquery-1.6.4.js" />
+        <option value="$PROJECT_DIR$/web/resources/js/test.js.jsp" />
+        <option value="$PROJECT_DIR$/web/resources/js/test.js" />
         <option value="$PROJECT_DIR$/web/welcome.xhtml" />
         <option value="$PROJECT_DIR$/web/templates/template.xhtml" />
       </list>
@@ -296,6 +304,50 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -688,7 +740,7 @@
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24979983" sideWeight="0.31955484" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3529412" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36565977" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -701,8 +753,8 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2946357" sideWeight="0.64705884" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23211446" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2946357" sideWeight="0.6343402" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43402225" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -782,41 +834,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="uml://JAVA/by.kofi.scd.exceptions">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>by.kofi.scd.exceptions</OriginalElement>
-          <nodes>
-            <node x="130.0" y="-31.0">by.kofi.scd.exceptions.SCDTechnicalException</node>
-            <node x="-124.0" y="-34.0">by.kofi.scd.exceptions.SCDBusinessException</node>
-            <node x="27.5" y="-113.0">by.kofi.scd.exceptions.SCDException</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="by.kofi.scd.exceptions.SCDBusinessException" target="by.kofi.scd.exceptions.SCDException">
-              <point x="0.0" y="-14.0" />
-              <point x="-12.0" y="-15.0" />
-              <point x="15.25" y="-17.0" />
-              <point x="-27.75" y="14.0" />
-            </edge>
-            <edge source="by.kofi.scd.exceptions.SCDTechnicalException" target="by.kofi.scd.exceptions.SCDException">
-              <point x="0.0" y="-14.0" />
-              <point x="182.0" y="-21.0" />
-              <point x="179.75" y="-26.0" />
-              <point x="27.75" y="14.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="-27.0" y="23.0" />
-          <SelectedNodes>
-            <node>by.kofi.scd.exceptions.SCDBusinessException</node>
-          </SelectedNodes>
-          <Categories />
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/TestControllerBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="21" selection-start="358" selection-end="358" vertical-scroll-proportion="0.14554794" />
@@ -885,7 +902,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/styles/screen.css">
+    <entry file="file://$PROJECT_DIR$/web/resources/css/screen.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="26" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
           <folding />
@@ -894,14 +911,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/welcome.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="39" selection-start="1136" selection-end="1136" vertical-scroll-proportion="-17.538462">
+        <state line="9" column="24" selection-start="442" selection-end="442" vertical-scroll-proportion="-5.8846154">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/resources/js/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="26" selection-start="171" selection-end="171" vertical-scroll-proportion="-7.1923075">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/templates/template.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="20" selection-start="979" selection-end="979" vertical-scroll-proportion="0.61864406">
+        <state line="30" column="36" selection-start="805" selection-end="805" vertical-scroll-proportion="0.7543353">
           <folding />
         </state>
       </provider>
