@@ -1,0 +1,125 @@
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: #006DB8;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.menu {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #D9F1FA;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+td {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+
+p {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #000000;
+    padding-bottom: 12px;
+    margin: 0px;
+    text-align: justify;
+}
+
+h1 {
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 21px 0px 0px 18px;
+    color: #0E4687;
+}
+
+.cpr {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #FFFFFF;
+    white-space: nowrap;
+}
+
+.bgrx {
+    background-repeat: repeat-x;
+}
+
+.lmenu {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    color: #387091;
+    margin-top: 0px;
+    margin-right: 17px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    white-space: nowrap;
+}
+
+.clock {
+    background-image: url(../images/clock.gif);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+
+.bgnr {
+    background-repeat: no-repeat;
+}
+
+.logo {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #1C7BA5;
+    white-space: nowrap;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 7px;
+}
+
+.slogan {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    padding-top: 4px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 11px;
+    color: #1C7BA5;
+    white-space: nowrap;
+}
+
+.left-menu {
+    margin-left: -20px;
+    list-style: none;
+}
+
+.left-menu li{
+    height: 19px;
+    margin-left: -30px;
+    width: 180px;
+    background: url("../images/bg_btn.gif") no-repeat transparent 0 0;
+
+    padding-top: 3px;
+    margin-bottom: 7px;
+}
+
+.left-menu li a{
+    margin-left: 40px;
+}
+
+.left-menu-bgr {
+    background: url("../images/spacer.gif") repeat;
+}
