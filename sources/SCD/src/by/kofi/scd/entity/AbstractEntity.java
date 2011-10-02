@@ -28,7 +28,7 @@ public abstract class AbstractEntity {
         return getEntityId().equals(entity.getEntityId());
     }
 
-    public abstract int entityHashCode();
+        public abstract int entityHashCode();
 
     @Override
     public int hashCode() {

@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="CdiProjectComponent">
+    <option name="named" value="false" />
+    <option name="binding" value="false" />
+    <option name="deployment" value="false" />
+    <option name="scope" value="false" />
+  </component>
   <component name="DependencyValidationManager">
     <option name="SKIP_IMPORT_STATEMENTS" value="false" />
   </component>
@@ -10,7 +16,7 @@
     <autodetection-disabled>
       <facet-type id="hibernate">
         <modules>
-          <module name="richfaces" />
+          <module name="scd" />
         </modules>
       </facet-type>
     </autodetection-disabled>

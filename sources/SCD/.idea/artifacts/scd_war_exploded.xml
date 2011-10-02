@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="scd:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/scd_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="scd" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib-include" />
+          <element id="library" level="project" name="lib-test" />
+          <element id="library" level="project" name="spring" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="scd/web/Web" />
+    </root>
+  </artifact>
+</component>

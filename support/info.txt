@@ -1,8 +1,8 @@
-kofi.project@gmail.com
-kofibsuir
+email:	kofi.project@gmail.com
+password:	kofibsuir
 
 github:
-kofiproject
-kofi111
+project name:	kofiproject
+password:	kofi111
 git@github.com:kofiproject/scd.git
 https://kofiproject@github.com/kofiproject/scd.git
