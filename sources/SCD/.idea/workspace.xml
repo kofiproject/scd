@@ -78,17 +78,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DepartmentBusinessBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/DepartmentBusinessBean.java">
+      <file leaf-file-name="welcome.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/welcome.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="0" selection-start="1266" selection-end="1266" vertical-scroll-proportion="0.0">
+            <state line="21" column="23" selection-start="707" selection-end="707" vertical-scroll-proportion="-13.730769">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scd-log.log" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scd-log.log">
+      <file leaf-file-name="error.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/error.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="14" selection-start="505" selection-end="505" vertical-scroll-proportion="-8.5">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="21" selection-start="581" selection-end="581" vertical-scroll-proportion="-11.05">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
+            <state />
+          </provider>
+          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
+            <state />
+          </provider>
+          <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log4j.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/log4j.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="38" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jdbc.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/jdbc.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -96,108 +132,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="log4j.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/log4j.properties">
+      <file leaf-file-name="DepartmentBusinessBean.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/DepartmentBusinessBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="3" selection-start="531" selection-end="531" vertical-scroll-proportion="0.0">
+            <state line="18" column="27" selection-start="617" selection-end="617" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DepartmentDataService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/department/DepartmentDataService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="17" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="log4j.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/WEB-INF/log4j.properties">
+      <file leaf-file-name="TestControllerBean.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/TestControllerBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="74" selection-start="241" selection-end="241" vertical-scroll-proportion="0.0">
+            <state line="27" column="16" selection-start="824" selection-end="824" vertical-scroll-proportion="0.5769231">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hibernate.cfg.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/hibernate.cfg.xml">
+      <file leaf-file-name="SCDTechnicalException.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/exceptions/SCDTechnicalException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="31" selection-start="0" selection-end="558" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JAVA/by.kofi.scd.dataservice" pinned="false" current="true" current-in-tab="true">
-        <entry file="uml://JAVA/by.kofi.scd.dataservice">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>JAVA</ID>
-              <OriginalElement>by.kofi.scd.dataservice</OriginalElement>
-              <nodes>
-                <node x="-173.0" y="210.0">by.kofi.scd.dataservice.HibernateCRUDService</node>
-                <node x="-176.0" y="23.0">by.kofi.scd.dataservice.CRUDService</node>
-                <node x="179.0" y="37.0">by.kofi.scd.dataservice.department.DepartmentService</node>
-                <node x="167.0" y="-107.0">by.kofi.scd.dataservice.department.DepartmentDAOService</node>
-                <node x="-162.5" y="-105.0">by.kofi.scd.dataservice.AbstractDaoService</node>
-              </nodes>
-              <notes />
-              <edges>
-                <edge source="by.kofi.scd.dataservice.HibernateCRUDService" target="by.kofi.scd.dataservice.CRUDService">
-                  <point x="0.0" y="-14.0" />
-                  <point x="0.0" y="14.0" />
-                </edge>
-                <edge source="by.kofi.scd.dataservice.department.DepartmentDAOService" target="by.kofi.scd.dataservice.department.DepartmentService">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
-                </edge>
-                <edge source="by.kofi.scd.dataservice.department.DepartmentDAOService" target="by.kofi.scd.dataservice.AbstractDaoService">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
-                </edge>
-                <edge source="by.kofi.scd.dataservice.AbstractDaoService" target="by.kofi.scd.dataservice.CRUDService">
-                  <point x="0.0" y="0.0" />
-                  <point x="0.0" y="0.0" />
-                </edge>
-              </edges>
-              <settings layout="Hierarchic Group" zoom="1.0" x="117.5" y="148.5" />
-              <SelectedNodes />
-              <Categories>
-                <Category>Properties</Category>
-                <Category>Methods</Category>
-              </Categories>
-              <SCOPE>All</SCOPE>
-              <VISIBILITY>private</VISIBILITY>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractDaoService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/AbstractDaoService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="22" selection-start="414" selection-end="414" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DepartmentDAOService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/department/DepartmentDAOService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="13" selection-start="715" selection-end="715" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DepartmentService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/department/DepartmentService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="17" selection-start="308" selection-end="308" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="log4j.properties" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/log4j.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="31" selection-start="559" selection-end="559" vertical-scroll-proportion="0.0">
+            <state line="9" column="13" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -217,28 +184,47 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/dal/department/DepartmentDAOService.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/DAOService.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/HibernateDAOService.java" />
-        <option value="$PROJECT_DIR$/web/welcome.xhtml" />
         <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/HibernateCRUDService.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/CRUDService.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/department/DepartmentDAOService.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/AbstractService.java" />
         <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/department/DepartmentService.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/controller/TestControllerBean.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/AbstractDaoService.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/beans.xml" />
-        <option value="$PROJECT_DIR$/test-src/by/kofi/scd/dal/HibernateCRUDServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/HibernateCRUDDataService.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/CRUDDataService.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/AbstractDataService.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/AbstractDataServiceBean.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/department/DepartmentDataServiceBean.java" />
         <option value="$PROJECT_DIR$/src/by/kofi/scd/business/DepartmentBusinessBean.java" />
-        <option value="$PROJECT_DIR$/scd-log.log" />
-        <option value="$PROJECT_DIR$/src/log4j.properties" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/log4j.properties" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/HibernateCRUDDataServiceBean.java" />
+        <option value="$PROJECT_DIR$/web/error.xhtml" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/web/templates/template.xhtml" />
+        <option value="$PROJECT_DIR$/web/welcome.xhtml" />
+        <option value="$PROJECT_DIR$/web/log4j.properties" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/controller/TestControllerBean.java" />
       </list>
     </option>
   </component>
   <component name="ModuleEditorState">
     <option name="LAST_EDITED_MODULE_NAME" />
     <option name="LAST_EDITED_TAB_NAME" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id>Inspections</id>
+          </State>
+          <State>
+            <id>Internationalization issues</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Internationalization issues</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager">
     <OptionsSetting value="true" id="Add" />
@@ -349,28 +335,6 @@
               <option name="myItemId" value="scd" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="richfaces" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SCD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -390,7 +354,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dataservice" />
+              <option name="myItemId" value="exceptions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -412,11 +376,231 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dataservice" />
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="department" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="business" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib-spring" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib-spring" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.springframework.orm-3.0.3.RELEASE.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib-spring" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.springframework.orm-3.0.3.RELEASE.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib-spring" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.springframework.orm-3.0.3.RELEASE.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="orm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hibernate3" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib-spring" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.springframework.context-3.0.3.RELEASE.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib-spring" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.springframework.context-3.0.3.RELEASE.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="springframework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib-spring" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.springframework.context-3.0.3.RELEASE.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="springframework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stereotype" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib-spring" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.springframework.context-3.0.3.RELEASE.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="springframework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="context" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib-spring" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.springframework.context-3.0.3.RELEASE.jar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="springframework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="context" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="annotation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -495,7 +679,7 @@
     <property name="Persistence.ERD.SimpleMode" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="options.lastSelected" value="File.Encoding" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
@@ -510,11 +694,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="by.kofi.scd.dataservice" />
+      <recent name="by.kofi.scd.common.i18n" />
       <recent name="by.kofi.scd.business" />
       <recent name="by.kofi.scd.dal.department" />
       <recent name="by.kofi.scd.exceptions" />
-      <recent name="by.kofi.scd.dal" />
-      <recent name="by.kofi.scd.entity" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\V\kofi\git\SCD\sources\SCD\web" />
@@ -851,15 +1035,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="59" y="-8" width="1315" height="784" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298639" sideWeight="0.0" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24979983" sideWeight="0.31955484" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4117647" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15739268" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45310014" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22575517" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -872,8 +1056,8 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2610088" sideWeight="0.54689986" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43879172" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2946357" sideWeight="0.77424484" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23211446" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -952,16 +1136,190 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/CRUDService.java">
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/department/DepartmentDataServiceBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="19" selection-start="1237" selection-end="1237" vertical-scroll-proportion="0.0">
+        <state line="22" column="39" selection-start="709" selection-end="709" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/by.kofi.scd.dataservice">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>by.kofi.scd.dataservice</OriginalElement>
+          <nodes>
+            <node x="540.2135416666666" y="436.0">by.kofi.scd.dataservice.department.DepartmentDataService</node>
+            <node x="0.0" y="416.0">by.kofi.scd.dataservice.AbstractDataServiceBean</node>
+            <node x="101.875" y="0.0">by.kofi.scd.dataservice.CRUDDataService</node>
+            <node x="458.21354166666663" y="258.0">by.kofi.scd.dataservice.AbstractDataService</node>
+            <node x="143.21354166666663" y="198.0">by.kofi.scd.dataservice.HibernateCRUDDataServiceBean</node>
+            <node x="299.5" y="554.0">by.kofi.scd.dataservice.department.DepartmentDataServiceBean</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="by.kofi.scd.dataservice.department.DepartmentDataServiceBean" target="by.kofi.scd.dataservice.AbstractDataServiceBean">
+              <point x="-63.25" y="-24.0" />
+              <point x="362.75" y="529.0" />
+              <point x="139.0" y="529.0" />
+              <point x="0.0" y="44.0" />
+            </edge>
+            <edge source="by.kofi.scd.dataservice.HibernateCRUDDataServiceBean" target="by.kofi.scd.dataservice.CRUDDataService">
+              <point x="0.0" y="-84.0" />
+              <point x="290.71354166666663" y="178.0" />
+              <point x="286.25" y="178.0" />
+              <point x="36.875" y="74.0" />
+            </edge>
+            <edge source="by.kofi.scd.dataservice.AbstractDataService" target="by.kofi.scd.dataservice.CRUDDataService">
+              <point x="0.0" y="-24.0" />
+              <point x="597.2135416666666" y="178.0" />
+              <point x="360.0" y="178.0" />
+              <point x="110.625" y="74.0" />
+            </edge>
+            <edge source="by.kofi.scd.dataservice.department.DepartmentDataServiceBean" target="by.kofi.scd.dataservice.department.DepartmentDataService">
+              <point x="63.25" y="-24.0" />
+              <point x="489.25" y="529.0" />
+              <point x="666.7135416666666" y="529.0" />
+              <point x="0.0" y="24.0" />
+            </edge>
+            <edge source="by.kofi.scd.dataservice.AbstractDataServiceBean" target="by.kofi.scd.dataservice.AbstractDataService">
+              <point x="92.66666666666669" y="-44.0" />
+              <point x="231.66666666666669" y="391.0" />
+              <point x="527.7135416666666" y="391.0" />
+              <point x="-69.5" y="24.0" />
+            </edge>
+            <edge source="by.kofi.scd.dataservice.AbstractDataServiceBean" target="by.kofi.scd.dataservice.CRUDDataService">
+              <point x="0.0" y="-44.0" />
+              <point x="139.0" y="391.0" />
+              <point x="132.71354166666663" y="391.0" />
+              <point x="132.71354166666663" y="178.0" />
+              <point x="212.5" y="178.0" />
+              <point x="-36.875" y="74.0" />
+            </edge>
+            <edge source="by.kofi.scd.dataservice.department.DepartmentDataService" target="by.kofi.scd.dataservice.AbstractDataService">
+              <point x="0.0" y="-24.0" />
+              <point x="69.5" y="24.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.8" x="314.375" y="335.375" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Methods</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/HibernateCRUDDataServiceBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="13" selection-start="688" selection-end="688" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/common/i18n/I18nSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="41" selection-start="473" selection-end="473" vertical-scroll-proportion="0.5123675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/AbstractDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="17" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/faces-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="48" selection-start="683" selection-end="683" vertical-scroll-proportion="-15.3">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.jsf.yfilesGraph.editor.FacesNavigationFileEditorProvider">
+        <state />
+      </provider>
+      <provider editor-type-id="com.intellij.jsf.ui.FacesConfigEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/by.kofi.scd.exceptions">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>by.kofi.scd.exceptions</OriginalElement>
+          <nodes>
+            <node x="130.0" y="-31.0">by.kofi.scd.exceptions.SCDTechnicalException</node>
+            <node x="-124.0" y="-34.0">by.kofi.scd.exceptions.SCDBusinessException</node>
+            <node x="27.5" y="-113.0">by.kofi.scd.exceptions.SCDException</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="by.kofi.scd.exceptions.SCDBusinessException" target="by.kofi.scd.exceptions.SCDException">
+              <point x="0.0" y="-14.0" />
+              <point x="-12.0" y="-15.0" />
+              <point x="15.25" y="-17.0" />
+              <point x="-27.75" y="14.0" />
+            </edge>
+            <edge source="by.kofi.scd.exceptions.SCDTechnicalException" target="by.kofi.scd.exceptions.SCDException">
+              <point x="0.0" y="-14.0" />
+              <point x="182.0" y="-21.0" />
+              <point x="179.75" y="-26.0" />
+              <point x="27.75" y="14.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-27.5" y="22.5" />
+          <SelectedNodes>
+            <node>by.kofi.scd.exceptions.SCDBusinessException</node>
+          </SelectedNodes>
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/exceptions/SCDTechnicalException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="13" selection-start="192" selection-end="192" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/error.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="14" selection-start="505" selection-end="505" vertical-scroll-proportion="-8.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/department/DepartmentDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="17" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/welcome.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="23" selection-start="707" selection-end="707" vertical-scroll-proportion="-13.730769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/DepartmentBusinessBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="27" selection-start="617" selection-end="617" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="68" selection-start="803" selection-end="803" vertical-scroll-proportion="-17.85">
+        <state line="16" column="21" selection-start="581" selection-end="581" vertical-scroll-proportion="-11.05">
           <folding />
         </state>
       </provider>
@@ -975,23 +1333,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scd.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="47" selection-start="410" selection-end="410" vertical-scroll-proportion="-0.8796069">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/beans.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="18" selection-start="1391" selection-end="1391" vertical-scroll-proportion="-0.85">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.spring.perspectives.SpringBeansStructureEditorProvider">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/jdbc.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -999,114 +1340,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/welcome.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/DepartmentBusinessBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="1266" selection-end="1266" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scd-log.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="3" selection-start="531" selection-end="531" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="31" selection-start="559" selection-end="559" vertical-scroll-proportion="0.0">
+        <state line="6" column="38" selection-start="311" selection-end="311" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/log4j.properties">
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/TestControllerBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="74" selection-start="241" selection-end="241" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="31" selection-start="0" selection-end="558" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/department/DepartmentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="17" selection-start="308" selection-end="308" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/department/DepartmentDAOService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="13" selection-start="715" selection-end="715" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/by.kofi.scd.dataservice">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>JAVA</ID>
-          <OriginalElement>by.kofi.scd.dataservice</OriginalElement>
-          <nodes>
-            <node x="-173.0" y="210.0">by.kofi.scd.dataservice.HibernateCRUDService</node>
-            <node x="-176.0" y="23.0">by.kofi.scd.dataservice.CRUDService</node>
-            <node x="179.0" y="37.0">by.kofi.scd.dataservice.department.DepartmentService</node>
-            <node x="167.0" y="-107.0">by.kofi.scd.dataservice.department.DepartmentDAOService</node>
-            <node x="-162.5" y="-105.0">by.kofi.scd.dataservice.AbstractDaoService</node>
-          </nodes>
-          <notes />
-          <edges>
-            <edge source="by.kofi.scd.dataservice.HibernateCRUDService" target="by.kofi.scd.dataservice.CRUDService">
-              <point x="0.0" y="-14.0" />
-              <point x="0.0" y="14.0" />
-            </edge>
-            <edge source="by.kofi.scd.dataservice.department.DepartmentDAOService" target="by.kofi.scd.dataservice.department.DepartmentService">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="by.kofi.scd.dataservice.department.DepartmentDAOService" target="by.kofi.scd.dataservice.AbstractDaoService">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-            <edge source="by.kofi.scd.dataservice.AbstractDaoService" target="by.kofi.scd.dataservice.CRUDService">
-              <point x="0.0" y="0.0" />
-              <point x="0.0" y="0.0" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="117.5" y="148.5" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Properties</Category>
-            <Category>Methods</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-          <VISIBILITY>private</VISIBILITY>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/AbstractDaoService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="22" selection-start="414" selection-end="414" vertical-scroll-proportion="0.0">
+        <state line="27" column="16" selection-start="824" selection-end="824" vertical-scroll-proportion="0.5769231">
           <folding />
         </state>
       </provider>
@@ -1124,7 +1367,7 @@
               <type id="jpa-descriptors" />
             </show-content>
           </artifact-editor>
-          <last-edited>scd:war</last-edited>
+          <last-edited>scd:war exploded</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1133,6 +1376,11 @@
               </list>
             </option>
           </splitter-proportions>
+        </settings>
+      </state>
+      <state key="Copyright.UI">
+        <settings>
+          <splitter-proportions />
         </settings>
       </state>
       <state key="FacetStructureConfigurable.UI">
@@ -1193,6 +1441,11 @@
               </list>
             </option>
           </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions />
         </settings>
       </state>
     </states>

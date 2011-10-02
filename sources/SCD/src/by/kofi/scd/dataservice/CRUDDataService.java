@@ -13,7 +13,7 @@ import java.util.List;
  *         Date: 18.09.11
  *         Time: 21:02
  */
-public interface CRUDService {
+public interface CRUDDataService {
 
     /**
      * Creates/updates a new object for the given type.

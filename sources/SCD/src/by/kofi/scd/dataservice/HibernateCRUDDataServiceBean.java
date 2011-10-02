@@ -2,6 +2,7 @@ package by.kofi.scd.dataservice;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.springframework.context.annotation.Scope;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.transaction.annotation.Propagation;
@@ -19,7 +20,8 @@ import java.util.Locale;
  *         Date: 18.09.11
  *         Time: 21:20
  */
-public class HibernateCRUDService extends HibernateDaoSupport implements CRUDService {
+@Scope("singleton")
+public class HibernateCRUDDataServiceBean extends HibernateDaoSupport implements CRUDDataService {
 
     @PostConstruct
     public void init() {
@@ -29,7 +31,7 @@ public class HibernateCRUDService extends HibernateDaoSupport implements CRUDSer
     /**
      * Default constructor
      */
-    public HibernateCRUDService() {
+    public HibernateCRUDDataServiceBean() {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)

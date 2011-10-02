@@ -1,8 +1,8 @@
 package by.kofi.scd.dataservice.department;
 
+import by.kofi.scd.dataservice.AbstractDataService;
 import by.kofi.scd.entity.Department;
 import by.kofi.scd.exceptions.SCDTechnicalException;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -11,10 +11,9 @@ import java.util.List;
  *         Date: 02/10/11
  *         Time: 16:59
  */
-public interface DepartmentService {
+public interface DepartmentDataService extends AbstractDataService {
 
     /**
-     *
      * @param ids
      * @return
      * @throws SCDTechnicalException

@@ -1,6 +1,6 @@
 package by.kofi.scd.business;
 
-import by.kofi.scd.dataservice.department.DepartmentService;
+import by.kofi.scd.dataservice.department.DepartmentDataService;
 import by.kofi.scd.entity.Department;
 import by.kofi.scd.exceptions.SCDTechnicalException;
 import org.apache.log4j.Logger;
@@ -23,11 +23,17 @@ public class DepartmentBusinessBean {
     private static final Logger LOGGER = Logger.getLogger(DepartmentBusinessBean.class);
 
     @Autowired
-    private DepartmentService departmentService;
+    private DepartmentDataService departmentService;
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public String processItems(List<Long> ids) {
-        LOGGER.error("fucking error message");
+
+        /*    Department dep = new Department();
+                dep.setAddress("Аддресс");
+                dep.setDepartmentNo("нумер");
+                dep = departmentService.getHibernateCRUDService().merge(dep);
+
+        */
         List<Department> items = null;
         try {
             items = departmentService.getItems(ids);

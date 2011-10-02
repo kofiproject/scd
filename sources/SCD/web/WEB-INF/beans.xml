@@ -30,7 +30,7 @@
         </property>
     </bean>
 
-    <bean id="hibernateCRUDService" class="by.kofi.scd.dataservice.HibernateCRUDService">
+    <bean id="hibernateCRUDService" class="by.kofi.scd.dataservice.HibernateCRUDDataServiceBean" >
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
