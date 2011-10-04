@@ -51,7 +51,7 @@ h1 {
     white-space: nowrap;
 }
 
-.bgrx {
+body {
     background-repeat: repeat-x;
 }
 
@@ -89,6 +89,10 @@ h1 {
     padding-left: 7px;
 }
 
+body {
+    background-image: url(../images/bg.gif)
+}
+
 .slogan {
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 11px;
@@ -117,8 +121,4 @@ h1 {
 
 .left-menu li a{
     margin-left: 40px;
-}
-
-.left-menu-bgr {
-    background: url("../images/spacer.gif") repeat;
 }

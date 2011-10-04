@@ -90,9 +90,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/controller/TestControllerBean.java" />
-        <option value="D:/IDEA_workspace/untitled/css/style.css" />
-        <option value="D:/IDEA_workspace/untitled/index.html" />
         <option value="$PROJECT_DIR$/web/resources/styles/screen.css" />
         <option value="$PROJECT_DIR$/web/resources/js/jquery-1.6.4.js" />
         <option value="$PROJECT_DIR$/web/resources/js/test.js.jsp" />
@@ -106,6 +103,9 @@
         <option value="$PROJECT_DIR$/../../Architecture/html_layout/index.html" />
         <option value="$PROJECT_DIR$/../../Architecture/html_layout/css/left-menu.css" />
         <option value="$PROJECT_DIR$/../../Architecture/html_layout/css/style.css" />
+        <option value="$PROJECT_DIR$/../../Architecture/html_layout/js/login.js" />
+        <option value="$PROJECT_DIR$/../../Architecture/html_layout/css/login.css" />
+        <option value="$PROJECT_DIR$/../../Architecture/html_layout/login.html" />
       </list>
     </option>
   </component>
@@ -815,25 +815,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/IDEA_workspace/untitled/images/spacer.gif">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://D:/IDEA_workspace/untitled/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="50" selection-start="2017" selection-end="2017" vertical-scroll-proportion="0.49169436">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/IDEA_workspace/untitled/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="93" selection-start="5091" selection-end="5091" vertical-scroll-proportion="0.029513888">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/jdbc.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="19" selection-start="146" selection-end="146" vertical-scroll-proportion="0.1827957">
@@ -906,13 +887,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Architecture/html_layout/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="110" column="24" selection-start="1941" selection-end="1941" vertical-scroll-proportion="0.49169436">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Architecture/html_layout/js/left-menu.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="30" selection-start="759" selection-end="759" vertical-scroll-proportion="0.36710963">
@@ -930,6 +904,34 @@
     <entry file="file://$PROJECT_DIR$/../../Architecture/html_layout/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="105" column="77" selection-start="5824" selection-end="5824" vertical-scroll-proportion="0.796875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Architecture/html_layout/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="57" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.2621528">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Architecture/html_layout/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="21" selection-start="113" selection-end="113" vertical-scroll-proportion="0.08471761">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Architecture/html_layout/css/login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="36" selection-start="981" selection-end="981" vertical-scroll-proportion="0.6893688">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Architecture/html_layout/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="44" selection-start="1586" selection-end="1626" vertical-scroll-proportion="0.5199336">
           <folding />
         </state>
       </provider>
