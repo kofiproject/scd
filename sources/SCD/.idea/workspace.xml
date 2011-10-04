@@ -76,44 +76,7 @@
     <favorites_list name="richfaces" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="template.xhtml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/templates/template.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="36" selection-start="805" selection-end="805" vertical-scroll-proportion="0.7543353">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/resources/js/test.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="26" selection-start="171" selection-end="171" vertical-scroll-proportion="-7.1923075">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="welcome.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/welcome.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="24" selection-start="442" selection-end="442" vertical-scroll-proportion="-5.8846154">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="screen.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/resources/css/screen.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="26" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -127,13 +90,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/AbstractDataServiceBean.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/department/DepartmentDataServiceBean.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/DepartmentBusinessBean.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/HibernateCRUDDataServiceBean.java" />
-        <option value="$PROJECT_DIR$/web/error.xhtml" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/web/log4j.properties" />
         <option value="$PROJECT_DIR$/src/by/kofi/scd/controller/TestControllerBean.java" />
         <option value="D:/IDEA_workspace/untitled/css/style.css" />
         <option value="D:/IDEA_workspace/untitled/index.html" />
@@ -143,6 +99,13 @@
         <option value="$PROJECT_DIR$/web/resources/js/test.js" />
         <option value="$PROJECT_DIR$/web/welcome.xhtml" />
         <option value="$PROJECT_DIR$/web/templates/template.xhtml" />
+        <option value="$PROJECT_DIR$/web/log4j.properties" />
+        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/../../Architecture/html_layout/css/reset.css" />
+        <option value="$PROJECT_DIR$/../../Architecture/html_layout/js/left-menu.js" />
+        <option value="$PROJECT_DIR$/../../Architecture/html_layout/index.html" />
+        <option value="$PROJECT_DIR$/../../Architecture/html_layout/css/left-menu.css" />
+        <option value="$PROJECT_DIR$/../../Architecture/html_layout/css/style.css" />
       </list>
     </option>
   </component>
@@ -286,6 +249,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -733,14 +714,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="59" y="-8" width="1315" height="784" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298639" sideWeight="0.0" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24979983" sideWeight="0.31955484" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36565977" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41812402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -753,7 +734,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2946357" sideWeight="0.6343402" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19935949" sideWeight="0.581876" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43402225" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -834,55 +815,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/TestControllerBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="21" selection-start="358" selection-end="358" vertical-scroll-proportion="0.14554794" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/department/DepartmentDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="17" selection-start="313" selection-end="313" vertical-scroll-proportion="0.37842464" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/DepartmentBusinessBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="27" selection-start="617" selection-end="617" vertical-scroll-proportion="0.02910959" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="38" selection-start="311" selection-end="311" vertical-scroll-proportion="0.16943522" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="21" selection-start="581" selection-end="581" vertical-scroll-proportion="0.09450172" />
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/error.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="14" selection-start="505" selection-end="505" vertical-scroll-proportion="0.38368055" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/exceptions/SCDTechnicalException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="192" selection-end="192" vertical-scroll-proportion="0.20930232" />
-      </provider>
-    </entry>
     <entry file="file://D:/IDEA_workspace/untitled/images/spacer.gif">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -902,30 +834,102 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/css/screen.css">
+    <entry file="file://$PROJECT_DIR$/web/jdbc.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="26" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/welcome.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="24" selection-start="442" selection-end="442" vertical-scroll-proportion="-5.8846154">
+        <state line="4" column="19" selection-start="146" selection-end="146" vertical-scroll-proportion="0.1827957">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/resources/js/test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="26" selection-start="171" selection-end="171" vertical-scroll-proportion="-7.1923075">
+        <state line="11" column="26" selection-start="171" selection-end="171" vertical-scroll-proportion="0.3246528">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="50" selection-start="1180" selection-end="1180" vertical-scroll-proportion="0.50343645">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
+        <state />
+      </provider>
+      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="30" selection-start="558" selection-end="558" vertical-scroll-proportion="0.31063122">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/templates/template.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="36" selection-start="805" selection-end="805" vertical-scroll-proportion="0.7543353">
+        <state line="30" column="36" selection-start="805" selection-end="805" vertical-scroll-proportion="0.453125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/welcome.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="24" selection-start="442" selection-end="442" vertical-scroll-proportion="0.265625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/resources/css/screen.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="26" selection-start="33" selection-end="33" vertical-scroll-proportion="0.028239202">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Architecture/html_layout/css/reset.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="108" column="1" selection-start="1496" selection-end="1525" vertical-scroll-proportion="0.9435216">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Architecture/html_layout/js/jquery.cookie.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.6262459">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Architecture/html_layout/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="24" selection-start="1941" selection-end="1941" vertical-scroll-proportion="0.49169436">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Architecture/html_layout/js/left-menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="30" selection-start="759" selection-end="759" vertical-scroll-proportion="0.36710963">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Architecture/html_layout/css/left-menu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="23" selection-start="346" selection-end="346" vertical-scroll-proportion="0.6495017">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Architecture/html_layout/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="105" column="77" selection-start="5824" selection-end="5824" vertical-scroll-proportion="0.796875">
           <folding />
         </state>
       </provider>
