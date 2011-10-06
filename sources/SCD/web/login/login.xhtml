@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <h:outputStylesheet library="css" name="reset.css"/>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <h:outputStylesheet library="css/login" name="login.css"/>
+
+    <h:outputScript library="js" name="jquery-1.6.4.js"/>
+    <h:outputScript library="js" name="jquery.cookie.js"/>
+    <h:outputScript library="js" name="jquery.corner.js"/>
+    <h:outputScript library="js/login" name="login.js"/>
+</h:head>
+<h:body>
+
+    <div class="login-wrapper-out">
+        <div class="login-wrapper">
+            <span class="login-dig-label">Вход в систему</span>
+
+            <div class="login-form-container">
+                <div class="login-form">
+                    <form action="">
+                        <label for="user-id" class="login-label">идентификационный номер</label>
+                        <input type="text" id="user-id" class="login-input" />
+
+                        <div style="height: 40px;"></div>
+
+                        <label for="user-password" class="login-label">пароль</label>
+                        <input type="password" id="user-password" class="login-input"/>
+
+                        <div style="height: 60px;"></div>
+
+                        <a class="login-btn" id="login-button" href="#">
+                            <span class="login-btn">Вход</span>
+                        </a>
+
+                        <a href="#" id="login-link" class="reg-link">Зарегистрироваться</a>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</h:body>
+</html>
