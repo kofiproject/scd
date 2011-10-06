@@ -8,33 +8,14 @@
       xmlns:a4j="http://richfaces.org/a4j"
       xmlns:rich="http://richfaces.org/rich">
 
-<ui:composition template="templates/template.xhtml">
-    <ui:define name="scripts">
-        <h:outputScript library="js" name="test.js"/>
-    </ui:define>
-
-    <ui:define name="header">
-        Это шапка
-    </ui:define>
-
+<ui:composition template="../templates/employee/employee.xhtml">
     <ui:define name="content">
-
         <f:view>
             #{testControllerBean.name}
         </f:view>
-        <f:view>
-            #{bundle.hello}
-        </f:view>
-
         <a4j:outputPanel id="calendar" layout="block">
             <rich:calendar cellWidth="24px" cellHeight="22px" style="width:200px"/>
         </a4j:outputPanel>
-
     </ui:define>
-
-    <ui:define name="footer">
-        Facelets &copy; footer :)
-    </ui:define>
-
 </ui:composition>
 </html>

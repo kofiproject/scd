@@ -1,4 +1,4 @@
-@import url(reset.css);
+/*@import url(reset.css);*/
 @import url(left-menu.css);
 
 body {
@@ -23,6 +23,9 @@ a:hover {
     color: #D9F1FA;
     text-decoration: none;
     white-space: nowrap;
+}
+a.menu:visited {
+    color: #D9F1FA;
 }
 
 td {
@@ -71,7 +74,8 @@ body {
 }
 
 .clock {
-    background-image: url(../images/clock.gif);
+    background-image: url("../../resources/images/clock.gif");
+
     background-repeat: no-repeat;
     background-position: right bottom;
 }
@@ -93,7 +97,7 @@ body {
 }
 
 body {
-    background-image: url(../images/bg.gif)
+    background-image: url(../../resources/images/bg.gif)
 }
 
 .slogan {
@@ -116,7 +120,7 @@ body {
 .left-menu li{
     height: 20px;
     width: 180px;
-    background: url("../images/bg_btn.gif") no-repeat transparent 0 0;
+    background: url("../../resources/images/bg_btn.gif") no-repeat transparent 0 0;
 
     padding-top: 3px;
     margin-bottom: 7px;
@@ -131,20 +135,31 @@ body {
 }
 
 .bg_head{
-    background : url("../images/bg_head.gif");
+    background: url("../../resources/images/bg_head.gif");
 }
 
 .el_2{
-    background : url("../images/el_2.gif");
+    background : url("../../resources/images/el_2.jpg");
 }
 .bg_menu{
-    background : url("../images/bg_menu.gif");
+    background : url("../../resources/images/bg_menu.gif");
 }
 
 .bg_left{
-    background : url("../images/bg_left.gif");
+    background : url("../../resources/images/bg_left.gif");
 }
 
 .bg_bottom{
-    background : url("../images/bg_bottom.gif");
+    background : url("../../resources/images/bg_bottom.gif");
+}
+
+.height117 {
+    height: 117px;
+}
+.height91 {
+    height: 91px;
+}
+
+.height25 {
+    height: 25px;
 }
