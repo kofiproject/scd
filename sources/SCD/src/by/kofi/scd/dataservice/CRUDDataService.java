@@ -1,5 +1,6 @@
 package by.kofi.scd.dataservice;
 
+import by.kofi.scd.exceptions.SCDTechnicalException;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
@@ -22,7 +23,7 @@ public interface CRUDDataService {
      * @param t   entity
      * @return persisted Object
      */
-    <T> T merge(T t);
+    <T> T merge(T t) throws SCDTechnicalException;
 
     /**
      * Deletes the given object by id
@@ -32,7 +33,7 @@ public interface CRUDDataService {
      * @param type , entity class type
      * @param id
      */
-    <T, PK extends Serializable> boolean delete(Class<T> type, PK id);
+    <T, PK extends Serializable> void delete(Class<T> type, PK id) throws SCDTechnicalException;
 
     /**
      * Finds an object by id
@@ -43,7 +44,7 @@ public interface CRUDDataService {
      * @param id
      * @return the object
      */
-    <T, PK extends Serializable> T find(Class<T> type, PK id);
+    <T, PK extends Serializable> T find(Class<T> type, PK id) throws SCDTechnicalException;
 
     /**
      * List of objects
@@ -52,7 +53,7 @@ public interface CRUDDataService {
      * @param <T>
      * @return
      */
-    <T> List<T> list(Class<T> type);
+    <T> List<T> list(Class<T> type) throws SCDTechnicalException;
 
     /**
      * @return Hibernate session instance

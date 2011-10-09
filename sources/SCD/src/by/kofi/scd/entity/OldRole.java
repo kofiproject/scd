@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "ROLES")
 @SequenceGenerator(name = "SQ_ROLES", sequenceName = "SQ_ROLES")
-public class Role extends  AbstractEntity{
+public class OldRole extends  AbstractEntity{
     @Id
     @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "SQ_ROLES")
     @Column(name = "ROLE_ID")
@@ -61,7 +61,7 @@ public class Role extends  AbstractEntity{
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
 
-        Role role = (Role) o;
+        OldRole role = (OldRole) o;
 
         if (name != null ? !name.equals(role.name) : role.name != null) return false;
         if (roleId != null ? !roleId.equals(role.roleId) : role.roleId != null) return false;

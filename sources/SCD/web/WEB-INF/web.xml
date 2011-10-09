@@ -15,6 +15,11 @@
     </context-param>
 
     <context-param>
+        <param-name>com.sun.faces.disableUnicodeEscaping</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+    <context-param>
         <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
         <param-value>.xhtml</param-value>
     </context-param>
@@ -41,6 +46,11 @@
     <error-page>
         <exception-type>by.kofi.scd.exceptions.SCDBusinessException</exception-type>
         <location>/faces/error.xhtml</location>
+    </error-page>
+
+    <error-page>
+        <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+        <location>/faces/login/login.xhtml</location>
     </error-page>
 
 </web-app>

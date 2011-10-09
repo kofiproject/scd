@@ -1,5 +1,5 @@
 /*@import url(reset.css);*/
-@import url(left-menu.css);
+@import url(../../resources/css/left-menu.css);
 
 body {
     margin-left: 0px;
@@ -24,6 +24,7 @@ a:hover {
     text-decoration: none;
     white-space: nowrap;
 }
+
 a.menu:visited {
     color: #D9F1FA;
 }
@@ -117,7 +118,7 @@ body {
     list-style: none;
 }
 
-.left-menu li{
+.left-menu li {
     height: 20px;
     width: 180px;
     background: url("../../resources/images/bg_btn.gif") no-repeat transparent 0 0;
@@ -126,36 +127,44 @@ body {
     margin-bottom: 7px;
 }
 
-.left-menu li a{
+.left-menu li a {
     margin-left: 40px;
 }
 
-.table-h100{
+.table-h100 {
     height: 100%;
 }
 
-.bg_head{
+.bg_head {
     background: url("../../resources/images/bg_head.gif");
 }
 
-.el_2{
-    background : url("../../resources/images/el_2.jpg");
-}
-.bg_menu{
-    background : url("../../resources/images/bg_menu.gif");
+.el_2 {
+    background: url("../../resources/images/el_2.jpg");
 }
 
-.bg_left{
-    background : url("../../resources/images/bg_left.gif");
+.bg_menu {
+    background: url("../../resources/images/bg_menu.gif");
 }
 
-.bg_bottom{
-    background : url("../../resources/images/bg_bottom.gif");
+.bg_left {
+    background: url("../../resources/images/bg_left.gif");
+}
+
+.bg_bottom {
+    background: url("../../resources/images/bg_bottom.gif");
+    background-color: #88CCE6;
+    text-align: right;
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .height117 {
     height: 117px;
 }
+
 .height91 {
     height: 91px;
 }

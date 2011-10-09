@@ -1,5 +1,6 @@
 package by.kofi.scd.entity;
 
+import javax.persistence.Transient;
 import java.io.Serializable;
 
 /**
@@ -8,7 +9,6 @@ import java.io.Serializable;
  *         Time: 18:36
  */
 public abstract class AbstractEntity {
-
     public abstract Serializable getEntityId();
 
     public abstract boolean entityEquals(Object o);
@@ -19,20 +19,20 @@ public abstract class AbstractEntity {
             return false;
         }
 
-        AbstractEntity entity =  (AbstractEntity) o;
-        Serializable entityId =  entity.getEntityId();
-        if(entityId == null || getEntityId() == null) {
-            return  entityEquals(o);
+        AbstractEntity entity = (AbstractEntity) o;
+        Serializable entityId = entity.getEntityId();
+        if (entityId == null || getEntityId() == null) {
+            return entityEquals(o);
         }
 
         return getEntityId().equals(entity.getEntityId());
     }
 
-        public abstract int entityHashCode();
+    public abstract int entityHashCode();
 
     @Override
     public int hashCode() {
-        if(getEntityId() != null) {
+        if (getEntityId() != null) {
             return getEntityId().hashCode();
         }
 

@@ -29,7 +29,7 @@ public class SCDUser extends  AbstractEntity{
 
     @ManyToOne
     @JoinColumn(name = "ROLE_ID", referencedColumnName = "ROLE_ID")
-    private Role role;
+    private OldRole role;
 
     public String getLogin() {
         return login;
@@ -47,11 +47,11 @@ public class SCDUser extends  AbstractEntity{
         this.password = password;
     }
 
-    public Role getRole() {
+    public OldRole getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(OldRole role) {
         this.role = role;
     }
 

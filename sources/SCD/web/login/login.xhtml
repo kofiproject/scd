@@ -4,7 +4,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -13,8 +13,8 @@
     <h:outputStylesheet library="css/login" name="login.css"/>
 
     <h:outputScript library="js" name="jquery-1.6.4.js"/>
-    <h:outputScript library="js" name="jquery.cookie.js"/>
     <h:outputScript library="js" name="jquery.corner.js"/>
+    <h:outputScript library="js" name="jquery.numeric.js"/>
     <h:outputScript library="js/login" name="login.js"/>
 </h:head>
 <h:body>
@@ -25,26 +25,46 @@
 
             <div class="login-form-container">
                 <div class="login-form">
-                    <form action="">
-                        <label for="user-id" class="login-label">идентификационный номер</label>
-                        <input type="text" id="user-id" class="login-input" />
+                    <h:form>
+                        <h:outputLabel for="user-id" styleClass="login-label">
+                            <!--идентификационный номер-->
+                            #{bundle['login.identity']}
+                        </h:outputLabel>
+                        <h:inputText styleClass="login-input" id="user-id" value="#{loginBean.uniqueId}"
+                                     onfocus="$(this).numeric()"/>
 
                         <div style="height: 40px;"></div>
 
-                        <label for="user-password" class="login-label">пароль</label>
-                        <input type="password" id="user-password" class="login-input"/>
+                        <h:outputLabel for="user-password" styleClass="login-label">
+                            #{bundle['login.password']}
+                        </h:outputLabel>
 
-                        <div style="height: 60px;"></div>
+                        <h:inputSecret styleClass="login-input" id="user-password" value="#{loginBean.password}"/>
 
-                        <a class="login-btn" id="login-button" href="#">
-                            <span class="login-btn">Вход</span>
-                        </a>
 
-                        <a href="#" id="login-link" class="reg-link">Зарегистрироваться</a>
-                    </form>
+                        <div style="height: 50px; padding-top: 10px;">
+                            <h:outputText styleClass="login-error-label"
+                                          rendered="#{loginBean.loginFailed}"
+                                          value="#{bundle['login.error']}"/>
+                        </div>
+
+                        <!--<a class="login-btn" id="login-button" href="#">-->
+                        <!--<span class="login-btn">#{bundle['login.submit']}</span>-->
+                        <!--</a>-->
+
+                        <h:commandButton value="#{bundle['login.submit']}"
+                                         styleClass="login-btn"
+                                         action="#{loginBean.loginAction}"/>
+
+                        <h:commandLink value="#{bundle['login.register']}" styleClass="reg-link"
+                                       action="registration"/>
+                    </h:form>
                 </div>
 
             </div>
+        </div>
+        <div style="margin-bottom: 0px;">
+            <ui:include src="../templates/footer.xhtml"/>
         </div>
     </div>
 

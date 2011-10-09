@@ -1,16 +1,22 @@
+.login-wrapper-out {
+    height: 100%;
+    overflow-y: hidden;
+}
+
 .login-wrapper {
-/*background-image: url(../images/bg_menu.gif);*/
     width: 300px;
     vertical-align: middle;
     margin: 200px auto; /*background-color: #0E4687;*/
-
 }
 
 .login-form-container {
     height: 150px;
     clear: both;
     padding: 10px 20px;
-    background-image: url(../../../resources/images/bg.gif)
+    background-image: url(../../../resources/images/bg.gif);
+    background-repeat: repeat;
+    overflow: hidden;
+
 }
 
 .login-container {
@@ -50,7 +56,17 @@
 .login-btn {
     text-decoration: none !important;
     padding: 5px 10px;
-    background-color: blue;
+    background: blue;
     cursor: pointer;
     color: #FFFFFF;
+
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+
+    width: 70px;
+}
+
+.login-error-label {
+    color: red;
 }

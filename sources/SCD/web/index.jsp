@@ -2,6 +2,6 @@
 <html>
 <head></head>
 	<body>
-		<jsp:forward page="/faces/client/welcome.xhtml"/>
+		<jsp:forward page="/faces/login/login.xhtml"/>
 	</body>
 </html>

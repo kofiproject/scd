@@ -1,6 +1,9 @@
 package by.kofi.scd.dataservice;
 
+import by.kofi.scd.entity.Department;
+import by.kofi.scd.exceptions.SCDTechnicalException;
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.context.annotation.Scope;
 import org.springframework.orm.hibernate3.HibernateTemplate;
@@ -35,26 +38,44 @@ public class HibernateCRUDDataServiceBean extends HibernateDaoSupport implements
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public <T> T merge(T t) {
-        return getHibernateTemplate().merge(t);
+    public <T> T merge(T t) throws SCDTechnicalException {
+        try {
+            return getHibernateTemplate().merge(t);
+        } catch (HibernateException e) {
+            throw new SCDTechnicalException(e);
+        }
+
     }
 
-    public <T, PK extends Serializable> T find(Class<T> type, PK id) {
-        return getHibernateTemplate().get(type, id);
+    public <T, PK extends Serializable> T find(Class<T> type, PK id) throws SCDTechnicalException {
+        try {
+            return getHibernateTemplate().get(type, id);
+        } catch (HibernateException e) {
+            throw new SCDTechnicalException(e);
+        }
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public <T, PK extends Serializable> boolean delete(Class<T> type, PK id) {
-        HibernateTemplate hibernateTemplate = getHibernateTemplate();
-        T entity = hibernateTemplate.load(type, id);
-        hibernateTemplate.delete(entity);
-        return false;
+    public <T, PK extends Serializable> void delete(Class<T> type, PK id) throws SCDTechnicalException {
+        try {
+            HibernateTemplate hibernateTemplate = getHibernateTemplate();
+            T entity = hibernateTemplate.load(type, id);
+            hibernateTemplate.delete(entity);
+        } catch (HibernateException e) {
+            throw new SCDTechnicalException(e);
+        }
+
+
     }
 
-    public <T> List<T> list(Class<T> type) {
-        Criteria criteria = getSession().createCriteria(type);
-        List list = criteria.list();
-        return list;
+    public <T> List<T> list(Class<T> type) throws SCDTechnicalException {
+        try {
+            Criteria criteria = getSession().createCriteria(type);
+            List list = criteria.list();
+            return list;
+        } catch (HibernateException e) {
+            throw new SCDTechnicalException(e);
+        }
     }
 
     public Session getNativeHibernateSession() {
