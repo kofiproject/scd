@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.InitBinder;
 
 import javax.annotation.PostConstruct;
+import javax.faces.context.FacesContext;
 
 /**
  * @author harchevnikov_m
@@ -65,6 +66,7 @@ public class RegistrationControllerBean {
      * @throws SCDBusinessException technical exception
      */
     public String registrationAction() throws SCDBusinessException {
+        Object session = FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         Client newClient = getClient();
         try {
             newClient = hibernateCRUDDataService.merge(newClient);
