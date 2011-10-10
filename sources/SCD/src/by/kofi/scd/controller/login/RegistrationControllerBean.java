@@ -68,12 +68,12 @@ public class RegistrationControllerBean {
     public String registrationAction() throws SCDBusinessException {
         Object session = FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         Client newClient = getClient();
-        try {
-            newClient = hibernateCRUDDataService.merge(newClient);
-            return NavigationActionEnum.REGISTRATION_SUCCESS.getValue();
-        } catch (SCDTechnicalException e) {
-            throw new SCDBusinessException("registrationAction", e);
-        }
+//        try {
+//            newClient = hibernateCRUDDataService.merge(newClient);
+        return NavigationActionEnum.REGISTRATION_SUCCESS.getValue();
+//        } catch (SCDTechnicalException e) {
+//            throw new SCDBusinessException("registrationAction", e);
+//        }
 
     }
 }

@@ -70,3 +70,7 @@
 .login-error-label {
     color: red;
 }
+
+.errorMsg {
+    color: red;
+}
