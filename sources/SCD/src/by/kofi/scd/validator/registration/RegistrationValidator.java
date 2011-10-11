@@ -7,6 +7,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
+import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -44,7 +45,7 @@ public class RegistrationValidator {
      * Email pattern
      */
     private static final Pattern EMAIL_PATTERN =
-            Pattern.compile("^[\\\\w\\\\-]([\\\\.\\\\w])+[\\\\w]+@([\\\\w\\\\-]+\\\\.)+[A-Z]{2,4}$");
+            Pattern.compile("^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 
     /**
      * JSF input id
@@ -101,7 +102,7 @@ public class RegistrationValidator {
      * @param o            object to validate
      */
     public void validateConfirmPassword(FacesContext facesContext, UIComponent uiComponent, Object o) {
-        UIInput passwordComponent = (UIInput) facesContext.getViewRoot().findComponent(PASSWORD_UI_ID);
+        UIInput passwordComponent = (UIInput) facesContext.getViewRoot().findComponent("registration-form:password");
         Object passwordVal = passwordComponent.getValue();
         String password = passwordVal != null ? passwordVal.toString() : "";
 
@@ -121,7 +122,7 @@ public class RegistrationValidator {
      */
     public void validateEmail(FacesContext facesContext, UIComponent uiComponent, Object o) {
         String value = o != null ? o.toString() : "";
-        Matcher matcher = EMAIL_PATTERN.matcher(value);
+        Matcher matcher = EMAIL_PATTERN.matcher(value.trim());
 
         if (!matcher.matches()) {
             ((UIInput) uiComponent).setValid(false);

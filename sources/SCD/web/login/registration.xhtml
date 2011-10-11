@@ -6,7 +6,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:rich="http://richfaces.org/rich" xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:rich="http://richfaces.org/rich" xmlns:f="http://java.sun.com/jsf/core"
+        >
 
 <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -24,9 +25,9 @@
 <div class="login-wrapper" style="margin-top: 100px;">
 <span class="login-dig-label">Regsitration</span>
 
-<h:form>
-<div class="login-form-container" style="height: auto; width: 500px;;">
-    <h:panelGrid columns="3">
+<h:form id="registration-form">
+<div class="login-form-container" style="height: auto; width: 400px;">
+    <h:panelGrid columns="3" styleClass="regTable">
 
         <h:panelGroup>
             <h:outputLabel value="#{bundle['registration.surname']}"/>
@@ -71,13 +72,13 @@
             <h:outputLabel value="#{bundle['registration.passport']}"/>
         </h:panelGroup>
         <h:panelGroup>
-            <h:inputText id="passportSeries" size="3"
+            <h:inputText id="passportSeries" size="4"
                          value="#{registrationBean.client.passportSeries}"
                          style="float: left;"
                          required="true"
                          requiredMessage="#{bundle['registration.validator.required']}"/>
             <h:inputText id="passportNo" size="12" value="#{registrationBean.client.passportNo}"
-                         style="float: left" styleClass="numeric"
+                         style="float: left; margin-left: 5px;" styleClass="numeric"
                          required="true"
                          requiredMessage="#{bundle['registration.validator.required']}"/>
         </h:panelGroup>
@@ -183,7 +184,7 @@
             <h:outputLabel value="#{bundle['registration.confirmpassword']}"/>
         </h:panelGroup>
         <h:panelGroup>
-            <h:inputText id="confirmPassword" size="20"
+            <h:inputSecret id="confirmPassword" size="20"
                          value="#{registrationBean.confirmPassword}"
                          validator="#{registrationValidator.validateConfirmPassword}"
                          required="true"
@@ -216,6 +217,7 @@
                          validator="#{registrationValidator.validateCacheIncome}"
                          required="true"
                          requiredMessage="#{bundle['registration.validator.required']}"/>
+            BY
         </h:panelGroup>
         <h:panelGroup>
             <h:message styleClass="errorMsg" for="monthlyCacheIncome"/>

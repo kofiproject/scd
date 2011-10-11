@@ -4,6 +4,7 @@ import by.kofi.scd.common.constants.NavigationActionEnum;
 import by.kofi.scd.dataservice.CRUDDataService;
 import by.kofi.scd.dto.registration.GenderEnum;
 import by.kofi.scd.entity.generated.Client;
+import by.kofi.scd.entity.generated.Role;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import by.kofi.scd.exceptions.SCDTechnicalException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,12 +69,13 @@ public class RegistrationControllerBean {
     public String registrationAction() throws SCDBusinessException {
         Object session = FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         Client newClient = getClient();
-//        try {
-//            newClient = hibernateCRUDDataService.merge(newClient);
-        return NavigationActionEnum.REGISTRATION_SUCCESS.getValue();
-//        } catch (SCDTechnicalException e) {
-//            throw new SCDBusinessException("registrationAction", e);
-//        }
-
+        try {
+            Role role = hibernateCRUDDataService.find(Role.class, 1L);
+            newClient.setRole(role);
+            newClient = hibernateCRUDDataService.merge(newClient);
+            return NavigationActionEnum.REGISTRATION_SUCCESS.getValue();
+        } catch (SCDTechnicalException e) {
+            throw new SCDBusinessException("registrationAction", e);
+        }
     }
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * @author harchevnikov_m
@@ -35,8 +35,8 @@ public class Client extends AbstractEntity {
 
     @javax.persistence.Column(name = "USER_IDENTITY_ID")
     @Basic
-    @SequenceGenerator(name = "SQ_USER_IDENTITY", sequenceName = "SQ_USER_IDENTITY")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_USER_IDENTITY")
+//    @SequenceGenerator(name = "SQ_USER_IDENTITY", sequenceName = "SQ_USER_IDENTITY")
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_USER_IDENTITY")
     public long getUserIdentityId() {
         return userIdentityId;
     }
@@ -45,7 +45,7 @@ public class Client extends AbstractEntity {
         this.userIdentityId = userIdentityId;
     }
 
-    private String email;
+    private String email = "qwe@qw.qw";
 
     @javax.persistence.Column(name = "EMAIL")
     @Basic
@@ -57,19 +57,19 @@ public class Client extends AbstractEntity {
         this.email = email;
     }
 
-    private String isBlocked;
+    private boolean isBlocked;
 
     @javax.persistence.Column(name = "IS_BLOCKED")
     @Basic
-    public String getBlocked() {
+    public boolean getBlocked() {
         return isBlocked;
     }
 
-    public void setBlocked(String blocked) {
+    public void setBlocked(boolean blocked) {
         isBlocked = blocked;
     }
 
-    private String password;
+    private String password = "123";
 
     @javax.persistence.Column(name = "PASSWORD")
     @Basic
@@ -81,7 +81,7 @@ public class Client extends AbstractEntity {
         this.password = password;
     }
 
-    private String passportSeries;
+    private String passportSeries = "ab";
 
     @javax.persistence.Column(name = "PASSPORT_SERIES")
     @Basic
@@ -93,19 +93,19 @@ public class Client extends AbstractEntity {
         this.passportSeries = passportSeries;
     }
 
-    private long passportNo;
+    private Long passportNo = 1222222222L;
 
     @javax.persistence.Column(name = "PASSPORT_NO")
     @Basic
-    public long getPassportNo() {
+    public Long getPassportNo() {
         return passportNo;
     }
 
-    public void setPassportNo(long passportNo) {
+    public void setPassportNo(Long passportNo) {
         this.passportNo = passportNo;
     }
 
-    private String name;
+    private String name = "aaaaaaaaaaaa";
 
     @javax.persistence.Column(name = "NAME")
     @Basic
@@ -117,7 +117,7 @@ public class Client extends AbstractEntity {
         this.name = name;
     }
 
-    private String middleName;
+    private String middleName = "aaaaaaaaaaaaaaaaa";
 
     @javax.persistence.Column(name = "MIDDLE_NAME")
     @Basic
@@ -129,7 +129,7 @@ public class Client extends AbstractEntity {
         this.middleName = middleName;
     }
 
-    private String surname;
+    private String surname = "aaaaaaaaaaaaaaaa";
 
     @javax.persistence.Column(name = "SURNAME")
     @Basic
@@ -165,7 +165,7 @@ public class Client extends AbstractEntity {
         this.sex = sex;
     }
 
-    private String permanentResidence;
+    private String permanentResidence = "aaaaaaaaaaaaaaaaaa";
 
     @javax.persistence.Column(name = "PERMANENT_RESIDENCE")
     @Basic
@@ -177,7 +177,7 @@ public class Client extends AbstractEntity {
         this.permanentResidence = permanentResidence;
     }
 
-    private String currentResidence;
+    private String currentResidence = "aaaaaaaaaaaaaaaaaaaaaaaaaa";
 
     @javax.persistence.Column(name = "CURRENT_RESIDENCE")
     @Basic
@@ -189,27 +189,27 @@ public class Client extends AbstractEntity {
         this.currentResidence = currentResidence;
     }
 
-    private long phone;
+    private Long phone = 11111111L;
 
     @javax.persistence.Column(name = "PHONE")
     @Basic
-    public long getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(long phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 
-    private long phoneMobile;
+    private Long phoneMobile = 11111111111L;
 
     @javax.persistence.Column(name = "PHONE_MOBILE")
     @Basic
-    public long getPhoneMobile() {
+    public Long getPhoneMobile() {
         return phoneMobile;
     }
 
-    public void setPhoneMobile(long phoneMobile) {
+    public void setPhoneMobile(Long phoneMobile) {
         this.phoneMobile = phoneMobile;
     }
 
@@ -225,7 +225,7 @@ public class Client extends AbstractEntity {
         this.monthlyCacheIncome = monthlyCacheIncome;
     }
 
-    private String jobPlace;
+    private String jobPlace = "aaaaaaaaaaaaaaaaaaaaa";
 
     @javax.persistence.Column(name = "JOB_PLACE")
     @Basic
@@ -237,7 +237,7 @@ public class Client extends AbstractEntity {
         this.jobPlace = jobPlace;
     }
 
-    private String jobPosition;
+    private String jobPosition = "vvvvvvvvvvvvvvvvvvvvvv";
 
     @javax.persistence.Column(name = "JOB_POSITION")
     @Basic
@@ -285,7 +285,6 @@ public class Client extends AbstractEntity {
         if (currentResidence != null ? !currentResidence.equals(client.currentResidence) : client.currentResidence != null)
             return false;
         if (email != null ? !email.equals(client.email) : client.email != null) return false;
-        if (isBlocked != null ? !isBlocked.equals(client.isBlocked) : client.isBlocked != null) return false;
         if (jobPlace != null ? !jobPlace.equals(client.jobPlace) : client.jobPlace != null) return false;
         if (jobPosition != null ? !jobPosition.equals(client.jobPosition) : client.jobPosition != null) return false;
         if (middleName != null ? !middleName.equals(client.middleName) : client.middleName != null) return false;
@@ -310,7 +309,6 @@ public class Client extends AbstractEntity {
         result = 31 * result + (int) (userId ^ (userId >>> 32));
         result = 31 * result + (int) (userIdentityId ^ (userIdentityId >>> 32));
         result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (isBlocked != null ? isBlocked.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (passportSeries != null ? passportSeries.hashCode() : 0);
         result = 31 * result + (int) (passportNo ^ (passportNo >>> 32));

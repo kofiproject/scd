@@ -74,3 +74,7 @@
 .errorMsg {
     color: red;
 }
+
+.regTable td{
+    padding: 3px 0px;
+}
