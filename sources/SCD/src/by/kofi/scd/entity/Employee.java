@@ -1,6 +1,7 @@
-package by.kofi.scd.entity.generated;
+package by.kofi.scd.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * @author harchevnikov_m
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "EMPLOYEE", schema = "SCD")
 @SequenceGenerator(name = "SQ_EMPLOYEE", sequenceName = "SQ_EMPLOYEE")
-public class Employee {
+public class Employee extends AbstractEntity{
     private long employeeId;
 
     @javax.persistence.Column(name = "EMPLOYEE_ID")
@@ -24,36 +25,34 @@ public class Employee {
         this.employeeId = employeeId;
     }
 
-    private long departmentId;
+    private Department department;
 
-    @javax.persistence.Column(name = "DEPARTMENT_ID")
-    @Basic
-    public long getDepartmentId() {
-        return departmentId;
+    @ManyToOne
+    @JoinColumn(name = "DEPARTMENT_ID", referencedColumnName = "DEPARTMENT_ID")
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setDepartmentId(long departmentId) {
-        this.departmentId = departmentId;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
-    private long roleId;
+    private Role role;
 
-    @javax.persistence.Column(name = "ROLE_ID")
-    @Basic
-    public long getRoleId() {
-        return roleId;
+    @ManyToOne
+    @JoinColumn(name = "ROLE_ID", referencedColumnName = "ROLE_ID")
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoleId(long roleId) {
-        this.roleId = roleId;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     private long employeeIdentityId;
 
     @javax.persistence.Column(name = "EMPLOYEE_IDENTITY_ID")
     @Basic
-    @SequenceGenerator(name = "SQ_USER_IDENTITY", sequenceName = "SQ_USER_IDENTITY")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_USER_IDENTITY")
     public long getEmployeeIdentityId() {
         return employeeIdentityId;
     }
@@ -123,30 +122,30 @@ public class Employee {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean entityEquals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
         Employee employee = (Employee) o;
 
-        if (departmentId != employee.departmentId) return false;
         if (employeeId != employee.employeeId) return false;
         if (employeeIdentityId != employee.employeeIdentityId) return false;
-        if (roleId != employee.roleId) return false;
+        if (department != null ? !department.equals(employee.department) : employee.department != null) return false;
         if (email != null ? !email.equals(employee.email) : employee.email != null) return false;
         if (middleName != null ? !middleName.equals(employee.middleName) : employee.middleName != null) return false;
         if (name != null ? !name.equals(employee.name) : employee.name != null) return false;
         if (password != null ? !password.equals(employee.password) : employee.password != null) return false;
+        if (role != null ? !role.equals(employee.role) : employee.role != null) return false;
         if (surname != null ? !surname.equals(employee.surname) : employee.surname != null) return false;
 
         return true;
     }
 
     @Override
-    public int hashCode() {
+    public int entityHashCode() {
         int result = (int) (employeeId ^ (employeeId >>> 32));
-        result = 31 * result + (int) (departmentId ^ (departmentId >>> 32));
-        result = 31 * result + (int) (roleId ^ (roleId >>> 32));
+        result = 31 * result + (department != null ? department.hashCode() : 0);
+        result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (int) (employeeIdentityId ^ (employeeIdentityId >>> 32));
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
@@ -154,5 +153,11 @@ public class Employee {
         result = 31 * result + (middleName != null ? middleName.hashCode() : 0);
         result = 31 * result + (surname != null ? surname.hashCode() : 0);
         return result;
+    }
+
+      @Override
+    @Transient
+    public Serializable getEntityId() {
+        return getEmployeeId();
     }
 }

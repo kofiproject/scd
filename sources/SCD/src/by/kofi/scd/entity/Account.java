@@ -1,6 +1,8 @@
-package by.kofi.scd.entity.generated;
+package by.kofi.scd.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
 
 /**
  * @author harchevnikov_m
@@ -10,7 +12,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "ACCOUNT")
 @SequenceGenerator(name = "SQ_ACCOUNT", sequenceName = "SQ_ACCOUNT")
-public class Account {
+public class Account extends AbstractEntity {
     private long accountId;
 
     @javax.persistence.Column(name = "ACCOUNT_ID")
@@ -36,23 +38,45 @@ public class Account {
         this.accountNumber = accountNumber;
     }
 
+    private Set<CreditRequest> creditRequests;
+
+    @OneToMany(mappedBy = "account")
+    public Set<CreditRequest> getCreditRequests() {
+        return creditRequests;
+    }
+
+    public void setCreditRequests(Set<CreditRequest> creditRequests) {
+        this.creditRequests = creditRequests;
+    }
+
     @Override
-    public boolean equals(Object o) {
+    public boolean entityEquals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
 
         Account account = (Account) o;
 
         if (accountId != account.accountId) return false;
         if (accountNumber != account.accountNumber) return false;
+        if (creditRequests != null ? !creditRequests.equals(account.creditRequests) : account.creditRequests != null)
+            return false;
 
         return true;
     }
 
     @Override
-    public int hashCode() {
-        int result = (int) (accountId ^ (accountId >>> 32));
+    public int entityHashCode() {
+        int result = super.hashCode();
+        result = 31 * result + (int) (accountId ^ (accountId >>> 32));
         result = 31 * result + (int) (accountNumber ^ (accountNumber >>> 32));
+        result = 31 * result + (creditRequests != null ? creditRequests.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    @Transient
+    public Serializable getEntityId() {
+        return getAccountId();
     }
 }

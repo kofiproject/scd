@@ -226,7 +226,7 @@ CREATE TABLE CREDIT(
     DEPARTMENT_NO      VARCHAR2(255)    NOT NULL,
     DESCRIPTION        CLOB             NOT NULL,
     PERCENT            NUMBER(10, 3)    NOT NULL,
-    PENALTY_PERCENT    NUMERIC          NOT NULL,
+    PENALTY_PERCENT    NUMBER(10, 3)          NOT NULL,
     CONSTRAINT PK4_1_1 PRIMARY KEY (CREDIT_ID)
 )
 ;
@@ -265,8 +265,6 @@ CREATE TABLE CREDIT_REQUEST(
     USER_ID              NUMBER(38, 0)     NOT NULL,
     CREDIT_ID            NUMBER(38, 0)     NOT NULL,
     EMPLOYEE_ID          NUMBER(38, 0),
-    DEPARTMENT_ID        NUMBER(38, 0),
-    ROLE_ID              NUMBER(38, 0),
     ACCOUNT_ID           NUMBER(38, 0),
     ISSUANCE_DATE        TIMESTAMP(6)      NOT NULL,
     PROCESSING_DATE      TIMESTAMP(6),
@@ -393,3 +391,46 @@ ALTER TABLE CLIENT ADD CONSTRAINT RefROLECLIENR
     FOREIGN KEY (ROLE_ID)
     REFERENCES ROLE(ROLE_ID)
 ;
+
+
+CREATE OR REPLACE TRIGGER client_after_insert
+BEFORE INSERT
+    ON CLIENT
+    for each row
+DECLARE 
+nextId NUMBER;    
+BEGIN
+
+    select SQ_USER_IDENTITY.nextval into nextId from dual;
+    :new.USER_IDENTITY_ID := nextId;
+END;
+
+
+CREATE OR REPLACE TRIGGER employee_after_insert
+BEFORE INSERT
+    ON EMPLOYEE
+    for each row
+DECLARE 
+nextId NUMBER;    
+BEGIN
+
+    select SQ_USER_IDENTITY.nextval into nextId from dual;
+    :new.EMPLOYEE_IDENTITY_ID := nextId;
+END;
+
+
+SET DEFINE OFF;
+Insert into ROLE
+   (ROLE_ID, NAME)
+ Values
+   (1, 'client');
+Insert into ROLE
+   (ROLE_ID, NAME)
+ Values
+   (2, 'credit_expert');
+Insert into ROLE
+   (ROLE_ID, NAME)
+ Values
+   (3, 'operator');
+   
+COMMIT;

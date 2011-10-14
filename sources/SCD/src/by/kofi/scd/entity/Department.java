@@ -1,40 +1,35 @@
 package by.kofi.scd.entity;
 
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
+import java.util.Set;
 
 /**
  * @author harchevnikov_m
- *         Date: 18.09.11
- *         Time: 18:03
+ *         Date: 08/10/11
+ *         Time: 23:08
  */
 @Entity
-@Table(name = "DEPARTMENT")
+@Table(name = "DEPARTMENT", schema = "SCD")
 @SequenceGenerator(name = "SQ_DEPARTMENT", sequenceName = "SQ_DEPARTMENT")
-public class Department extends AbstractEntity {
+public class Department extends AbstractEntity{
+    private long departmentId;
+
+    @javax.persistence.Column(name = "DEPARTMENT_ID")
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_DEPARTMENT")
-    @Column(name = "DEPARTMENT_ID")
-    private Long departmentId;
-
-    @Column(name = "DEPARTMENT_NO")
-    @Basic
-    private String departmentNo;
-
-    @Column(name = "ADDRESS")
-    @Basic
-    private String address;
-
-    public Long getDepartmentId() {
+    public long getDepartmentId() {
         return departmentId;
     }
 
-    public void setDepartmentId(Long departmentId) {
+    public void setDepartmentId(long departmentId) {
         this.departmentId = departmentId;
     }
 
+    private String departmentNo;
+
+    @javax.persistence.Column(name = "DEPARTMENT_NO")
+    @Basic
     public String getDepartmentNo() {
         return departmentNo;
     }
@@ -43,6 +38,10 @@ public class Department extends AbstractEntity {
         this.departmentNo = departmentNo;
     }
 
+    private String address;
+
+    @javax.persistence.Column(name = "ADDRESS")
+    @Basic
     public String getAddress() {
         return address;
     }
@@ -52,20 +51,14 @@ public class Department extends AbstractEntity {
     }
 
     @Override
-    public Serializable getEntityId() {
-        return getDepartmentId();
-    }
-
-    @Override
     public boolean entityEquals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
 
         Department that = (Department) o;
 
+        if (departmentId != that.departmentId) return false;
         if (address != null ? !address.equals(that.address) : that.address != null) return false;
-        if (departmentId != null ? !departmentId.equals(that.departmentId) : that.departmentId != null) return false;
         if (departmentNo != null ? !departmentNo.equals(that.departmentNo) : that.departmentNo != null) return false;
 
         return true;
@@ -73,11 +66,26 @@ public class Department extends AbstractEntity {
 
     @Override
     public int entityHashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (departmentId != null ? departmentId.hashCode() : 0);
+        int result = (int) (departmentId ^ (departmentId >>> 32));
         result = 31 * result + (departmentNo != null ? departmentNo.hashCode() : 0);
         result = 31 * result + (address != null ? address.hashCode() : 0);
         return result;
     }
 
+    private Set<Employee> employees;
+
+    @OneToMany(mappedBy = "department")
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
+    }
+
+      @Override
+    @Transient
+    public Serializable getEntityId() {
+        return getDepartmentId();
+    }
 }

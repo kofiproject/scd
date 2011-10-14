@@ -1,8 +1,9 @@
-package by.kofi.scd.entity.generated;
+package by.kofi.scd.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Clob;
+import java.util.Set;
 
 /**
  * @author harchevnikov_m
@@ -12,12 +13,12 @@ import java.sql.Clob;
 @Entity
 @Table(name = "CREDIT")
 @SequenceGenerator(name = "SQ_CREDIT", sequenceName = "SQ_CREDIT")
-public class Credit {
+public class Credit extends AbstractEntity{
     private long creditId;
 
     @javax.persistence.Column(name = "CREDIT_ID")
     @Id
-    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "SQ_CREDIT")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_CREDIT")
     public long getCreditId() {
         return creditId;
     }
@@ -38,16 +39,16 @@ public class Credit {
         this.departmentNo = departmentNo;
     }
 
-    private Clob description;
+    private String description;
 
     @javax.persistence.Column(name = "DESCRIPTION")
     @Lob
     @Basic
-    public Clob getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Clob description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -63,20 +64,20 @@ public class Credit {
         this.percent = percent;
     }
 
-    private int penaltyPercent;
+    private BigDecimal penaltyPercent;
 
     @javax.persistence.Column(name = "PENALTY_PERCENT")
     @Basic
-    public int getPenaltyPercent() {
+    public BigDecimal getPenaltyPercent() {
         return penaltyPercent;
     }
 
-    public void setPenaltyPercent(int penaltyPercent) {
+    public void setPenaltyPercent(BigDecimal penaltyPercent) {
         this.penaltyPercent = penaltyPercent;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean entityEquals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
@@ -93,12 +94,29 @@ public class Credit {
     }
 
     @Override
-    public int hashCode() {
+    public int entityHashCode() {
         int result = (int) (creditId ^ (creditId >>> 32));
         result = 31 * result + (departmentNo != null ? departmentNo.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (percent != null ? percent.hashCode() : 0);
-        result = 31 * result + penaltyPercent;
+        result = 31 * result + (penaltyPercent != null ? penaltyPercent.hashCode() : 0);
         return result;
+    }
+
+    private Set<CreditRequest> creditRequests;
+
+    @OneToMany(mappedBy = "credit")
+    public Set<CreditRequest> getCreditRequests() {
+        return creditRequests;
+    }
+
+    public void setCreditRequests(Set<CreditRequest> creditRequests) {
+        this.creditRequests = creditRequests;
+    }
+
+    @Override
+    @Transient
+    public Serializable getEntityId() {
+        return getCreditId();
     }
 }

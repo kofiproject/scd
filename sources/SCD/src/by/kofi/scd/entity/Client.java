@@ -1,13 +1,12 @@
-package by.kofi.scd.entity.generated;
+package by.kofi.scd.entity;
 
 import by.kofi.scd.dto.registration.GenderEnum;
-import by.kofi.scd.entity.AbstractEntity;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * @author harchevnikov_m
@@ -18,25 +17,23 @@ import java.util.Date;
 @Table(name = "CLIENT")
 @SequenceGenerator(name = "SQ_CLIENT", sequenceName = "SQ_CLIENT")
 public class Client extends AbstractEntity {
-    private long userId;
+    private long clientId;
 
     @javax.persistence.Column(name = "USER_ID")
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_CLIENT")
-    public long getUserId() {
-        return userId;
+    public long getClientId() {
+        return clientId;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setClientId(long clientId) {
+        this.clientId = clientId;
     }
 
     private long userIdentityId;
 
     @javax.persistence.Column(name = "USER_IDENTITY_ID")
     @Basic
-//    @SequenceGenerator(name = "SQ_USER_IDENTITY", sequenceName = "SQ_USER_IDENTITY")
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_USER_IDENTITY")
     public long getUserIdentityId() {
         return userIdentityId;
     }
@@ -261,12 +258,28 @@ public class Client extends AbstractEntity {
         this.role = role;
     }
 
-    @Override
-    @Transient
-    public Serializable getEntityId() {
-        return getUserId();
+    private Set<CreditItem> creditItems;
+
+    @OneToMany(mappedBy = "client")
+    public Set<CreditItem> getCreditItems() {
+        return creditItems;
     }
 
+    public void setCreditItems(Set<CreditItem> creditItems) {
+        this.creditItems = creditItems;
+    }
+
+
+    private Set<CreditRequest> creditRequests;
+
+    @OneToMany(mappedBy = "client")
+    public Set<CreditRequest> getCreditRequests() {
+        return creditRequests;
+    }
+
+    public void setCreditRequests(Set<CreditRequest> creditRequests) {
+        this.creditRequests = creditRequests;
+    }
 
     @Override
     public boolean entityEquals(Object o) {
@@ -276,12 +289,13 @@ public class Client extends AbstractEntity {
 
         Client client = (Client) o;
 
-        if (passportNo != client.passportNo) return false;
-        if (phone != client.phone) return false;
-        if (phoneMobile != client.phoneMobile) return false;
-        if (userId != client.userId) return false;
+        if (clientId != client.clientId) return false;
+        if (isBlocked != client.isBlocked) return false;
         if (userIdentityId != client.userIdentityId) return false;
         if (birthday != null ? !birthday.equals(client.birthday) : client.birthday != null) return false;
+        if (creditItems != null ? !creditItems.equals(client.creditItems) : client.creditItems != null) return false;
+        if (creditRequests != null ? !creditRequests.equals(client.creditRequests) : client.creditRequests != null)
+            return false;
         if (currentResidence != null ? !currentResidence.equals(client.currentResidence) : client.currentResidence != null)
             return false;
         if (email != null ? !email.equals(client.email) : client.email != null) return false;
@@ -291,11 +305,14 @@ public class Client extends AbstractEntity {
         if (monthlyCacheIncome != null ? !monthlyCacheIncome.equals(client.monthlyCacheIncome) : client.monthlyCacheIncome != null)
             return false;
         if (name != null ? !name.equals(client.name) : client.name != null) return false;
+        if (passportNo != null ? !passportNo.equals(client.passportNo) : client.passportNo != null) return false;
         if (passportSeries != null ? !passportSeries.equals(client.passportSeries) : client.passportSeries != null)
             return false;
         if (password != null ? !password.equals(client.password) : client.password != null) return false;
         if (permanentResidence != null ? !permanentResidence.equals(client.permanentResidence) : client.permanentResidence != null)
             return false;
+        if (phone != null ? !phone.equals(client.phone) : client.phone != null) return false;
+        if (phoneMobile != null ? !phoneMobile.equals(client.phoneMobile) : client.phoneMobile != null) return false;
         if (role != null ? !role.equals(client.role) : client.role != null) return false;
         if (sex != client.sex) return false;
         if (surname != null ? !surname.equals(client.surname) : client.surname != null) return false;
@@ -306,12 +323,13 @@ public class Client extends AbstractEntity {
     @Override
     public int entityHashCode() {
         int result = super.hashCode();
-        result = 31 * result + (int) (userId ^ (userId >>> 32));
+        result = 31 * result + (int) (clientId ^ (clientId >>> 32));
         result = 31 * result + (int) (userIdentityId ^ (userIdentityId >>> 32));
         result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (isBlocked ? 1 : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (passportSeries != null ? passportSeries.hashCode() : 0);
-        result = 31 * result + (int) (passportNo ^ (passportNo >>> 32));
+        result = 31 * result + (passportNo != null ? passportNo.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (middleName != null ? middleName.hashCode() : 0);
         result = 31 * result + (surname != null ? surname.hashCode() : 0);
@@ -319,12 +337,20 @@ public class Client extends AbstractEntity {
         result = 31 * result + (sex != null ? sex.hashCode() : 0);
         result = 31 * result + (permanentResidence != null ? permanentResidence.hashCode() : 0);
         result = 31 * result + (currentResidence != null ? currentResidence.hashCode() : 0);
-        result = 31 * result + (int) (phone ^ (phone >>> 32));
-        result = 31 * result + (int) (phoneMobile ^ (phoneMobile >>> 32));
+        result = 31 * result + (phone != null ? phone.hashCode() : 0);
+        result = 31 * result + (phoneMobile != null ? phoneMobile.hashCode() : 0);
         result = 31 * result + (monthlyCacheIncome != null ? monthlyCacheIncome.hashCode() : 0);
         result = 31 * result + (jobPlace != null ? jobPlace.hashCode() : 0);
         result = 31 * result + (jobPosition != null ? jobPosition.hashCode() : 0);
         result = 31 * result + (role != null ? role.hashCode() : 0);
+        result = 31 * result + (creditItems != null ? creditItems.hashCode() : 0);
+        result = 31 * result + (creditRequests != null ? creditRequests.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    @Transient
+    public Serializable getEntityId() {
+        return getClientId();
     }
 }

@@ -1,6 +1,7 @@
-package by.kofi.scd.entity.generated;
+package by.kofi.scd.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
@@ -13,12 +14,12 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "CREDIT_ITEM")
 @SequenceGenerator(name = "SQ_CREDIT_ITEM", sequenceName = "SQ_CREDIT_ITEM")
-public class CreditItem {
+public class CreditItem extends AbstractEntity{
     private long creditItemId;
 
     @javax.persistence.Column(name = "CREDIT_ITEM_ID")
     @Id
-    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "SQ_CREDIT_ITEM")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_CREDIT_ITEM")
     public long getCreditItemId() {
         return creditItemId;
     }
@@ -27,28 +28,28 @@ public class CreditItem {
         this.creditItemId = creditItemId;
     }
 
-    private long creditId;
+    private Credit credit;
 
-    @javax.persistence.Column(name = "CREDIT_ID")
-    @Id
-    public long getCreditId() {
-        return creditId;
+    @ManyToOne
+    @JoinColumn(name = "CREDIT_ID", referencedColumnName = "CREDIT_ID")
+    public Credit getCredit() {
+        return credit;
     }
 
-    public void setCreditId(long creditId) {
-        this.creditId = creditId;
+    public void setCredit(Credit credit) {
+        this.credit = credit;
     }
 
-    private long userId;
+    private Client client;
 
-    @javax.persistence.Column(name = "USER_ID")
-    @Id
-    public long getUserId() {
-        return userId;
+    @ManyToOne
+    @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
+    public Client getClient() {
+        return client;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     private long accountId;
@@ -147,48 +148,50 @@ public class CreditItem {
         this.penaltyAmount = penaltyAmount;
     }
 
-    private long state;
+    private CreditItemStateEnum state;
 
     @javax.persistence.Column(name = "STATE")
-    @Basic
-    public long getState() {
+    @Enumerated
+    public CreditItemStateEnum getState() {
         return state;
     }
 
-    public void setState(long state) {
+    public void setState(CreditItemStateEnum state) {
         this.state = state;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean entityEquals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
 
         CreditItem that = (CreditItem) o;
 
         if (accountId != that.accountId) return false;
-        if (creditId != that.creditId) return false;
         if (creditItemId != that.creditItemId) return false;
-        if (state != that.state) return false;
         if (term != that.term) return false;
-        if (userId != that.userId) return false;
         if (amount != null ? !amount.equals(that.amount) : that.amount != null) return false;
         if (calculatedAmount != null ? !calculatedAmount.equals(that.calculatedAmount) : that.calculatedAmount != null)
             return false;
+        if (client != null ? !client.equals(that.client) : that.client != null) return false;
         if (closingDate != null ? !closingDate.equals(that.closingDate) : that.closingDate != null) return false;
+        if (credit != null ? !credit.equals(that.credit) : that.credit != null) return false;
         if (issuanceDate != null ? !issuanceDate.equals(that.issuanceDate) : that.issuanceDate != null) return false;
         if (paidAmount != null ? !paidAmount.equals(that.paidAmount) : that.paidAmount != null) return false;
         if (penaltyAmount != null ? !penaltyAmount.equals(that.penaltyAmount) : that.penaltyAmount != null)
             return false;
+        if (state != that.state) return false;
 
         return true;
     }
 
     @Override
-    public int hashCode() {
-        int result = (int) (creditItemId ^ (creditItemId >>> 32));
-        result = 31 * result + (int) (creditId ^ (creditId >>> 32));
-        result = 31 * result + (int) (userId ^ (userId >>> 32));
+    public int entityHashCode() {
+        int result = super.hashCode();
+        result = 31 * result + (int) (creditItemId ^ (creditItemId >>> 32));
+        result = 31 * result + (credit != null ? credit.hashCode() : 0);
+        result = 31 * result + (client != null ? client.hashCode() : 0);
         result = 31 * result + (int) (accountId ^ (accountId >>> 32));
         result = 31 * result + (issuanceDate != null ? issuanceDate.hashCode() : 0);
         result = 31 * result + (closingDate != null ? closingDate.hashCode() : 0);
@@ -197,7 +200,13 @@ public class CreditItem {
         result = 31 * result + (calculatedAmount != null ? calculatedAmount.hashCode() : 0);
         result = 31 * result + (paidAmount != null ? paidAmount.hashCode() : 0);
         result = 31 * result + (penaltyAmount != null ? penaltyAmount.hashCode() : 0);
-        result = 31 * result + (int) (state ^ (state >>> 32));
+        result = 31 * result + (state != null ? state.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    @Transient
+    public Serializable getEntityId() {
+        return getCreditItemId();
     }
 }

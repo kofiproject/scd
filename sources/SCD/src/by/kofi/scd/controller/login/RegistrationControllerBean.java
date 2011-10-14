@@ -3,15 +3,14 @@ package by.kofi.scd.controller.login;
 import by.kofi.scd.common.constants.NavigationActionEnum;
 import by.kofi.scd.dataservice.CRUDDataService;
 import by.kofi.scd.dto.registration.GenderEnum;
-import by.kofi.scd.entity.generated.Client;
-import by.kofi.scd.entity.generated.Role;
+import by.kofi.scd.entity.Client;
+import by.kofi.scd.entity.Role;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import by.kofi.scd.exceptions.SCDTechnicalException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.InitBinder;
 
 import javax.annotation.PostConstruct;
 import javax.faces.context.FacesContext;

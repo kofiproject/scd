@@ -1,8 +1,9 @@
-package by.kofi.scd.entity.generated;
+package by.kofi.scd.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author harchevnikov_m
@@ -12,12 +13,12 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "CREDIT_REQUEST", schema = "SCD")
 @SequenceGenerator(name = "SQ_CREDIT_REQUEST", sequenceName = "SQ_CREDIT_REQUEST")
-public class CreditRequest {
+public class CreditRequest extends AbstractEntity{
     private long creditRequestId;
 
     @javax.persistence.Column(name = "CREDIT_REQUEST_ID")
     @Id
-    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "SQ_CREDIT_REQUEST")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_CREDIT_REQUEST")
     public long getCreditRequestId() {
         return creditRequestId;
     }
@@ -26,99 +27,75 @@ public class CreditRequest {
         this.creditRequestId = creditRequestId;
     }
 
-    private long userId;
+    private Client client;
 
-    @javax.persistence.Column(name = "USER_ID")
-    @Id
-    public long getUserId() {
-        return userId;
+    @ManyToOne
+    @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
+    public Client getClient() {
+        return client;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
-    private long creditId;
+    private Credit credit;
 
-    @javax.persistence.Column(name = "CREDIT_ID")
-    @Id
-    public long getCreditId() {
-        return creditId;
+    @ManyToOne
+    @JoinColumn(name = "CREDIT_ID", referencedColumnName = "CREDIT_ID")
+    public Credit getCredit() {
+        return credit;
     }
 
-    public void setCreditId(long creditId) {
-        this.creditId = creditId;
+    public void setCredit(Credit credit) {
+        this.credit = credit;
     }
 
-    private long employeeId;
+    private Employee employee;
 
-    @javax.persistence.Column(name = "EMPLOYEE_ID")
-    @Basic
-    public long getEmployeeId() {
-        return employeeId;
+    @ManyToOne
+    @JoinColumn(name = "EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")
+    public Employee getEmployee() {
+        return employee;
     }
 
-    public void setEmployeeId(long employeeId) {
-        this.employeeId = employeeId;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
-    private long departmentId;
+    private Account account;
 
-    @javax.persistence.Column(name = "DEPARTMENT_ID")
-    @Basic
-    public long getDepartmentId() {
-        return departmentId;
+    @ManyToOne
+    @JoinColumn(name = "ACCOUNT_ID", referencedColumnName = "ACCOUNT_ID")
+    public Account getAccount() {
+        return account;
     }
 
-    public void setDepartmentId(long departmentId) {
-        this.departmentId = departmentId;
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
-    private long roleId;
-
-    @javax.persistence.Column(name = "ROLE_ID")
-    @Basic
-    public long getRoleId() {
-        return roleId;
-    }
-
-    public void setRoleId(long roleId) {
-        this.roleId = roleId;
-    }
-
-    private long accountId;
-
-    @javax.persistence.Column(name = "ACCOUNT_ID")
-    @Basic
-    public long getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(long accountId) {
-        this.accountId = accountId;
-    }
-
-    private Timestamp issuanceDate;
+    private Date issuanceDate;
 
     @javax.persistence.Column(name = "ISSUANCE_DATE")
     @Basic
-    public Timestamp getIssuanceDate() {
+    public Date getIssuanceDate() {
         return issuanceDate;
     }
 
-    public void setIssuanceDate(Timestamp issuanceDate) {
+    public void setIssuanceDate(Date issuanceDate) {
         this.issuanceDate = issuanceDate;
     }
 
-    private Timestamp processingDate;
+    private Date processingDate;
 
     @javax.persistence.Column(name = "PROCESSING_DATE")
     @Basic
-    public Timestamp getProcessingDate() {
+    public Date getProcessingDate() {
         return processingDate;
     }
 
-    public void setProcessingDate(Timestamp processingDate) {
+    public void setProcessingDate(Date processingDate) {
         this.processingDate = processingDate;
     }
 
@@ -146,15 +123,15 @@ public class CreditRequest {
         this.term = term;
     }
 
-    private long state;
+    private CreditRequestStateEnum state;
 
     @javax.persistence.Column(name = "STATE")
-    @Basic
-    public long getState() {
+    @Enumerated
+    public CreditRequestStateEnum getState() {
         return state;
     }
 
-    public void setState(long state) {
+    public void setState(CreditRequestStateEnum state) {
         this.state = state;
     }
 
@@ -170,46 +147,50 @@ public class CreditRequest {
         this.description = description;
     }
 
+
     @Override
-    public boolean equals(Object o) {
+    public boolean entityEquals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
         CreditRequest that = (CreditRequest) o;
 
-        if (accountId != that.accountId) return false;
-        if (creditId != that.creditId) return false;
         if (creditRequestId != that.creditRequestId) return false;
-        if (departmentId != that.departmentId) return false;
-        if (employeeId != that.employeeId) return false;
-        if (roleId != that.roleId) return false;
-        if (state != that.state) return false;
         if (term != that.term) return false;
-        if (userId != that.userId) return false;
+        if (account != null ? !account.equals(that.account) : that.account != null) return false;
         if (amount != null ? !amount.equals(that.amount) : that.amount != null) return false;
+        if (client != null ? !client.equals(that.client) : that.client != null) return false;
+        if (credit != null ? !credit.equals(that.credit) : that.credit != null) return false;
         if (description != null ? !description.equals(that.description) : that.description != null) return false;
+        if (employee != null ? !employee.equals(that.employee) : that.employee != null) return false;
         if (issuanceDate != null ? !issuanceDate.equals(that.issuanceDate) : that.issuanceDate != null) return false;
         if (processingDate != null ? !processingDate.equals(that.processingDate) : that.processingDate != null)
             return false;
+        if (state != that.state) return false;
 
         return true;
     }
 
     @Override
-    public int hashCode() {
+    public int entityHashCode() {
         int result = (int) (creditRequestId ^ (creditRequestId >>> 32));
-        result = 31 * result + (int) (userId ^ (userId >>> 32));
-        result = 31 * result + (int) (creditId ^ (creditId >>> 32));
-        result = 31 * result + (int) (employeeId ^ (employeeId >>> 32));
-        result = 31 * result + (int) (departmentId ^ (departmentId >>> 32));
-        result = 31 * result + (int) (roleId ^ (roleId >>> 32));
-        result = 31 * result + (int) (accountId ^ (accountId >>> 32));
+        result = 31 * result + (client != null ? client.hashCode() : 0);
+        result = 31 * result + (credit != null ? credit.hashCode() : 0);
+        result = 31 * result + (employee != null ? employee.hashCode() : 0);
+        result = 31 * result + (account != null ? account.hashCode() : 0);
         result = 31 * result + (issuanceDate != null ? issuanceDate.hashCode() : 0);
         result = 31 * result + (processingDate != null ? processingDate.hashCode() : 0);
         result = 31 * result + (amount != null ? amount.hashCode() : 0);
         result = 31 * result + (int) (term ^ (term >>> 32));
-        result = 31 * result + (int) (state ^ (state >>> 32));
+        result = 31 * result + (state != null ? state.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
+    }
+
+
+    @Override
+    @Transient
+    public Serializable getEntityId() {
+        return getCreditRequestId();
     }
 }
