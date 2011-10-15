@@ -27,6 +27,7 @@ public class RegistrationControllerBean {
     @Qualifier("hibernateCRUDService")
     private CRUDDataService hibernateCRUDDataService;
 
+    private String password;
     private String confirmPassword;
     private Client client;
 
@@ -36,6 +37,14 @@ public class RegistrationControllerBean {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Client getClient() {

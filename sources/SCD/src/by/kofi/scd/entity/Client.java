@@ -30,18 +30,6 @@ public class Client extends AbstractEntity {
         this.clientId = clientId;
     }
 
-    private long userIdentityId;
-
-    @javax.persistence.Column(name = "USER_IDENTITY_ID")
-    @Basic
-    public long getUserIdentityId() {
-        return userIdentityId;
-    }
-
-    public void setUserIdentityId(long userIdentityId) {
-        this.userIdentityId = userIdentityId;
-    }
-
     private String email = "qwe@qw.qw";
 
     @javax.persistence.Column(name = "EMAIL")
@@ -64,18 +52,6 @@ public class Client extends AbstractEntity {
 
     public void setBlocked(boolean blocked) {
         isBlocked = blocked;
-    }
-
-    private String password = "123";
-
-    @javax.persistence.Column(name = "PASSWORD")
-    @Basic
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     private String passportSeries = "ab";
@@ -281,6 +257,18 @@ public class Client extends AbstractEntity {
         this.creditRequests = creditRequests;
     }
 
+    private SCDUser user;
+
+    @OneToOne
+    @JoinColumn(name = "SCD_USER_ID", referencedColumnName = "SCD_USER_ID")
+    public SCDUser getUser() {
+        return user;
+    }
+
+    public void setUser(SCDUser user) {
+        this.user = user;
+    }
+
     @Override
     public boolean entityEquals(Object o) {
         if (this == o) return true;
@@ -291,7 +279,6 @@ public class Client extends AbstractEntity {
 
         if (clientId != client.clientId) return false;
         if (isBlocked != client.isBlocked) return false;
-        if (userIdentityId != client.userIdentityId) return false;
         if (birthday != null ? !birthday.equals(client.birthday) : client.birthday != null) return false;
         if (creditItems != null ? !creditItems.equals(client.creditItems) : client.creditItems != null) return false;
         if (creditRequests != null ? !creditRequests.equals(client.creditRequests) : client.creditRequests != null)
@@ -308,7 +295,6 @@ public class Client extends AbstractEntity {
         if (passportNo != null ? !passportNo.equals(client.passportNo) : client.passportNo != null) return false;
         if (passportSeries != null ? !passportSeries.equals(client.passportSeries) : client.passportSeries != null)
             return false;
-        if (password != null ? !password.equals(client.password) : client.password != null) return false;
         if (permanentResidence != null ? !permanentResidence.equals(client.permanentResidence) : client.permanentResidence != null)
             return false;
         if (phone != null ? !phone.equals(client.phone) : client.phone != null) return false;
@@ -316,6 +302,7 @@ public class Client extends AbstractEntity {
         if (role != null ? !role.equals(client.role) : client.role != null) return false;
         if (sex != client.sex) return false;
         if (surname != null ? !surname.equals(client.surname) : client.surname != null) return false;
+        if (user != null ? !user.equals(client.user) : client.user != null) return false;
 
         return true;
     }
@@ -324,10 +311,8 @@ public class Client extends AbstractEntity {
     public int entityHashCode() {
         int result = super.hashCode();
         result = 31 * result + (int) (clientId ^ (clientId >>> 32));
-        result = 31 * result + (int) (userIdentityId ^ (userIdentityId >>> 32));
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (isBlocked ? 1 : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (passportSeries != null ? passportSeries.hashCode() : 0);
         result = 31 * result + (passportNo != null ? passportNo.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
@@ -345,6 +330,7 @@ public class Client extends AbstractEntity {
         result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (creditItems != null ? creditItems.hashCode() : 0);
         result = 31 * result + (creditRequests != null ? creditRequests.hashCode() : 0);
+        result = 31 * result + (user != null ? user.hashCode() : 0);
         return result;
     }
 

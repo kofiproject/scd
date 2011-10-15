@@ -12,7 +12,7 @@ import java.util.Set;
 @Entity
 @Table(name = "ROLE", schema = "SCD")
 @SequenceGenerator(name = "SQ_ROLE", sequenceName = "SQ_ROLE")
-public class Role extends AbstractEntity{
+public class Role extends AbstractEntity {
     private long roleId;
 
     @javax.persistence.Column(name = "ROLE_ID")
@@ -59,6 +59,18 @@ public class Role extends AbstractEntity{
     public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
     }
+
+    private Set<SCDUser> users;
+
+    @OneToMany(mappedBy = "role")
+    public Set<SCDUser> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<SCDUser> users) {
+        this.users = users;
+    }
+
 
     @Override
     public boolean entityEquals(Object o) {
