@@ -1,17 +1,13 @@
 package by.kofi.scd.controller.login;
 
-import by.kofi.scd.business.DepartmentBusinessBean;
+import by.kofi.scd.business.UserBusinessBean;
 import by.kofi.scd.common.constants.NavigationActionEnum;
+import by.kofi.scd.entity.Role;
+import by.kofi.scd.entity.SCDUser;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.persistence.Transient;
-import java.math.BigInteger;
-import java.util.ArrayList;
 
 /**
  * @author harchevnikov_m
@@ -22,7 +18,7 @@ import java.util.ArrayList;
 @Scope("request")
 public class LoginControllerBean {
 
-    private BigInteger uniqueId;
+    private Long uniqueId;
     private String password;
     private Boolean isLoginFailed;
 
@@ -34,11 +30,11 @@ public class LoginControllerBean {
         isLoginFailed = loginFailed;
     }
 
-    public BigInteger getUniqueId() {
+    public Long getUniqueId() {
         return uniqueId;
     }
 
-    public void setUniqueId(BigInteger uniqueId) {
+    public void setUniqueId(Long uniqueId) {
         this.uniqueId = uniqueId;
     }
 
@@ -50,19 +46,20 @@ public class LoginControllerBean {
         this.password = password;
     }
 
-//    @Autowired
-//    private DepartmentBusinessBean departmentBusinessBean;
+    @Autowired
+    private UserBusinessBean userBusinessBean;
 
-    //    @Transient
-    public String loginAction() {
-        if (getPassword().length() > 10) {
+    public String loginAction() throws SCDBusinessException {
+//                Object session = FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        SCDUser user = this.userBusinessBean.getUserByIdentityId(getUniqueId());
+        if (user != null && user.getPassword().equals(getPassword())) {
+            Role role = user.getRole();
+            //todo switch for role
             return NavigationActionEnum.LOGIN.getValue();
         } else {
+            //setUniqueId(null);
             setLoginFailed(true);
             return NavigationActionEnum.LOGIN_FAIL.getValue();
         }
-//        throw new SCDBusinessException("Error");//uncomment to test error page
-//        return departmentBusinessBean.processItems(new ArrayList<Long>(0));
     }
-
 }

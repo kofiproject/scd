@@ -1,5 +1,7 @@
 package by.kofi.scd.controller.login;
 
+import by.kofi.scd.business.ClientBusinessBean;
+import by.kofi.scd.business.RoleBusinessBean;
 import by.kofi.scd.common.constants.NavigationActionEnum;
 import by.kofi.scd.dataservice.CRUDDataService;
 import by.kofi.scd.dto.registration.GenderEnum;
@@ -23,9 +25,8 @@ import javax.faces.context.FacesContext;
 @Controller("registrationBean")
 @Scope("request")
 public class RegistrationControllerBean {
-    @Autowired(required = true)
-    @Qualifier("hibernateCRUDService")
-    private CRUDDataService hibernateCRUDDataService;
+    @Autowired
+    private ClientBusinessBean clientBusinessBean;
 
     private String password;
     private String confirmPassword;
@@ -75,14 +76,10 @@ public class RegistrationControllerBean {
      * @throws SCDBusinessException technical exception
      */
     public String registrationAction() throws SCDBusinessException {
-        Object session = FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-        Client newClient = getClient();
         try {
-            Role role = hibernateCRUDDataService.find(Role.class, 1L);
-            newClient.setRole(role);
-            newClient = hibernateCRUDDataService.merge(newClient);
+            clientBusinessBean.registerClient(getClient(), getPassword());
             return NavigationActionEnum.REGISTRATION_SUCCESS.getValue();
-        } catch (SCDTechnicalException e) {
+        } catch (SCDBusinessException e) {
             throw new SCDBusinessException("registrationAction", e);
         }
     }

@@ -13,7 +13,7 @@ import java.util.Date;
 @Entity
 @Table(name = "CREDIT_REQUEST", schema = "SCD")
 @SequenceGenerator(name = "SQ_CREDIT_REQUEST", sequenceName = "SQ_CREDIT_REQUEST")
-public class CreditRequest extends AbstractEntity{
+public class CreditRequest extends AbstractEntity {
     private long creditRequestId;
 
     @javax.persistence.Column(name = "CREDIT_REQUEST_ID")
@@ -30,7 +30,7 @@ public class CreditRequest extends AbstractEntity{
     private Client client;
 
     @ManyToOne
-    @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
+    @JoinColumn(name = "CLIENT_ID", referencedColumnName = "CLIENT_ID")
     public Client getClient() {
         return client;
     }
@@ -126,7 +126,7 @@ public class CreditRequest extends AbstractEntity{
     private CreditRequestStateEnum state;
 
     @javax.persistence.Column(name = "STATE")
-    @Enumerated
+    @Enumerated(EnumType.ORDINAL)
     public CreditRequestStateEnum getState() {
         return state;
     }

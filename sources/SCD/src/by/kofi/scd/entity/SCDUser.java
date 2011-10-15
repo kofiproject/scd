@@ -101,7 +101,9 @@ public class SCDUser extends AbstractEntity {
         result = 31 * result + (employee != null ? employee.hashCode() : 0);
         return result;
     }
+
     @Override
+    @Transient
     public Serializable getEntityId() {
         return getUserId();
     }

@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "CREDIT_ITEM")
 @SequenceGenerator(name = "SQ_CREDIT_ITEM", sequenceName = "SQ_CREDIT_ITEM")
-public class CreditItem extends AbstractEntity{
+public class CreditItem extends AbstractEntity {
     private long creditItemId;
 
     @javax.persistence.Column(name = "CREDIT_ITEM_ID")
@@ -43,7 +43,7 @@ public class CreditItem extends AbstractEntity{
     private Client client;
 
     @ManyToOne
-    @JoinColumn(name = "USER_ID", referencedColumnName = "USER_ID")
+    @JoinColumn(name = "CLIENT_ID", referencedColumnName = "CLIENT_ID")
     public Client getClient() {
         return client;
     }
@@ -151,7 +151,7 @@ public class CreditItem extends AbstractEntity{
     private CreditItemStateEnum state;
 
     @javax.persistence.Column(name = "STATE")
-    @Enumerated
+    @Enumerated(EnumType.ORDINAL)
     public CreditItemStateEnum getState() {
         return state;
     }

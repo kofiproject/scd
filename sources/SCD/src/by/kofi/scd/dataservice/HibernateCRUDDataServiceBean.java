@@ -37,7 +37,7 @@ public class HibernateCRUDDataServiceBean extends HibernateDaoSupport implements
     public HibernateCRUDDataServiceBean() {
     }
 
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.MANDATORY)
     public <T> T merge(T t) throws SCDTechnicalException {
         try {
             return getHibernateTemplate().merge(t);
@@ -55,7 +55,7 @@ public class HibernateCRUDDataServiceBean extends HibernateDaoSupport implements
         }
     }
 
-    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.MANDATORY)
     public <T, PK extends Serializable> void delete(Class<T> type, PK id) throws SCDTechnicalException {
         try {
             HibernateTemplate hibernateTemplate = getHibernateTemplate();
@@ -68,11 +68,11 @@ public class HibernateCRUDDataServiceBean extends HibernateDaoSupport implements
 
     }
 
+    @SuppressWarnings({"unchecked"})
     public <T> List<T> list(Class<T> type) throws SCDTechnicalException {
         try {
             Criteria criteria = getSession().createCriteria(type);
-            List list = criteria.list();
-            return list;
+            return criteria.list();
         } catch (HibernateException e) {
             throw new SCDTechnicalException(e);
         }

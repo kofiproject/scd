@@ -77,49 +77,92 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="DepartmentDataServiceBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/department/DepartmentDataServiceBean.java">
+      <file leaf-file-name="ClientBusinessBean.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/ClientBusinessBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="13" selection-start="616" selection-end="616" vertical-scroll-proportion="0.0">
+            <state line="56" column="47" selection-start="2070" selection-end="2070" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClientDataService.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/client/ClientDataService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="0" selection-start="616" selection-end="616" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="ClientDataServiceBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/user/ClientDataServiceBean.java">
+        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/client/ClientDataServiceBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="13" selection-start="627" selection-end="627" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ClientDataService.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/user/ClientDataService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="17" selection-start="407" selection-end="407" vertical-scroll-proportion="0.42117116">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Role.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/entity/Role.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="17" selection-start="1411" selection-end="1411" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Client.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/entity/Client.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="259" column="15" selection-start="5938" selection-end="5938" vertical-scroll-proportion="-14.88">
+            <state line="19" column="75" selection-start="630" selection-end="630" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TargetSource.class" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/lib-spring/org.springframework.aop-3.0.3.RELEASE.jar!/org/springframework/aop/TargetSource.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="34" selection-start="343" selection-end="343" vertical-scroll-proportion="-6.8">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HibernateCRUDDataServiceBean.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/HibernateCRUDDataServiceBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="64" selection-start="999" selection-end="999" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registration.xhtml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/login/registration.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="264" column="15" selection-start="9767" selection-end="9767" vertical-scroll-proportion="0.58760107">
+              <folding>
+                <marker date="1318706474816" expanded="true" signature="2864:2876" placeholder="{...}" />
+                <marker date="1318706474816" expanded="true" signature="3106:3136" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/login/login.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="59" column="52" selection-start="2749" selection-end="2749" vertical-scroll-proportion="-5.117647">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegistrationValidator.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/validator/registration/RegistrationValidator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="190" column="96" selection-start="7175" selection-end="7191" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="i18n.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/i18n.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="39" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -127,28 +170,10 @@
       <file leaf-file-name="LoginControllerBean.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/login/LoginControllerBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="4" selection-start="766" selection-end="766" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Employee.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/entity/Employee.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="32" selection-start="1568" selection-end="1568" vertical-scroll-proportion="0.0">
+            <state line="59" column="14" selection-start="1711" selection-end="1711" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SCDUser.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/entity/SCDUser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="28" selection-start="2249" selection-end="2249" vertical-scroll-proportion="0.0">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -167,22 +192,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/generated/AbstractEntity.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/AbstractEntity.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/Account.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/Department.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/CreditRequest.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/CreditItem.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/Credit.java" />
-        <option value="$PROJECT_DIR$/web/client/welcome.xhtml" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/user/ClientDataServiceBean.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/user/ClientDataService.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/db.sql" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/Role.java" />
         <option value="$PROJECT_DIR$/src/by/kofi/scd/controller/login/RegistrationControllerBean.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/Employee.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/AbstractBusinessBean.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/AbstractDataServiceBean.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/CreditItem.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/CreditRequest.java" />
         <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/Client.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/SCDUser.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/UserBusinessBean.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/RoleBusinessBean.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/HibernateCRUDDataServiceBean.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/client/ClientDataService.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/validator/registration/RegistrationValidator.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/ClientBusinessBean.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/controller/login/LoginControllerBean.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/client/ClientDataServiceBean.java" />
+        <option value="$PROJECT_DIR$/src/i18n.properties" />
+        <option value="$PROJECT_DIR$/web/login/registration.xhtml" />
       </list>
     </option>
   </component>
@@ -200,10 +225,13 @@
           <State>
             <id>Internationalization issues</id>
           </State>
+          <State>
+            <id>Java EE issues</id>
+          </State>
         </expanded-state>
         <selected-state>
           <State>
-            <id>Internationalization issues</id>
+            <id>JpaAttributeTypeInspection</id>
           </State>
         </selected-state>
       </profile-state>
@@ -319,7 +347,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemId" value="login" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -333,7 +361,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test-src" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scd" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -354,44 +400,8 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="richfaces" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SCD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="scd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="richfaces" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SCD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="entity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -439,29 +449,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="richfaces" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SCD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login" />
+              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -524,11 +512,11 @@
       <recent name="by.kofi.scd.validator.registration" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="by.kofi.scd.dataservice.client" />
+      <recent name="by.kofi.scd.business" />
       <recent name="by.kofi.scd.entity" />
       <recent name="by.kofi.scd.dataservice.user" />
       <recent name="by.kofi.scd.entity.generated" />
-      <recent name="by.kofi.scd.validator.registration" />
-      <recent name="by.kofi.scd.controller.login" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\V\kofi\git\SCD\sources\SCD\web\resources\js\login" />
@@ -896,10 +884,12 @@
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32927817" sideWeight="0.80032736" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23682076" sideWeight="0.36988544" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22789943" sideWeight="0.26841244" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32569557" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19967267" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hibernate Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42553192" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27659574" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -912,14 +902,12 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23682076" sideWeight="0.80032736" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18821605" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22789943" sideWeight="0.7234042" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5270049" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41571194" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hibernate Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -993,114 +981,130 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/entity/CreditItem.java">
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/AbstractDataServiceBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="189" column="29" selection-start="5096" selection-end="5096" vertical-scroll-proportion="-9.16">
+        <state line="28" column="15" selection-start="875" selection-end="875" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/entity/Credit.java">
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/CRUDDataService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="31" selection-start="1833" selection-end="1833" vertical-scroll-proportion="0.0">
+        <state line="24" column="12" selection-start="538" selection-end="538" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/client/welcome.xhtml">
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/HibernateCRUDDataServiceBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="31" selection-start="376" selection-end="376" vertical-scroll-proportion="0.284689">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/validator/registration/RegistrationValidator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="13" selection-start="564" selection-end="564" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/hibernate.cfg.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/department/DepartmentDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="17" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/department/DepartmentDataServiceBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="13" selection-start="616" selection-end="616" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/user/ClientDataServiceBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="13" selection-start="627" selection-end="627" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/entity/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="17" selection-start="1411" selection-end="1411" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/login/RegistrationControllerBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="33" selection-start="1298" selection-end="1298" vertical-scroll-proportion="0.4099099">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/login/LoginControllerBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="4" selection-start="766" selection-end="766" vertical-scroll-proportion="0.0">
+        <state line="31" column="64" selection-start="999" selection-end="999" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/entity/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="259" column="15" selection-start="5938" selection-end="5938" vertical-scroll-proportion="-14.88">
+        <state line="68" column="17" selection-start="1548" selection-end="1548" vertical-scroll-proportion="0.7227723">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/entity/SCDUser.java">
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/UserBusinessBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="28" selection-start="2249" selection-end="2249" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/entity/Employee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="32" selection-start="1568" selection-end="1568" vertical-scroll-proportion="0.0">
+        <state line="20" column="49" selection-start="653" selection-end="653" vertical-scroll-proportion="0.42328042">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/user/ClientDataService.java">
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/login/RegistrationControllerBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="17" selection-start="407" selection-end="407" vertical-scroll-proportion="0.42117116">
+        <state line="32" column="35" selection-start="1102" selection-end="1102" vertical-scroll-proportion="0.46825397">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/ClientBusinessBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="47" selection-start="2070" selection-end="2070" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/client/ClientDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="616" selection-end="616" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/login/LoginControllerBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="14" selection-start="1711" selection-end="1711" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib-spring/org.springframework.aop-3.0.3.RELEASE.jar!/org/springframework/aop/TargetSource.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="34" selection-start="343" selection-end="343" vertical-scroll-proportion="-6.8">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib-spring/org.springframework.aop-3.0.3.RELEASE.jar!/org/springframework/aop/support/AopUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="60" selection-start="1846" selection-end="1846" vertical-scroll-proportion="0.3607143">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/validator/registration/RegistrationValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="190" column="96" selection-start="7175" selection-end="7191" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/client/ClientDataServiceBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="75" selection-start="630" selection-end="630" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/login/login.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="52" selection-start="2749" selection-end="2749" vertical-scroll-proportion="-5.117647">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/i18n.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="39" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/login/registration.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="264" column="15" selection-start="9767" selection-end="9767" vertical-scroll-proportion="0.58760107">
+          <folding>
+            <marker date="1318706474816" expanded="true" signature="2864:2876" placeholder="{...}" />
+            <marker date="1318706474816" expanded="true" signature="3106:3136" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>

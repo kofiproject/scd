@@ -19,7 +19,7 @@ import java.util.Set;
 public class Client extends AbstractEntity {
     private long clientId;
 
-    @javax.persistence.Column(name = "USER_ID")
+    @javax.persistence.Column(name = "CLIENT_ID")
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_CLIENT")
     public long getClientId() {
@@ -129,7 +129,7 @@ public class Client extends AbstractEntity {
     private GenderEnum sex;
 
     @javax.persistence.Column(name = "SEX")
-    @Enumerated
+    @Enumerated(EnumType.ORDINAL)
     public GenderEnum getSex() {
         return sex;
     }
@@ -222,18 +222,6 @@ public class Client extends AbstractEntity {
         this.jobPosition = jobPosition;
     }
 
-    private Role role;
-
-    @ManyToOne
-    @JoinColumn(name = "ROLE_ID", referencedColumnName = "ROLE_ID")
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
     private Set<CreditItem> creditItems;
 
     @OneToMany(mappedBy = "client")
@@ -299,7 +287,6 @@ public class Client extends AbstractEntity {
             return false;
         if (phone != null ? !phone.equals(client.phone) : client.phone != null) return false;
         if (phoneMobile != null ? !phoneMobile.equals(client.phoneMobile) : client.phoneMobile != null) return false;
-        if (role != null ? !role.equals(client.role) : client.role != null) return false;
         if (sex != client.sex) return false;
         if (surname != null ? !surname.equals(client.surname) : client.surname != null) return false;
         if (user != null ? !user.equals(client.user) : client.user != null) return false;
@@ -327,7 +314,6 @@ public class Client extends AbstractEntity {
         result = 31 * result + (monthlyCacheIncome != null ? monthlyCacheIncome.hashCode() : 0);
         result = 31 * result + (jobPlace != null ? jobPlace.hashCode() : 0);
         result = 31 * result + (jobPosition != null ? jobPosition.hashCode() : 0);
-        result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (creditItems != null ? creditItems.hashCode() : 0);
         result = 31 * result + (creditRequests != null ? creditRequests.hashCode() : 0);
         result = 31 * result + (user != null ? user.hashCode() : 0);

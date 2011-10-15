@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -17,7 +18,8 @@ import java.util.List;
  *         Date: 02/10/11
  *         Time: 17:23
  */
-public abstract class AbstractDataServiceBean implements AbstractDataService {
+@Service("abstractDataServiceBean")
+public class AbstractDataServiceBean implements AbstractDataService {
 
     @Autowired(required = true)
     @Qualifier("hibernateCRUDService")

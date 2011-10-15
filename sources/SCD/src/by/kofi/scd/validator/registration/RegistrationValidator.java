@@ -1,6 +1,11 @@
 package by.kofi.scd.validator.registration;
 
+import by.kofi.scd.business.ClientBusinessBean;
 import by.kofi.scd.common.i18n.I18nSupport;
+import by.kofi.scd.entity.Client;
+import by.kofi.scd.exceptions.SCDBusinessException;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.faces.application.FacesMessage;
@@ -20,6 +25,10 @@ import java.util.regex.Pattern;
  */
 @Service("registrationValidator")
 public class RegistrationValidator {
+    @Autowired
+    private ClientBusinessBean clientBusinessBean;
+
+    private static final Logger LOGGER = Logger.getLogger(RegistrationValidator.class);
     /**
      * Min length for validateShortString
      */
@@ -41,6 +50,10 @@ public class RegistrationValidator {
      * Cache income min length
      */
     private static final Integer CACHE_INCOME_MIN_LENGTH = 5;
+    /**
+     * Passport number min length
+     */
+    private static final Integer PASSPORT_NO_MIN_LENGTH = 5;
     /**
      * Email pattern
      */
@@ -141,6 +154,45 @@ public class RegistrationValidator {
                 I18nSupport.getText("registration.validator.stringMsg", CACHE_INCOME_MIN_LENGTH),
                 CACHE_INCOME_MIN_LENGTH);
     }
+
+
+    /**
+     * @param facesContext Faces context
+     * @param uiComponent  UI component
+     * @param o            object to validate
+     */
+    public void validatePassportData(FacesContext facesContext, UIComponent uiComponent, Object o) {
+        //first check passport length
+        Long passportNo = o != null ? Long.parseLong(o.toString()) : null;
+        if (passportNo.toString().length() < PASSPORT_NO_MIN_LENGTH) {
+            ((UIInput) uiComponent).setValid(false);
+            FacesMessage message = new FacesMessage(I18nSupport.getText("registration.validator.stringMsg", PASSPORT_NO_MIN_LENGTH));
+            facesContext.addMessage(uiComponent.getClientId(facesContext), message);
+
+            return;
+        }
+
+        //check for existing client with the same passport data
+
+        UIInput passportSeriesComponent = (UIInput) facesContext.getViewRoot().findComponent("registration-form:passportSeries");
+        Object passportSeriesVal = passportSeriesComponent.getValue();
+        String passportSeries = passportSeriesVal != null ? passportSeriesVal.toString() : "";
+
+
+        Client client = null;
+        try {
+            client = this.clientBusinessBean.getClientByPassportData(passportSeries, passportNo);
+        } catch (SCDBusinessException e) {
+            LOGGER.error(e.getMessage());
+        }
+
+        if (client != null) {
+            ((UIInput) uiComponent).setValid(false);
+            FacesMessage message = new FacesMessage(I18nSupport.getText("registration.validator.existingPassport"));
+            facesContext.addMessage(uiComponent.getClientId(facesContext), message);
+        }
+    }
+
 
     private void validateStringLength(FacesContext facesContext, UIComponent uiComponent, Object o,
                                       String messageStr, Integer minLength) {
