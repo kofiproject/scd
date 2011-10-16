@@ -3,6 +3,7 @@ package by.kofi.scd.controller.login;
 import by.kofi.scd.business.mail.MailBusinessBean;
 import by.kofi.scd.business.UserBusinessBean;
 import by.kofi.scd.common.constants.NavigationActionEnum;
+import by.kofi.scd.dto.UserContext;
 import by.kofi.scd.entity.Client;
 import by.kofi.scd.entity.Role;
 import by.kofi.scd.entity.SCDUser;
@@ -12,6 +13,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 /**
  * @author harchevnikov_m
@@ -53,11 +55,12 @@ public class LoginControllerBean {
     private UserBusinessBean userBusinessBean;
 
     public String loginAction() throws SCDBusinessException {
-        Object session = FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-
         SCDUser user = this.userBusinessBean.getUserByIdentityId(getUniqueId());
         if (user != null && user.getPassword().equals(getPassword())) {
-            Role role = user.getRole();
+            UserContext userContext = new UserContext(user.getClient());
+            HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+            session.setAttribute("userContext", userContext);
+
             //todo switch for role and save in session role and client
             return NavigationActionEnum.LOGIN.getValue();
         } else {
