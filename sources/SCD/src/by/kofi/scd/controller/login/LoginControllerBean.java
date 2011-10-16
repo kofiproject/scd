@@ -1,7 +1,9 @@
 package by.kofi.scd.controller.login;
 
+import by.kofi.scd.business.mail.MailBusinessBean;
 import by.kofi.scd.business.UserBusinessBean;
 import by.kofi.scd.common.constants.NavigationActionEnum;
+import by.kofi.scd.entity.Client;
 import by.kofi.scd.entity.Role;
 import by.kofi.scd.entity.SCDUser;
 import by.kofi.scd.exceptions.SCDBusinessException;
@@ -17,8 +19,7 @@ import org.springframework.stereotype.Controller;
 @Controller("loginBean")
 @Scope("request")
 public class LoginControllerBean {
-
-    private Long uniqueId;
+    private Long uniqueId = null;
     private String password;
     private Boolean isLoginFailed;
 
@@ -54,10 +55,13 @@ public class LoginControllerBean {
         SCDUser user = this.userBusinessBean.getUserByIdentityId(getUniqueId());
         if (user != null && user.getPassword().equals(getPassword())) {
             Role role = user.getRole();
-            //todo switch for role
+            //todo switch for role and save in session role and client
             return NavigationActionEnum.LOGIN.getValue();
         } else {
-            //setUniqueId(null);
+            //to avoid 0 in input if uniqueId is null (jsf initialize it with 0)
+            if (getUniqueId().equals(0L)) {
+                setUniqueId(null);
+            }
             setLoginFailed(true);
             return NavigationActionEnum.LOGIN_FAIL.getValue();
         }

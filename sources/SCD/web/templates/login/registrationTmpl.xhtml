@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <h:outputStylesheet library="css" name="reset.css"/>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <h:outputStylesheet library="css/login" name="login.css"/>
+
+    <h:outputScript library="js" name="jquery-1.6.4.js"/>
+    <h:outputScript library="js" name="jquery.numeric.js"/>
+    <h:outputScript library="js/login" name="registration.js"/>
+</h:head>
+<h:body>
+    <f:view>
+        <div class="login-wrapper-out">
+            <div class="login-wrapper" style="margin-top: 100px;">
+                <span class="login-dig-label">${bundle['registration.title']}</span>
+
+                <ui:insert name="content"/>
+
+            </div>
+            <div style="margin-bottom: 0;">
+                <ui:include src="/templates/footer.xhtml"/>
+            </div>
+        </div>
+    </f:view>
+</h:body>
+</html>

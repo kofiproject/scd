@@ -1,0 +1,19 @@
+<ui:composition template="../templates/login/registrationTmpl.xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:define name="content">
+        <h:form id="registration-success-form">
+            <div class="login-form-container" style="height: 150px; width: 400px;">
+
+                <h:outputText value="You are registered. Check your email."/>
+
+            </div>
+
+            <h:commandLink value="#{bundle['registration.mainPage']}"
+                           styleClass=""
+                           immediate="true"
+                           action="login"/>
+        </h:form>
+    </ui:define>
+</ui:composition>

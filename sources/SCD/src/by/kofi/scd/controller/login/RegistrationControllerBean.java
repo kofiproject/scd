@@ -2,6 +2,7 @@ package by.kofi.scd.controller.login;
 
 import by.kofi.scd.business.ClientBusinessBean;
 import by.kofi.scd.business.RoleBusinessBean;
+import by.kofi.scd.business.mail.MailBusinessBean;
 import by.kofi.scd.common.constants.NavigationActionEnum;
 import by.kofi.scd.dataservice.CRUDDataService;
 import by.kofi.scd.dto.registration.GenderEnum;
@@ -27,6 +28,9 @@ import javax.faces.context.FacesContext;
 public class RegistrationControllerBean {
     @Autowired
     private ClientBusinessBean clientBusinessBean;
+
+    @Autowired
+    private MailBusinessBean mailBusinessBean;
 
     private String password;
     private String confirmPassword;
@@ -77,7 +81,11 @@ public class RegistrationControllerBean {
      */
     public String registrationAction() throws SCDBusinessException {
         try {
-            clientBusinessBean.registerClient(getClient(), getPassword());
+            //store client
+            Client registeredClient = clientBusinessBean.registerClient(getClient(), getPassword());
+            //send email
+            this.mailBusinessBean.sendRegistrationNotificationMail(registeredClient);
+
             return NavigationActionEnum.REGISTRATION_SUCCESS.getValue();
         } catch (SCDBusinessException e) {
             throw new SCDBusinessException("registrationAction", e);
