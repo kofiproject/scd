@@ -1,7 +1,5 @@
 package by.kofi.scd.entity;
 
-import by.kofi.scd.dto.registration.GenderEnum;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;

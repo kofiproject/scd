@@ -1,22 +1,16 @@
 package by.kofi.scd.controller.login;
 
 import by.kofi.scd.business.ClientBusinessBean;
-import by.kofi.scd.business.RoleBusinessBean;
 import by.kofi.scd.business.mail.MailBusinessBean;
 import by.kofi.scd.common.constants.NavigationActionEnum;
-import by.kofi.scd.dataservice.CRUDDataService;
-import by.kofi.scd.dto.registration.GenderEnum;
+import by.kofi.scd.entity.GenderEnum;
 import by.kofi.scd.entity.Client;
-import by.kofi.scd.entity.Role;
 import by.kofi.scd.exceptions.SCDBusinessException;
-import by.kofi.scd.exceptions.SCDTechnicalException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.PostConstruct;
-import javax.faces.context.FacesContext;
 
 /**
  * @author harchevnikov_m
