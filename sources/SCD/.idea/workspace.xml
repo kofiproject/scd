@@ -145,11 +145,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserContext.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dto/UserContext.java">
+      <file leaf-file-name="LoginControllerBean.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/login/LoginControllerBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="17" selection-start="128" selection-end="128" vertical-scroll-proportion="0.3705722">
-              <folding />
+            <state line="55" column="97" selection-start="1443" selection-end="1515" vertical-scroll-proportion="0.25885558">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -204,13 +206,13 @@
         <option value="$PROJECT_DIR$/web/login/registration.xhtml" />
         <option value="$PROJECT_DIR$/web/templates/login/registrationTmpl.xhtml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/faces-config.xml" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/controller/login/LoginControllerBean.java" />
         <option value="$PROJECT_DIR$/src/i18n.properties" />
         <option value="$PROJECT_DIR$/web/login/registrationSuccess.xhtml" />
         <option value="$PROJECT_DIR$/web/client/welcome.xhtml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/GenderEnum.java" />
         <option value="$PROJECT_DIR$/src/by/kofi/scd/dto/UserContext.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/controller/login/LoginControllerBean.java" />
       </list>
     </option>
   </component>
@@ -539,6 +541,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="dto" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="login" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1131,15 +1155,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/login/LoginControllerBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="22" selection-start="1997" selection-end="1997" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/login/login.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -1227,6 +1242,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dto/UserContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="41" selection-start="238" selection-end="238" vertical-scroll-proportion="0.5558583">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dto/AbstractModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="22" selection-start="161" selection-end="161" vertical-scroll-proportion="0.0">
@@ -1234,10 +1256,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dto/UserContext.java">
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/login/LoginControllerBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="17" selection-start="128" selection-end="128" vertical-scroll-proportion="0.3705722">
-          <folding />
+        <state line="55" column="97" selection-start="1443" selection-end="1515" vertical-scroll-proportion="0.25885558">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

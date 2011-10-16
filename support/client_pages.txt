@@ -1,0 +1,13 @@
+1.(client_home_page) active credits list : its just grid with header
+2. page with credit plans links. Each link goes to he page with text description
+3. on the page from (2) must be button 'I wanna this credit!!!'-> 
+	-> page containscredit name, user info + inputs for sum and term
+	-> btn "SEND!"-> alert "The request is sended. Wait...."-> (send email)->)user_home_page
+4.credit calculator page (see belatusbank.by)
+5.credit history: all user credits (two tabs for active and closed)
+6.personal data page (as in registration page)
+7.requests history(three tabs: accepted, rejected, in process)
+8.
+
++functionality for report generation
+

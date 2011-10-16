@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import javax.faces.context.FacesContext;
+
 /**
  * @author harchevnikov_m
  *         Date: 26.09.11
@@ -51,7 +53,8 @@ public class LoginControllerBean {
     private UserBusinessBean userBusinessBean;
 
     public String loginAction() throws SCDBusinessException {
-//                Object session = FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        Object session = FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+
         SCDUser user = this.userBusinessBean.getUserByIdentityId(getUniqueId());
         if (user != null && user.getPassword().equals(getPassword())) {
             Role role = user.getRole();
