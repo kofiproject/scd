@@ -40,7 +40,8 @@ public class MailBusinessBean extends AbstractBusinessBean {
         String subject = this.mailBundle.getString("mail.registration.subject");
         String body = MessageFormat.format(
                 this.mailBundle.getString("mail.registration.body"),
-                client.getUser().getUserId());
+                client.getUser().getUserId(),
+                client.getUser().getPassword());
 
 
         SimpleMailMessage message = new SimpleMailMessage();

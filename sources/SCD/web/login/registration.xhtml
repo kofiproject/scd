@@ -5,6 +5,7 @@
                 xmlns:f="http://java.sun.com/jsf/core">
 
     <ui:define name="content">
+    <div >
         <h:form id="registration-form">
             <div class="login-form-container" style="height: auto; width: 400px;">
                 <h:panelGrid columns="3" styleClass="regTable">
@@ -55,8 +56,7 @@
                         <h:inputText id="passportSeries" size="4"
                                      value="#{registrationBean.client.passportSeries}"
                                      style="float: left;"
-                                     required="true"
-                                     requiredMessage="#{bundle['registration.validator.required']}"/>
+                                     />
                         <h:inputText id="passportNo" size="12" value="#{registrationBean.client.passportNo}"
                                      style="float: left; margin-left: 5px;" styleClass="numeric"
                                      validator="#{registrationValidator.validatePassportData}"
@@ -247,5 +247,6 @@
                            action="login"/>
 
         </h:form>
+    </div>
     </ui:define>
 </ui:composition>

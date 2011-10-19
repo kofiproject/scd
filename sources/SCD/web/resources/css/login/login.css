@@ -6,15 +6,18 @@
 .login-wrapper {
     width: 300px;
     vertical-align: middle;
-    margin: 200px auto; /*background-color: #0E4687;*/
+    /*margin: 420px ; *//*background-color: #0E4687;*/
+    /*margin: 200px auto;*/
+    margin: 200px 470px;
 }
 
 .login-form-container {
     height: 150px;
     clear: both;
     padding: 10px 20px;
-    background-image: url(../../../resources/images/bg.gif);
-    background-repeat: repeat;
+    /*background-image: url(../../../resources/images/bg.gif);*/
+    /*background-repeat: repeat;*/
+    background-color: #dcdcdc;
     overflow: hidden;
 
 }
@@ -44,13 +47,14 @@
     font-size: 14px;
     font-weight: bold;
     margin: 0;
-    color: #0E4687;
     float: left;
 }
 
 .reg-link {
     text-decoration: underline;
     float: right;
+    font-size: 12px;
+    margin-top: 10px;
 }
 
 .login-btn {

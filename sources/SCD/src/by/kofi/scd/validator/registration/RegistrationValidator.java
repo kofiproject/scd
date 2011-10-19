@@ -178,6 +178,15 @@ public class RegistrationValidator {
         Object passportSeriesVal = passportSeriesComponent.getValue();
         String passportSeries = passportSeriesVal != null ? passportSeriesVal.toString() : "";
 
+        //validate passport series
+        if (passportSeries.isEmpty()) {
+            ((UIInput) uiComponent).setValid(false);
+            FacesMessage message = new FacesMessage(I18nSupport.getText("registration.validator.required"));
+            facesContext.addMessage(uiComponent.getClientId(facesContext), message);
+
+            return;
+        }
+
 
         Client client = null;
         try {

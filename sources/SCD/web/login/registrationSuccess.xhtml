@@ -4,14 +4,15 @@
 
     <ui:define name="content">
         <h:form id="registration-success-form">
-            <div class="login-form-container" style="height: 150px; width: 400px;">
+            <div class="login-form-container" style="height: 50px; width: 400px; padding-top: 50px;">
 
                 <h:outputText value="You are registered. Check your email."/>
 
             </div>
 
             <h:commandLink value="#{bundle['registration.mainPage']}"
-                           styleClass=""
+                           styleClass="reg-link"
+                           style="float: left;"
                            immediate="true"
                            action="login"/>
         </h:form>

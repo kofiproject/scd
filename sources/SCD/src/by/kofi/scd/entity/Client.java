@@ -28,7 +28,7 @@ public class Client extends AbstractEntity {
         this.clientId = clientId;
     }
 
-    private String email = "qwe@qw.qw";
+    private String email;
 
     @javax.persistence.Column(name = "EMAIL")
     @Basic
@@ -52,7 +52,7 @@ public class Client extends AbstractEntity {
         isBlocked = blocked;
     }
 
-    private String passportSeries = "ab";
+    private String passportSeries;
 
     @javax.persistence.Column(name = "PASSPORT_SERIES")
     @Basic
@@ -64,7 +64,7 @@ public class Client extends AbstractEntity {
         this.passportSeries = passportSeries;
     }
 
-    private Long passportNo = 1222222222L;
+    private Long passportNo;
 
     @javax.persistence.Column(name = "PASSPORT_NO")
     @Basic
@@ -76,7 +76,7 @@ public class Client extends AbstractEntity {
         this.passportNo = passportNo;
     }
 
-    private String name = "aaaaaaaaaaaa";
+    private String name;
 
     @javax.persistence.Column(name = "NAME")
     @Basic
@@ -88,7 +88,7 @@ public class Client extends AbstractEntity {
         this.name = name;
     }
 
-    private String middleName = "aaaaaaaaaaaaaaaaa";
+    private String middleName;
 
     @javax.persistence.Column(name = "MIDDLE_NAME")
     @Basic
@@ -100,7 +100,7 @@ public class Client extends AbstractEntity {
         this.middleName = middleName;
     }
 
-    private String surname = "aaaaaaaaaaaaaaaa";
+    private String surname;
 
     @javax.persistence.Column(name = "SURNAME")
     @Basic
@@ -136,7 +136,7 @@ public class Client extends AbstractEntity {
         this.sex = sex;
     }
 
-    private String permanentResidence = "aaaaaaaaaaaaaaaaaa";
+    private String permanentResidence;
 
     @javax.persistence.Column(name = "PERMANENT_RESIDENCE")
     @Basic
@@ -148,7 +148,7 @@ public class Client extends AbstractEntity {
         this.permanentResidence = permanentResidence;
     }
 
-    private String currentResidence = "aaaaaaaaaaaaaaaaaaaaaaaaaa";
+    private String currentResidence;
 
     @javax.persistence.Column(name = "CURRENT_RESIDENCE")
     @Basic
@@ -160,7 +160,7 @@ public class Client extends AbstractEntity {
         this.currentResidence = currentResidence;
     }
 
-    private Long phone = 11111111L;
+    private Long phone;
 
     @javax.persistence.Column(name = "PHONE")
     @Basic
@@ -172,7 +172,7 @@ public class Client extends AbstractEntity {
         this.phone = phone;
     }
 
-    private Long phoneMobile = 11111111111L;
+    private Long phoneMobile;
 
     @javax.persistence.Column(name = "PHONE_MOBILE")
     @Basic
@@ -196,7 +196,7 @@ public class Client extends AbstractEntity {
         this.monthlyCacheIncome = monthlyCacheIncome;
     }
 
-    private String jobPlace = "aaaaaaaaaaaaaaaaaaaaa";
+    private String jobPlace;
 
     @javax.persistence.Column(name = "JOB_PLACE")
     @Basic
@@ -208,7 +208,7 @@ public class Client extends AbstractEntity {
         this.jobPlace = jobPlace;
     }
 
-    private String jobPosition = "vvvvvvvvvvvvvvvvvvvvvv";
+    private String jobPosition;
 
     @javax.persistence.Column(name = "JOB_POSITION")
     @Basic
