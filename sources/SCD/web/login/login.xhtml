@@ -55,9 +55,10 @@
                                                  styleClass="login-btn"
                                                  action="#{loginBean.loginAction}"/>
 
-                                <h:outputLink value="registration.xhtml" styleClass="reg-link">
-                                    <h:outputText value="#{bundle['login.register']}"/>
-                                </h:outputLink>
+
+                                <h:commandLink value="#{bundle['login.register']}" styleClass="reg-link"
+                                               action="registration" immediate="true"/>
+
 
                             </h:form>
                         </div>

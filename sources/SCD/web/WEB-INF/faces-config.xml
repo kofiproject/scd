@@ -23,10 +23,6 @@
             <from-outcome>login</from-outcome>
             <to-view-id>/client/active-credits.xhtml</to-view-id>
         </navigation-case>
-        <navigation-case>
-            <from-outcome>fail</from-outcome>
-            <to-view-id>/login/login.xhtml</to-view-id>
-        </navigation-case>
     </navigation-rule>
 
     <navigation-rule>

@@ -17,5 +17,6 @@
         <mapping class="by.kofi.scd.entity.Employee"/>
         <mapping class="by.kofi.scd.entity.Role"/>
         <mapping class="by.kofi.scd.entity.SCDUser"/>
+        <mapping class="by.kofi.scd.entity.Payment"/>
     </session-factory>
 </hibernate-configuration>

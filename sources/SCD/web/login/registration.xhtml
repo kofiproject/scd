@@ -225,9 +225,9 @@
                              styleClass="login-btn"
                              action="#{registrationBean.registrationAction}"/>
 
-            <h:outputLink value="login.xhtml" styleClass="reg-link">
-                <h:outputText value="#{bundle['registration.backToLogin']}"/>
-            </h:outputLink>
+            <h:commandLink value="#{bundle['registration.backToLogin']}" styleClass="reg-link"
+                           action="login" immediate="true"/>
+
         </h:form>
     </div>
     </ui:define>

@@ -243,6 +243,17 @@ public class Client extends AbstractEntity {
         this.user = user;
     }
 
+    private Set<Payment> payments;
+
+    @OneToMany(mappedBy = "client")
+    public Set<Payment> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(Set<Payment> payments) {
+        this.payments = payments;
+    }
+
     @Override
     public boolean entityEquals(Object o) {
         if (this == o) return true;

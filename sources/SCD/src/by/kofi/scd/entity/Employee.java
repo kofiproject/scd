@@ -2,6 +2,7 @@ package by.kofi.scd.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 /**
  * @author harchevnikov_m
@@ -97,6 +98,18 @@ public class Employee extends AbstractEntity {
     public void setUser(SCDUser user) {
         this.user = user;
     }
+
+    private Set<Payment> payments;
+
+    @OneToMany(mappedBy = "employee")
+    public Set<Payment> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(Set<Payment> payments) {
+        this.payments = payments;
+    }
+
 
     @Override
     public boolean entityEquals(Object o) {
