@@ -5,7 +5,7 @@
                 xmlns:f="http://java.sun.com/jsf/core">
 
     <ui:define name="content">
-    <div >
+     <div style="margin-left: 270px; margin-top: 20px; width: 400px; ">
         <h:form id="registration-form">
             <div class="login-form-container" style="height: auto; width: 400px;">
                 <h:panelGrid columns="3" styleClass="regTable">
@@ -190,22 +190,6 @@
                         <h:message styleClass="errorMsg" for="email"/>
                     </h:panelGroup>
 
-                    <h:panelGroup>
-                        <h:outputLabel value="#{bundle['registration.monthlyCacheIncome']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:inputText id="monthlyCacheIncome" size="17"
-                                     value="#{registrationBean.client.monthlyCacheIncome}"
-                                     validator="#{registrationValidator.validateCacheIncome}"
-                                     required="true"
-                                     requiredMessage="#{bundle['registration.validator.required']}">
-                            <f:validateLength maximum="20"/>
-                        </h:inputText>
-                        BY
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:message styleClass="errorMsg" for="monthlyCacheIncome"/>
-                    </h:panelGroup>
 
                     <h:panelGroup>
                         <h:outputLabel value="#{bundle['registration.jobPlace']}"/>
@@ -241,11 +225,9 @@
                              styleClass="login-btn"
                              action="#{registrationBean.registrationAction}"/>
 
-            <h:commandLink value="#{bundle['registration.backToLogin']}"
-                           styleClass="reg-link"
-                           immediate="true"
-                           action="login"/>
-
+            <h:outputLink value="login.xhtml" styleClass="reg-link">
+                <h:outputText value="#{bundle['registration.backToLogin']}"/>
+            </h:outputLink>
         </h:form>
     </div>
     </ui:define>

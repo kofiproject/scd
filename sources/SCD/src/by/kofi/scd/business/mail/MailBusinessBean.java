@@ -55,7 +55,8 @@ public class MailBusinessBean extends AbstractBusinessBean {
             mailSender.send(message);
         } catch (MailException e) {
             LOGGER.error(e.getMessage());
-            throw new SCDBusinessException("Registration email error", e);
+            //todo uncomment !!
+//            throw new SCDBusinessException("Registration email error", e);
         }
     }
 }
