@@ -147,6 +147,17 @@ public class CreditRequest extends AbstractEntity {
         this.description = description;
     }
 
+    private BigDecimal monthlyCacheIncome;
+
+    @javax.persistence.Column(name = "MONTHLY_CACHE_INCOME")
+    @Basic
+    public BigDecimal getMonthlyCacheIncome() {
+        return monthlyCacheIncome;
+    }
+
+    public void setMonthlyCacheIncome(BigDecimal monthlyCacheIncome) {
+        this.monthlyCacheIncome = monthlyCacheIncome;
+    }
 
     @Override
     public boolean entityEquals(Object o) {

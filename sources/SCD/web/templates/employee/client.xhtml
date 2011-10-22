@@ -6,44 +6,60 @@
         >
     <ui:define name="left-menu">
         <h:form id="form">
-            <h:panelGrid columns="2">
+            <h:panelGrid columns="2" style="width: 140px; margin-left: 7px; background-color: #808080;">
                 <rich:panelMenu
-                                style="width: 140px; margin-left: 7px;"
+                        columnClasses="cols,cols"
                                 groupExpandedLeftIcon="triangleUp"
                                 groupCollapsedLeftIcon="triangleDown"
                                 topGroupExpandedRightIcon="chevronUp"
-                                topGroupCollapsedRightIcon="chevronDown" itemLeftIcon="disc"
+                                topGroupCollapsedRightIcon="chevronDown"
+                                itemLeftIcon="disc"
                         >
+                    <rich:panelMenuItem icon="disc">
+                        <h:outputLink value="##"
+                                styleClass="left-menu-item">
+                            <h:outputText value="active credits"/>
+                        </h:outputLink>
+                    </rich:panelMenuItem>
 
-                    <rich:panelMenuGroup label="Group 1">
+                    <rich:panelMenuItem icon="disc">
+                        <h:outputLink value="##"
+                                styleClass="left-menu-item">
+                            <h:outputText value="Credit plans"/>
+                        </h:outputLink>
+                    </rich:panelMenuItem>
 
-                        <rich:panelMenuItem >
-                            <h:outputLink value="../login/login.xhtml"
-                                    styleClass="left-menu-item">
-                                <h:outputText value="RichFaces Home Page"/>
-                            </h:outputLink>
-                        </rich:panelMenuItem>
+                    <rich:panelMenuItem icon="disc">
+                        <h:outputLink value="##"
+                                styleClass="left-menu-item">
+                            <h:outputText value="Credit calculator"/>
+                        </h:outputLink>
+                    </rich:panelMenuItem>
 
-                        <rich:panelMenuItem label="login" action="login" immediate="true"/>
-                        <rich:panelMenuItem label="Item 1.2" name="Item_1_2"/>
-                        <rich:panelMenuItem label="Item 1.3" name="Item_1_3"/>
-                    </rich:panelMenuGroup>
-                    <rich:panelMenuGroup label="Group 2">
-                        <rich:panelMenuItem label="Item 2.1" name="Item_2_1"/>
-                        <rich:panelMenuItem label="Item 2.2" name="Item_2_2"/>
-                        <rich:panelMenuItem label="Item 2.3" name="Item_2_3"/>
-                        <rich:panelMenuGroup label="Group 2.4">
-                            <rich:panelMenuItem label="Item 2.4.1" name="Item_2_4_1"/>
-                            <rich:panelMenuItem label="Item 2.4.2" name="Item_2_4_2"/>
-                            <rich:panelMenuItem label="Item 2.4.3" name="Item_2_4_3"/>
-                        </rich:panelMenuGroup>
-                        <rich:panelMenuItem label="Item 2.5" name="Item_2_5"/>
-                    </rich:panelMenuGroup>
+                    <rich:panelMenuItem icon="disc">
+                        <h:outputLink value="##"
+                                styleClass="left-menu-item">
+                            <h:outputText value="Profile"/>
+                        </h:outputLink>
+                    </rich:panelMenuItem>
+
+                    <rich:panelMenuItem icon="disc">
+                        <h:outputLink value="##"
+                                styleClass="left-menu-item">
+                            <h:outputText value="History"/>
+                        </h:outputLink>
+                    </rich:panelMenuItem>
+
+<!--
+
                     <rich:panelMenuGroup label="Group 3">
                         <rich:panelMenuItem label="Item 3.1" name="Item_3_1"/>
                         <rich:panelMenuItem label="Item 3.2" name="Item_3_2"/>
                         <rich:panelMenuItem label="Item 3.3" name="Item_3_3"/>
                     </rich:panelMenuGroup>
+-->
+
+
                 </rich:panelMenu>
                 <!--
                                 <a4j:outputPanel ajaxRendered="true">

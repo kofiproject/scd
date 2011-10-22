@@ -11,3 +11,13 @@
 
 +functionality for report generation
 
+
+active credits
+Credit plans
+	plan1
+	plan2
+Credit calculator
+Profile
+History
+
+  MONTHLY_CACHE_INCOME  NUMBER(38)              NOT NULL,

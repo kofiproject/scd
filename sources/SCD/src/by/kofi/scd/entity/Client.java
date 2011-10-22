@@ -184,18 +184,6 @@ public class Client extends AbstractEntity {
         this.phoneMobile = phoneMobile;
     }
 
-    private BigDecimal monthlyCacheIncome;
-
-    @javax.persistence.Column(name = "MONTHLY_CACHE_INCOME")
-    @Basic
-    public BigDecimal getMonthlyCacheIncome() {
-        return monthlyCacheIncome;
-    }
-
-    public void setMonthlyCacheIncome(BigDecimal monthlyCacheIncome) {
-        this.monthlyCacheIncome = monthlyCacheIncome;
-    }
-
     private String jobPlace;
 
     @javax.persistence.Column(name = "JOB_PLACE")
@@ -275,8 +263,6 @@ public class Client extends AbstractEntity {
         if (jobPlace != null ? !jobPlace.equals(client.jobPlace) : client.jobPlace != null) return false;
         if (jobPosition != null ? !jobPosition.equals(client.jobPosition) : client.jobPosition != null) return false;
         if (middleName != null ? !middleName.equals(client.middleName) : client.middleName != null) return false;
-        if (monthlyCacheIncome != null ? !monthlyCacheIncome.equals(client.monthlyCacheIncome) : client.monthlyCacheIncome != null)
-            return false;
         if (name != null ? !name.equals(client.name) : client.name != null) return false;
         if (passportNo != null ? !passportNo.equals(client.passportNo) : client.passportNo != null) return false;
         if (passportSeries != null ? !passportSeries.equals(client.passportSeries) : client.passportSeries != null)
@@ -309,7 +295,6 @@ public class Client extends AbstractEntity {
         result = 31 * result + (currentResidence != null ? currentResidence.hashCode() : 0);
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
         result = 31 * result + (phoneMobile != null ? phoneMobile.hashCode() : 0);
-        result = 31 * result + (monthlyCacheIncome != null ? monthlyCacheIncome.hashCode() : 0);
         result = 31 * result + (jobPlace != null ? jobPlace.hashCode() : 0);
         result = 31 * result + (jobPosition != null ? jobPosition.hashCode() : 0);
         result = 31 * result + (creditItems != null ? creditItems.hashCode() : 0);

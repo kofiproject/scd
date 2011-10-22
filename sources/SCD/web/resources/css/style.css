@@ -159,12 +159,13 @@ body {
 .left-menu-item {
     text-decoration: none;
     font-family: Arial, Verdana, sans-serif;
-    font-size: 11px;
+    font-size: 12px;
     padding: 2px 0 3px;
     white-space: normal !important;
-    color: #000000 !important;
+    color: #FFF !important;
     cursor: pointer;
 }
-.left-menu-item:hover {
-    text-decoration: none;
+
+.rf-pm-top-itm {
+     background: url("../../resources/images/bg_bottom.gif");
 }

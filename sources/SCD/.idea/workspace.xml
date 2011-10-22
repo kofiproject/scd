@@ -89,7 +89,7 @@
       <file leaf-file-name="login.xhtml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/login/login.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="45" selection-start="3041" selection-end="3041" vertical-scroll-proportion="-9.730769">
+            <state line="62" column="45" selection-start="3041" selection-end="3041" vertical-scroll-proportion="-31.307692">
               <folding />
             </state>
           </provider>
@@ -107,10 +107,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="client.xhtml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="client.xhtml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/templates/employee/client.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="18" selection-start="821" selection-end="821" vertical-scroll-proportion="0.20094563">
+            <state line="59" column="0" selection-start="2431" selection-end="2779" vertical-scroll-proportion="-6.5384617">
+              <folding>
+                <marker date="1319313625792" expanded="true" signature="378:436" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/resources/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="158" column="33" selection-start="2657" selection-end="2657" vertical-scroll-proportion="0.31848553">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreditRequest.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/entity/CreditRequest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="159" column="5" selection-start="3758" selection-end="3758" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="footer.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/templates/footer.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="36" selection-start="486" selection-end="486" vertical-scroll-proportion="-7.1923075">
               <folding />
             </state>
           </provider>
@@ -134,26 +163,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registrationTmpl.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/templates/login/registrationTmpl.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="0" selection-start="2635" selection-end="2635" vertical-scroll-proportion="10.153846">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/templates/base.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="167" column="9" selection-start="933" selection-end="8074" vertical-scroll-proportion="-37.192307">
-              <folding>
-                <element signature="tag#table#0;tag#td#0;tag#tr#0;tag#table#0;tag#h:body#0;tag#html#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -168,11 +177,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/mail.properties" />
         <option value="$PROJECT_DIR$/src/i18n.properties" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/web/login/registrationSuccess.xhtml" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/Client.java" />
         <option value="$PROJECT_DIR$/src/by/kofi/scd/validator/registration/RegistrationValidator.java" />
         <option value="$PROJECT_DIR$/web/resources/js/login/registration.js" />
         <option value="$PROJECT_DIR$/src/by/kofi/scd/business/mail/MailBusinessBean.java" />
@@ -182,8 +189,10 @@
         <option value="$PROJECT_DIR$/web/login/login.xhtml" />
         <option value="$PROJECT_DIR$/web/client/active-credits.xhtml" />
         <option value="$PROJECT_DIR$/web/resources/css/login/login.css" />
-        <option value="$PROJECT_DIR$/web/resources/css/style.css" />
         <option value="$PROJECT_DIR$/web/templates/employee/client.xhtml" />
+        <option value="$PROJECT_DIR$/web/resources/css/style.css" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/CreditRequest.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/Client.java" />
       </list>
     </option>
   </component>
@@ -1161,27 +1170,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/resources/js/login/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorReferencesProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleGeneralEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="42" selection-start="839" selection-end="839" vertical-scroll-proportion="-15.3">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/mail/MailBusinessBean.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="57" column="31" selection-start="2019" selection-end="2019" vertical-scroll-proportion="0.0">
@@ -1205,23 +1193,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/entity/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="312" column="32" selection-start="9415" selection-end="9415" vertical-scroll-proportion="0.7408257">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/validator/registration/RegistrationValidator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="183" column="28" selection-start="6913" selection-end="6913" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/login/login.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="45" selection-start="3041" selection-end="3041" vertical-scroll-proportion="-9.730769">
           <folding />
         </state>
       </provider>
@@ -1277,16 +1251,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/css/style.css">
+    <entry file="file://$PROJECT_DIR$/web/login/login.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="161" column="41" selection-start="2750" selection-end="2750" vertical-scroll-proportion="0.54565704">
+        <state line="62" column="45" selection-start="3041" selection-end="3041" vertical-scroll-proportion="-31.307692">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/footer.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="36" selection-start="486" selection-end="486" vertical-scroll-proportion="-7.1923075">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/templates/employee/client.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="18" selection-start="821" selection-end="821" vertical-scroll-proportion="0.20094563">
+        <state line="59" column="0" selection-start="2431" selection-end="2779" vertical-scroll-proportion="-6.5384617">
+          <folding>
+            <marker date="1319313625792" expanded="true" signature="378:436" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/entity/CreditRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="159" column="5" selection-start="3758" selection-end="3758" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/entity/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="297" column="0" selection-start="8790" selection-end="8790" vertical-scroll-proportion="0.6238532">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/resources/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="158" column="33" selection-start="2657" selection-end="2657" vertical-scroll-proportion="0.31848553">
           <folding />
         </state>
       </provider>
