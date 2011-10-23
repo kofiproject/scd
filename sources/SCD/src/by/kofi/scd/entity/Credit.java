@@ -27,16 +27,16 @@ public class Credit extends AbstractEntity{
         this.creditId = creditId;
     }
 
-    private String departmentNo;
+    private String name;
 
-    @javax.persistence.Column(name = "DEPARTMENT_NO")
+    @javax.persistence.Column(name = "NAME")
     @Basic
-    public String getDepartmentNo() {
-        return departmentNo;
+    public String getName() {
+        return name;
     }
 
-    public void setDepartmentNo(String departmentNo) {
-        this.departmentNo = departmentNo;
+    public void setName(String name) {
+        this.name = name;
     }
 
     private String description;
@@ -85,7 +85,7 @@ public class Credit extends AbstractEntity{
 
         if (creditId != credit.creditId) return false;
         if (penaltyPercent != credit.penaltyPercent) return false;
-        if (departmentNo != null ? !departmentNo.equals(credit.departmentNo) : credit.departmentNo != null)
+        if (name != null ? !name.equals(credit.name) : credit.name != null)
             return false;
         if (description != null ? !description.equals(credit.description) : credit.description != null) return false;
         if (percent != null ? !percent.equals(credit.percent) : credit.percent != null) return false;
@@ -96,7 +96,7 @@ public class Credit extends AbstractEntity{
     @Override
     public int entityHashCode() {
         int result = (int) (creditId ^ (creditId >>> 32));
-        result = 31 * result + (departmentNo != null ? departmentNo.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (percent != null ? percent.hashCode() : 0);
         result = 31 * result + (penaltyPercent != null ? penaltyPercent.hashCode() : 0);

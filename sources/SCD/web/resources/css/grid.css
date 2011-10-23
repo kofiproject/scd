@@ -6,6 +6,10 @@
 .grid-number-col {
     width: 15px;
 }
+.grid-report-col {
+    text-decoration: underline;
+}
+
 .gridHeader {
     text-decoration: none;
     font-family: Arial, Verdana, sans-serif;

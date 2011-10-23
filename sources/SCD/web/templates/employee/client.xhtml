@@ -5,59 +5,59 @@
                 xmlns:a4j="http://richfaces.org/a4j"
         >
     <ui:define name="left-menu">
-        <h:form id="form">
+        <h:form id="menu-form">
             <h:panelGrid columns="2" style="width: 140px; margin-left: 7px; background-color: #808080;">
                 <rich:panelMenu
                         columnClasses="cols,cols"
-                                groupExpandedLeftIcon="triangleUp"
-                                groupCollapsedLeftIcon="triangleDown"
-                                topGroupExpandedRightIcon="chevronUp"
-                                topGroupCollapsedRightIcon="chevronDown"
-                                itemLeftIcon="disc"
+                        groupExpandedLeftIcon="triangleUp"
+                        groupCollapsedLeftIcon="triangleDown"
+                        topGroupExpandedRightIcon="chevronUp"
+                        topGroupCollapsedRightIcon="chevronDown"
+                        itemLeftIcon="disc"
                         >
                     <rich:panelMenuItem icon="disc">
                         <h:outputLink value="##"
-                                styleClass="left-menu-item">
+                                      styleClass="left-menu-item">
                             <h:outputText value="active credits"/>
                         </h:outputLink>
                     </rich:panelMenuItem>
 
                     <rich:panelMenuItem icon="disc">
                         <h:outputLink value="##"
-                                styleClass="left-menu-item">
+                                      styleClass="left-menu-item">
                             <h:outputText value="Credit plans"/>
                         </h:outputLink>
                     </rich:panelMenuItem>
 
                     <rich:panelMenuItem icon="disc">
                         <h:outputLink value="##"
-                                styleClass="left-menu-item">
+                                      styleClass="left-menu-item">
                             <h:outputText value="Credit calculator"/>
                         </h:outputLink>
                     </rich:panelMenuItem>
 
                     <rich:panelMenuItem icon="disc">
                         <h:outputLink value="##"
-                                styleClass="left-menu-item">
+                                      styleClass="left-menu-item">
                             <h:outputText value="Profile"/>
                         </h:outputLink>
                     </rich:panelMenuItem>
 
                     <rich:panelMenuItem icon="disc">
                         <h:outputLink value="##"
-                                styleClass="left-menu-item">
+                                      styleClass="left-menu-item">
                             <h:outputText value="History"/>
                         </h:outputLink>
                     </rich:panelMenuItem>
 
-<!--
+                    <!--
 
-                    <rich:panelMenuGroup label="Group 3">
-                        <rich:panelMenuItem label="Item 3.1" name="Item_3_1"/>
-                        <rich:panelMenuItem label="Item 3.2" name="Item_3_2"/>
-                        <rich:panelMenuItem label="Item 3.3" name="Item_3_3"/>
-                    </rich:panelMenuGroup>
--->
+                                        <rich:panelMenuGroup label="Group 3">
+                                            <rich:panelMenuItem label="Item 3.1" name="Item_3_1"/>
+                                            <rich:panelMenuItem label="Item 3.2" name="Item_3_2"/>
+                                            <rich:panelMenuItem label="Item 3.3" name="Item_3_3"/>
+                                        </rich:panelMenuGroup>
+                    -->
 
 
                 </rich:panelMenu>

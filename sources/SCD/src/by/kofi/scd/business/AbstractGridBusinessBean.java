@@ -12,7 +12,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
  */
 public abstract class AbstractGridBusinessBean extends AbstractBusinessBean {
     private int rowsPerPage = 2;
-    private int currentPage = 0;
+    private int currentPage = 1;
+    private long selectedRowId;
 
     public int getRowsPerPage() {
         return rowsPerPage;
@@ -28,5 +29,13 @@ public abstract class AbstractGridBusinessBean extends AbstractBusinessBean {
 
     public void setCurrentPage(int currentPage) {
         this.currentPage = currentPage;
+    }
+
+    public long getSelectedRowId() {
+        return selectedRowId;
+    }
+
+    public void setSelectedRowId(long selectedRowId) {
+        this.selectedRowId = selectedRowId;
     }
 }
