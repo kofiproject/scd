@@ -65,7 +65,7 @@ public class CreditRequest extends AbstractEntity {
 
     private Account account;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "ACCOUNT_ID", referencedColumnName = "ACCOUNT_ID")
     public Account getAccount() {
         return account;

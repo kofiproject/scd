@@ -1,6 +1,6 @@
 package by.kofi.scd.controller.login;
 
-import by.kofi.scd.business.ClientBusinessBean;
+import by.kofi.scd.business.client.ClientBusinessBean;
 import by.kofi.scd.business.mail.MailBusinessBean;
 import by.kofi.scd.common.constants.NavigationActionEnum;
 import by.kofi.scd.entity.GenderEnum;

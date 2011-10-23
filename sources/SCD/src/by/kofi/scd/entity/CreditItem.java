@@ -15,16 +15,16 @@ import java.sql.Timestamp;
 @Table(name = "CREDIT_ITEM")
 @SequenceGenerator(name = "SQ_CREDIT_ITEM", sequenceName = "SQ_CREDIT_ITEM")
 public class CreditItem extends AbstractEntity {
-    private long creditItemId;
+    private Long creditItemId;
 
     @javax.persistence.Column(name = "CREDIT_ITEM_ID")
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_CREDIT_ITEM")
-    public long getCreditItemId() {
+    public Long getCreditItemId() {
         return creditItemId;
     }
 
-    public void setCreditItemId(long creditItemId) {
+    public void setCreditItemId(Long creditItemId) {
         this.creditItemId = creditItemId;
     }
 
@@ -52,16 +52,16 @@ public class CreditItem extends AbstractEntity {
         this.client = client;
     }
 
-    private long accountId;
+    private Account account;
 
-    @javax.persistence.Column(name = "ACCOUNT_ID")
-    @Id
-    public long getAccountId() {
-        return accountId;
+    @OneToOne
+    @JoinColumn(name = "ACCOUNT_ID", referencedColumnName = "ACCOUNT_ID")
+    public Account getAccount() {
+        return account;
     }
 
-    public void setAccountId(long accountId) {
-        this.accountId = accountId;
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     private Timestamp issuanceDate;
@@ -100,15 +100,15 @@ public class CreditItem extends AbstractEntity {
         this.amount = amount;
     }
 
-    private long term;
+    private Long term;
 
     @javax.persistence.Column(name = "TERM")
     @Basic
-    public long getTerm() {
+    public Long getTerm() {
         return term;
     }
 
-    public void setTerm(long term) {
+    public void setTerm(Long term) {
         this.term = term;
     }
 
@@ -168,7 +168,7 @@ public class CreditItem extends AbstractEntity {
 
         CreditItem that = (CreditItem) o;
 
-        if (accountId != that.accountId) return false;
+        if (account != that.account) return false;
         if (creditItemId != that.creditItemId) return false;
         if (term != that.term) return false;
         if (amount != null ? !amount.equals(that.amount) : that.amount != null) return false;
@@ -192,7 +192,6 @@ public class CreditItem extends AbstractEntity {
         result = 31 * result + (int) (creditItemId ^ (creditItemId >>> 32));
         result = 31 * result + (credit != null ? credit.hashCode() : 0);
         result = 31 * result + (client != null ? client.hashCode() : 0);
-        result = 31 * result + (int) (accountId ^ (accountId >>> 32));
         result = 31 * result + (issuanceDate != null ? issuanceDate.hashCode() : 0);
         result = 31 * result + (closingDate != null ? closingDate.hashCode() : 0);
         result = 31 * result + (amount != null ? amount.hashCode() : 0);

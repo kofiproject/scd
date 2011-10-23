@@ -1,6 +1,6 @@
 package by.kofi.scd.validator.registration;
 
-import by.kofi.scd.business.ClientBusinessBean;
+import by.kofi.scd.business.client.ClientBusinessBean;
 import by.kofi.scd.common.i18n.I18nSupport;
 import by.kofi.scd.entity.Client;
 import by.kofi.scd.exceptions.SCDBusinessException;
@@ -12,7 +12,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
-import java.util.Iterator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

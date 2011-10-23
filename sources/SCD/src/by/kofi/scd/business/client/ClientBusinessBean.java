@@ -1,6 +1,7 @@
-package by.kofi.scd.business;
+package by.kofi.scd.business.client;
 
-import by.kofi.scd.dataservice.AbstractDataServiceBean;
+import by.kofi.scd.business.AbstractBusinessBean;
+import by.kofi.scd.business.RoleBusinessBean;
 import by.kofi.scd.dataservice.CRUDDataService;
 import by.kofi.scd.dataservice.client.ClientDataService;
 import by.kofi.scd.entity.Client;
@@ -10,7 +11,6 @@ import by.kofi.scd.exceptions.SCDBusinessException;
 import by.kofi.scd.exceptions.SCDTechnicalException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;

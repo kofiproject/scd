@@ -38,15 +38,26 @@ public class Account extends AbstractEntity {
         this.accountNumber = accountNumber;
     }
 
-    private Set<CreditRequest> creditRequests;
+    private CreditRequest creditRequest;
 
-    @OneToMany(mappedBy = "account")
-    public Set<CreditRequest> getCreditRequests() {
-        return creditRequests;
+    @OneToOne(mappedBy = "account")
+    public CreditRequest getCreditRequest() {
+        return creditRequest;
     }
 
-    public void setCreditRequests(Set<CreditRequest> creditRequests) {
-        this.creditRequests = creditRequests;
+    public void setCreditRequest(CreditRequest creditRequest) {
+        this.creditRequest = creditRequest;
+    }
+
+    private CreditItem creditItem;
+
+    @OneToOne(mappedBy = "account")
+    public CreditItem getCreditItem() {
+        return creditItem;
+    }
+
+    public void setCreditItem(CreditItem creditItem) {
+        this.creditItem = creditItem;
     }
 
     private Set<Payment> payments;
@@ -70,7 +81,7 @@ public class Account extends AbstractEntity {
 
         if (accountId != account.accountId) return false;
         if (accountNumber != account.accountNumber) return false;
-        if (creditRequests != null ? !creditRequests.equals(account.creditRequests) : account.creditRequests != null)
+        if (creditRequest != null ? !creditRequest.equals(account.creditRequest) : account.creditRequest != null)
             return false;
 
         return true;
@@ -81,7 +92,7 @@ public class Account extends AbstractEntity {
         int result = super.hashCode();
         result = 31 * result + (int) (accountId ^ (accountId >>> 32));
         result = 31 * result + (int) (accountNumber ^ (accountNumber >>> 32));
-        result = 31 * result + (creditRequests != null ? creditRequests.hashCode() : 0);
+        result = 31 * result + (creditRequest != null ? creditRequest.hashCode() : 0);
         return result;
     }
 
