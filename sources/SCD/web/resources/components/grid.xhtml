@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:grid="http://java.sun.com/jsf/composite/components"
+      >
+
+<!-- INTERFACE -->
+<composite:interface>
+    <composite:attribute name="bean"/>
+    <composite:attribute name="resultList"/>
+    <composite:attribute name="headers"/>
+    <composite:attribute name="fields"/>
+</composite:interface>
+
+<!-- IMPLEMENTATION -->
+<composite:implementation>
+
+    <a4j:status id="loading"
+                onstart="#{rich:component('panel_loading')}.show()"
+                onstop="#{rich:component('panel_loading')}.hide()"
+            />
+
+    <rich:popupPanel id="panel_loading" autosized="true">
+        <h:graphicImage library="images" name="loader.gif" alt=""/>
+        <h:outputText value="#{bundle['common.loading']}"/>
+    </rich:popupPanel>
+
+    <h:form id="grid-form">
+        <rich:dataTable
+                value="#{cc.attrs.resultList}"
+                var="item"
+                iterationStatusVar="iter"
+                id="table"
+                rows="#{cc.attrs.bean.rowsPerPage}"
+                styleClass="grid"
+                >
+            <rich:column styleClass="grid-number-col">
+                <f:facet name="header">
+                    <h:outputText value="#{bundle['grid.common.number']}"/>
+                </f:facet>
+                <h:outputText value="#{iter.index+1}"/>
+            </rich:column>
+
+            <a4j:repeat var="curHeader" value="#{cc.attrs.headers}" rowKeyVar="keyVar">
+                <rich:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle[curHeader.text]}"/>
+                    </f:facet>
+                    <h:outputText value="#{bundle[curHeader.text]}"/>
+                </rich:column>
+            </a4j:repeat>
+
+            <rich:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle['grid.common.report']}"/>
+                </f:facet>
+
+                <a4j:commandLink value="#{bundle['grid.common.generateReport']}"
+                                 styleClass="grid-report-col"
+                                 immediate="true"
+                                 action="#{activeCreditsGridBusinessBean.generateReport}"
+                                 onclick="#{rich:component('panel_loading')}.show()"
+                                 oncomplete='document.getElementById("#{cc.attrs.id}:grid-form:report-btn").click()'
+                        >
+                    <a4j:param value="#{item.creditItemId}"
+                               assignTo="#{activeCreditsGridBusinessBean.selectedRowId}"/>
+                </a4j:commandLink>
+            </rich:column>
+
+            <f:facet name="footer">
+                <rich:dataScroller page="#{cc.attrs.bean.currentPage}"/>
+            </f:facet>
+        </rich:dataTable>
+
+        <h:commandLink id="report-btn"
+                       style="display: none;"
+                       immediate="true"
+                       action="#{cc.attrs.bean.downloadReport}"
+                       onclick="#{rich:component('panel_loading')}.hide()"
+                />
+    </h:form>
+
+</composite:implementation>
+</html>
+
+
+

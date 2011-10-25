@@ -1,11 +1,11 @@
 package by.kofi.scd.business.client;
 
-import by.kofi.scd.business.AbstractBusinessBean;
-import by.kofi.scd.business.AbstractGridBusinessBean;
-import by.kofi.scd.business.RoleBusinessBean;
-import by.kofi.scd.dataservice.CRUDDataService;
+import by.kofi.scd.business.grid.AbstractGridBusinessBean;
+import by.kofi.scd.business.grid.GridHeader;
+import by.kofi.scd.business.grid.ResultRowField;
 import by.kofi.scd.dataservice.client.ClientDataService;
 import by.kofi.scd.dto.UserContext;
+import by.kofi.scd.dto.client.ActiveCreditsResultRow;
 import by.kofi.scd.entity.*;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import by.kofi.scd.exceptions.SCDTechnicalException;
@@ -15,17 +15,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.PostConstruct;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
@@ -46,37 +43,52 @@ public class ActiveCreditsGridBusinessBean extends AbstractGridBusinessBean {
     @Autowired
     private ClientDataService clientDataService;
 
-    private List<CreditItem> activeCreditItems = new ArrayList<CreditItem>(0);
-
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public void executeSearch() throws SCDBusinessException {
+    public List<ActiveCreditsResultRow> executeSearch() throws SCDBusinessException {
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         UserContext userContext = (UserContext) session.getAttribute("userContext");
         Long clientId = userContext.getClient().getClientId();
         try {
             List<CreditItem> creditItems = clientDataService.getCreditItems(clientId, CreditItemStateEnum.ACTIVE);
-            setActiveCreditItems(creditItems);
+
+            List<ActiveCreditsResultRow> result = new ArrayList<ActiveCreditsResultRow>(creditItems.size());
+            for (CreditItem creditItem : creditItems) {
+                result.add(new ActiveCreditsResultRow(creditItem));
+            }
+
+            return result;
+
         } catch (SCDTechnicalException e) {
             throw new SCDBusinessException("getActiveCreditItems", e);
         }
-
     }
 
-    public List<CreditItem> getActiveCreditItems() {
-        try {
-            executeSearch();
-        } catch (SCDBusinessException e) {
-            e.printStackTrace();
-        }
-        return activeCreditItems;
+    @Override
+    public GridHeader[] getHeaders() {
+        return new GridHeader[]{
+                GridHeader.ISSUENCE_DATE,
+                GridHeader.CREDIT_NAME,
+                GridHeader.ACCOUNT_NUMBER,
+                GridHeader.SUM,
+                GridHeader.TERM,
+                GridHeader.SUM_TO_PAY,
+                GridHeader.ACCOUNT_NUMBER};
     }
 
-    public void setActiveCreditItems(List<CreditItem> activeCreditItems) {
-        this.activeCreditItems = activeCreditItems;
+    @Override
+    public ResultRowField[] getFields() {
+        return new ResultRowField[]{
+                ResultRowField.ISSUENCE_DATE,
+                ResultRowField.CREDIT_NAME,
+                ResultRowField.ACCOUNT_NUMBER,
+                ResultRowField.SUM,
+                ResultRowField.TERM,
+                ResultRowField.SUM_TO_PAY,
+                ResultRowField.ACCOUNT_NUMBER};
     }
 
-    public Object generateReport() throws IOException {
+    public void downloadReport() throws IOException {
         ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
         String realPath = externalContext.getRealPath("/");
         File file = new File(realPath, "test.tmp");
@@ -96,7 +108,17 @@ public class ActiveCreditsGridBusinessBean extends AbstractGridBusinessBean {
         fastChannelCopy(Channels.newChannel(new FileInputStream(file)), Channels.newChannel(outputStream));
 
         outputStream.close();
-        return null;
+    }
+
+    public void generateReport() throws IOException {
+        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+        String realPath = externalContext.getRealPath("/");
+        File file = new File(realPath, "test.tmp");
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+
+        }
     }
 
     void fastChannelCopy(final ReadableByteChannel src, final WritableByteChannel dest) throws IOException {
