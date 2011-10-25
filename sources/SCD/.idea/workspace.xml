@@ -89,9 +89,9 @@
       <file leaf-file-name="grid.xhtml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/resources/components/grid.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="52" selection-start="2910" selection-end="2910" vertical-scroll-proportion="0.38412017">
+            <state line="45" column="18" selection-start="1555" selection-end="1555" vertical-scroll-proportion="0.47424892">
               <folding>
-                <marker date="1319580531220" expanded="true" signature="3353:3367" placeholder="{...}" />
+                <marker date="1319580878702" expanded="true" signature="3435:3449" placeholder="{...}" />
               </folding>
             </state>
           </provider>
@@ -1042,8 +1042,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1320" height="784" extended-state="7" />
-    <editor active="true" />
+    <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32927817" sideWeight="0.80032736" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1261,9 +1261,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/resources/components/grid.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="52" selection-start="2910" selection-end="2910" vertical-scroll-proportion="0.38412017">
+        <state line="45" column="18" selection-start="1555" selection-end="1555" vertical-scroll-proportion="0.47424892">
           <folding>
-            <marker date="1319580531220" expanded="true" signature="3353:3367" placeholder="{...}" />
+            <marker date="1319580878702" expanded="true" signature="3435:3449" placeholder="{...}" />
           </folding>
         </state>
       </provider>

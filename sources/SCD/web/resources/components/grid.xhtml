@@ -11,7 +11,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:grid="http://java.sun.com/jsf/composite/components"
-      >
+        >
 
 <!-- INTERFACE -->
 <composite:interface>
@@ -43,6 +43,11 @@
                 rows="#{cc.attrs.bean.rowsPerPage}"
                 styleClass="grid"
                 >
+
+            <f:facet name="header">
+                lk
+            </f:facet>
+
             <rich:column styleClass="grid-number-col">
                 <f:facet name="header">
                     <h:outputText value="#{bundle['grid.common.number']}"/>
