@@ -9,13 +9,14 @@
       xmlns:rich="http://richfaces.org/rich"
       xmlns:a4j="http://richfaces.org/a4j"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:grid="http://java.sun.com/jsf/composite/components"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+
         >
 
 <!-- INTERFACE -->
 <composite:interface>
     <composite:attribute name="bean"/>
+    <composite:attribute name="gridHeader"/>
     <composite:attribute name="resultList"/>
     <composite:attribute name="headers"/>
     <composite:attribute name="fields"/>
@@ -42,10 +43,11 @@
                 id="table"
                 rows="#{cc.attrs.bean.rowsPerPage}"
                 styleClass="grid"
+                headerClass="background: none;"
                 >
 
             <f:facet name="header">
-                lk
+                <h:outputText value="#{bundle[cc.attrs.gridHeader]}"/>
             </f:facet>
 
             <rich:column styleClass="grid-number-col">
@@ -55,14 +57,14 @@
                 <h:outputText value="#{iter.index+1}"/>
             </rich:column>
 
-            <a4j:repeat var="curHeader" value="#{cc.attrs.headers}" rowKeyVar="keyVar">
+            <c:forEach var="curHeader" items="#{cc.attrs.headers}" varStatus="i">
                 <rich:column>
                     <f:facet name="header">
                         <h:outputText value="#{bundle[curHeader.text]}"/>
                     </f:facet>
-                    <h:outputText value="#{bundle[curHeader.text]}"/>
+                    <h:outputText value="#{item[cc.attrs.fields[i.index].text]}"/>
                 </rich:column>
-            </a4j:repeat>
+            </c:forEach>
 
             <rich:column>
                 <f:facet name="header">
@@ -96,6 +98,3 @@
 
 </composite:implementation>
 </html>
-
-
-

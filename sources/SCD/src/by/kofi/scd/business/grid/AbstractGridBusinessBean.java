@@ -78,4 +78,6 @@ public abstract class AbstractGridBusinessBean<T extends ResultRow> extends Abst
      * @return cells properties
      */
     public abstract ResultRowField[] getFields();
+
+
 }

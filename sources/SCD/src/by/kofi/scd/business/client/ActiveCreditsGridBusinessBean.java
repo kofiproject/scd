@@ -43,7 +43,6 @@ public class ActiveCreditsGridBusinessBean extends AbstractGridBusinessBean {
     @Autowired
     private ClientDataService clientDataService;
 
-
     @Transactional(propagation = Propagation.REQUIRED)
     public List<ActiveCreditsResultRow> executeSearch() throws SCDBusinessException {
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
