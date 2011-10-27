@@ -17,9 +17,6 @@
 <composite:interface>
     <composite:attribute name="bean"/>
     <composite:attribute name="gridHeader"/>
-    <composite:attribute name="resultList"/>
-    <composite:attribute name="headers"/>
-    <composite:attribute name="fields"/>
 </composite:interface>
 
 <!-- IMPLEMENTATION -->
@@ -30,14 +27,15 @@
                 onstop="#{rich:component('panel_loading')}.hide()"
             />
 
-    <rich:popupPanel id="panel_loading" autosized="true">
-        <h:graphicImage library="images" name="loader.gif" alt=""/>
-        <h:outputText value="#{bundle['common.loading']}"/>
-    </rich:popupPanel>
-
     <h:form id="grid-form">
+        <rich:popupPanel id="panel_loading" autosized="true">
+            <h:graphicImage library="images" name="loader.gif" alt=""/>
+            <h:outputText value="#{bundle['common.loading']}"/>
+        </rich:popupPanel>
+
+
         <rich:dataTable
-                value="#{cc.attrs.resultList}"
+                value="#{cc.attrs.bean.resultList}"
                 var="item"
                 iterationStatusVar="iter"
                 id="table"
@@ -57,12 +55,12 @@
                 <h:outputText value="#{iter.index+1}"/>
             </rich:column>
 
-            <c:forEach var="curHeader" items="#{cc.attrs.headers}" varStatus="i">
+            <c:forEach var="curHeader" items="#{cc.attrs.bean.headers}" varStatus="i">
                 <rich:column>
                     <f:facet name="header">
                         <h:outputText value="#{bundle[curHeader.text]}"/>
                     </f:facet>
-                    <h:outputText value="#{item[cc.attrs.fields[i.index].text]}"/>
+                    <h:outputText value="#{item[cc.attrs.bean.fields[i.index].text]}"/>
                 </rich:column>
             </c:forEach>
 

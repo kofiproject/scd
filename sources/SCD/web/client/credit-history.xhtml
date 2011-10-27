@@ -1,0 +1,29 @@
+<ui:composition template="../templates/employee/client.xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich" xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:grid="http://java.sun.com/jsf/composite/components">
+    <ui:define name="content">
+        <rich:tabPanel switchType="client"
+                       styleClass="tab-panel">
+            <rich:tab header="Active">
+
+                <grid:grid id="active-credits-grid"
+                           bean="#{activeCreditsGridBusinessBean}"
+                           gridHeader="grid.client.credits.header"
+                        />
+
+            </rich:tab>
+            <rich:tab header="Closed">
+                <grid:grid id="closed-credits-grid"
+                           bean="#{closedCreditsGridBusinessBean}"
+                           gridHeader="grid.client.credits.header"
+                        />
+            </rich:tab>
+
+        </rich:tabPanel>
+
+
+    </ui:define>
+
+</ui:composition>

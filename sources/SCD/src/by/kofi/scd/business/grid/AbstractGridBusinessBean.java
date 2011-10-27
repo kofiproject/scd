@@ -18,7 +18,7 @@ import java.util.List;
  *         Time: 18:56
  */
 public abstract class AbstractGridBusinessBean<T extends ResultRow> extends AbstractBusinessBean {
-    private int rowsPerPage = 2;
+    private int rowsPerPage = 15;
     private int currentPage = 1;
     private long selectedRowId;
     private List<T> resultList;

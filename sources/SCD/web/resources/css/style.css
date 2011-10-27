@@ -28,6 +28,7 @@ a:hover {
 
 .menu:visited {
     color: #D9F1FA;
+
 }
 
 .menu:hover {
@@ -160,7 +161,6 @@ body {
     height: 25px;
 }
 
-
 .left-menu-item {
     text-decoration: none;
     font-family: Arial, Verdana, sans-serif;
@@ -172,5 +172,10 @@ body {
 }
 
 .rf-pm-top-itm {
-     background: url("../../resources/images/bg_bottom.gif");
+    background: url("../../resources/images/bg_bottom.gif");
+}
+
+.tab-panel {
+    max-height: 450px;
+    margin-top: 20px;
 }

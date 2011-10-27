@@ -15,39 +15,50 @@
                         topGroupCollapsedRightIcon="chevronDown"
                         itemLeftIcon="disc"
                         >
+
                     <rich:panelMenuItem icon="disc">
-                        <h:outputLink value="##"
-                                      styleClass="left-menu-item">
-                            <h:outputText value="active credits"/>
-                        </h:outputLink>
+                        <h:commandLink immediate="true"
+                                       styleClass="left-menu-item"
+                                       value="#{bundle['client.menu.activeCredits']}"
+                                       action="client-active-credits"
+                                />
                     </rich:panelMenuItem>
 
                     <rich:panelMenuItem icon="disc">
-                        <h:outputLink value="##"
-                                      styleClass="left-menu-item">
-                            <h:outputText value="Credit plans"/>
-                        </h:outputLink>
+                        <h:commandLink immediate="true"
+                                       styleClass="left-menu-item"
+                                       value="#{bundle['client.menu.creditPlans']}"
+                                />
                     </rich:panelMenuItem>
 
                     <rich:panelMenuItem icon="disc">
-                        <h:outputLink value="##"
-                                      styleClass="left-menu-item">
-                            <h:outputText value="Credit calculator"/>
-                        </h:outputLink>
+                        <h:commandLink immediate="true"
+                                       styleClass="left-menu-item"
+                                       value="#{bundle['client.menu.creditcalculator']}"
+                                />
                     </rich:panelMenuItem>
 
                     <rich:panelMenuItem icon="disc">
-                        <h:outputLink value="##"
-                                      styleClass="left-menu-item">
-                            <h:outputText value="Profile"/>
-                        </h:outputLink>
+                        <h:commandLink immediate="true"
+                                       styleClass="left-menu-item"
+                                       value="#{bundle['client.menu.profile']}"
+                                       action="client-profile"
+                                />
                     </rich:panelMenuItem>
 
                     <rich:panelMenuItem icon="disc">
-                        <h:outputLink value="##"
-                                      styleClass="left-menu-item">
-                            <h:outputText value="History"/>
-                        </h:outputLink>
+                        <h:commandLink immediate="true"
+                                       styleClass="left-menu-item"
+                                       value="#{bundle['client.menu.creditHistory']}"
+                                       action="client-credit-history"
+                                />
+                    </rich:panelMenuItem>
+
+                    <rich:panelMenuItem icon="disc">
+                        <h:commandLink immediate="true"
+                                       styleClass="left-menu-item"
+                                       value="#{bundle['client.menu.requestHistory']}"
+                                />
                     </rich:panelMenuItem>
 
                     <!--

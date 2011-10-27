@@ -42,5 +42,23 @@
         </navigation-case>
     </navigation-rule>
 
+    <!--Client menu-->
+    <navigation-rule>
+        <from-view-id>/client/*</from-view-id>
+        <navigation-case>
+            <from-outcome>client-active-credits</from-outcome>
+            <to-view-id>/client/active-credits.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>client-credit-history</from-outcome>
+            <to-view-id>/client/credit-history.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>client-profile</from-outcome>
+            <to-view-id>/client/profile.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
 </faces-config>
 
