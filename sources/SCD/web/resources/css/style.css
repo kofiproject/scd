@@ -26,7 +26,11 @@ a:hover {
     white-space: nowrap;
 }
 
-a.menu:visited {
+.menu:visited {
+    color: #D9F1FA;
+}
+
+.menu:hover {
     color: #D9F1FA;
 }
 

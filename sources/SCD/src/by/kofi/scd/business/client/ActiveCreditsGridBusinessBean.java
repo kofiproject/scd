@@ -59,6 +59,7 @@ public class ActiveCreditsGridBusinessBean extends AbstractGridBusinessBean {
             return result;
 
         } catch (SCDTechnicalException e) {
+            LOGGER.error(e.getMessage());
             throw new SCDBusinessException("getActiveCreditItems", e);
         }
     }
@@ -85,51 +86,5 @@ public class ActiveCreditsGridBusinessBean extends AbstractGridBusinessBean {
                 ResultRowField.TERM,
                 ResultRowField.SUM_TO_PAY,
                 ResultRowField.ACCOUNT_NUMBER};
-    }
-
-    public void downloadReport() throws IOException {
-        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-        String realPath = externalContext.getRealPath("/");
-        File file = new File(realPath, "test.tmp");
-        FileInputStream fileIn = new FileInputStream(file);
-/*
-        try {
-            file.createNewFile();
-        } catch (IOException e) {
-
-        }
-*/
-        HttpServletResponse response = (HttpServletResponse) externalContext.getResponse();
-        response.setDateHeader("Expires", 0);
-        response.setContentType("application/ms-excel");
-        response.setHeader("Content-Disposition", "attachment; filename=\"" + file.getName() + "\"");
-        ServletOutputStream outputStream = response.getOutputStream();
-        fastChannelCopy(Channels.newChannel(new FileInputStream(file)), Channels.newChannel(outputStream));
-
-        outputStream.close();
-    }
-
-    public void generateReport() throws IOException {
-        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-        String realPath = externalContext.getRealPath("/");
-        File file = new File(realPath, "test.tmp");
-        try {
-            file.createNewFile();
-        } catch (IOException e) {
-
-        }
-    }
-
-    void fastChannelCopy(final ReadableByteChannel src, final WritableByteChannel dest) throws IOException {
-        final ByteBuffer buffer = ByteBuffer.allocateDirect(16 * 1024);
-        while (src.read(buffer) != -1) {
-            buffer.flip();
-            dest.write(buffer);
-            buffer.compact();
-        }
-        buffer.flip();
-        while (buffer.hasRemaining()) {
-            dest.write(buffer);
-        }
     }
 }

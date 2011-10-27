@@ -66,15 +66,35 @@
                                                 </td>
 
                                                 <td align="center">
-                                                    <a href="#" class="menu">${sessionScope.userContext}</a>
+                                                    <h:form id="user-form">
+                                                        <h:commandLink value="#{sessionScope.userContext}"
+                                                                       styleClass="menu"
+                                                                       immediate="true"
+                                                                />
+                                                    </h:form>
                                                 </td>
                                                 <td width="56" align="center" class="menu"><span
                                                         style="padding: 0 20px;">|</span></td>
-                                                <td align="center"><a href="#" class="menu">Logout</a></td>
+                                                <td align="center">
+                                                    <h:form id="logout-form">
+                                                        <h:commandLink value="#{bundle['common.logout']}"
+                                                                       action="#{loginBean.logoutAction}"
+                                                                       styleClass="menu"
+                                                                       immediate="true"
+                                                                />
+                                                    </h:form>
+                                                </td>
                                                 <td width="56" align="center" class="menu"><span
                                                         style="padding: 0 20px;">|</span></td>
-                                                <td align="center"><a href="#" class="menu"><span
-                                                        style="padding-right: 20px;">Contuct us</span> </a></td>
+                                                <td align="center">
+                                                    <h:form id="contact-form">
+                                                        <h:commandLink value="#{bundle['common.contactUs']}"
+                                                                       style="padding-right: 20px;"
+                                                                       styleClass="menu"
+                                                                       immediate="true"
+                                                                />
+                                                    </h:form>
+                                                </td>
                                             </tr>
                                         </table>
                                     </td>

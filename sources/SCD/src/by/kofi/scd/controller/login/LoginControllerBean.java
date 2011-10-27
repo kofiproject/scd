@@ -72,4 +72,10 @@ public class LoginControllerBean {
             return NavigationActionEnum.LOGIN_FAIL.getValue();
         }
     }
+
+    public String logoutAction() throws SCDBusinessException {
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+        session.invalidate();
+        return NavigationActionEnum.LOGOUT.getValue();
+    }
 }

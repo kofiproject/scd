@@ -74,12 +74,12 @@
                 <a4j:commandLink value="#{bundle['grid.common.generateReport']}"
                                  styleClass="grid-report-col"
                                  immediate="true"
-                                 action="#{activeCreditsGridBusinessBean.generateReport}"
+                                 action="#{cc.attrs.bean.generateReport}"
                                  onclick="#{rich:component('panel_loading')}.show()"
                                  oncomplete='document.getElementById("#{cc.attrs.id}:grid-form:report-btn").click()'
                         >
                     <a4j:param value="#{item.creditItemId}"
-                               assignTo="#{activeCreditsGridBusinessBean.selectedRowId}"/>
+                               assignTo="#{cc.attrs.bean.selectedRowId}"/>
                 </a4j:commandLink>
             </rich:column>
 

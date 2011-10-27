@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
  */
 public enum NavigationActionEnum {
     LOGIN("login"),
+    LOGOUT("logout"),
     LOGIN_FAIL("fail"),
 
     REGISTRATION_SUCCESS("success");
