@@ -4,7 +4,15 @@
                 xmlns:rich="http://richfaces.org/rich" xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:grid="http://java.sun.com/jsf/composite/components">
     <ui:define name="content">
-        Credit list ))
+        <h:form id="credit-list-form">
+            <ui:repeat value="#{creditBusinessBean.credits}" var="credit">
+                <h:commandLink value="#{credit.name}"
+                               action="#{creditLinkBean.creditDetailsAction}">
+                    <f:param name="creditId" value="#{credit.creditId}"/>
+                </h:commandLink>
+                <br/>
+            </ui:repeat>
+        </h:form>
 
 
     </ui:define>

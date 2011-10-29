@@ -1,0 +1,17 @@
+<ui:composition template="../../templates/employee/client.xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich" xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:grid="http://java.sun.com/jsf/composite/components">
+    <ui:define name="content">
+        <h:form id="credit-list-form">
+            <h:outputText value="#{creditLinkBean.credit.name}" escape="false"/>
+            <br/>
+            <br/>
+
+            <h:outputText value="#{creditLinkBean.credit.description}" escape="false"/>
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>

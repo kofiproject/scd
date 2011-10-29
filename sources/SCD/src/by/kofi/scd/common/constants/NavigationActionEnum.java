@@ -13,7 +13,10 @@ public enum NavigationActionEnum {
     LOGIN_FAIL("fail"),
 
     REGISTRATION_SUCCESS("success"),
-    CLIENT_UPDATE_PROFILE("client-update-profile");
+
+    CLIENT_UPDATE_PROFILE("client-update-profile"),
+
+    CLIENT_CREDIT_DETAILS("client-credit-details");
 
     private String action;
 
