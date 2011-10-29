@@ -15,16 +15,16 @@ import java.util.Set;
 @Table(name = "CLIENT")
 @SequenceGenerator(name = "SQ_CLIENT", sequenceName = "SQ_CLIENT")
 public class Client extends AbstractEntity {
-    private long clientId;
+    private Long clientId;
 
     @javax.persistence.Column(name = "CLIENT_ID")
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_CLIENT")
-    public long getClientId() {
+    public Long getClientId() {
         return clientId;
     }
 
-    public void setClientId(long clientId) {
+    public void setClientId(Long clientId) {
         this.clientId = clientId;
     }
 

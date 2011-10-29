@@ -2,9 +2,34 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:a4j="http://richfaces.org/a4j"
                 xmlns:rich="http://richfaces.org/rich" xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:grid="http://java.sun.com/jsf/composite/components">
+                xmlns:grid="http://java.sun.com/jsf/composite/components"
+                xmlns:regForm="http://java.sun.com/jsf/composite/components"
+        >
+
+    <ui:define name="style">
+        <h:outputStylesheet library="css/login" name="login.css"/>
+    </ui:define>
+
+    <ui:define name="script">
+        <h:outputScript library="js/login" name="registration.js"/>
+    </ui:define>
+
     <ui:define name="content">
-        Profile ))
+
+        <div class="registration-wrapper">
+            <h:form id="registration-form">
+                <div class="login-form-container" style="height: auto; width: 400px;">
+
+                    <regForm:registrationForm id="reg-form" bean="#{profileController}"/>
+
+                </div>
+
+                <h:commandButton value="#{bundle['client.profile.update']}"
+                                 styleClass="login-btn"
+                                 action="#{profileController.updateProfileAction}"/>
+
+            </h:form>
+        </div>
 
 
     </ui:define>

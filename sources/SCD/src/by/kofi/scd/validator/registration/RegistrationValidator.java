@@ -1,7 +1,9 @@
 package by.kofi.scd.validator.registration;
 
 import by.kofi.scd.business.client.ClientBusinessBean;
+import by.kofi.scd.common.FacesUtil;
 import by.kofi.scd.common.i18n.I18nSupport;
+import by.kofi.scd.dto.UserContext;
 import by.kofi.scd.entity.Client;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import org.apache.log4j.Logger;
@@ -62,7 +64,12 @@ public class RegistrationValidator {
     /**
      * JSF input id
      */
-    private static final String PASSWORD_UI_ID = "password";
+    private static final String PASSWORD_UI_ID = "registration-form:reg-form:password";
+    /**
+     * passport series ID
+     */
+    private static final String PASSPORT_SERIES_UI_ID = "registration-form:reg-form:passportSeries";
+
 
     /**
      * @param facesContext Faces context
@@ -114,7 +121,7 @@ public class RegistrationValidator {
      * @param o            object to validate
      */
     public void validateConfirmPassword(FacesContext facesContext, UIComponent uiComponent, Object o) {
-        UIInput passwordComponent = (UIInput) facesContext.getViewRoot().findComponent("registration-form:password");
+        UIInput passwordComponent = (UIInput) facesContext.getViewRoot().findComponent(PASSWORD_UI_ID);
         Object passwordVal = passwordComponent.getValue();
         String password = passwordVal != null ? passwordVal.toString() : "";
 
@@ -171,9 +178,8 @@ public class RegistrationValidator {
             return;
         }
 
-        //check for existing client with the same passport data
-
-        UIInput passportSeriesComponent = (UIInput) facesContext.getViewRoot().findComponent("registration-form:passportSeries");
+        UIInput passportSeriesComponent = (UIInput) facesContext.getViewRoot()
+                .findComponent(PASSPORT_SERIES_UI_ID);
         Object passportSeriesVal = passportSeriesComponent.getValue();
         String passportSeries = passportSeriesVal != null ? passportSeriesVal.toString() : "";
 
@@ -186,7 +192,7 @@ public class RegistrationValidator {
             return;
         }
 
-
+        //check for existing client with the same passport data
         Client client = null;
         try {
             client = this.clientBusinessBean.getClientByPassportData(passportSeries, passportNo);
@@ -195,6 +201,11 @@ public class RegistrationValidator {
         }
 
         if (client != null) {
+            UserContext userContext = FacesUtil.getUserContext();
+            if ((userContext != null) && (client.getClientId().equals(userContext.getClient().getClientId()))) {
+                return;
+            }
+
             ((UIInput) uiComponent).setValid(false);
             FacesMessage message = new FacesMessage(I18nSupport.getText("registration.validator.existingPassport"));
             facesContext.addMessage(uiComponent.getClientId(facesContext), message);

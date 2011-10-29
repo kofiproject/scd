@@ -13,7 +13,7 @@ import java.util.Set;
 @Entity
 @Table(name = "CREDIT")
 @SequenceGenerator(name = "SQ_CREDIT", sequenceName = "SQ_CREDIT")
-public class Credit extends AbstractEntity{
+public class Credit extends AbstractEntity {
     private long creditId;
 
     @javax.persistence.Column(name = "CREDIT_ID")
@@ -74,6 +74,18 @@ public class Credit extends AbstractEntity{
 
     public void setPenaltyPercent(BigDecimal penaltyPercent) {
         this.penaltyPercent = penaltyPercent;
+    }
+
+    private Long maxTerm;
+
+    @javax.persistence.Column(name = "MAX_TERM")
+    @Basic
+    public Long getMaxTerm() {
+        return maxTerm;
+    }
+
+    public void setMaxTerm(Long maxTerm) {
+        this.maxTerm = maxTerm;
     }
 
     @Override

@@ -5,6 +5,7 @@ import by.kofi.scd.business.RoleBusinessBean;
 import by.kofi.scd.dataservice.CRUDDataService;
 import by.kofi.scd.dataservice.client.ClientDataService;
 import by.kofi.scd.entity.Client;
+import by.kofi.scd.entity.CreditItemStateEnum;
 import by.kofi.scd.entity.Role;
 import by.kofi.scd.entity.SCDUser;
 import by.kofi.scd.exceptions.SCDBusinessException;
@@ -60,4 +61,23 @@ public class ClientBusinessBean extends AbstractBusinessBean {
         }
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
+    public Client updateProfile(Client client) throws SCDBusinessException {
+        try {
+            CRUDDataService crudDataService = getCRUDDataService();
+            crudDataService.merge(client.getUser());
+            return crudDataService.merge(client);
+        } catch (SCDTechnicalException e) {
+            throw new SCDBusinessException(e);
+        }
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public int getActiveCreditsCount(Client client) throws SCDBusinessException {
+        try {
+            return this.clientDataService.getCreditItemsCount(client.getClientId(), CreditItemStateEnum.ACTIVE);
+        } catch (SCDTechnicalException e) {
+            throw new SCDBusinessException(e);
+        }
+    }
 }

@@ -36,4 +36,15 @@ public interface ClientDataService extends AbstractDataService {
      * @throws SCDTechnicalException hibernate exc
      */
     public List<CreditItem> getCreditItems(Long clientId, CreditItemStateEnum status) throws SCDTechnicalException;
+
+    /**
+     * Retrieve creditItems count by status and client id
+     *
+     * @param clientId client id
+     * @param status   credit items status
+     * @return creditItems list
+     * @throws SCDTechnicalException hibernate exc
+     */
+    public int getCreditItemsCount(Long clientId, CreditItemStateEnum status) throws SCDTechnicalException;
+
 }

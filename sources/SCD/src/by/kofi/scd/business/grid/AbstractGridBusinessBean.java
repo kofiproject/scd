@@ -3,6 +3,7 @@ package by.kofi.scd.business.grid;
 import by.kofi.scd.business.AbstractBusinessBean;
 import by.kofi.scd.business.download.FileDownloadService;
 import by.kofi.scd.business.download.ReportGenerator;
+import by.kofi.scd.common.FacesUtil;
 import by.kofi.scd.dto.UserContext;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -107,7 +108,7 @@ public abstract class AbstractGridBusinessBean<T extends ResultRow> extends Abst
      * @throws SCDBusinessException report generatioin error
      */
     public void generateReport() throws SCDBusinessException {
-        UserContext userContext = getUserContext();
+        UserContext userContext = FacesUtil.getUserContext();
 
         File file = reportGenerator.generateReport(getSelectedRowId(), userContext);
         setGeneratedReport(file);
@@ -119,15 +120,7 @@ public abstract class AbstractGridBusinessBean<T extends ResultRow> extends Abst
      * @throws SCDBusinessException report download error
      */
     public void downloadReport() throws SCDBusinessException {
-        UserContext userContext = getUserContext();
+        UserContext userContext = FacesUtil.getUserContext();
         fileDownloadService.downloadFile(getGeneratedReport(), userContext);
-    }
-
-    /**
-     * @return userContext from session
-     */
-    private UserContext getUserContext() {
-        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-        return (UserContext) session.getAttribute("userContext");
     }
 }

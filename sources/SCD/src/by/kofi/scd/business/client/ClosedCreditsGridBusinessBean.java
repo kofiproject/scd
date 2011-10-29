@@ -3,6 +3,7 @@ package by.kofi.scd.business.client;
 import by.kofi.scd.business.grid.AbstractGridBusinessBean;
 import by.kofi.scd.business.grid.GridHeader;
 import by.kofi.scd.business.grid.ResultRowField;
+import by.kofi.scd.common.FacesUtil;
 import by.kofi.scd.dataservice.client.ClientDataService;
 import by.kofi.scd.dto.UserContext;
 import by.kofi.scd.dto.client.ActiveCreditsResultRow;
@@ -39,8 +40,7 @@ public class ClosedCreditsGridBusinessBean extends AbstractGridBusinessBean {
 
     @Transactional(propagation = Propagation.REQUIRED)
     public List<ActiveCreditsResultRow> executeSearch() throws SCDBusinessException {
-        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-        UserContext userContext = (UserContext) session.getAttribute("userContext");
+        UserContext userContext = FacesUtil.getUserContext();
         Long clientId = userContext.getClient().getClientId();
         try {
             List<CreditItem> creditItems = clientDataService.getCreditItems(clientId, CreditItemStateEnum.CLOSED);

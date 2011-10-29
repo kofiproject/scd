@@ -245,6 +245,7 @@ CREATE TABLE CREDIT(
     DESCRIPTION        CLOB             NOT NULL,
     PERCENT            NUMBER(10, 3)    NOT NULL,
     PENALTY_PERCENT    NUMBER(10, 3)          NOT NULL,
+  MAX_TERM         NUMBER(38)                   NOT NULL,
     CONSTRAINT PK4_1_1 PRIMARY KEY (CREDIT_ID)
 )
 ;
@@ -461,21 +462,5 @@ ALTER TABLE PAYMENT ADD CONSTRAINT RefPAYMENTACCOUNT
     FOREIGN KEY (ACCOUNT_ID)
     REFERENCES ACCOUNT(ACCOUNT_ID)
 ;
-
-
-
-SET DEFINE OFF;
-Insert into ROLE
-   (ROLE_ID, NAME)
- Values
-   (1, 'client');
-Insert into ROLE
-   (ROLE_ID, NAME)
- Values
-   (2, 'credit_expert');
-Insert into ROLE
-   (ROLE_ID, NAME)
- Values
-   (3, 'operator');
 
 COMMIT;

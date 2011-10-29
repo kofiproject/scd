@@ -28,9 +28,9 @@ public class ClientDataServiceBean extends AbstractDataServiceBean implements Cl
     public Client getClientByPassportData(String passportSeries, Long passportNo) throws SCDTechnicalException {
         try {
             int index = 0;
-            Client result = (Client) getSession().createQuery("from Client cl where upper(cl.passportSeries) = upper(?) and cl.passportNo = ?")
-                    .setString(index++, passportSeries)
-                    .setLong(index, passportNo).uniqueResult();
+            Client result = (Client) getSession().createQuery(ClientQueryBuilder.buildClientByPassportDataQuery())
+                    .setString("passportSeries", passportSeries)
+                    .setLong("passportNo", passportNo).uniqueResult();
 
             return result;
         } catch (HibernateException e) {
@@ -44,11 +44,30 @@ public class ClientDataServiceBean extends AbstractDataServiceBean implements Cl
     @Transactional(propagation = Propagation.REQUIRED)
     public List<CreditItem> getCreditItems(Long clientId, CreditItemStateEnum status) throws SCDTechnicalException {
         try {
-            List list = getSession().createQuery("from CreditItem  ci where ci.client.id = :clientId and ci.state = " + status.ordinal())
-                    .setLong("clientId", clientId).list();
-            return list;
+            return getSession().createQuery(ClientQueryBuilder.buildCreditItemsQuery())
+                    .setLong("clientId", clientId)
+                    .setLong("state", status.ordinal())
+                    .list();
         } catch (HibernateException e) {
             throw new SCDTechnicalException(e);
         }
     }
+
+
+    /**
+     * {@inheritDoc}
+     */
+    @Transactional(propagation = Propagation.REQUIRED)
+    public int getCreditItemsCount(Long clientId, CreditItemStateEnum status) throws SCDTechnicalException {
+        try {
+            return (Integer) getSession().createQuery("select count(*) " + ClientQueryBuilder.buildCreditItemsQuery())
+                    .setLong("clientId", clientId)
+                    .setLong("state", status.ordinal())
+                    .uniqueResult();
+        } catch (HibernateException e) {
+            throw new SCDTechnicalException(e);
+        }
+    }
+
+
 }

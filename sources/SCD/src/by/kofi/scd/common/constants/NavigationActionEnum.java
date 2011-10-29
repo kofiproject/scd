@@ -1,8 +1,5 @@
 package by.kofi.scd.common.constants;
 
-import by.kofi.scd.controller.login.LoginControllerBean;
-import org.springframework.stereotype.Service;
-
 /**
  * Navigation actions names
  *
@@ -15,7 +12,8 @@ public enum NavigationActionEnum {
     LOGOUT("logout"),
     LOGIN_FAIL("fail"),
 
-    REGISTRATION_SUCCESS("success");
+    REGISTRATION_SUCCESS("success"),
+    CLIENT_UPDATE_PROFILE("client-update-profile");
 
     private String action;
 

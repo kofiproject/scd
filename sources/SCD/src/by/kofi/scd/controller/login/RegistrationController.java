@@ -19,7 +19,7 @@ import javax.annotation.PostConstruct;
  */
 @Controller("registrationBean")
 @Scope("request")
-public class RegistrationControllerBean {
+public class RegistrationController {
     @Autowired
     private ClientBusinessBean clientBusinessBean;
 
@@ -59,6 +59,10 @@ public class RegistrationControllerBean {
      */
     public GenderEnum[] getGenders() {
         return GenderEnum.values();
+    }
+
+    public ClientBusinessBean getClientBusinessBean() {
+        return clientBusinessBean;
     }
 
     @PostConstruct

@@ -2,7 +2,6 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:rich="http://richfaces.org/rich"
-                xmlns:a4j="http://richfaces.org/a4j"
         >
     <ui:define name="left-menu">
         <h:form id="menu-form">
@@ -28,6 +27,7 @@
                         <h:commandLink immediate="true"
                                        styleClass="left-menu-item"
                                        value="#{bundle['client.menu.creditPlans']}"
+                                       action="client-credit-list"
                                 />
                     </rich:panelMenuItem>
 
@@ -35,6 +35,7 @@
                         <h:commandLink immediate="true"
                                        styleClass="left-menu-item"
                                        value="#{bundle['client.menu.creditcalculator']}"
+                                       action="credit-calculator"
                                 />
                     </rich:panelMenuItem>
 
@@ -58,6 +59,7 @@
                         <h:commandLink immediate="true"
                                        styleClass="left-menu-item"
                                        value="#{bundle['client.menu.requestHistory']}"
+                                       action="client-request-history"
                                 />
                     </rich:panelMenuItem>
 

@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSession;
  */
 @Controller("loginBean")
 @Scope("request")
-public class LoginControllerBean {
+public class LoginController {
     private Long uniqueId = null;
     private String password;
     private Boolean isLoginFailed;

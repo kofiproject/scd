@@ -2,233 +2,27 @@
                 xmlns:rich="http://richfaces.org/rich"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:f="http://java.sun.com/jsf/core">
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:regForm="http://java.sun.com/jsf/composite/components"
+        >
 
     <ui:define name="content">
-     <div style="margin-left: 270px; margin-top: 20px; width: 400px; ">
-        <h:form id="registration-form">
-            <div class="login-form-container" style="height: auto; width: 400px;">
-                <h:panelGrid columns="3" styleClass="regTable">
+        <div class="registration-wrapper">
+            <h:form id="registration-form">
+                <div class="login-form-container" style="height: auto; width: 400px;">
 
-                    <h:panelGroup>
-                        <h:outputLabel value="#{bundle['registration.surname']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:inputText id="surname" size="20" value="#{registrationBean.client.surname}"
-                                     validator="#{registrationValidator.validateShortString}"
-                                     required="true"
-                                     requiredMessage="#{bundle['registration.validator.required']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:message styleClass="errorMsg" for="surname"/>
-                    </h:panelGroup>
+                    <regForm:registrationForm  id="reg-form" bean="#{registrationBean}"/>
 
-                    <h:panelGroup>
-                        <h:outputLabel value="#{bundle['registration.name']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:inputText id="name" size="20" value="#{registrationBean.client.name}"
-                                     validator="#{registrationValidator.validateShortString}"
-                                     required="true"
-                                     requiredMessage="#{bundle['registration.validator.required']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:message styleClass="errorMsg" for="name"/>
-                    </h:panelGroup>
+                </div>
 
-                    <h:panelGroup>
-                        <h:outputLabel value="#{bundle['registration.middlename']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:inputText id="middleName" size="20" value="#{registrationBean.client.middleName}"
-                                     validator="#{registrationValidator.validateShortString}"
-                                     required="true"
-                                     requiredMessage="#{bundle['registration.validator.required']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:message styleClass="errorMsg" for="middleName"/>
-                    </h:panelGroup>
+                <h:commandButton value="#{bundle['registration.register']}"
+                                 styleClass="login-btn"
+                                 action="#{registrationBean.registrationAction}"/>
 
-                    <h:panelGroup>
-                        <h:outputLabel value="#{bundle['registration.passport']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:inputText id="passportSeries" size="4"
-                                     value="#{registrationBean.client.passportSeries}"
-                                     style="float: left;"
-                                     />
-                        <h:inputText id="passportNo" size="12" value="#{registrationBean.client.passportNo}"
-                                     style="float: left; margin-left: 5px;" styleClass="numeric"
-                                     validator="#{registrationValidator.validatePassportData}"
-                                     required="true"
-                                     requiredMessage="#{bundle['registration.validator.required']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:message styleClass="errorMsg" for="passportSeries"/>
-                        <h:message styleClass="errorMsg" for="passportNo"/>
-                    </h:panelGroup>
+                <h:commandLink value="#{bundle['registration.backToLogin']}" styleClass="reg-link"
+                               action="login" immediate="true"/>
 
-                    <h:panelGroup>
-                        <h:outputLabel value="#{bundle['registration.birthday']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <rich:calendar value="#{registrationBean.client.birthday}" inputSize="17"
-                                       id="birthday"
-                                       required="true"
-                                       requiredMessage="#{bundle['registration.validator.required']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:message styleClass="errorMsg" for="birthday"/>
-                    </h:panelGroup>
-
-                    <h:panelGroup>
-                        <h:outputLabel value="#{bundle['registration.sex']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:selectOneRadio id="sex" value="#{registrationBean.client.sex}">
-                            <f:selectItems value="#{registrationBean.genders}"/>
-                        </h:selectOneRadio>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:message styleClass="errorMsg" for="sex"/>
-                    </h:panelGroup>
-
-                    <h:panelGroup>
-                        <h:outputLabel value="#{bundle['registration.permanentResidence']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:inputText id="permanentResidence" size="20"
-                                     value="#{registrationBean.client.permanentResidence}"
-                                     validator="#{registrationValidator.validateString}"
-                                     required="true"
-                                     requiredMessage="#{bundle['registration.validator.required']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:message styleClass="errorMsg" for="permanentResidence"/>
-                    </h:panelGroup>
-
-                    <h:panelGroup>
-                        <h:outputLabel value="#{bundle['registration.currentResidence']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:inputText id="currentResidence" size="20"
-                                     value="#{registrationBean.client.currentResidence}"
-                                     validator="#{registrationValidator.validateString}"
-                                     required="true"
-                                     requiredMessage="#{bundle['registration.validator.required']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:message styleClass="errorMsg" for="currentResidence"/>
-                    </h:panelGroup>
-
-                    <h:panelGroup>
-                        <h:outputLabel value="#{bundle['registration.mobilePhone']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:inputText id="mobilePhone" size="20" value="#{registrationBean.client.phoneMobile}"
-                                     styleClass="numeric"
-                                     validator="#{registrationValidator.validatePhone}"
-                                     required="true"
-                                     requiredMessage="#{bundle['registration.validator.required']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:message styleClass="errorMsg" for="mobilePhone"/>
-                    </h:panelGroup>
-
-                    <h:panelGroup>
-                        <h:outputLabel value="#{bundle['registration.phone']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:inputText id="phone" size="20" value="#{registrationBean.client.phone}"
-                                     styleClass="numeric"
-                                     validator="#{registrationValidator.validatePhone}"
-                                     required="true"
-                                     requiredMessage="#{bundle['registration.validator.required']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:message styleClass="errorMsg" for="phone"/>
-                    </h:panelGroup>
-
-                    <h:panelGroup>
-                        <h:outputLabel value="#{bundle['registration.password']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:inputText id="password" size="20" value="#{registrationBean.password}"
-                                     validator="#{registrationValidator.validatePassword}"
-                                     required="true"
-                                     requiredMessage="#{bundle['registration.validator.required']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:message styleClass="errorMsg" for="password"/>
-                    </h:panelGroup>
-
-                    <h:panelGroup>
-                        <h:outputLabel value="#{bundle['registration.confirmpassword']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:inputSecret id="confirmPassword" size="20"
-                                       value="#{registrationBean.confirmPassword}"
-                                       validator="#{registrationValidator.validateConfirmPassword}"
-                                       required="true"
-                                       requiredMessage="#{bundle['registration.validator.required']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:message styleClass="errorMsg" for="confirmPassword"/>
-                    </h:panelGroup>
-
-                    <h:panelGroup>
-                        <h:outputLabel value="#{bundle['registration.email']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:inputText id="email" size="20"
-                                     value="#{registrationBean.client.email}"
-                                     validator="#{registrationValidator.validateEmail}"
-                                     required="true"
-                                     requiredMessage="#{bundle['registration.validator.required']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:message styleClass="errorMsg" for="email"/>
-                    </h:panelGroup>
-
-
-                    <h:panelGroup>
-                        <h:outputLabel value="#{bundle['registration.jobPlace']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:inputText id="jobPlace" size="20" value="#{registrationBean.client.jobPlace}"
-                                     validator="#{registrationValidator.validateString}"
-                                     required="true"
-                                     requiredMessage="#{bundle['registration.validator.required']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:message styleClass="errorMsg" for="jobPlace"/>
-                    </h:panelGroup>
-
-                    <h:panelGroup>
-                        <h:outputLabel value="#{bundle['registration.jobPosition']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:inputText id="jobPosition" size="20" value="#{registrationBean.client.jobPosition}"
-                                     validator="#{registrationValidator.validateString}"
-                                     required="true"
-                                     requiredMessage="#{bundle['registration.validator.required']}"/>
-                    </h:panelGroup>
-                    <h:panelGroup>
-                        <h:message styleClass="errorMsg" for="jobPosition"/>
-                    </h:panelGroup>
-
-                </h:panelGrid>
-
-            </div>
-
-            <h:commandButton value="#{bundle['registration.register']}"
-                             styleClass="login-btn"
-                             action="#{registrationBean.registrationAction}"/>
-
-            <h:commandLink value="#{bundle['registration.backToLogin']}" styleClass="reg-link"
-                           action="login" immediate="true"/>
-
-        </h:form>
-    </div>
+            </h:form>
+        </div>
     </ui:define>
 </ui:composition>

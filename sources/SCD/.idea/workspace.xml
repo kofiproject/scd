@@ -20,23 +20,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0af7ff6-7d37-4e85-a424-2574461e7bb0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/client/ClosedCreditsGridBusinessBean.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/download/FileDownloadService.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/download/ReportGenerator.java" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/download/ReportGeneratorService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/client/credit-history.xhtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/client/profile.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/kofi/scd/common/FacesUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/kofi/scd/controller/client/ProfileController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/kofi/scd/dataservice/client/ClientQueryBuilder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/client/credit-calculator.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/client/credit-details.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/client/credit-list.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/client/request-history.xhtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/resources/components/registrationForm.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/business/client/ActiveCreditsGridBusinessBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/client/ActiveCreditsGridBusinessBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/business/client/ClientBusinessBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/client/ClientBusinessBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/business/client/ClosedCreditsGridBusinessBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/client/ClosedCreditsGridBusinessBean.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/business/grid/AbstractGridBusinessBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/grid/AbstractGridBusinessBean.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/common/constants/NavigationActionEnum.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/common/constants/NavigationActionEnum.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/controller/login/LoginControllerBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/controller/login/LoginControllerBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/dataservice/client/ClientDataService.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/dataservice/client/ClientDataService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/dataservice/client/ClientDataServiceBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/dataservice/client/ClientDataServiceBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/entity/Client.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/entity/Client.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/entity/Credit.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/entity/Credit.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/validator/registration/RegistrationValidator.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/validator/registration/RegistrationValidator.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/i18n.properties" afterPath="$PROJECT_DIR$/src/i18n.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/faces-config.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/faces-config.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/client/active-credits.xhtml" afterPath="$PROJECT_DIR$/web/client/active-credits.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/client/profile.xhtml" afterPath="$PROJECT_DIR$/web/client/profile.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/login/registration.xhtml" afterPath="$PROJECT_DIR$/web/login/registration.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/resources/components/grid.xhtml" afterPath="$PROJECT_DIR$/web/resources/components/grid.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/resources/css/style.css" afterPath="$PROJECT_DIR$/web/resources/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/templates/base.xhtml" afterPath="$PROJECT_DIR$/web/templates/base.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/templates/employee/client.xhtml" afterPath="$PROJECT_DIR$/web/templates/employee/client.xhtml" />
+      <change type="MOVED" beforePath="D:\V\kofi\git\SCD\sources\SCD\src\by\kofi\scd\controller\login\LoginControllerBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/controller/login/LoginController.java" />
+      <change type="MOVED" beforePath="D:\V\kofi\git\SCD\sources\SCD\src\by\kofi\scd\controller\login\RegistrationControllerBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/controller/login/RegistrationController.java" />
     </list>
     <ignored path="richfaces.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -95,40 +110,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="credit-history.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/client/credit-history.xhtml">
+      <file leaf-file-name="ClientBusinessBean.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/client/ClientBusinessBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="21" selection-start="842" selection-end="842" vertical-scroll-proportion="-10.346154">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="profile.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/client/profile.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="18" selection-start="432" selection-end="432" vertical-scroll-proportion="-3.9230769">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="registration.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/login/registration.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="43" selection-start="482" selection-end="482" vertical-scroll-proportion="-5.769231">
-              <folding>
-                <marker date="1319316508546" expanded="true" signature="3140:3152" placeholder="{...}" />
-                <marker date="1319316508546" expanded="true" signature="3347:3377" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/resources/css/login/login.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="73" selection-start="351" selection-end="351" vertical-scroll-proportion="-5.0">
+            <state line="70" column="16" selection-start="2644" selection-end="2644" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -137,11 +122,65 @@
       <file leaf-file-name="client.xhtml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/templates/employee/client.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="47" selection-start="2239" selection-end="2253" vertical-scroll-proportion="-13.769231">
+            <state line="5" column="19" selection-start="240" selection-end="240" vertical-scroll-proportion="-3.2692308">
               <folding>
-                <marker date="1319750081654" expanded="true" signature="383:441" placeholder="{...}" />
-                <marker date="1319750081654" expanded="true" signature="383:441" placeholder="{...}" />
+                <marker date="1319884291871" expanded="true" signature="330:388" placeholder="{...}" />
+                <marker date="1319884291871" expanded="true" signature="330:388" placeholder="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="registration.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/login/registration.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="47" selection-start="635" selection-end="648" vertical-scroll-proportion="-4.576923">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/client/profile.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="69" selection-start="1223" selection-end="1223" vertical-scroll-proportion="-7.1153846">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProfileController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/client/ProfileController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="56" selection-start="1461" selection-end="1461" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NavigationActionEnum.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/common/constants/NavigationActionEnum.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="48" selection-start="319" selection-end="340" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegistrationValidator.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/validator/registration/RegistrationValidator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="180" column="27" selection-start="6632" selection-end="6632" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="i18n.properties" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/i18n.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="20" column="40" selection-start="632" selection-end="632" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -149,7 +188,7 @@
       <file leaf-file-name="faces-config.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/WEB-INF/faces-config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="40" selection-start="2093" selection-end="2093" vertical-scroll-proportion="0.8291457">
+            <state line="79" column="21" selection-start="2855" selection-end="2855" vertical-scroll-proportion="0.8451613">
               <folding />
             </state>
           </provider>
@@ -158,45 +197,6 @@
           </provider>
           <provider editor-type-id="com.intellij.jsf.ui.FacesConfigEditorProvider">
             <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="active-credits.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/client/active-credits.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="27" selection-start="595" selection-end="595" vertical-scroll-proportion="-6.5384617">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="grid.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/resources/css/grid.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="17" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="grid.xhtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/resources/components/grid.xhtml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="43" selection-start="718" selection-end="718" vertical-scroll-proportion="-6.1923075">
-              <folding>
-                <marker date="1319749229475" expanded="true" signature="3395:3409" placeholder="{...}" />
-                <marker date="1319749229475" expanded="true" signature="3509:3523" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActiveCreditsGridBusinessBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/client/ActiveCreditsGridBusinessBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="31" selection-start="1414" selection-end="1414" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
           </provider>
         </entry>
       </file>
@@ -215,20 +215,20 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/by/kofi/scd/common/constants/NavigationActionEnum.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/controller/login/LoginControllerBean.java" />
-        <option value="$PROJECT_DIR$/web/templates/base.xhtml" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/web/client/history.xhtml" />
-        <option value="$PROJECT_DIR$/src/i18n.properties" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/client/ClosedCreditsGridBusinessBean.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/grid/AbstractGridBusinessBean.java" />
-        <option value="$PROJECT_DIR$/web/resources/components/grid.xhtml" />
-        <option value="$PROJECT_DIR$/web/client/active-credits.xhtml" />
-        <option value="$PROJECT_DIR$/web/client/credit-history.xhtml" />
-        <option value="$PROJECT_DIR$/web/resources/css/login/login.css" />
         <option value="$PROJECT_DIR$/web/resources/css/style.css" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/client/ClientQueryBuilder.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/client/ClientDataService.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/client/ClientDataServiceBean.java" />
+        <option value="$PROJECT_DIR$/web/client/active-credits.xhtml" />
+        <option value="$PROJECT_DIR$/web/resources/components/registrationForm.xhtml" />
+        <option value="$PROJECT_DIR$/web/login/registration.xhtml" />
         <option value="$PROJECT_DIR$/web/client/profile.xhtml" />
-        <option value="$PROJECT_DIR$/web/templates/employee/client.xhtml" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/Client.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/validator/registration/RegistrationValidator.java" />
+        <option value="$PROJECT_DIR$/src/i18n.properties" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/controller/client/ProfileController.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/client/ClientBusinessBean.java" />
+        <option value="$PROJECT_DIR$/web/templates/base.xhtml" />
         <option value="$PROJECT_DIR$/web/WEB-INF/faces-config.xml" />
       </list>
     </option>
@@ -277,7 +277,7 @@
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
-      <showMembers />
+      <showMembers ProjectPane="false" />
       <showModules />
       <showLibraryContents />
       <hideEmptyPackages />
@@ -437,6 +437,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="login" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="employee" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -478,32 +500,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="richfaces" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SCD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -596,6 +592,50 @@
               <option name="myItemId" value="scd" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="registration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -685,7 +725,37 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="login" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -781,58 +851,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="grid" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="richfaces" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SCD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="business" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="download" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="richfaces" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SCD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="business" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -873,15 +891,15 @@
       <recent name="by.kofi.scd.validator.registration" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="by.kofi.scd.controller.client" />
       <recent name="by.kofi.scd.business.client" />
       <recent name="by.kofi.scd.business.grid" />
       <recent name="by.kofi.scd.business" />
       <recent name="by.kofi.scd.entity" />
-      <recent name="by.kofi.scd.dataservice.client" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\V\kofi\git\SCD\sources\SCD\web\client" />
       <recent name="D:\V\kofi\git\SCD\sources\SCD\web\resources\components" />
+      <recent name="D:\V\kofi\git\SCD\sources\SCD\web\client" />
       <recent name="D:\V\kofi\git\SCD\sources\SCD\web\resources\css" />
       <recent name="D:\V\kofi\git\SCD\sources\SCD\web\resources\images" />
       <recent name="D:\V\kofi\git\SCD\sources\SCD\web\login" />
@@ -1280,9 +1298,9 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2169059" sideWeight="0.47217807" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20985691" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35771066" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24324325" sideWeight="0.0" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38314787" sideWeight="0.0" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1295,7 +1313,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27113238" sideWeight="0.7567568" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24561404" sideWeight="0.61685216" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5270049" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1375,123 +1393,122 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/login/LoginControllerBean.java">
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="32" selection-start="2337" selection-end="2337" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/client/ClientDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="0" selection-start="1106" selection-end="1106" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/client/ClientDataServiceBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="28" selection-start="1448" selection-end="1448" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/grid/AbstractGridBusinessBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="32" selection-start="689" selection-end="689" vertical-scroll-proportion="0.3712297">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/client/ClosedCreditsGridBusinessBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="40" selection-start="960" selection-end="960" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/client/ActiveCreditsGridBusinessBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="31" selection-start="1414" selection-end="1414" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/css/grid.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="17" selection-start="178" selection-end="178" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/components/grid.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="43" selection-start="718" selection-end="718" vertical-scroll-proportion="-6.1923075">
-          <folding>
-            <marker date="1319749229475" expanded="true" signature="3395:3409" placeholder="{...}" />
-            <marker date="1319749229475" expanded="true" signature="3509:3523" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/login/registration.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="43" selection-start="482" selection-end="482" vertical-scroll-proportion="-5.769231">
-          <folding>
-            <marker date="1319316508546" expanded="true" signature="3140:3152" placeholder="{...}" />
-            <marker date="1319316508546" expanded="true" signature="3347:3377" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/css/login/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="73" selection-start="351" selection-end="351" vertical-scroll-proportion="-5.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="6" selection-start="1050" selection-end="1050" vertical-scroll-proportion="0.92477876">
+        <state line="4" column="54" selection-start="94" selection-end="140" vertical-scroll-proportion="0.16267942">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/client/active-credits.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="27" selection-start="595" selection-end="595" vertical-scroll-proportion="-6.5384617">
+        <state line="10" column="12" selection-start="481" selection-end="481" vertical-scroll-proportion="0.49418604">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/client/credit-history.xhtml">
+    <entry file="file://$PROJECT_DIR$/web/login/login.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="21" selection-start="842" selection-end="842" vertical-scroll-proportion="-10.346154">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/client/profile.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="18" selection-start="432" selection-end="432" vertical-scroll-proportion="-3.9230769">
+        <state line="21" column="55" selection-start="881" selection-end="881" vertical-scroll-proportion="-9.961538">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/templates/employee/client.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="47" selection-start="2239" selection-end="2253" vertical-scroll-proportion="-13.769231">
+        <state line="5" column="19" selection-start="240" selection-end="240" vertical-scroll-proportion="-3.2692308">
           <folding>
-            <marker date="1319750081654" expanded="true" signature="383:441" placeholder="{...}" />
-            <marker date="1319750081654" expanded="true" signature="383:441" placeholder="{...}" />
+            <marker date="1319884291871" expanded="true" signature="330:388" placeholder="{...}" />
+            <marker date="1319884291871" expanded="true" signature="330:388" placeholder="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/login/registrationTmpl.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="445" selection-end="804" vertical-scroll-proportion="0.44476745">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/resources/components/registrationForm.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="674" selection-end="674" vertical-scroll-proportion="0.23423423">
+          <folding>
+            <marker date="1319888634244" expanded="true" signature="2753:2765" placeholder="{...}" />
+            <marker date="1319888634244" expanded="true" signature="2916:2946" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/login/registration.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="47" selection-start="635" selection-end="648" vertical-scroll-proportion="-4.576923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/entity/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="16" selection-start="404" selection-end="404" vertical-scroll-proportion="0.0867052">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/validator/registration/RegistrationValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="180" column="27" selection-start="6632" selection-end="6632" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/i18n.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="40" selection-start="632" selection-end="632" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/client/profile.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="69" selection-start="1223" selection-end="1223" vertical-scroll-proportion="-7.1153846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/client/ClientBusinessBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="16" selection-start="2644" selection-end="2644" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/base.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="93" selection-start="3719" selection-end="3719" vertical-scroll-proportion="0.8896104">
+          <folding>
+            <marker date="1319889620595" expanded="true" signature="5340:5360" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/client/ProfileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="56" selection-start="1461" selection-end="1461" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/common/constants/NavigationActionEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="48" selection-start="319" selection-end="340" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/faces-config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="40" selection-start="2093" selection-end="2093" vertical-scroll-proportion="0.8291457">
+        <state line="79" column="21" selection-start="2855" selection-end="2855" vertical-scroll-proportion="0.8451613">
           <folding />
         </state>
       </provider>
