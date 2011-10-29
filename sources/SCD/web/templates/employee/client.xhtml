@@ -4,6 +4,16 @@
                 xmlns:rich="http://richfaces.org/rich"
         >
 
+    <ui:define name="style">
+        <h:outputStylesheet library="css/client" name='client.css'/>
+        <ui:insert name="style"/>
+    </ui:define>
+
+
+    <ui:define name="script">
+
+        <ui:insert name="script"/>
+    </ui:define>
 
     <ui:define name="left-menu">
         <h:form id="menu-form">

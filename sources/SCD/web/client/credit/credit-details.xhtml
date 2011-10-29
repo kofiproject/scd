@@ -4,12 +4,21 @@
                 xmlns:rich="http://richfaces.org/rich" xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:grid="http://java.sun.com/jsf/composite/components">
     <ui:define name="content">
-        <h:form id="credit-list-form">
-            <h:outputText value="#{creditLinkBean.credit.name}" escape="false"/>
-            <br/>
-            <br/>
 
-            <h:outputText value="#{creditLinkBean.credit.description}" escape="false"/>
+        <h:form id="credit-list-form">
+            <h:outputText value="#{creditRequestController.credit.name}" escape="false"/>
+            <br/>
+            <br/>
+            <h:outputText value="#{creditRequestController.credit.description}" escape="false"/>
+
+            <br/>
+            <h:commandButton value="#{bundle['client.credit.details.proceedToRegistration']}"
+                             action="credit-send-request"
+                             immediate="true"/>
+            <br/>
+            <h:commandLink value="#{bundle['client.credit.details.backToList']}"
+                    action="/client/credit-list" immediate="true"/>
+
         </h:form>
 
     </ui:define>

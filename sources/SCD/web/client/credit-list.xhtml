@@ -7,7 +7,7 @@
         <h:form id="credit-list-form">
             <ui:repeat value="#{creditBusinessBean.credits}" var="credit">
                 <h:commandLink value="#{credit.name}"
-                               action="#{creditLinkBean.creditDetailsAction}">
+                               action="#{creditRequestController.creditDetailsAction}">
                     <f:param name="creditId" value="#{credit.creditId}"/>
                 </h:commandLink>
                 <br/>

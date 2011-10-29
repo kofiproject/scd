@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -24,9 +25,6 @@ import java.util.List;
 public class CreditBusinessBean extends AbstractBusinessBean {
 
     private static final Logger LOGGER = Logger.getLogger(CreditBusinessBean.class);
-
-//    @Autowired
-//    private ClientDataService clientDataService;
 
     @Transactional(propagation = Propagation.REQUIRED)
     public List<Credit> getCredits() throws SCDBusinessException {
@@ -44,6 +42,21 @@ public class CreditBusinessBean extends AbstractBusinessBean {
         } catch (SCDTechnicalException e) {
             throw new SCDBusinessException(e);
         }
+    }
+
+    /**
+     * calculates max available credit sum
+     *
+     * @param credit             credit
+     * @param term               term in months
+     * @param monthlyCacheIncome cache income
+     * @return max available credit sum
+     */
+    public Long calculateMaxAvailableSum(Credit credit, Long term, Long monthlyCacheIncome) {
+        BigDecimal termBD = new BigDecimal(term);
+        BigDecimal monthlyCacheBD = new BigDecimal(monthlyCacheIncome);
+
+        return BigDecimal.ONE.add(credit.getMaxSumPercent()).multiply(monthlyCacheBD).multiply(termBD).longValue();
     }
 
 

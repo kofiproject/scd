@@ -88,6 +88,18 @@ public class Credit extends AbstractEntity {
         this.maxTerm = maxTerm;
     }
 
+    private BigDecimal maxSumPercent;
+
+    @javax.persistence.Column(name = "MAX_SUM_PERCENT")
+    @Basic
+    public BigDecimal getMaxSumPercent() {
+        return maxSumPercent;
+    }
+
+    public void setMaxSumPercent(BigDecimal maxSumPercent) {
+        this.maxSumPercent = maxSumPercent;
+    }
+
     @Override
     public boolean entityEquals(Object o) {
         if (this == o) return true;
