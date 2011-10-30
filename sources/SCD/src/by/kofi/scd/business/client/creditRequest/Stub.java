@@ -1,4 +1,4 @@
-package by.kofi.scd.business.client;
+package by.kofi.scd.business.client.creditRequest;
 
 import by.kofi.scd.business.grid.AbstractGridBusinessBean;
 import by.kofi.scd.business.grid.GridHeader;
@@ -7,7 +7,8 @@ import by.kofi.scd.common.FacesUtil;
 import by.kofi.scd.dataservice.client.ClientDataService;
 import by.kofi.scd.dto.UserContext;
 import by.kofi.scd.dto.client.CreditItemResultRow;
-import by.kofi.scd.entity.*;
+import by.kofi.scd.entity.CreditItem;
+import by.kofi.scd.entity.CreditItemStateEnum;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import by.kofi.scd.exceptions.SCDTechnicalException;
 import org.apache.log4j.Logger;
@@ -25,9 +26,9 @@ import java.util.List;
  *         Time: 18:55
  */
 @Service
-public class ActiveCreditsGridBusinessBean extends AbstractGridBusinessBean {
+public class Stub extends AbstractGridBusinessBean {
 
-    private static final Logger LOGGER = Logger.getLogger(ActiveCreditsGridBusinessBean.class);
+    private static final Logger LOGGER = Logger.getLogger(Stub.class);
 
     @Autowired
     private ClientDataService clientDataService;

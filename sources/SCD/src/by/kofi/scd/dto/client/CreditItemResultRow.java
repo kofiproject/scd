@@ -8,7 +8,8 @@ import by.kofi.scd.entity.CreditItem;
  *         Date: 25/10/11
  *         Time: 22:50
  */
-public class ActiveCreditsResultRow extends CreditItem implements ResultRow {
+public class CreditItemResultRow extends CreditItem implements ResultRow {
+    private Long rowId;
     private String creditName;
     private long accountNumber;
 
@@ -17,9 +18,9 @@ public class ActiveCreditsResultRow extends CreditItem implements ResultRow {
      *
      * @param creditItem creditItem
      */
-    public ActiveCreditsResultRow(CreditItem creditItem) {
+    public CreditItemResultRow(CreditItem creditItem) {
         setIssuanceDate(creditItem.getIssuanceDate());
-//        this.creditName = creditItem.getCredit().getName();
+        this.creditName = creditItem.getCredit().getName();
         this.accountNumber = creditItem.getAccount().getAccountNumber();
         setAmount(creditItem.getAmount());
         setTerm(creditItem.getTerm());
@@ -27,9 +28,17 @@ public class ActiveCreditsResultRow extends CreditItem implements ResultRow {
         setPaidAmount(creditItem.getPaidAmount());
     }
 
+
+    @Override
     public Long getRowId() {
         return accountNumber;
     }
+
+    @Override
+    public void setRowId(Long rowId) {
+        this.rowId = rowId;
+    }
+
 
     public String getCreditName() {
         return creditName;

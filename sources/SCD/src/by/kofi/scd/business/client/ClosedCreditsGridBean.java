@@ -6,7 +6,7 @@ import by.kofi.scd.business.grid.ResultRowField;
 import by.kofi.scd.common.FacesUtil;
 import by.kofi.scd.dataservice.client.ClientDataService;
 import by.kofi.scd.dto.UserContext;
-import by.kofi.scd.dto.client.ActiveCreditsResultRow;
+import by.kofi.scd.dto.client.CreditItemResultRow;
 import by.kofi.scd.entity.CreditItem;
 import by.kofi.scd.entity.CreditItemStateEnum;
 import by.kofi.scd.exceptions.SCDBusinessException;
@@ -17,8 +17,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,9 +26,9 @@ import java.util.List;
  *         Time: 18:55
  */
 @Service
-public class ClosedCreditsGridBusinessBean extends AbstractGridBusinessBean {
+public class ClosedCreditsGridBean extends AbstractGridBusinessBean {
 
-    private static final Logger LOGGER = Logger.getLogger(ClosedCreditsGridBusinessBean.class);
+    private static final Logger LOGGER = Logger.getLogger(ClosedCreditsGridBean.class);
 
     @Autowired
     private ClientDataService clientDataService;
@@ -39,15 +37,15 @@ public class ClosedCreditsGridBusinessBean extends AbstractGridBusinessBean {
 
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public List<ActiveCreditsResultRow> executeSearch() throws SCDBusinessException {
+    public List<CreditItemResultRow> executeSearch() throws SCDBusinessException {
         UserContext userContext = FacesUtil.getUserContext();
         Long clientId = userContext.getClient().getClientId();
         try {
             List<CreditItem> creditItems = clientDataService.getCreditItems(clientId, CreditItemStateEnum.CLOSED);
 
-            List<ActiveCreditsResultRow> result = new ArrayList<ActiveCreditsResultRow>(creditItems.size());
+            List<CreditItemResultRow> result = new ArrayList<CreditItemResultRow>(creditItems.size());
             for (CreditItem creditItem : creditItems) {
-                result.add(new ActiveCreditsResultRow(creditItem));
+                result.add(new CreditItemResultRow(creditItem));
             }
 
             return result;

@@ -6,18 +6,18 @@
     <ui:define name="content">
         <rich:tabPanel switchType="client"
                        styleClass="tab-panel">
-            <rich:tab header="Active">
+            <rich:tab header="#{bundle['common.active']}">
 
                 <grid:grid id="active-credits-grid"
                            bean="#{activeCreditsGridBusinessBean}"
-                           gridHeader="grid.client.credits.header"
+
                         />
 
             </rich:tab>
-            <rich:tab header="Closed">
+            <rich:tab header="#{bundle['common.closed']}">
                 <grid:grid id="closed-credits-grid"
-                           bean="#{closedCreditsGridBusinessBean}"
-                           gridHeader="grid.client.credits.header"
+                           bean="#{closedCreditsGridBean}"
+
                         />
             </rich:tab>
 

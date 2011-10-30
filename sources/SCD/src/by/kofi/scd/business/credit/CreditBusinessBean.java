@@ -52,11 +52,16 @@ public class CreditBusinessBean extends AbstractBusinessBean {
      * @param monthlyCacheIncome cache income
      * @return max available credit sum
      */
-    public Long calculateMaxAvailableSum(Credit credit, Long term, Long monthlyCacheIncome) {
-        BigDecimal termBD = new BigDecimal(term);
-        BigDecimal monthlyCacheBD = new BigDecimal(monthlyCacheIncome);
+    public BigDecimal calculateMaxAvailableSum(Credit credit, Long term, BigDecimal monthlyCacheIncome) {
+        if (credit == null) {
+            return BigDecimal.ZERO;
+        }
+        term = term != null ? term : 0L;
+        monthlyCacheIncome = monthlyCacheIncome != null ? monthlyCacheIncome : BigDecimal.ZERO;
 
-        return BigDecimal.ONE.add(credit.getMaxSumPercent()).multiply(monthlyCacheBD).multiply(termBD).longValue();
+        BigDecimal termBD = new BigDecimal(term);
+
+        return BigDecimal.ONE.add(credit.getMaxSumPercent()).multiply(monthlyCacheIncome).multiply(termBD);
     }
 
 

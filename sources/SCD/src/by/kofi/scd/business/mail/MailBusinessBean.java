@@ -2,6 +2,8 @@ package by.kofi.scd.business.mail;
 
 import by.kofi.scd.business.AbstractBusinessBean;
 import by.kofi.scd.entity.Client;
+import by.kofi.scd.entity.CreditItem;
+import by.kofi.scd.entity.CreditRequest;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +37,6 @@ public class MailBusinessBean extends AbstractBusinessBean {
      * @throws SCDBusinessException email send error
      */
     public void sendRegistrationNotificationMail(Client client) throws SCDBusinessException {
-        String fromEmail = this.mailBundle.getString("mail.username");
         String toEmail = client.getEmail();
         String subject = this.mailBundle.getString("mail.registration.subject");
         String body = MessageFormat.format(
@@ -44,6 +45,33 @@ public class MailBusinessBean extends AbstractBusinessBean {
                 client.getUser().getPassword());
 
 
+        sendEmail(toEmail, subject, body);
+    }
+
+    /**
+     * Send email notification on  credit request complete
+     *
+     * @param creditRequest creditRequest instance
+     * @param client        Client
+     * @throws SCDBusinessException email send error
+     */
+    public void sendCreditRequestNotificationMail(CreditRequest creditRequest, Client client) throws SCDBusinessException {
+        String toEmail = client.getEmail();
+        //mail.creditRequest.body = Credit request:\n credit: {0}\n sum: {1} BY\n term: {2} months\n issuance date: {3}
+        String subject = this.mailBundle.getString("mail.creditRequest.subject");
+        String body = MessageFormat.format(
+                this.mailBundle.getString("mail.creditRequest.body"),
+                creditRequest.getCredit().getName(),
+                creditRequest.getAmount(),
+                creditRequest.getTerm(),
+                creditRequest.getIssuanceDate());
+
+        sendEmail(toEmail, subject, body);
+    }
+
+
+    private void sendEmail(String toEmail, String subject, String body) {
+        String fromEmail = this.mailBundle.getString("mail.username");
         SimpleMailMessage message = new SimpleMailMessage();
 
         message.setFrom(fromEmail);

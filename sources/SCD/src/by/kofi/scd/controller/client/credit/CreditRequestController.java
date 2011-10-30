@@ -1,8 +1,15 @@
 package by.kofi.scd.controller.client.credit;
 
 import by.kofi.scd.business.credit.CreditBusinessBean;
+import by.kofi.scd.business.credit.CreditRequestBusinessBean;
+import by.kofi.scd.business.mail.MailBusinessBean;
+import by.kofi.scd.common.FacesUtil;
 import by.kofi.scd.common.constants.NavigationActionEnum;
+import by.kofi.scd.dto.UserContext;
+import by.kofi.scd.entity.Client;
 import by.kofi.scd.entity.Credit;
+import by.kofi.scd.entity.CreditRequest;
+import by.kofi.scd.entity.CreditRequestStateEnum;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +17,9 @@ import org.springframework.stereotype.Service;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @author harchevnikov_m
@@ -18,20 +28,27 @@ import java.io.Serializable;
  */
 @Service
 public class CreditRequestController implements Serializable {
-    private long monthlyCacheIncome;
+    private BigDecimal monthlyCacheIncome = BigDecimal.ZERO;
     private long term;
-    private long sum;
-    private long maxSum;
+    private BigDecimal sum = BigDecimal.ZERO;
+    private BigDecimal maxSum = BigDecimal.ZERO;
     private Credit credit;
+    private boolean existInProcessRequest;
 
     @Autowired
     private CreditBusinessBean creditBusinessBean;
 
-    public long getMonthlyCacheIncome() {
+    @Autowired
+    private CreditRequestBusinessBean creditRequestBusinessBean;
+
+    @Autowired
+    private MailBusinessBean mailBusinessBean;
+
+    public BigDecimal getMonthlyCacheIncome() {
         return monthlyCacheIncome;
     }
 
-    public void setMonthlyCacheIncome(long monthlyCacheIncome) {
+    public void setMonthlyCacheIncome(BigDecimal monthlyCacheIncome) {
         this.monthlyCacheIncome = monthlyCacheIncome;
     }
 
@@ -43,20 +60,20 @@ public class CreditRequestController implements Serializable {
         this.term = term;
     }
 
-    public long getSum() {
+    public BigDecimal getSum() {
         return sum;
     }
 
-    public void setSum(long sum) {
+    public void setSum(BigDecimal sum) {
         this.sum = sum;
     }
 
-    public long getMaxSum() {
+    public BigDecimal getMaxSum() {
         updateMaxAvailableSum();
         return maxSum;
     }
 
-    public void setMaxSum(long maxSum) {
+    public void setMaxSum(BigDecimal maxSum) {
         this.maxSum = maxSum;
     }
 
@@ -85,4 +102,36 @@ public class CreditRequestController implements Serializable {
         return NavigationActionEnum.CLIENT_CREDIT_DETAILS.getValue();
     }
 
+    public String sendRequestAction() throws SCDBusinessException {
+        UserContext userContext = FacesUtil.getUserContext();
+        Client client = userContext.getClient();
+
+        Date issuanceDate = Calendar.getInstance().getTime();
+
+        /*
+        save credit  request in DB
+         */
+        CreditRequest creditRequest = new CreditRequest();
+        creditRequest.setMonthlyCacheIncome(getMonthlyCacheIncome());
+        creditRequest.setTerm(getTerm());
+        creditRequest.setAmount(getSum());
+        creditRequest.setCredit(getCredit());
+        creditRequest.setClient(client);
+        creditRequest.setIssuanceDate(issuanceDate);
+        creditRequest.setState(CreditRequestStateEnum.IN_PROCESS);
+
+        this.creditRequestBusinessBean.storeCreditRequest(creditRequest);
+
+        /*
+       and than email notification
+        */
+        mailBusinessBean.sendCreditRequestNotificationMail(creditRequest, client);
+
+        return NavigationActionEnum.CLIENT_CREDIT_REQUEST_SEND_COMPLETE.getValue();
+    }
+
+    public boolean isExistInProcessRequest() throws SCDBusinessException {
+        return this.creditRequestBusinessBean.existCreditRequestInProcess(getCredit(),
+                FacesUtil.getUserContext().getClient());
+    }
 }

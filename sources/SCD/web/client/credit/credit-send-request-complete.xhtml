@@ -1,0 +1,22 @@
+<ui:composition template="../../templates/employee/client.xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich" xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:grid="http://java.sun.com/jsf/composite/components">
+
+    <ui:define name="content">
+
+        <h:form id="request-complete-form">
+            Congratulations!
+            Your request was sent to process. Wait for result ))
+            (notification was sent to your email)
+
+
+            <h:commandLink value="#{bundle['client.credit.details.backToList']}"
+                           action="/client/credit-list" immediate="true"/>
+        </h:form>
+
+        <!--<h:outputText value="#{creditRequestController.credit.name}" escape="false"/>-->
+    </ui:define>
+
+</ui:composition>

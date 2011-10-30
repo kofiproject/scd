@@ -12,4 +12,6 @@ import java.io.Serializable;
 public interface ResultRow extends Serializable {
 
     public Long getRowId();
+
+    public void setRowId(Long rowId);
 }

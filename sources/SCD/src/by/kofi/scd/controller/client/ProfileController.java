@@ -29,6 +29,7 @@ public class ProfileController extends RegistrationController {
     @Override
     public void init() {
         setClient(FacesUtil.getUserContext().getClient());
+
     }
 
     /**

@@ -16,7 +16,8 @@ public enum NavigationActionEnum {
 
     CLIENT_UPDATE_PROFILE("client-update-profile"),
 
-    CLIENT_CREDIT_DETAILS("client-credit-details");
+    CLIENT_CREDIT_DETAILS("client-credit-details"),
+    CLIENT_CREDIT_REQUEST_SEND_COMPLETE("client-send-request-complete");
 
     private String action;
 

@@ -1,13 +1,17 @@
-package by.kofi.scd.business.client;
+package by.kofi.scd.business.client.creditRequest;
 
 import by.kofi.scd.business.grid.AbstractGridBusinessBean;
 import by.kofi.scd.business.grid.GridHeader;
 import by.kofi.scd.business.grid.ResultRowField;
 import by.kofi.scd.common.FacesUtil;
-import by.kofi.scd.dataservice.client.ClientDataService;
+import by.kofi.scd.dataservice.credit.CreditRequestDataService;
 import by.kofi.scd.dto.UserContext;
 import by.kofi.scd.dto.client.CreditItemResultRow;
-import by.kofi.scd.entity.*;
+import by.kofi.scd.dto.client.creditRequest.CreditRequestResultRow;
+import by.kofi.scd.entity.CreditItem;
+import by.kofi.scd.entity.CreditItemStateEnum;
+import by.kofi.scd.entity.CreditRequest;
+import by.kofi.scd.entity.CreditRequestStateEnum;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import by.kofi.scd.exceptions.SCDTechnicalException;
 import org.apache.log4j.Logger;
@@ -25,30 +29,31 @@ import java.util.List;
  *         Time: 18:55
  */
 @Service
-public class ActiveCreditsGridBusinessBean extends AbstractGridBusinessBean {
+public class InProcessCreditRequestGridBean extends AbstractGridBusinessBean {
 
-    private static final Logger LOGGER = Logger.getLogger(ActiveCreditsGridBusinessBean.class);
+    private static final Logger LOGGER = Logger.getLogger(InProcessCreditRequestGridBean.class);
 
     @Autowired
-    private ClientDataService clientDataService;
+    private CreditRequestDataService creditRequestDataService;
 
+    @Override
     @Transactional(propagation = Propagation.REQUIRED)
-    public List<CreditItemResultRow> executeSearch() throws SCDBusinessException {
+    public List<CreditRequestResultRow> executeSearch() throws SCDBusinessException {
         UserContext userContext = FacesUtil.getUserContext();
         Long clientId = userContext.getClient().getClientId();
         try {
-            List<CreditItem> creditItems = clientDataService.getCreditItems(clientId, CreditItemStateEnum.ACTIVE);
+            List<CreditRequest> creditRequests = creditRequestDataService.getCreditRequests(clientId, CreditRequestStateEnum.IN_PROCESS);
 
-            List<CreditItemResultRow> result = new ArrayList<CreditItemResultRow>(creditItems.size());
-            for (CreditItem creditItem : creditItems) {
-                result.add(new CreditItemResultRow(creditItem));
+            List<CreditRequestResultRow> result = new ArrayList<CreditRequestResultRow>(creditRequests.size());
+            for (CreditRequest creditRequest : creditRequests) {
+                result.add(new CreditRequestResultRow(creditRequest));
             }
 
             return result;
 
         } catch (SCDTechnicalException e) {
             LOGGER.error(e.getMessage());
-            throw new SCDBusinessException("getActiveCreditItems", e);
+            throw new SCDBusinessException("executeSearch", e);
         }
     }
 
@@ -57,11 +62,9 @@ public class ActiveCreditsGridBusinessBean extends AbstractGridBusinessBean {
         return new GridHeader[]{
                 GridHeader.ISSUENCE_DATE,
                 GridHeader.CREDIT_NAME,
-                GridHeader.ACCOUNT_NUMBER,
                 GridHeader.SUM,
-                GridHeader.TERM,
-                GridHeader.SUM_TO_PAY,
-                GridHeader.ACCOUNT_NUMBER};
+                GridHeader.TERM
+        };
     }
 
     @Override
@@ -69,10 +72,7 @@ public class ActiveCreditsGridBusinessBean extends AbstractGridBusinessBean {
         return new ResultRowField[]{
                 ResultRowField.ISSUENCE_DATE,
                 ResultRowField.CREDIT_NAME,
-                ResultRowField.ACCOUNT_NUMBER,
                 ResultRowField.SUM,
-                ResultRowField.TERM,
-                ResultRowField.SUM_TO_PAY,
-                ResultRowField.ACCOUNT_NUMBER};
+                ResultRowField.TERM};
     }
 }

@@ -17,22 +17,24 @@
 <composite:interface>
     <composite:attribute name="bean"/>
     <composite:attribute name="gridHeader"/>
+    <composite:attribute name="reportColumn" required="false" default="true"/>
 </composite:interface>
 
 <!-- IMPLEMENTATION -->
 <composite:implementation>
 
-    <a4j:status id="loading"
-                onstart="#{rich:component('panel_loading')}.show()"
-                onstop="#{rich:component('panel_loading')}.hide()"
-            />
+    <!--
+        <a4j:status id="loading"
+                    onstart="#{rich:component('panel_loading')}.show()"
+                    onstop="#{rich:component('panel_loading')}.hide()"
+                />
+    -->
 
     <h:form id="grid-form">
         <rich:popupPanel id="panel_loading" autosized="true">
             <h:graphicImage library="images" name="loader.gif" alt=""/>
             <h:outputText value="#{bundle['common.loading']}"/>
         </rich:popupPanel>
-
 
         <rich:dataTable
                 value="#{cc.attrs.bean.resultList}"
@@ -44,9 +46,11 @@
                 headerClass="background: none;"
                 >
 
-            <f:facet name="header">
-                <h:outputText value="#{bundle[cc.attrs.gridHeader]}"/>
-            </f:facet>
+            <c:if test="#{not empty cc.attrs.gridHeader}">
+                <f:facet name="header">
+                    <h:outputText value="#{bundle[cc.attrs.gridHeader]}"/>
+                </f:facet>
+            </c:if>
 
             <rich:column styleClass="grid-number-col">
                 <f:facet name="header">
@@ -64,22 +68,24 @@
                 </rich:column>
             </c:forEach>
 
-            <rich:column>
-                <f:facet name="header">
-                    <h:outputText value="#{bundle['grid.common.report']}"/>
-                </f:facet>
+            <c:if test="#{cc.attrs.reportColumn}">
+                <rich:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle['grid.common.report']}"/>
+                    </f:facet>
 
-                <a4j:commandLink value="#{bundle['grid.common.generateReport']}"
-                                 styleClass="grid-report-col"
-                                 immediate="true"
-                                 action="#{cc.attrs.bean.generateReport}"
-                                 onclick="#{rich:component('panel_loading')}.show()"
-                                 oncomplete='document.getElementById("#{cc.attrs.id}:grid-form:report-btn").click()'
-                        >
-                    <a4j:param value="#{item.creditItemId}"
-                               assignTo="#{cc.attrs.bean.selectedRowId}"/>
-                </a4j:commandLink>
-            </rich:column>
+                    <a4j:commandLink value="#{bundle['grid.common.generateReport']}"
+                                     styleClass="grid-report-col"
+                                     immediate="true"
+                                     action="#{cc.attrs.bean.generateReport}"
+                                     onclick="#{rich:component('panel_loading')}.show()"
+                                     oncomplete='document.getElementById("#{cc.attrs.id}:grid-form:report-btn").click()'
+                            >
+                        <a4j:param value="#{item.rowId}"
+                                   assignTo="#{cc.attrs.bean.selectedRowId}"/>
+                    </a4j:commandLink>
+                </rich:column>
+            </c:if>
 
             <f:facet name="footer">
                 <rich:dataScroller page="#{cc.attrs.bean.currentPage}"/>

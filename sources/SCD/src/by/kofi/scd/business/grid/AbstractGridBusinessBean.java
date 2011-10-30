@@ -61,9 +61,9 @@ public abstract class AbstractGridBusinessBean<T extends ResultRow> extends Abst
      * @throws SCDBusinessException executeSearch error
      */
     public List<T> getResultList() throws SCDBusinessException {
-        if (resultList == null) {
-            this.resultList = executeSearch();
-        }
+//        if (resultList == null) {
+        this.resultList = executeSearch();
+//        }
         return resultList;
     }
 
