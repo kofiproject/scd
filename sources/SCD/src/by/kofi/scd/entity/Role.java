@@ -10,7 +10,7 @@ import java.util.Set;
  *         Time: 23:08
  */
 @Entity
-@Table(name = "ROLE", schema = "SCD")
+@Table(name = "ROLE")
 @SequenceGenerator(name = "SQ_ROLE", sequenceName = "SQ_ROLE")
 public class Role extends AbstractEntity {
     private long roleId;

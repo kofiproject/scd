@@ -9,7 +9,7 @@ import java.io.Serializable;
  *         Time: 23:08
  */
 @Entity
-@Table(name = "SCD_USER", schema = "SCD")
+@Table(name = "SCD_USER")
 @SequenceGenerator(name = "SQ_USER", sequenceName = "SQ_USER")
 public class SCDUser extends AbstractEntity {
     private long userId;

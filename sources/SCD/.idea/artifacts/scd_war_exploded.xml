@@ -9,7 +9,7 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="lib-include" />
           <element id="library" level="project" name="lib-test" />
-          <element id="library" level="project" name="spring" />
+          <element id="library" level="project" name="lib-spring" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="scd/web/Web" />

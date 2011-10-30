@@ -43,7 +43,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lib-include" level="project" />
     <orderEntry type="library" name="lib-test" level="project" />
-    <orderEntry type="library" name="spring" level="project" />
+    <orderEntry type="library" name="lib-spring" level="project" />
   </component>
 </module>
 

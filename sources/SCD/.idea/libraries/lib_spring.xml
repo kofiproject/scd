@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="spring">
+  <library name="lib-spring">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/lib-spring" />
     </CLASSES>

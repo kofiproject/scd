@@ -11,7 +11,7 @@ import java.util.Date;
  *         Time: 23:08
  */
 @Entity
-@Table(name = "CREDIT_REQUEST", schema = "SCD")
+@Table(name = "CREDIT_REQUEST")
 @SequenceGenerator(name = "SQ_CREDIT_REQUEST", sequenceName = "SQ_CREDIT_REQUEST")
 public class CreditRequest extends AbstractEntity {
     private long creditRequestId;
