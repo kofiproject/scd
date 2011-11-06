@@ -3,17 +3,38 @@
                 xmlns:a4j="http://richfaces.org/a4j"
                 xmlns:rich="http://richfaces.org/rich" xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:grid="http://java.sun.com/jsf/composite/components">
+    <ui:define name="script">
+        <h:outputScript library="js" name="jquery.corner.js"/>
+        <h:outputScript library="js/client" name="credit-list.js"/>
+    </ui:define>
+
+    <ui:define name="header">
+        Credit plans
+    </ui:define>
+
     <ui:define name="content">
         <h:form id="credit-list-form">
-            <ui:repeat value="#{creditBusinessBean.credits}" var="credit">
-                <h:commandLink value="#{credit.name}"
-                               action="#{creditRequestController.creditDetailsAction}">
-                    <f:param name="creditId" value="#{credit.creditId}"/>
-                </h:commandLink>
-                <br/>
-            </ui:repeat>
-        </h:form>
+            <div class="client-content-wrapper">
+                <ui:repeat value="#{creditBusinessBean.credits}" var="credit">
+                    <span class="credit-li">&#160;&#160;&#160;</span>
+                    <h:commandLink value="#{credit.name}"
+                                   action="#{creditRequestController.creditDetailsAction}"
+                                   styleClass="credit-plan-link">
+                        <f:param name="creditId" value="#{credit.creditId}"/>
+                    </h:commandLink>
 
+                    <a href="#" class="show-description">Details</a>
+
+
+                    <div class="credit-description-content-wrapper invisible">
+                        <h:outputText value="#{credit.description}" escape="false"/>
+                    </div>
+
+                    <br/>
+                    <br/>
+                </ui:repeat>
+            </div>
+        </h:form>
 
     </ui:define>
 

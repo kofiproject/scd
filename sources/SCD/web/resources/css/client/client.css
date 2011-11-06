@@ -1,0 +1,51 @@
+.page-header {
+    font-style: italic;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000099;
+    padding: 10px 30px;
+    border-bottom: #36f double thick;
+}
+
+/*Credits list page*/
+.client-content-wrapper {
+    overflow: auto;
+    height: 400px;
+    margin-left: 30px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.credit-plan-link {
+    font-size: 20px;
+    color: #000 !important;
+}
+
+.credit-description-content-wrapper {
+    background: #f1f0f0;
+    padding: 5px;
+}
+
+.show-description {
+    color: #000099 !important;
+}
+
+.credit-li {
+    background: url("../../../resources/images/sqorange.gif") no-repeat;
+    padding-right: 5px;
+}
+
+/*send request pge styles*/
+.credit-details-wrapper {
+    padding: 40px;
+    font-size: 16px;
+}
+
+.credit-details-back-link {
+    font-size: 15px !important;
+    color: #000099 !important;
+}
+
+.credit-details-form-div {
+ padding-top: 30px;
+}

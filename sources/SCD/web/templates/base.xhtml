@@ -15,14 +15,12 @@
 
     <h:outputScript library="js" name="jquery-1.6.4.js"/>
     <h:outputScript library="js" name="jquery.cookie.js"/>
-    <h:outputScript library="js" name="jquery.corner.js"/>
-    <h:outputScript library="js" name="jquery.numeric.js"/>
     <h:outputScript library="js" name="left-menu.js"/>
 
 </h:head>
 
-<ui:insert name="style"/>
-<ui:insert name="script"/>
+<ui:insert name="baseStyle"/>
+<ui:insert name="baseScript"/>
 
 <h:body>
 
@@ -46,7 +44,7 @@
                                             </tr>
                                             <tr>
 
-                                                <td valign="top" class="slogan">Some slogan here</td>
+                                                <td valign="top" class="slogan">Here could be your advertisement</td>
                                             </tr>
                                         </table>
                                     </td>
@@ -157,6 +155,7 @@
                                     <td width="100%" height="100%" valign="top">
 
                                         <div id="main-content">
+                                            <ui:insert name="contentHeader"/>
                                             <ui:insert name="content"/>
                                         </div>
 

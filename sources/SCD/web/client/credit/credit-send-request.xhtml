@@ -7,109 +7,126 @@
                 xmlns:grid="http://java.sun.com/jsf/composite/components">
 
     <ui:define name="script">
-        <h:outputScript library="js/login" name="registration.js"/>
+        <h:outputScript library="js" name="jquery.numeric.js"/>
+    </ui:define>
+
+    <ui:define name="header">
+        Credit request
     </ui:define>
 
     <ui:define name="content">
-
-
         <h:form id="credit-request-form">
-            <c:choose>
-                <c:when test="#{creditRequestController.existInProcessRequest}">
-                    <h:outputText value="#{bundle['client.credit.details.existingRequest']}"/>
-                    <br/>
-                </c:when>
-                <c:otherwise>
+            <div class="credit-details-wrapper">
+                <c:choose>
+                    <c:when test="#{creditRequestController.existInProcessRequest}">
+                        <div class="credit-details-fail-div">
+                            <h:outputText value="#{bundle['client.credit.details.existingRequest']}"/>
+                        </div>
+                        <br/>
+                    </c:when>
+                    <c:otherwise>
 
-                    <h:outputText value="#{creditRequestController.credit.name}" escape="false"/>
+                        <h:outputText value="#{creditRequestController.credit.name}" escape="false"
+                                      styleClass="credit-plan-link"/>
 
-                    <h:panelGrid columns="3">
+                        <div class="credit-details-form-div">
+                            <h:panelGrid columns="3">
 
-                        <h:panelGroup>
-                            <h:outputLabel value="#{bundle['client.credit.details.monthlyCacheIncome']}"/>
-                        </h:panelGroup>
-                        <h:panelGroup>
-                            <h:inputText id="monthlyCacheIncome" size="20"
-                                         value="#{creditRequestController.monthlyCacheIncome}"
-                                         styleClass="numeric"
-                                         style=" #{(creditRequestController.monthlyCacheIncome == 0) ? 'color: red' : ''}"
-                                         required="true"
-                                         requiredMessage="#{bundle['registration.validator.required']}">
-                                <a4j:ajax event="keyup" render="monthlyCacheIncome maxSum term sum send-btn"/>
-                            </h:inputText>
-                        </h:panelGroup>
-                        <h:panelGroup>
-                            <h:message styleClass="errorMsg" for="monthlyCacheIncome"/>
-                        </h:panelGroup>
+                                <h:panelGroup>
+                                    <h:outputLabel value="#{bundle['client.credit.details.monthlyCacheIncome']}"/>
+                                </h:panelGroup>
+                                <h:panelGroup>
+                                    <h:inputText id="monthlyCacheIncome" size="20"
+                                                 value="#{creditRequestController.monthlyCacheIncome}"
+                                                 styleClass="numeric"
+                                                 style=" #{(creditRequestController.monthlyCacheIncome == 0) ? 'color: red' : ''}"
+                                                 required="true"
+                                                 requiredMessage="#{bundle['registration.validator.required']}">
+                                        <a4j:ajax event="keyup" render="monthlyCacheIncome maxSum term sum send-btn"/>
+                                    </h:inputText>
+                                </h:panelGroup>
+                                <h:panelGroup>
+                                    <h:message styleClass="errorMsg" for="monthlyCacheIncome"/>
+                                </h:panelGroup>
 
 
-                        <h:panelGroup>
-                            <h:outputLabel value="#{bundle['client.credit.details.term']}"/>
-                        </h:panelGroup>
-                        <h:panelGroup>
-                            <h:inputText id="term" size="20"
-                                         value="#{creditRequestController.term}"
-                                         styleClass="numeric"
-                                         style=" #{(creditRequestController.term > creditRequestController.credit.maxTerm ||
+                                <h:panelGroup>
+                                    <h:outputLabel value="#{bundle['client.credit.details.term']}"/>
+                                </h:panelGroup>
+                                <h:panelGroup>
+                                    <h:inputText id="term" size="20"
+                                                 value="#{creditRequestController.term}"
+                                                 styleClass="numeric"
+                                                 style=" #{(creditRequestController.term > creditRequestController.credit.maxTerm ||
                                  creditRequestController.term == 0) ? 'color: red' : ''}"
-                                         required="true"
-                                         requiredMessage="#{bundle['registration.validator.required']}">
-                                <a4j:ajax event="keyup" render="maxSum term sum send-btn"/>
-                            </h:inputText>
-                            <h:outputText value="#{bundle['client.credit.details.by']}"/>
-                            (
-                            <h:outputText value="#{bundle['client.credit.details.maxTerm']}"/>
-                            <h:outputText value="#{creditRequestController.credit.maxTerm}"/>
-                            <h:outputText value="#{bundle['client.credit.details.months']}"/>
-                            )
-                        </h:panelGroup>
-                        <h:panelGroup>
-                            <h:message styleClass="errorMsg" for="term"/>
-                        </h:panelGroup>
+                                                 required="true"
+                                                 requiredMessage="#{bundle['registration.validator.required']}">
+                                        <a4j:ajax event="keyup" render="maxSum term sum send-btn"/>
+                                    </h:inputText>
+                                    &#160;
+                                    <h:outputText value="#{bundle['client.credit.details.by']}"/>
+                                    (
+                                    <h:outputText value="#{bundle['client.credit.details.maxTerm']}"/>
+                                    :&#160;
+                                    <h:outputText value="#{creditRequestController.credit.maxTerm}"/>
+                                    <h:outputText value="#{bundle['client.credit.details.months']}"/>
+                                    )
+                                </h:panelGroup>
+                                <h:panelGroup>
+                                    <h:message styleClass="errorMsg" for="term"/>
+                                </h:panelGroup>
 
 
-                        <h:panelGroup>
-                            <h:outputLabel value="#{bundle['client.credit.details.sum']}"/>
-                        </h:panelGroup>
-                        <h:panelGroup>
-                            <h:inputText id="sum" size="20"
-                                         value="#{creditRequestController.sum}"
-                                         styleClass="numeric"
-                                         style="#{(creditRequestController.sum > creditRequestController.maxSum ||
+                                <h:panelGroup>
+                                    <h:outputLabel value="#{bundle['client.credit.details.sum']}"/>
+                                </h:panelGroup>
+                                <h:panelGroup>
+                                    <h:inputText id="sum" size="20"
+                                                 value="#{creditRequestController.sum}"
+                                                 styleClass="numeric"
+                                                 style="#{(creditRequestController.sum > creditRequestController.maxSum ||
                                   creditRequestController.sum == 0) ? 'color: red' : ''}"
-                                         required="true"
-                                         requiredMessage="#{bundle['registration.validator.required']}">
-                                <a4j:ajax event="keyup" render="maxSum term sum send-btn"/>
-                            </h:inputText>
-                            <h:outputText value="#{bundle['client.credit.details.by']}"/>
-                            (
-                            <h:outputText value="#{bundle['client.credit.details.maxAvailableSum']}"/>
-                            <h:outputText value="#{creditRequestController.maxSum}" id="maxSum"/>
-                            )
+                                                 required="true"
+                                                 requiredMessage="#{bundle['registration.validator.required']}">
+                                        <a4j:ajax event="keyup" render="maxSum term sum send-btn"/>
+                                    </h:inputText>
+                                    &#160;
+                                    <h:outputText value="#{bundle['client.credit.details.by']}"/>
+                                    (
+                                    <h:outputText value="#{bundle['client.credit.details.maxAvailableSum']}"/>
+                                    :&#160;
+                                    <h:outputText value="#{creditRequestController.maxSum}" id="maxSum"/>
+                                    )
 
-                        </h:panelGroup>
-                        <h:panelGroup>
-                            <h:message styleClass="errorMsg" for="sum"/>
-                        </h:panelGroup>
+                                </h:panelGroup>
+                                <h:panelGroup>
+                                    <h:message styleClass="errorMsg" for="sum"/>
+                                </h:panelGroup>
 
-                    </h:panelGrid>
+                            </h:panelGrid>
+                        </div>
 
-                    <br/>
-                    <h:commandButton id="send-btn"
-                                     value="#{bundle['client.credit.details.sendRequest']}"
-                                     action="#{creditRequestController.sendRequestAction}"
-                                     immediate="true"
-                                     disabled="#{((creditRequestController.sum > creditRequestController.maxSum) ||
+                        <br/>
+                        <h:commandButton id="send-btn"
+                                         value="#{bundle['client.credit.details.sendRequest']}"
+                                         action="#{creditRequestController.sendRequestAction}"
+                                         immediate="true"
+                                         disabled="#{((creditRequestController.sum > creditRequestController.maxSum) ||
                              (creditRequestController.term > creditRequestController.credit.maxTerm) ||
                              (creditRequestController.sum == 0)) ? true: false}"
-                                     onclick="#{rich:component('panel_loading')}.show()"
-                            />
-                    <br/>
-                </c:otherwise>
-            </c:choose>
+                                         onclick="#{rich:component('panel_loading')}.show()"
+                                >
+                        </h:commandButton>
+                        <br/>
+                    </c:otherwise>
+                </c:choose>
 
-            <h:commandLink value="#{bundle['client.credit.details.backToDetails']}"
-                           action="credit-details" immediate="true"/>
+            </div>
+
+            <h:commandLink value="#{bundle['client.credit.details.backToList']}"
+                           action="/client/credit-list"
+                           immediate="true"
+                           styleClass="credit-details-back-link"/>
 
             <rich:popupPanel id="panel_loading" autosized="true">
                 <h:graphicImage library="images" name="loader.gif" alt=""/>

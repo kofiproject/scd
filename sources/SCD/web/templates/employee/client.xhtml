@@ -4,21 +4,27 @@
                 xmlns:rich="http://richfaces.org/rich"
         >
 
-    <ui:define name="style">
+    <ui:define name="baseStyle">
         <h:outputStylesheet library="css/client" name='client.css'/>
         <ui:insert name="style"/>
     </ui:define>
 
 
-    <ui:define name="script">
-
+    <ui:define name="baseScript">
         <ui:insert name="script"/>
+    </ui:define>
+
+    <ui:define name="contentHeader">
+        <div class="page-header">
+            <ui:insert name="header"/>
+        </div>
     </ui:define>
 
     <ui:define name="left-menu">
         <h:form id="menu-form">
             <h:panelGrid columns="2" style="width: 140px; margin-left: 7px; background-color: #808080;">
                 <rich:panelMenu
+                        selectedItemClass="red"
                         columnClasses="cols,cols"
                         groupExpandedLeftIcon="triangleUp"
                         groupCollapsedLeftIcon="triangleDown"
@@ -26,7 +32,6 @@
                         topGroupCollapsedRightIcon="chevronDown"
                         itemLeftIcon="disc"
                         >
-
                     <rich:panelMenuItem icon="disc">
                         <h:commandLink immediate="true"
                                        styleClass="left-menu-item"

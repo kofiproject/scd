@@ -9,7 +9,7 @@
       xmlns:rich="http://richfaces.org/rich"
       xmlns:a4j="http://richfaces.org/a4j"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:ui="http://java.sun.com/jsf/facelets"
 
         >
 
@@ -46,11 +46,13 @@
                 headerClass="background: none;"
                 >
 
-            <c:if test="#{not empty cc.attrs.gridHeader}">
-                <f:facet name="header">
-                    <h:outputText value="#{bundle[cc.attrs.gridHeader]}"/>
-                </f:facet>
-            </c:if>
+            <ui:remove>
+                <c:if test="#{not empty cc.attrs.gridHeader}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle[cc.attrs.gridHeader]}"/>
+                    </f:facet>
+                </c:if>
+            </ui:remove>
 
             <rich:column styleClass="grid-number-col">
                 <f:facet name="header">

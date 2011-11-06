@@ -4,16 +4,23 @@
                 xmlns:rich="http://richfaces.org/rich" xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:grid="http://java.sun.com/jsf/composite/components">
 
+    <ui:define name="header">
+        Credit request
+    </ui:define>
+
     <ui:define name="content">
 
         <h:form id="request-complete-form">
-            Congratulations!
-            Your request was sent to process. Wait for result ))
-            (notification was sent to your email)
+            <div class="credit-details-wrapper">
+                Congratulations!
+                Your request was sent to process. Wait for result ))
+                (notification was sent to your email)
+            </div>
 
 
             <h:commandLink value="#{bundle['client.credit.details.backToList']}"
-                           action="/client/credit-list" immediate="true"/>
+                           action="/client/credit-list" immediate="true"
+                           styleClass="credit-details-back-link"/>
         </h:form>
 
         <!--<h:outputText value="#{creditRequestController.credit.name}" escape="false"/>-->
