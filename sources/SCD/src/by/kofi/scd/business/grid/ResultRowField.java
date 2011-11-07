@@ -14,7 +14,11 @@ public enum ResultRowField {
     SUM("amount"),
     TERM("term"),
     SUM_TO_PAY("calculatedAmount"),
-    SUM_PAYED("paidAmount");
+    SUM_PAYED("paidAmount"),
+
+    PROCESSING_DATE("processingDate"),
+    DESCRIPTION("description"),
+    CREDIT_EXPERT("expert");
 
     private String text;
 

@@ -48,8 +48,10 @@ public class FileDownloadService {
             ServletOutputStream outputStream = response.getOutputStream();
             fastChannelCopy(Channels.newChannel(new FileInputStream(file)), Channels.newChannel(outputStream));
 
+            outputStream.flush();
             outputStream.close();
-            //todo remove file
+
+            file.delete();
         } catch (IOException e) {
             LOGGER.error("download report for: " + userContext);
             throw new SCDBusinessException("download report for: " + userContext, e);
@@ -57,15 +59,21 @@ public class FileDownloadService {
     }
 
     private void fastChannelCopy(final ReadableByteChannel src, final WritableByteChannel dest) throws IOException {
-        final ByteBuffer buffer = ByteBuffer.allocateDirect(16 * 1024);
-        while (src.read(buffer) != -1) {
+
+        try {
+            final ByteBuffer buffer = ByteBuffer.allocateDirect(16 * 1024);
+            while (src.read(buffer) != -1) {
+                buffer.flip();
+                dest.write(buffer);
+                buffer.compact();
+            }
             buffer.flip();
-            dest.write(buffer);
-            buffer.compact();
-        }
-        buffer.flip();
-        while (buffer.hasRemaining()) {
-            dest.write(buffer);
+            while (buffer.hasRemaining()) {
+                dest.write(buffer);
+            }
+        } finally {
+            src.close();
+            dest.close();
         }
     }
 }

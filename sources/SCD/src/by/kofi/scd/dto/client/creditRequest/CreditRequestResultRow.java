@@ -4,6 +4,7 @@ import by.kofi.scd.business.grid.ResultRow;
 import by.kofi.scd.entity.Account;
 import by.kofi.scd.entity.CreditItem;
 import by.kofi.scd.entity.CreditRequest;
+import by.kofi.scd.entity.Employee;
 
 /**
  * @author harchevnikov_m
@@ -11,9 +12,11 @@ import by.kofi.scd.entity.CreditRequest;
  *         Time: 22:50
  */
 public class CreditRequestResultRow extends CreditRequest implements ResultRow {
+    private Long rowId;
+
     private String creditName;
     private long accountNumber;
-    private Long rowId;
+    private String expert;
 
     /**
      * Constructor to init fields from CreditItem instance
@@ -27,6 +30,14 @@ public class CreditRequestResultRow extends CreditRequest implements ResultRow {
         this.creditName = creditRequest.getCredit().getName();
         Account account = creditRequest.getAccount();
         this.accountNumber = account != null ? account.getAccountNumber() : -1L;
+
+        setProcessingDate(creditRequest.getProcessingDate());
+        setDescription(creditRequest.getDescription());
+
+        Employee employee = creditRequest.getEmployee();
+        if (employee != null) {
+            this.expert = employee.getSurname();
+        }
     }
 
     @Override
@@ -53,5 +64,13 @@ public class CreditRequestResultRow extends CreditRequest implements ResultRow {
 
     public void setAccountNumber(long accountNumber) {
         this.accountNumber = accountNumber;
+    }
+
+    public String getExpert() {
+        return expert;
+    }
+
+    public void setExpert(String expert) {
+        this.expert = expert;
     }
 }

@@ -14,7 +14,11 @@ public enum GridHeader {
     SUM("grid.client.credits.sum"),
     TERM("grid.client.credits.term"),
     SUM_TO_PAY("grid.client.credits.sumToPay"),
-    SUM_PAYED("grid.client.credits.sumPayed");
+    SUM_PAYED("grid.client.credits.sumPayed"),
+
+    PROCESSING_DATE("grid.client.request.processingDate"),
+    DESCRIPTION("grid.client.request.description"),
+    CREDIT_EXPERT("grid.client.request.expert");
 
     private String text;
 
