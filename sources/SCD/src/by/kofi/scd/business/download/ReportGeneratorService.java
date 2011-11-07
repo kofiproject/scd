@@ -1,12 +1,17 @@
 package by.kofi.scd.business.download;
 
+import by.kofi.scd.business.AccountBusinessBean;
+import by.kofi.scd.business.PaymentBusinessBean;
 import by.kofi.scd.common.FacesUtil;
 import by.kofi.scd.dto.UserContext;
+import by.kofi.scd.entity.Account;
 import by.kofi.scd.entity.Client;
+import by.kofi.scd.entity.Payment;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.faces.context.ExternalContext;
@@ -17,6 +22,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.List;
 
 /**
  * @author harchevnikov_m
@@ -28,8 +34,18 @@ public class ReportGeneratorService implements ReportGenerator {
     private static final Logger LOGGER = Logger.getLogger(ReportGeneratorService.class);
     private static final String DATE_FORMAT = "yyyyMMdd";
 
+    @Autowired
+    private AccountBusinessBean accountBusinessBean;
+
+    @Autowired
+    private PaymentBusinessBean paymentBusinessBean;
 
     public File generateReport(Long accountNumber, UserContext userContext) throws SCDBusinessException {
+
+        Account account = accountBusinessBean.getAccountByIdentityId(accountNumber);
+        List<Payment> paymentsByAccount = paymentBusinessBean.getPaymentsByAccount(accountNumber);
+
+
         FileOutputStream out = null;
         File file = null;
         try {
@@ -168,7 +184,7 @@ public class ReportGeneratorService implements ReportGenerator {
     /**
      * Create empty file with predefined name
      *
-     * @param userContext userOCntext
+     * @param userContext userContext
      * @return file
      * @throws IOException file creation error
      */

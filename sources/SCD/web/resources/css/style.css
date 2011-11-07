@@ -180,10 +180,10 @@ body {
     width: 400px;
 }
 
-.red {
-    background: red;
-}
-
 .invisible {
     display: none;
+}
+
+.rf-pm-top-itm-sel {
+    background: #88CCE6 !important;
 }

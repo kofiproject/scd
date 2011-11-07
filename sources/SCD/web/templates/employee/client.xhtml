@@ -2,7 +2,7 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:rich="http://richfaces.org/rich"
-        >
+                xmlns:f="http://java.sun.com/jsf/core">
 
     <ui:define name="baseStyle">
         <h:outputStylesheet library="css/client" name='client.css'/>
@@ -24,60 +24,79 @@
         <h:form id="menu-form">
             <h:panelGrid columns="2" style="width: 140px; margin-left: 7px; background-color: #808080;">
                 <rich:panelMenu
-                        selectedItemClass="red"
                         columnClasses="cols,cols"
                         groupExpandedLeftIcon="triangleUp"
                         groupCollapsedLeftIcon="triangleDown"
                         topGroupExpandedRightIcon="chevronUp"
                         topGroupCollapsedRightIcon="chevronDown"
                         itemLeftIcon="disc"
+                        activeItem="#{menuController.activeMenuItem}"
                         >
-                    <rich:panelMenuItem icon="disc">
+
+                    <rich:panelMenuItem icon="disc" id="id1">
                         <h:commandLink immediate="true"
                                        styleClass="left-menu-item"
                                        value="#{bundle['client.menu.activeCredits']}"
                                        action="client-active-credits"
-                                />
+                                >
+                            <f:setPropertyActionListener target="#{menuController.activeMenuItem}"
+                                                         value="id1"/>
+                        </h:commandLink>
                     </rich:panelMenuItem>
 
-                    <rich:panelMenuItem icon="disc">
+                    <rich:panelMenuItem icon="disc" id="id2">
                         <h:commandLink immediate="true"
                                        styleClass="left-menu-item"
                                        value="#{bundle['client.menu.creditPlans']}"
                                        action="client-credit-list"
-                                />
+                                >
+                            <f:setPropertyActionListener target="#{menuController.activeMenuItem}"
+                                                         value="id2"/>
+                        </h:commandLink>
                     </rich:panelMenuItem>
 
-                    <rich:panelMenuItem icon="disc">
+                    <rich:panelMenuItem icon="disc" id="id3">
                         <h:commandLink immediate="true"
                                        styleClass="left-menu-item"
                                        value="#{bundle['client.menu.creditcalculator']}"
                                        action="credit-calculator"
-                                />
+                                >
+                            <f:setPropertyActionListener target="#{menuController.activeMenuItem}"
+                                                         value="id3"/>
+                        </h:commandLink>
                     </rich:panelMenuItem>
 
-                    <rich:panelMenuItem icon="disc">
+                    <rich:panelMenuItem icon="disc" id="id4">
                         <h:commandLink immediate="true"
                                        styleClass="left-menu-item"
                                        value="#{bundle['client.menu.profile']}"
                                        action="client-profile"
-                                />
+                                >
+                            <f:setPropertyActionListener target="#{menuController.activeMenuItem}"
+                                                         value="id4"/>
+                        </h:commandLink>
                     </rich:panelMenuItem>
 
-                    <rich:panelMenuItem icon="disc">
+                    <rich:panelMenuItem icon="disc" id="id5">
                         <h:commandLink immediate="true"
                                        styleClass="left-menu-item"
                                        value="#{bundle['client.menu.creditHistory']}"
                                        action="client-credit-history"
-                                />
+                                >
+                            <f:setPropertyActionListener target="#{menuController.activeMenuItem}"
+                                                         value="id5"/>
+                        </h:commandLink>
                     </rich:panelMenuItem>
 
-                    <rich:panelMenuItem icon="disc">
+                    <rich:panelMenuItem icon="disc" id="id6">
                         <h:commandLink immediate="true"
                                        styleClass="left-menu-item"
                                        value="#{bundle['client.menu.requestHistory']}"
                                        action="client-request-history"
-                                />
+                                >
+                            <f:setPropertyActionListener target="#{menuController.activeMenuItem}"
+                                                         value="id6"/>
+                        </h:commandLink>
                     </rich:panelMenuItem>
 
                     <!--
