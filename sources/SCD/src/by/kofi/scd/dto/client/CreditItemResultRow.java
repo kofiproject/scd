@@ -10,6 +10,8 @@ import by.kofi.scd.entity.CreditItem;
  */
 public class CreditItemResultRow extends CreditItem implements ResultRow {
     private Long rowId;
+    private Long creditId;
+    private Long clientId;
     private String creditName;
     private long accountNumber;
 
@@ -26,17 +28,14 @@ public class CreditItemResultRow extends CreditItem implements ResultRow {
         setTerm(creditItem.getTerm());
         setCalculatedAmount(creditItem.getCalculatedAmount());
         setPaidAmount(creditItem.getPaidAmount());
+        this.creditId = creditItem.getCredit().getCreditId();
+        this.clientId = creditItem.getClient().getClientId();
     }
 
 
     @Override
     public Long getRowId() {
         return accountNumber;
-    }
-
-    @Override
-    public void setRowId(Long rowId) {
-        this.rowId = rowId;
     }
 
 
@@ -55,4 +54,15 @@ public class CreditItemResultRow extends CreditItem implements ResultRow {
     public void setAccountNumber(long accountNumber) {
         this.accountNumber = accountNumber;
     }
+
+    @Override
+    public Long getCreditId() {
+        return this.creditId;
+    }
+
+    @Override
+    public Long getClientId() {
+        return  this.clientId;
+    }
+
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j"
+        >
+
+<rich:popupPanel header="Credit Details" id="creditDetails"
+                 autosized="true" modal="true"
+                 onmaskclick="#{rich:component('creditDetails')}.hide()">
+    <div >
+        <h:outputText value="#{cc.attrs.bean.credit.name}"
+                      style="font-weight: bold;"/>
+        <br/>
+        <br/>
+        <h:outputText value="#{cc.attrs.bean.credit.description}" escape="false"/>
+    </div>
+
+    <div style="text-align: center;">
+        <a4j:commandButton value="Ok"
+                           onclick="#{rich:component('creditDetails')}.hide(); return false;"
+                           styleClass="popup-btn"
+                />
+    </div>
+</rich:popupPanel>
+</html>

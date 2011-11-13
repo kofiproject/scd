@@ -65,11 +65,7 @@
 
                                                 <td align="center">
                                                     <h:form id="user-form">
-                                                        <h:commandLink value="#{sessionScope.userContext}"
-                                                                       styleClass="menu"
-                                                                       immediate="true"
-                                                                       action="client-profile"
-                                                                />
+                                                        <ui:insert name="userLink"/>
                                                     </h:form>
                                                 </td>
                                                 <td width="56" align="center" class="menu"><span

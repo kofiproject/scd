@@ -11,12 +11,19 @@ import by.kofi.scd.exceptions.SCDTechnicalException;
  */
 public class CreditRequestQueryBuilder {
 
-    public static String getCreditRequestsByCreditClient() throws SCDTechnicalException {
+    public static String getCreditRequestsByCreditClient() {
         return "from CreditRequest cr where cr.client.id = :clientId and cr.credit.id = :creditId and cr.state = :state";
     }
 
-    public static String getCreditRequestsByClient() throws SCDTechnicalException {
+    public static String getCreditRequestsByClient() {
         return "from CreditRequest cr where cr.client.id = :clientId and cr.state = :state";
+    }
+
+    public static String getCreditRequestsByEmployee() {
+        return "from CreditRequest cr where cr.employee.id = :employeeId and cr.state = :state";
+    }
+    public static String getCreditRequests() {
+        return "from CreditRequest cr where cr.state = :state";
     }
 
 }

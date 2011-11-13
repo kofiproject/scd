@@ -80,4 +80,14 @@ public class ClientBusinessBean extends AbstractBusinessBean {
             throw new SCDBusinessException(e);
         }
     }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public Client getClientById(Long clientId) throws SCDBusinessException {
+        try {
+            return getCRUDDataService().find(Client.class, clientId);
+        } catch (SCDTechnicalException e) {
+            throw new SCDBusinessException(e);
+        }
+    }
+
 }

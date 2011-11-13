@@ -34,4 +34,16 @@ public interface CreditRequestDataService extends AbstractDataService {
      */
     public List<CreditRequest> getCreditRequests(Long clientId, CreditRequestStateEnum state) throws SCDTechnicalException;
 
+    /**
+     * CreditRequests for employee an d state
+     *
+     * @param employeeId employee
+     * @param state      state
+     * @return requests list
+     * @throws SCDTechnicalException hql query error
+     */
+    public List<CreditRequest> getCreditRequestsByEmployee(Long employeeId, CreditRequestStateEnum state) throws SCDTechnicalException;
+
+    public List<CreditRequest> getCreditRequests(CreditRequestStateEnum state) throws SCDTechnicalException;
+
 }

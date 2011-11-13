@@ -8,7 +8,10 @@ package by.kofi.scd.common.constants;
  *         Time: 18:30
  */
 public enum NavigationActionEnum {
-    LOGIN("login"),
+    LOGIN_CLIENT("login-client"),
+    LOGIN_EXPERT("login-expert"),
+    LOGIN_OPERATOR("login-operator"),
+
     LOGOUT("logout"),
     LOGIN_FAIL("fail"),
 
@@ -17,7 +20,9 @@ public enum NavigationActionEnum {
     CLIENT_UPDATE_PROFILE("client-update-profile"),
 
     CLIENT_CREDIT_DETAILS("client-credit-details"),
-    CLIENT_CREDIT_REQUEST_SEND_COMPLETE("client-send-request-complete");
+    CLIENT_CREDIT_REQUEST_SEND_COMPLETE("client-send-request-complete"),
+
+    EXPERT_CREDIT_REQUEST_LIST("expert-requests");
 
     private String action;
 

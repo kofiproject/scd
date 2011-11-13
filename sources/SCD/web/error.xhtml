@@ -1,18 +1,34 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:a4j="http://richfaces.org/a4j"
-      xmlns:rich="http://richfaces.org/rich">
-<f:view>
-    <h:head>
-    </h:head>
-    <h:body>
-       Error!!
+<ui:composition template="templates/base.xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich" xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:grid="http://java.sun.com/jsf/composite/components"
+                xmlns:c="http://java.sun.com/jstl/core"
+        >
 
-    </h:body>
-</f:view>
-</html>
+    <ui:define name="baseStyle">
+        <h:outputStylesheet library="css/client" name='client.css'/>
+    </ui:define>
+
+
+    <ui:define name="content">
+
+        <h:outputText value="Oops, there was an error."/>
+        <br/>
+        <br/>
+
+
+        <a href="#" class="show-description" onclick="jQuery('#details').toggle();">Details</a>
+
+
+        <div class="credit-description-content-wrapper invisible" id="details">
+            <div style="max-height: 400px; overflow: auto; max-width: 1200px;">
+                <h:outputText style="width: 100%;" rows="20"
+                              value="#{error.stackTrace}" escape="false"/>
+            </div>
+        </div>
+
+
+    </ui:define>
+
+</ui:composition>

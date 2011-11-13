@@ -1,0 +1,37 @@
+<ui:composition template="/templates/employee/operator.xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html">
+    <ui:define name="script">
+        <h:outputScript library="js" name="jquery.corner.js"/>
+        <h:outputScript library="js/client" name="credit-list.js"/>
+    </ui:define>
+
+    <ui:define name="header">
+        Credit plans
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="credit-list-form">
+            <div class="client-content-wrapper">
+                <ui:repeat value="#{creditBusinessBean.credits}" var="credit">
+                    <span class="credit-li">&#160;&#160;&#160;</span>
+
+                    <h:outputText value="#{credit.name}"
+                                  action="#{creditRequestController.creditDetailsAction}"
+                                  styleClass="credit-plan-link"/>
+
+                    <a href="#" class="show-description">Details</a>
+
+
+                    <div class="credit-description-content-wrapper invisible">
+                        <h:outputText value="#{credit.description}" escape="false"/>
+                    </div>
+
+                    <br/>
+                    <br/>
+                </ui:repeat>
+            </div>
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>

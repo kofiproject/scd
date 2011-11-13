@@ -5,6 +5,7 @@ import by.kofi.scd.business.UserBusinessBean;
 import by.kofi.scd.common.constants.NavigationActionEnum;
 import by.kofi.scd.dto.UserContext;
 import by.kofi.scd.entity.Client;
+import by.kofi.scd.entity.Employee;
 import by.kofi.scd.entity.Role;
 import by.kofi.scd.entity.SCDUser;
 import by.kofi.scd.exceptions.SCDBusinessException;
@@ -23,6 +24,10 @@ import javax.servlet.http.HttpSession;
 @Controller("loginBean")
 @Scope("request")
 public class LoginController {
+    private static final Long CLIENT_ROLE_ID = 1L;
+    private static final Long EXPERT_ROLE_ID = 2L;
+    private static final Long OPERATOR_ROLE_ID = 3L;
+
     private Long uniqueId = null;
     private String password;
     private Boolean isLoginFailed;
@@ -57,12 +62,24 @@ public class LoginController {
     public String loginAction() throws SCDBusinessException {
         SCDUser user = this.userBusinessBean.getUserByIdentityId(getUniqueId());
         if (user != null && user.getPassword().equals(getPassword())) {
-            UserContext userContext = new UserContext(user.getClient());
+            Client client = user.getClient();
+            Employee employee = user.getEmployee();
+            UserContext userContext = new UserContext(client, employee);
             HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
             session.setAttribute("userContext", userContext);
 
-            //todo switch for role and save in session role and client
-            return NavigationActionEnum.LOGIN.getValue();
+            Role role = user.getRole();
+            long roleId = role.getRoleId();
+
+            if (roleId == CLIENT_ROLE_ID) {
+                return NavigationActionEnum.LOGIN_CLIENT.getValue();
+            } else if (roleId == EXPERT_ROLE_ID) {
+                return NavigationActionEnum.LOGIN_EXPERT.getValue();
+            } else if (roleId == OPERATOR_ROLE_ID) {
+                return NavigationActionEnum.LOGIN_OPERATOR.getValue();
+            } else {
+                return "";
+            }
         } else {
             //to avoid 0 in input if uniqueId is null (jsf initialize it with 0)
             if (getUniqueId().equals(0L)) {

@@ -13,5 +13,8 @@ public interface ResultRow extends Serializable {
 
     public Long getRowId();
 
-    public void setRowId(Long rowId);
+    public Long getCreditId();
+
+    public Long getClientId();
+
 }

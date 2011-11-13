@@ -1,0 +1,256 @@
+<ui:composition template="/templates/employee/expert.xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich" xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:grid="http://java.sun.com/jsf/composite/components"
+                xmlns:c="http://java.sun.com/jstl/core"
+        >
+
+<ui:define name="script">
+    <h:outputScript library="js/client" name="credit-list.js"/>
+    <h:outputScript library="js/bank" name="process-request.js"/>
+</ui:define>
+
+
+<ui:define name="header">
+    Process Request
+</ui:define>
+
+<ui:define name="content">
+
+<div class="process_request_div floatLeft">
+    <h:outputText value="#{processRequestController.creditRequest.credit.name}"
+                  styleClass="credit-plan-link"/>
+
+    <a href="#" class="show-description">Details</a>
+
+    <div class="credit-description-content-wrapper invisible">
+        <h:outputText value="#{processRequestController.creditRequest.credit.description}" escape="false"/>
+    </div>
+
+
+    <div class="credit-details-form-div">
+        <h:panelGrid columns="2">
+
+            <h:panelGroup>
+                <h:outputLabel value="#{bundle['client.credit.details.monthlyCacheIncome']}"/>
+                &#160;
+            </h:panelGroup>
+            <h:panelGroup>
+                <h:outputText id="monthlyCacheIncome" size="20"
+                              value="#{processRequestController.creditRequest.monthlyCacheIncome}"/>
+                &#160;
+                <h:outputText value="#{bundle['client.credit.details.by']}"/>
+            </h:panelGroup>
+
+
+            <h:panelGroup>
+                <h:outputLabel value="#{bundle['client.credit.details.term']}"/>
+            </h:panelGroup>
+            <h:panelGroup>
+                <h:outputText id="term" size="20"
+                              value="#{processRequestController.creditRequest.term}"/>
+                &#160;
+                <h:outputText value="#{bundle['client.credit.details.months']}"/>
+            </h:panelGroup>
+
+            <h:panelGroup>
+                <h:outputLabel value="#{bundle['client.credit.details.sum']}"/>
+            </h:panelGroup>
+            <h:panelGroup>
+                <h:outputText id="sum" size="20"
+                              value="#{processRequestController.creditRequest.amount}"
+                        />
+                &#160;
+                <h:outputText value="#{bundle['client.credit.details.by']}"/>
+            </h:panelGroup>
+        </h:panelGrid>
+    </div>
+
+    <br/>
+
+</div>
+<div class="process_request_div floatRight">
+    Client details
+    <h:panelGrid columns="2"
+                 cellpadding="2"
+                 cellspacing="2"
+                 border="1"
+            >
+
+        <h:panelGroup>
+            <h:outputLabel value="#{bundle['registration.surname']}"/>
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputText id="surname" size="20" value="#{processRequestController.creditRequest.client.surname}"
+                          validator="#{registrationValidator.validateShortString}"
+                          required="true"
+                          requiredMessage="#{bundle['registration.validator.required']}"/>
+        </h:panelGroup>
+
+
+        <h:panelGroup>
+            <h:outputLabel value="#{bundle['registration.name']}"/>
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputText id="name" size="20" value="#{processRequestController.creditRequest.client.name}"
+                          validator="#{registrationValidator.validateShortString}"
+                          required="true"
+                          requiredMessage="#{bundle['registration.validator.required']}"/>
+        </h:panelGroup>
+
+        <h:panelGroup>
+            <h:outputLabel value="#{bundle['registration.middlename']}"/>
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputText id="middleName" size="20" value="#{processRequestController.creditRequest.client.middleName}"
+                          validator="#{registrationValidator.validateShortString}"
+                          required="true"
+                          requiredMessage="#{bundle['registration.validator.required']}"/>
+        </h:panelGroup>
+
+        <h:panelGroup>
+            <h:outputLabel value="#{bundle['registration.passport']}"/>
+            &#160;&#160;&#160;
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputText id="passportSeries" size="4"
+                          value="#{processRequestController.creditRequest.client.passportSeries}"
+                          style="float: left;"
+                    />
+            <h:outputText id="passportNo" size="12" value="#{processRequestController.creditRequest.client.passportNo}"
+                          style="float: left; margin-left: 5px;" styleClass="numeric"
+                          validator="#{registrationValidator.validatePassportData}"
+                          required="true"
+                          requiredMessage="#{bundle['registration.validator.required']}"/>
+        </h:panelGroup>
+
+        <h:panelGroup>
+            <h:outputLabel value="#{bundle['registration.birthday']}"/>
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputText id="birthday" size="20"
+                          value="#{processRequestController.creditRequest.client.birthday}"
+                          validator="#{registrationValidator.validateString}"
+                          required="true"
+                          requiredMessage="#{bundle['registration.validator.required']}">
+                <f:convertDateTime pattern="dd/MM/yyyy"/>
+
+            </h:outputText>
+
+        </h:panelGroup>
+
+        <h:panelGroup>
+            <h:outputLabel value="#{bundle['registration.sex']}"/>
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputText id="sex" size="20"
+                          value="#{processRequestController.creditRequest.client.sex}"
+                          validator="#{registrationValidator.validateString}"
+                          required="true"
+                          requiredMessage="#{bundle['registration.validator.required']}"/>
+        </h:panelGroup>
+
+        <h:panelGroup>
+            <h:outputLabel value="#{bundle['registration.permanentResidence']}"/>
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputText id="permanentResidence" size="20"
+                          value="#{processRequestController.creditRequest.client.permanentResidence}"
+                          validator="#{registrationValidator.validateString}"
+                          required="true"
+                          requiredMessage="#{bundle['registration.validator.required']}"/>
+        </h:panelGroup>
+
+        <h:panelGroup>
+            <h:outputLabel value="#{bundle['registration.currentResidence']}"/>
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputText id="currentResidence" size="20"
+                          value="#{processRequestController.creditRequest.client.currentResidence}"
+                          validator="#{registrationValidator.validateString}"
+                          required="true"
+                          requiredMessage="#{bundle['registration.validator.required']}"/>
+        </h:panelGroup>
+
+        <h:panelGroup>
+            <h:outputLabel value="#{bundle['registration.mobilePhone']}"/>
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputText id="mobilePhone" size="20"
+                          value="#{processRequestController.creditRequest.client.phoneMobile}"
+                          styleClass="numeric"
+                          validator="#{registrationValidator.validatePhone}"
+                          required="true"
+                          requiredMessage="#{bundle['registration.validator.required']}"/>
+        </h:panelGroup>
+
+        <h:panelGroup>
+            <h:outputLabel value="#{bundle['registration.phone']}"/>
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputText id="phone" size="20" value="#{processRequestController.creditRequest.client.phone}"
+                          styleClass="numeric"
+                          validator="#{registrationValidator.validatePhone}"
+                          required="true"
+                          requiredMessage="#{bundle['registration.validator.required']}"/>
+        </h:panelGroup>
+
+        <h:panelGroup>
+            <h:outputLabel value="#{bundle['registration.email']}"/>
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputText id="email" size="20"
+                          value="#{processRequestController.creditRequest.client.email}"
+                          validator="#{registrationValidator.validateEmail}"
+                          required="true"
+                          requiredMessage="#{bundle['registration.validator.required']}"/>
+        </h:panelGroup>
+
+
+        <h:panelGroup>
+            <h:outputLabel value="#{bundle['registration.jobPlace']}"/>
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputText id="jobPlace" size="20" value="#{processRequestController.creditRequest.client.jobPlace}"
+                          validator="#{registrationValidator.validateString}"
+                          required="true"
+                          requiredMessage="#{bundle['registration.validator.required']}"/>
+        </h:panelGroup>
+
+        <h:panelGroup>
+            <h:outputLabel value="#{bundle['registration.jobPosition']}"/>
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputText id="jobPosition" size="20"
+                          value="#{processRequestController.creditRequest.client.jobPosition}"
+                          validator="#{registrationValidator.validateString}"
+                          required="true"
+                          requiredMessage="#{bundle['registration.validator.required']}"/>
+        </h:panelGroup>
+
+    </h:panelGrid>
+
+</div>
+
+<div style="clear: both">
+
+    <br/>
+
+    <div class="center">
+        <a4j:commandButton id="confirm"
+                           value="Confirm"
+                           onclick="#{rich:component('confirmModal')}.show()"
+                />
+        <a4j:commandButton id="reject"
+                           value="Reject"
+                           onclick="#{rich:component('rejectModal')}.show()"
+                />
+    </div>
+</div>
+
+
+<ui:include src="process-request-popups.xhtml"/>
+</ui:define>
+
+</ui:composition>

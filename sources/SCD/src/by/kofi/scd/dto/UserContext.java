@@ -2,6 +2,7 @@ package by.kofi.scd.dto;
 
 import by.kofi.scd.entity.Client;
 import by.kofi.scd.entity.Employee;
+import by.kofi.scd.entity.Role;
 import by.kofi.scd.entity.SCDUser;
 
 /**
@@ -15,11 +16,8 @@ public class UserContext extends AbstractModel {
     private Client client;
     private Employee employee;
 
-    public UserContext(Client client) {
+    public UserContext(Client client, Employee employee) {
         this.client = client;
-    }
-
-    public UserContext(Employee employee) {
         this.employee = employee;
     }
 

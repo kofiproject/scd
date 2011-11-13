@@ -18,23 +18,13 @@
     <composite:attribute name="bean"/>
     <composite:attribute name="gridHeader"/>
     <composite:attribute name="reportColumn" required="false" default="true"/>
+    <composite:attribute name="processRequestColumn" required="false" default="false"/>
 </composite:interface>
 
 <!-- IMPLEMENTATION -->
 <composite:implementation>
 
-    <!--
-        <a4j:status id="loading"
-                    onstart="#{rich:component('panel_loading')}.show()"
-                    onstop="#{rich:component('panel_loading')}.hide()"
-                />
-    -->
-
     <h:form id="grid-form">
-        <rich:popupPanel id="panel_loading" autosized="true">
-            <h:graphicImage library="images" name="loader.gif" alt=""/>
-            <h:outputText value="#{bundle['common.loading']}"/>
-        </rich:popupPanel>
 
         <rich:dataTable
                 value="#{cc.attrs.bean.resultList}"
@@ -61,12 +51,45 @@
                 <h:outputText value="#{iter.index+1}"/>
             </rich:column>
 
-            <c:forEach var="curHeader" items="#{cc.attrs.bean.headers}" varStatus="i">
+            <c:forEach var="column" items="#{cc.attrs.bean.columns}" varStatus="i">
                 <rich:column>
                     <f:facet name="header">
-                        <h:outputText value="#{bundle[curHeader.text]}"/>
+                        <h:outputText value="#{bundle[column.header]}"/>
                     </f:facet>
-                    <h:outputText value="#{item[cc.attrs.bean.fields[i.index].text]}"/>
+                    <c:choose>
+                        <c:when test="#{column.creditField}">
+                            <a4j:commandLink value="#{item[column.text]}"
+                                             styleClass="grid-report-col"
+                                             immediate="true"
+                                             action="#{cc.attrs.bean.loadCredit}"
+                                             oncomplete="#{rich:component('creditDetails')}.show()"
+                                             render="creditDetails"
+                                    >
+                                <a4j:param value="#{item.creditId}"
+                                           assignTo="#{cc.attrs.bean.creditId}"/>
+                            </a4j:commandLink>
+                        </c:when>
+                        <c:when test="#{column.clientField}">
+                            <a4j:commandLink value="#{item[column.text]}"
+                                             styleClass="grid-report-col"
+                                             immediate="true"
+                                             action="#{cc.attrs.bean.loadClient}"
+                                             oncomplete="#{rich:component('clientDetails')}.show()"
+                                             render="clientDetails"
+                                    >
+                                <a4j:param value="#{item.clientId}"
+                                           assignTo="#{cc.attrs.bean.clientId}"/>
+                            </a4j:commandLink>
+                        </c:when>
+                        <c:otherwise>
+                            <h:outputText value="#{item[column.text]}">
+                                <c:if test="#{column.dateField}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
+                                </c:if>
+                            </h:outputText>
+                        </c:otherwise>
+                    </c:choose>
+
                 </rich:column>
             </c:forEach>
 
@@ -89,6 +112,22 @@
                 </rich:column>
             </c:if>
 
+            <c:if test="#{cc.attrs.processRequestColumn}">
+                <rich:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle['grid.common.process']}"/>
+                    </f:facet>
+
+                    <h:commandLink value="#{bundle['grid.common.process']}"
+                                   styleClass="grid-report-col"
+                                   action="expert-process-request"
+                            >
+                        <f:setPropertyActionListener value="#{item.creditRequestId}"
+                                                     target="#{processRequestController.creditRequestId}"/>
+                    </h:commandLink>
+                </rich:column>
+            </c:if>
+
             <f:facet name="footer">
                 <rich:dataScroller page="#{cc.attrs.bean.currentPage}"/>
             </f:facet>
@@ -100,6 +139,15 @@
                        action="#{cc.attrs.bean.downloadReport}"
                        onclick="#{rich:component('panel_loading')}.hide()"
                 />
+
+        <rich:popupPanel id="panel_loading" autosized="true">
+            <h:graphicImage library="images" name="loader.gif" alt=""/>
+            <h:outputText value="#{bundle['common.loading']}"/>
+        </rich:popupPanel>
+
+        <ui:include src="creditPopup.xhtml"/>
+        <ui:include src="clientPopup.xhtml"/>
+
     </h:form>
 
 </composite:implementation>

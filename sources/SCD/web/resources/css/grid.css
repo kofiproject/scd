@@ -21,3 +21,16 @@
     cursor: pointer;
     background: url("../../resources/images/bg_bottom.gif");
 }
+
+.popup-btn {
+    margin-top: 10px;
+    padding: 2px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.popup-div {
+    /*width: 430px;*/
+    /*height: 150px;*/
+    /*overflow: auto;*/
+}

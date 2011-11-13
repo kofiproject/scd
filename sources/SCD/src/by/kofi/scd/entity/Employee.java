@@ -148,4 +148,9 @@ public class Employee extends AbstractEntity {
     public Serializable getEntityId() {
         return getEmployeeId();
     }
+
+    @Override
+    public String toString() {
+        return getName() + getSurname();
+    }
 }

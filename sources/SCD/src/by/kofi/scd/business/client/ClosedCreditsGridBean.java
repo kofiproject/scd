@@ -1,8 +1,7 @@
 package by.kofi.scd.business.client;
 
 import by.kofi.scd.business.grid.AbstractGridBusinessBean;
-import by.kofi.scd.business.grid.GridHeader;
-import by.kofi.scd.business.grid.ResultRowField;
+import by.kofi.scd.business.grid.GridColumn;
 import by.kofi.scd.common.FacesUtil;
 import by.kofi.scd.dataservice.client.ClientDataService;
 import by.kofi.scd.dto.UserContext;
@@ -32,8 +31,6 @@ public class ClosedCreditsGridBean extends AbstractGridBusinessBean {
 
     @Autowired
     private ClientDataService clientDataService;
-    @Autowired
-    private ActiveCreditsGridBusinessBean activeCreditsGridBusinessBean;
 
 
     @Transactional(propagation = Propagation.REQUIRED)
@@ -56,13 +53,17 @@ public class ClosedCreditsGridBean extends AbstractGridBusinessBean {
         }
     }
 
-    @Override
-    public GridHeader[] getHeaders() {
-        return this.activeCreditsGridBusinessBean.getHeaders();
-    }
 
     @Override
-    public ResultRowField[] getFields() {
-        return this.activeCreditsGridBusinessBean.getFields();
+    public GridColumn[] getColumns() {
+        return new GridColumn[]{
+                GridColumn.ISSUENCE_DATE,
+                GridColumn.CREDIT_NAME,
+                GridColumn.ACCOUNT_NUMBER,
+                GridColumn.SUM,
+                GridColumn.TERM,
+                GridColumn.SUM_TO_PAY,
+                GridColumn.SUM_PAYED,
+                GridColumn.ACCOUNT_NUMBER};
     }
 }

@@ -187,3 +187,19 @@ body {
 .rf-pm-top-itm-sel {
     background: #88CCE6 !important;
 }
+
+.floatRight {
+    float: right;
+}
+
+.floatLeft {
+    float: left;
+}
+
+.center {
+    text-align: center;
+}
+
+.errorMsg {
+    color: red !important;
+}

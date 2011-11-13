@@ -4,6 +4,8 @@ import by.kofi.scd.business.AbstractBusinessBean;
 import by.kofi.scd.business.RoleBusinessBean;
 import by.kofi.scd.dataservice.CRUDDataService;
 import by.kofi.scd.dataservice.client.ClientDataService;
+import by.kofi.scd.dataservice.credit.CreditDataService;
+import by.kofi.scd.dataservice.credit.CreditRequestDataService;
 import by.kofi.scd.entity.*;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import by.kofi.scd.exceptions.SCDTechnicalException;
@@ -26,6 +28,9 @@ public class CreditBusinessBean extends AbstractBusinessBean {
 
     private static final Logger LOGGER = Logger.getLogger(CreditBusinessBean.class);
 
+    @Autowired
+    private CreditDataService creditDataService;
+
     @Transactional(propagation = Propagation.REQUIRED)
     public List<Credit> getCredits() throws SCDBusinessException {
         try {
@@ -39,6 +44,15 @@ public class CreditBusinessBean extends AbstractBusinessBean {
     public Credit getCreditById(Long creditId) throws SCDBusinessException {
         try {
             return getCRUDDataService().find(Credit.class, creditId);
+        } catch (SCDTechnicalException e) {
+            throw new SCDBusinessException(e);
+        }
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public Credit getCreditByName(String name) throws SCDBusinessException {
+        try {
+            return creditDataService.getCreditByName(name);
         } catch (SCDTechnicalException e) {
             throw new SCDBusinessException(e);
         }

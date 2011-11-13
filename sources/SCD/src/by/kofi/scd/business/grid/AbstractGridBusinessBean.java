@@ -1,15 +1,17 @@
 package by.kofi.scd.business.grid;
 
 import by.kofi.scd.business.AbstractBusinessBean;
+import by.kofi.scd.business.client.ClientBusinessBean;
+import by.kofi.scd.business.credit.CreditBusinessBean;
 import by.kofi.scd.business.download.FileDownloadService;
 import by.kofi.scd.business.download.ReportGenerator;
 import by.kofi.scd.common.FacesUtil;
 import by.kofi.scd.dto.UserContext;
+import by.kofi.scd.entity.Client;
+import by.kofi.scd.entity.Credit;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.util.List;
 
@@ -25,10 +27,19 @@ public abstract class AbstractGridBusinessBean<T extends ResultRow> extends Abst
     private List<T> resultList;
     private File generatedReport;
 
+    private Credit credit;
+    private Client client;
+    private Long creditId;
+    private Long clientId;
+
     @Autowired
     private ReportGenerator reportGenerator;
     @Autowired
     private FileDownloadService fileDownloadService;
+    @Autowired
+    private CreditBusinessBean creditBusinessBean;
+    @Autowired
+    private ClientBusinessBean clientBusinessBean;
 
     public int getRowsPerPage() {
         return rowsPerPage;
@@ -52,6 +63,38 @@ public abstract class AbstractGridBusinessBean<T extends ResultRow> extends Abst
 
     public void setSelectedRowId(long selectedRowId) {
         this.selectedRowId = selectedRowId;
+    }
+
+    public Credit getCredit() {
+        return credit;
+    }
+
+    public void setCredit(Credit credit) {
+        this.credit = credit;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Long getCreditId() {
+        return creditId;
+    }
+
+    public void setCreditId(Long creditId) {
+        this.creditId = creditId;
+    }
+
+    public Long getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
     }
 
     /**
@@ -88,18 +131,11 @@ public abstract class AbstractGridBusinessBean<T extends ResultRow> extends Abst
     public abstract List<T> executeSearch() throws SCDBusinessException;
 
     /**
-     * Return array of enums to represent grid headers
-     *
-     * @return headers
-     */
-    public abstract GridHeader[] getHeaders();
-
-    /**
      * return set of resultRows fields names
      *
      * @return cells properties
      */
-    public abstract ResultRowField[] getFields();
+    public abstract GridColumn[] getColumns();
 
 
     /**
@@ -123,4 +159,25 @@ public abstract class AbstractGridBusinessBean<T extends ResultRow> extends Abst
         UserContext userContext = FacesUtil.getUserContext();
         fileDownloadService.downloadFile(getGeneratedReport(), userContext);
     }
+
+    /**
+     * Load credit by name to show details in popUp
+     *
+     * @throws SCDBusinessException credit retrieve error
+     */
+    public void loadCredit() throws SCDBusinessException {
+        Credit creditById = this.creditBusinessBean.getCreditById(getCreditId());
+        setCredit(creditById);
+    }
+
+    /**
+     * Load credit by name to show details in popUp
+     *
+     * @throws SCDBusinessException credit retrieve error
+     */
+    public void loadClient() throws SCDBusinessException {
+        Client clientById = this.clientBusinessBean.getClientById(getClientId());
+        setClient(clientById);
+    }
+
 }

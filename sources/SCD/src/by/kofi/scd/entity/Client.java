@@ -319,4 +319,6 @@ public class Client extends AbstractEntity {
     public Serializable getEntityId() {
         return getClientId();
     }
+
+
 }

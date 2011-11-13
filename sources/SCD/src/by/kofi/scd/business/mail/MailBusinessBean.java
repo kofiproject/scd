@@ -4,6 +4,7 @@ import by.kofi.scd.business.AbstractBusinessBean;
 import by.kofi.scd.entity.Client;
 import by.kofi.scd.entity.CreditItem;
 import by.kofi.scd.entity.CreditRequest;
+import by.kofi.scd.entity.Employee;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +66,55 @@ public class MailBusinessBean extends AbstractBusinessBean {
                 creditRequest.getAmount(),
                 creditRequest.getTerm(),
                 creditRequest.getIssuanceDate());
+
+        sendEmail(toEmail, subject, body);
+    }
+
+    /**
+     * notification on creditRequest confirmation
+     *
+     * @param creditRequest credit request
+     * @throws SCDBusinessException mail send error
+     */
+    public void sendCreditRequestConfirmMail(CreditRequest creditRequest) throws SCDBusinessException {
+        String toEmail = creditRequest.getClient().getEmail();
+        String subject = this.mailBundle.getString("mail.creditRequest.confirm.subject");
+
+        Employee employee = creditRequest.getEmployee();
+        String employeeName = employee.getName() + " " + employee.getSurname();
+        String body = MessageFormat.format(
+                this.mailBundle.getString("mail.creditRequest.confirm.body"),
+                creditRequest.getCredit().getName(),
+                creditRequest.getAmount(),
+                creditRequest.getTerm(),
+                creditRequest.getIssuanceDate(),
+                creditRequest.getProcessingDate(),
+                employeeName);
+
+        sendEmail(toEmail, subject, body);
+    }
+
+    /**
+     * notification on creditRequest rejection
+     *
+     * @param creditRequest credit request
+     * @throws SCDBusinessException mail send error
+     */
+    public void sendCreditRequestRejectMail(CreditRequest creditRequest) throws SCDBusinessException {
+        String toEmail = creditRequest.getClient().getEmail();
+        String subject = this.mailBundle.getString("mail.creditRequest.confirm.subject");
+
+        Employee employee = creditRequest.getEmployee();
+        String employeeName = employee.getName() + " " + employee.getSurname();
+        String body = MessageFormat.format(
+                this.mailBundle.getString("mail.creditRequest.confirm.body"),
+                creditRequest.getCredit().getName(),
+                creditRequest.getAmount(),
+                creditRequest.getTerm(),
+                creditRequest.getIssuanceDate(),
+                creditRequest.getProcessingDate(),
+                employeeName,
+                creditRequest.getDescription());
 
         sendEmail(toEmail, subject, body);
     }

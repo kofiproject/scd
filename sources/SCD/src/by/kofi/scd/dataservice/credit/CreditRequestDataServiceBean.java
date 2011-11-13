@@ -50,4 +50,33 @@ public class CreditRequestDataServiceBean extends AbstractDataServiceBean implem
             throw new SCDTechnicalException(e);
         }
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Transactional(propagation = Propagation.REQUIRED)
+    public List<CreditRequest> getCreditRequestsByEmployee(Long employeeId, CreditRequestStateEnum state) throws SCDTechnicalException {
+        try {
+            return getSession().createQuery(CreditRequestQueryBuilder.getCreditRequestsByEmployee())
+                    .setLong("employeeId", employeeId)
+                    .setLong("state", state.ordinal())
+                    .list();
+        } catch (HibernateException e) {
+            throw new SCDTechnicalException(e);
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Transactional(propagation = Propagation.REQUIRED)
+    public List<CreditRequest> getCreditRequests(CreditRequestStateEnum state) throws SCDTechnicalException {
+        try {
+            return getSession().createQuery(CreditRequestQueryBuilder.getCreditRequests())
+                    .setLong("state", state.ordinal())
+                    .list();
+        } catch (HibernateException e) {
+            throw new SCDTechnicalException(e);
+        }
+    }
 }

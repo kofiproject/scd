@@ -1,13 +1,13 @@
 package by.kofi.scd.business.client;
 
 import by.kofi.scd.business.grid.AbstractGridBusinessBean;
-import by.kofi.scd.business.grid.GridHeader;
-import by.kofi.scd.business.grid.ResultRowField;
+import by.kofi.scd.business.grid.GridColumn;
 import by.kofi.scd.common.FacesUtil;
 import by.kofi.scd.dataservice.client.ClientDataService;
 import by.kofi.scd.dto.UserContext;
 import by.kofi.scd.dto.client.CreditItemResultRow;
-import by.kofi.scd.entity.*;
+import by.kofi.scd.entity.CreditItem;
+import by.kofi.scd.entity.CreditItemStateEnum;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import by.kofi.scd.exceptions.SCDTechnicalException;
 import org.apache.log4j.Logger;
@@ -53,26 +53,14 @@ public class ActiveCreditsGridBusinessBean extends AbstractGridBusinessBean {
     }
 
     @Override
-    public GridHeader[] getHeaders() {
-        return new GridHeader[]{
-                GridHeader.ISSUENCE_DATE,
-                GridHeader.CREDIT_NAME,
-                GridHeader.ACCOUNT_NUMBER,
-                GridHeader.SUM,
-                GridHeader.TERM,
-                GridHeader.SUM_TO_PAY,
-                GridHeader.ACCOUNT_NUMBER};
-    }
-
-    @Override
-    public ResultRowField[] getFields() {
-        return new ResultRowField[]{
-                ResultRowField.ISSUENCE_DATE,
-                ResultRowField.CREDIT_NAME,
-                ResultRowField.ACCOUNT_NUMBER,
-                ResultRowField.SUM,
-                ResultRowField.TERM,
-                ResultRowField.SUM_TO_PAY,
-                ResultRowField.ACCOUNT_NUMBER};
+    public GridColumn[] getColumns() {
+        return new GridColumn[]{
+                GridColumn.ISSUENCE_DATE,
+                GridColumn.CREDIT_NAME,
+                GridColumn.ACCOUNT_NUMBER,
+                GridColumn.SUM,
+                GridColumn.TERM,
+                GridColumn.SUM_TO_PAY,
+                GridColumn.ACCOUNT_NUMBER};
     }
 }

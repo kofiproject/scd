@@ -21,8 +21,16 @@
     <navigation-rule>
         <from-view-id>/login/login.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>login</from-outcome>
+            <from-outcome>login-client</from-outcome>
             <to-view-id>/client/active-credits.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>login-expert</from-outcome>
+            <to-view-id>/bank/expert/active-requests.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>login-operator</from-outcome>
+            <to-view-id>/bank/operator/payments.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 
@@ -41,7 +49,6 @@
             <to-view-id>/login/login.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
-
     <!--profile-->
     <navigation-rule>
         <from-view-id>*</from-view-id>
@@ -103,6 +110,45 @@
         </navigation-case>
     </navigation-rule>
 
+
+    <!--Operator menu-->
+    <navigation-rule>
+        <from-view-id>/bank/operator/*</from-view-id>
+        <navigation-case>
+            <from-outcome>operator-payment</from-outcome>
+            <to-view-id>/bank/operator/payments.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>operator-credit-list</from-outcome>
+            <to-view-id>/bank/operator/credit-list.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <!--Expert menu-->
+    <navigation-rule>
+        <from-view-id>/bank/expert/*</from-view-id>
+        <navigation-case>
+            <from-outcome>expert-requests</from-outcome>
+            <to-view-id>/bank/expert/active-requests.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>expert-credit-list</from-outcome>
+            <to-view-id>/bank/expert/credit-list.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>expert-requests-history</from-outcome>
+            <to-view-id>/bank/expert/request-history.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <!--Grid process credit-request action-->
+    <navigation-rule>
+        <from-view-id>/bank/expert/*</from-view-id>
+        <navigation-case>
+            <from-outcome>expert-process-request</from-outcome>
+            <to-view-id>/bank/expert/processRequest/process-request.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 
 </faces-config>
 

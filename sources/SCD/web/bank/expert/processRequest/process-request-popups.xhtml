@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j"
+        >
+
+<rich:popupPanel header="Confirm" id="confirmModal"
+                 autosized="true">
+
+    <div class="center">
+        Confirm request?
+        <h:form id="confirm-form">
+            <h:commandButton value="Ok"
+                             action="#{processRequestController.confirmAction}"
+                             immediate="true">
+
+            </h:commandButton>
+            &#160;&#160;&#160;
+            <a4j:commandButton value="Cancel"
+                               onclick="#{rich:component('confirmModal')}.hide(); return false;"
+                               styleClass="popup-btn"
+                    />
+        </h:form>
+    </div>
+</rich:popupPanel>
+
+<rich:popupPanel header="Reject" id="rejectModal"
+                 autosized="true">
+    <h:form id="reject-form">
+        Reason: <br/>
+        <h:inputTextarea id="description"
+                         styleClass="rejectDescription"
+                         value="#{processRequestController.creditRequest.description}">
+            <a4j:ajax event="keyup" render="okBtn qew"/>
+        </h:inputTextarea>
+        <br/>
+
+        <h:outputText id="error" value="#{bundle['registration.validator.required']}"
+                      styleClass="errorMsg invisible"/>
+
+
+        <div class="center">
+
+            <h:commandButton value="Ok"
+                             id="okBtn"
+                             styleClass="rejectOkBtn"
+                             onclick="return by.scd.check();"
+                             action="#{processRequestController.rejectAction}"
+                    >
+
+            </h:commandButton>
+            &#160;&#160;&#160;
+            <a4j:commandButton value="Cancel"
+                               onclick="#{rich:component('rejectModal')}.hide(); return false;"
+                               styleClass="popup-btn"
+                    />
+
+        </div>
+    </h:form>
+</rich:popupPanel>
+
+</html>

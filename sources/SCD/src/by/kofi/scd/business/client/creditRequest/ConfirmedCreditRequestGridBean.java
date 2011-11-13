@@ -1,8 +1,7 @@
 package by.kofi.scd.business.client.creditRequest;
 
 import by.kofi.scd.business.grid.AbstractGridBusinessBean;
-import by.kofi.scd.business.grid.GridHeader;
-import by.kofi.scd.business.grid.ResultRowField;
+import by.kofi.scd.business.grid.GridColumn;
 import by.kofi.scd.common.FacesUtil;
 import by.kofi.scd.dataservice.credit.CreditRequestDataService;
 import by.kofi.scd.dto.UserContext;
@@ -54,31 +53,17 @@ public class ConfirmedCreditRequestGridBean extends AbstractGridBusinessBean {
         }
     }
 
-    @Override
-    public GridHeader[] getHeaders() {
-        return new GridHeader[]{
-                GridHeader.ISSUENCE_DATE,
-                GridHeader.PROCESSING_DATE,
-                GridHeader.CREDIT_NAME,
-                GridHeader.ACCOUNT_NUMBER,
-                GridHeader.SUM,
-                GridHeader.TERM,
-                GridHeader.CREDIT_EXPERT,
-                GridHeader.DESCRIPTION
-        };
-    }
 
     @Override
-    public ResultRowField[] getFields() {
-        return new ResultRowField[]{
-                ResultRowField.ISSUENCE_DATE,
-                ResultRowField.PROCESSING_DATE,
-                ResultRowField.CREDIT_NAME,
-                ResultRowField.ACCOUNT_NUMBER,
-                ResultRowField.SUM,
-                ResultRowField.TERM,
-                ResultRowField.CREDIT_EXPERT,
-                ResultRowField.DESCRIPTION
+    public GridColumn[] getColumns() {
+        return new GridColumn[]{
+                GridColumn.ISSUENCE_DATE,
+                GridColumn.PROCESSING_DATE,
+                GridColumn.CREDIT_NAME,
+                GridColumn.ACCOUNT_NUMBER,
+                GridColumn.SUM,
+                GridColumn.TERM,
+                GridColumn.CREDIT_EXPERT
         };
     }
 }

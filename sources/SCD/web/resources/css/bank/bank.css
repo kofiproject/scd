@@ -1,0 +1,5 @@
+.process_request_div {
+    width: 48%;
+    height: 300px;
+    overflow: auto;
+}

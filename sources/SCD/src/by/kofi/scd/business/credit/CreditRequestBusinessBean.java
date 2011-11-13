@@ -57,4 +57,13 @@ public class CreditRequestBusinessBean extends AbstractBusinessBean {
             throw new SCDBusinessException(e);
         }
     }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public CreditRequest getCreditRequestById(Long creditRequestId) throws SCDBusinessException {
+        try {
+            return getCRUDDataService().find(CreditRequest.class, creditRequestId);
+        } catch (SCDTechnicalException e) {
+            throw new SCDBusinessException(e);
+        }
+    }
 }

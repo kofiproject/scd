@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 @Scope("session")
 public class MenuController {
-    private String activeMenuItem;
+    private String activeMenuItem = "id1";
 
     public String getActiveMenuItem() {
         return activeMenuItem;
