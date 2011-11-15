@@ -159,6 +159,18 @@ public class CreditRequest extends AbstractEntity {
         this.monthlyCacheIncome = monthlyCacheIncome;
     }
 
+    private Employee lockedByEmployee;
+
+    @ManyToOne
+    @JoinColumn(name = "LOCKED_BY_EMPLOYEE_ID", referencedColumnName = "EMPLOYEE_ID")
+    public Employee getLockedByEmployee() {
+        return lockedByEmployee;
+    }
+
+    public void setLockedByEmployee(Employee lockedByEmployee) {
+        this.lockedByEmployee = lockedByEmployee;
+    }
+
     @Override
     public boolean entityEquals(Object o) {
         if (this == o) return true;

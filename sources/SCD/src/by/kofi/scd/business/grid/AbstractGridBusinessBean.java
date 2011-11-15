@@ -12,6 +12,7 @@ import by.kofi.scd.entity.Credit;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.faces.context.FacesContext;
 import java.io.File;
 import java.util.List;
 
@@ -104,6 +105,9 @@ public abstract class AbstractGridBusinessBean<T extends ResultRow> extends Abst
      * @throws SCDBusinessException executeSearch error
      */
     public List<T> getResultList() throws SCDBusinessException {
+//         if (!FacesContext.getCurrentInstance().getRenderResponse()) {
+//	        return null;
+//	    }
 //        if (resultList == null) {
         this.resultList = executeSearch();
 //        }

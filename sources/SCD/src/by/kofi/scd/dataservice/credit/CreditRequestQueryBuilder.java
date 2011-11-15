@@ -23,7 +23,7 @@ public class CreditRequestQueryBuilder {
         return "from CreditRequest cr where cr.employee.id = :employeeId and cr.state = :state";
     }
     public static String getCreditRequests() {
-        return "from CreditRequest cr where cr.state = :state";
+        return "from CreditRequest cr where cr.state = :state and cr.lockedByEmployee is null";
     }
 
 }

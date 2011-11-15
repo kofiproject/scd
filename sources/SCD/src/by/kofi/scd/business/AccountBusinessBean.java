@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 
 @Service
@@ -43,4 +44,13 @@ public class AccountBusinessBean extends AbstractBusinessBean {
             throw new SCDBusinessException(e);
         }
     }
+
+    public List<Account> getAccounts() throws SCDBusinessException {
+        try {
+            return getCRUDDataService().list(Account.class);
+        } catch (SCDTechnicalException e) {
+            throw new SCDBusinessException(e);
+        }
+    }
+
 }

@@ -6,6 +6,7 @@ import by.kofi.scd.common.FacesUtil;
 import by.kofi.scd.dto.UserContext;
 import by.kofi.scd.entity.Account;
 import by.kofi.scd.entity.Client;
+import by.kofi.scd.entity.CreditItem;
 import by.kofi.scd.entity.Payment;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import org.apache.log4j.Logger;
@@ -20,8 +21,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -33,6 +36,7 @@ import java.util.List;
 public class ReportGeneratorService implements ReportGenerator {
     private static final Logger LOGGER = Logger.getLogger(ReportGeneratorService.class);
     private static final String DATE_FORMAT = "yyyyMMdd";
+    private static final String REPORT_DATE_FORMAT = "dd-MM-yyyy HH:MM";
 
     @Autowired
     private AccountBusinessBean accountBusinessBean;
@@ -45,6 +49,7 @@ public class ReportGeneratorService implements ReportGenerator {
         Account account = accountBusinessBean.getAccountByIdentityId(accountNumber);
         List<Payment> paymentsByAccount = paymentBusinessBean.getPaymentsByAccount(accountNumber);
 
+        SimpleDateFormat dateFormat = new SimpleDateFormat(REPORT_DATE_FORMAT);
 
         FileOutputStream out = null;
         File file = null;
@@ -55,6 +60,7 @@ public class ReportGeneratorService implements ReportGenerator {
             LOGGER.error(e);
             throw new SCDBusinessException("FileOutputStream error", e);
         }
+
 
         // create a new workbook
         Workbook wb = new HSSFWorkbook();
@@ -86,40 +92,68 @@ public class ReportGeneratorService implements ReportGenerator {
         cell = row.createCell(0);
         cell.setCellValue("№ счета");
 
+        cell = row.createCell(1);
+        cell.setCellValue(account.getAccountNumber());
+
         row = sheet.createRow(4); // кредитный план
         cell = row.createCell(0);
         cell.setCellValue("Кредитный план");
+
+        cell = row.createCell(1);
+        CreditItem creditItem = account.getCreditItem();
+        cell.setCellValue(creditItem.getCredit().getName());
 
         row = sheet.createRow(5); // сумма кредита
         cell = row.createCell(0);
         cell.setCellValue("Сумма кредита");
 
+        cell = row.createCell(1);
+        cell.setCellValue(creditItem.getAmount().toString());
+
         row = sheet.createRow(6); // срок
         cell = row.createCell(0);
         cell.setCellValue("Срок");
+
+        cell = row.createCell(1);
+        cell.setCellValue(creditItem.getTerm().toString());
 
         row = sheet.createRow(7); // сумма для погашения
         cell = row.createCell(0);
         cell.setCellValue("Сумма для погашения");
 
+        cell = row.createCell(1);
+        cell.setCellValue(creditItem.getCalculatedAmount().toString());
+
         row = sheet.createRow(8); // погашенная сумма
         cell = row.createCell(0);
         cell.setCellValue("Погашенная сумма");
+
+        cell = row.createCell(1);
+        cell.setCellValue(creditItem.getPaidAmount().toString());
 
         row = sheet.createRow(9); // пеня
         cell = row.createCell(0);
         cell.setCellValue("Пеня");
 
+        cell = row.createCell(1);
+        cell.setCellValue(creditItem.getPenaltyAmount().toString());
+
         row = sheet.createRow(10); // состояние
         cell = row.createCell(0);
         cell.setCellValue("Состояние");
+
+        cell = row.createCell(1);
+        Timestamp closingDate = creditItem.getClosingDate();
+        if (closingDate != null) {
+            cell.setCellValue(closingDate);
+        }
 
         row = sheet.createRow(12); // отчет сформирован
         cell = row.createCell(0);
         cell.setCellValue("Отчет сформирован");
         cell = row.createCell(1);
         java.util.Date currentDate = new java.util.Date();
-        cell.setCellValue(currentDate.toString());
+        cell.setCellValue(dateFormat.format(currentDate));
 
         row = sheet.createRow(14); // начало таблицы платежей
 
@@ -146,28 +180,33 @@ public class ReportGeneratorService implements ReportGenerator {
         // 3и стиля ячеек таблицы
         CellStyle leftCellStyle = wb.createCellStyle();
         leftCellStyle.setBorderLeft(CellStyle.BORDER_THIN);
+        leftCellStyle.setBorderBottom(CellStyle.BORDER_THIN);
 
         CellStyle centerCellStyle = wb.createCellStyle();
         centerCellStyle.setBorderLeft(CellStyle.BORDER_THIN);
         centerCellStyle.setBorderRight(CellStyle.BORDER_THIN);
+        centerCellStyle.setBorderBottom(CellStyle.BORDER_THIN);
 
         CellStyle rightCellStyle = wb.createCellStyle();
         rightCellStyle.setBorderRight(CellStyle.BORDER_THIN);
+        rightCellStyle.setBorderBottom(CellStyle.BORDER_THIN);
 
         int i = 0;
-        for (i = 0; i < 2; i++) {
+        for (Payment payment : paymentsByAccount) {
             row = sheet.createRow(15 + i);
             cell = row.createCell(0);
             cell.setCellStyle(leftCellStyle);
-            cell.setCellValue("1.1.1");
+            cell.setCellValue(dateFormat.format(payment.getPaymentDate()));
 
             cell = row.createCell(1);
             cell.setCellStyle(centerCellStyle);
-            cell.setCellValue("1200");
+            cell.setCellValue(payment.getAmount().toString());
 
             cell = row.createCell(2);
             cell.setCellStyle(rightCellStyle);
-            cell.setCellValue("belarus bank yl 9kolasa");
+            cell.setCellValue(payment.getEmployee().getDepartment().getAddress());
+
+            i++;
         }
 
         try {
@@ -208,6 +247,5 @@ public class ReportGeneratorService implements ReportGenerator {
         ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
         return externalContext.getRealPath("../");
     }
-
 
 }

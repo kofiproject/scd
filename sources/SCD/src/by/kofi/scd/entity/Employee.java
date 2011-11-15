@@ -15,6 +15,7 @@ import java.util.Set;
 public class Employee extends AbstractEntity {
     private long employeeId;
 
+
     @javax.persistence.Column(name = "EMPLOYEE_ID")
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_EMPLOYEE")
@@ -111,6 +112,17 @@ public class Employee extends AbstractEntity {
     }
 
 
+    private Set<CreditRequest> loackedCreditRequests;
+
+    @OneToMany(mappedBy = "lockedByEmployee")
+    public Set<CreditRequest> getLoackedCreditRequests() {
+        return loackedCreditRequests;
+    }
+
+    public void setLoackedCreditRequests(Set<CreditRequest> loackedCreditRequests) {
+        this.loackedCreditRequests = loackedCreditRequests;
+    }
+
     @Override
     public boolean entityEquals(Object o) {
         if (this == o) return true;
@@ -151,6 +163,6 @@ public class Employee extends AbstractEntity {
 
     @Override
     public String toString() {
-        return getName() + getSurname();
+        return getName() + " " + getSurname();
     }
 }

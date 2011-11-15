@@ -21,6 +21,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * unlocked Credit requests in state IN_PROGRESS
+ *
  * @author harchevnikov_m
  *         Date: 15/10/11
  *         Time: 18:55

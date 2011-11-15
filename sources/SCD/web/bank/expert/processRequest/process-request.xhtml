@@ -1,8 +1,7 @@
 <ui:composition template="/templates/employee/expert.xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:a4j="http://richfaces.org/a4j"
-                xmlns:rich="http://richfaces.org/rich" xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:grid="http://java.sun.com/jsf/composite/components"
+                xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:c="http://java.sun.com/jstl/core"
         >
 
@@ -18,13 +17,28 @@
 
 <ui:define name="content">
 
-<div class="process_request_div floatLeft">
-    <h:outputText value="#{processRequestController.creditRequest.credit.name}"
-                  styleClass="credit-plan-link"/>
+<h:form>
+    <h:commandButton value="Back" style=" margin-top: 10px; font-size: 16px;"
+                     action="/bank/expert/active-requests?faces-redirect=true"
+                     actionListener="#{processRequestController.unLockCreditRequest}"
+                     immediate="true"/>
+    <h:outputText value="Credit request is locked by #{processRequestController.creditRequest.lockedByEmployee}"
+                  styleClass="errorMsg"
+                  rendered="#{ (processRequestController.lockedCreditRequest) ? true : false}"/>
+</h:form>
 
+<div style="margin: 30px; margin-top: 10px;">
+
+<div class="process_request_div floatLeft"
+     style=" border-right: thick double #3366FF;">
+
+
+    <h:outputText value="#{processRequestController.creditRequest.credit.name}"
+                  styleClass="credit-plan-link"
+                  style="font-size: 20px;font-weight: bold; "/>
     <a href="#" class="show-description">Details</a>
 
-    <div class="credit-description-content-wrapper invisible">
+    <div class="credit-description-content-wrapper" style="margin-right: 10px; background: none;">
         <h:outputText value="#{processRequestController.creditRequest.credit.description}" escape="false"/>
     </div>
 
@@ -71,11 +85,13 @@
 
 </div>
 <div class="process_request_div floatRight">
-    Client details
+    <div style="font-size: 20px;font-weight: bold; margin-bottom: 20px;">
+        Client details
+    </div>
+
     <h:panelGrid columns="2"
                  cellpadding="2"
                  cellspacing="2"
-                 border="1"
             >
 
         <h:panelGroup>
@@ -237,20 +253,37 @@
 
     <br/>
 
-    <div class="center">
+    <div class="center" style="margin-left: -50px;">
         <a4j:commandButton id="confirm"
                            value="Confirm"
                            onclick="#{rich:component('confirmModal')}.show()"
+                           style="font-size: 16px;padding: 5px;"
+                           disabled="#{processRequestController.lockedCreditRequest}"
                 />
+
+        &#160;
+        &#160;
+        &#160;
+        &#160;
+        &#160;
+
+
         <a4j:commandButton id="reject"
                            value="Reject"
                            onclick="#{rich:component('rejectModal')}.show()"
+                           style="font-size: 16px;padding: 5px;"
+                           disabled="#{processRequestController.lockedCreditRequest}"
                 />
     </div>
 </div>
 
-
+</div>
 <ui:include src="process-request-popups.xhtml"/>
-</ui:define>
 
+<h:form>
+    <a4j:commandButton action="#{processRequestController.unLockCreditRequest}"
+                       styleClass="unlockBtn invisible"/>
+</h:form>
+
+</ui:define>
 </ui:composition>

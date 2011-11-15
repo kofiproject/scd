@@ -1,7 +1,9 @@
 package by.kofi.scd.controller.login;
 
+import by.kofi.scd.business.employee.EmployeeBusinessBean;
 import by.kofi.scd.business.mail.MailBusinessBean;
 import by.kofi.scd.business.UserBusinessBean;
+import by.kofi.scd.common.FacesUtil;
 import by.kofi.scd.common.constants.NavigationActionEnum;
 import by.kofi.scd.dto.UserContext;
 import by.kofi.scd.entity.Client;
@@ -58,6 +60,8 @@ public class LoginController {
 
     @Autowired
     private UserBusinessBean userBusinessBean;
+    @Autowired
+    private EmployeeBusinessBean employeeBusinessBean;
 
     public String loginAction() throws SCDBusinessException {
         SCDUser user = this.userBusinessBean.getUserByIdentityId(getUniqueId());
@@ -91,8 +95,15 @@ public class LoginController {
     }
 
     public String logoutAction() throws SCDBusinessException {
+        UserContext userContext = FacesUtil.getUserContext();
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
         session.invalidate();
+        //clear all locks
+        Employee employee = userContext.getEmployee();
+        if (employee != null) {
+            employeeBusinessBean.unlockAllCreditRequestsByEmployee(employee.getEmployeeId());
+        }
+
         return NavigationActionEnum.LOGOUT.getValue();
     }
 }

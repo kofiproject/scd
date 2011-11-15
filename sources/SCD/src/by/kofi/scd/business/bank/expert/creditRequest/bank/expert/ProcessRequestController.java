@@ -2,6 +2,7 @@ package by.kofi.scd.business.bank.expert.creditRequest.bank.expert;
 
 import by.kofi.scd.business.AccountBusinessBean;
 import by.kofi.scd.business.credit.CreditRequestBusinessBean;
+import by.kofi.scd.business.employee.EmployeeBusinessBean;
 import by.kofi.scd.business.mail.MailBusinessBean;
 import by.kofi.scd.common.FacesUtil;
 import by.kofi.scd.common.constants.NavigationActionEnum;
@@ -25,6 +26,7 @@ import java.util.Date;
 public class ProcessRequestController {
     private Long creditRequestId;
     private CreditRequest creditRequest;
+    private boolean lockedCreditRequest;
 
     @Autowired
     private CreditRequestBusinessBean creditRequestBusinessBean;
@@ -32,7 +34,16 @@ public class ProcessRequestController {
     private AccountBusinessBean accountBusinessBean;
     @Autowired
     private MailBusinessBean mailBusinessBean;
+    @Autowired
+    private EmployeeBusinessBean employeeBusinessBean;
 
+    public boolean getLockedCreditRequest() {
+        return lockedCreditRequest;
+    }
+
+    public void setLockedCreditRequest(boolean lockedCreditRequest) {
+        this.lockedCreditRequest = lockedCreditRequest;
+    }
 
     public Long getCreditRequestId() {
         return creditRequestId;
@@ -42,6 +53,19 @@ public class ProcessRequestController {
         this.creditRequestId = creditRequestId;
         CreditRequest creditRequestById = creditRequestBusinessBean.getCreditRequestById(creditRequestId);
         setCreditRequest(creditRequestById);
+
+        this.lockedCreditRequest = false;
+        Employee lockedByEmployee = creditRequestById.getLockedByEmployee();
+        if (lockedByEmployee != null) {
+            long contextEmployeeId = FacesUtil.getUserContext().getEmployee().getEmployeeId();
+            long employeeId = lockedByEmployee.getEmployeeId();
+            if (employeeId != contextEmployeeId) {
+                this.lockedCreditRequest = true;
+                return;
+            }
+        }
+
+        lockCreditRequest();
     }
 
     public CreditRequest getCreditRequest() {
@@ -65,6 +89,8 @@ public class ProcessRequestController {
         //send email notification
         mailBusinessBean.sendCreditRequestConfirmMail(request);
 
+        unLockCreditRequest();
+
         return NavigationActionEnum.EXPERT_CREDIT_REQUEST_LIST.getValue();
     }
 
@@ -79,6 +105,19 @@ public class ProcessRequestController {
         //send email notification
         mailBusinessBean.sendCreditRequestRejectMail(request);
 
+        unLockCreditRequest();
+
         return NavigationActionEnum.EXPERT_CREDIT_REQUEST_LIST.getValue();
     }
+
+    public void lockCreditRequest() throws SCDBusinessException {
+        Employee employee = FacesUtil.getUserContext().getEmployee();
+        this.employeeBusinessBean.lockCreditRequest(getCreditRequestId(), employee.getEmployeeId());
+    }
+
+
+    public void unLockCreditRequest() throws SCDBusinessException {
+        this.employeeBusinessBean.unlockCreditRequest(getCreditRequestId());
+    }
+
 }
