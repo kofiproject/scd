@@ -1,8 +1,6 @@
-package by.kofi.scd.dataservice.credit;
+package by.kofi.scd.dataservice.credit.request;
 
 import by.kofi.scd.dataservice.AbstractDataServiceBean;
-import by.kofi.scd.dataservice.client.ClientDataService;
-import by.kofi.scd.dataservice.client.ClientQueryBuilder;
 import by.kofi.scd.entity.*;
 import by.kofi.scd.exceptions.SCDTechnicalException;
 import org.hibernate.HibernateException;

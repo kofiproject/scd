@@ -1,11 +1,7 @@
 package by.kofi.scd.business.credit;
 
 import by.kofi.scd.business.AbstractBusinessBean;
-import by.kofi.scd.business.RoleBusinessBean;
-import by.kofi.scd.dataservice.CRUDDataService;
-import by.kofi.scd.dataservice.client.ClientDataService;
 import by.kofi.scd.dataservice.credit.CreditDataService;
-import by.kofi.scd.dataservice.credit.CreditRequestDataService;
 import by.kofi.scd.entity.*;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import by.kofi.scd.exceptions.SCDTechnicalException;

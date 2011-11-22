@@ -61,6 +61,6 @@ public class ActiveCreditsGridBusinessBean extends AbstractGridBusinessBean {
                 GridColumn.SUM,
                 GridColumn.TERM,
                 GridColumn.SUM_TO_PAY,
-                GridColumn.ACCOUNT_NUMBER};
+                GridColumn.SUM_PAYED};
     }
 }

@@ -1,4 +1,4 @@
-package by.kofi.scd.dataservice.credit;
+package by.kofi.scd.dataservice.credit.request;
 
 import by.kofi.scd.dataservice.AbstractDataService;
 import by.kofi.scd.entity.*;

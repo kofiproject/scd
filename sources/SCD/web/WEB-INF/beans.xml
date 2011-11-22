@@ -60,4 +60,33 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <bean id="ciBB" class="by.kofi.scd.business.credit.CreditItemBusinessBean">
+    </bean>
+
+
+    <!-- Quartz-->
+    <bean name="creditJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="by.kofi.scd.quartz.CreditItemJob"/>
+        <property name="jobDataAsMap">
+            <map>
+                <entry key="creditItemBusinessBean" value-ref="ciBB"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+        <property name="jobDetail" ref="creditJob"/>
+        <!--every 2 seconds -->
+        <property name="cronExpression" value="0 0 23 * * ?"/>
+        <!--<property name="cronExpression" value="0/10 * * * * ?"/>-->
+    </bean>
+
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref bean="cronTrigger"/>
+            </list>
+        </property>
+    </bean>
+
 </beans>

@@ -3,7 +3,7 @@ package by.kofi.scd.business.client.creditRequest;
 import by.kofi.scd.business.grid.AbstractGridBusinessBean;
 import by.kofi.scd.business.grid.GridColumn;
 import by.kofi.scd.common.FacesUtil;
-import by.kofi.scd.dataservice.credit.CreditRequestDataService;
+import by.kofi.scd.dataservice.credit.request.CreditRequestDataService;
 import by.kofi.scd.dto.UserContext;
 import by.kofi.scd.dto.client.creditRequest.CreditRequestResultRow;
 import by.kofi.scd.entity.CreditRequest;

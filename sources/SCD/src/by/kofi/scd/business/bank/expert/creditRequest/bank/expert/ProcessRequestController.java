@@ -1,20 +1,20 @@
 package by.kofi.scd.business.bank.expert.creditRequest.bank.expert;
 
 import by.kofi.scd.business.AccountBusinessBean;
+import by.kofi.scd.business.credit.CreditItemBusinessBean;
 import by.kofi.scd.business.credit.CreditRequestBusinessBean;
 import by.kofi.scd.business.employee.EmployeeBusinessBean;
 import by.kofi.scd.business.mail.MailBusinessBean;
 import by.kofi.scd.common.FacesUtil;
 import by.kofi.scd.common.constants.NavigationActionEnum;
-import by.kofi.scd.entity.Account;
-import by.kofi.scd.entity.CreditRequest;
-import by.kofi.scd.entity.CreditRequestStateEnum;
-import by.kofi.scd.entity.Employee;
+import by.kofi.scd.entity.*;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import javax.faces.context.FacesContext;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -36,6 +36,8 @@ public class ProcessRequestController {
     private MailBusinessBean mailBusinessBean;
     @Autowired
     private EmployeeBusinessBean employeeBusinessBean;
+    @Autowired
+    private CreditItemBusinessBean creditItemBusinessBean;
 
     public boolean getLockedCreditRequest() {
         return lockedCreditRequest;
@@ -81,13 +83,29 @@ public class ProcessRequestController {
         Account account = accountBusinessBean.createAccount();
         Employee employee = FacesUtil.getUserContext().getEmployee();
         creditRequest.setEmployee(employee);
-        creditRequest.setState(CreditRequestStateEnum.CONFIRMED);
         creditRequest.setAccount(account);
         creditRequest.setProcessingDate(new Date());
-        CreditRequest request = creditRequestBusinessBean.storeCreditRequest(creditRequest);
+        creditRequest.setState(CreditRequestStateEnum.CONFIRMED);
+        creditRequest = creditRequestBusinessBean.storeCreditRequest(creditRequest);
+
+        CreditItem creditItem = new CreditItem();
+        creditItem.setAccount(account);
+        creditItem.setAmount(creditRequest.getAmount());
+        creditItem.setCalculatedAmount(creditRequest.getAmount());
+        creditItem.setClient(creditRequest.getClient());
+        creditItem.setCredit(creditRequest.getCredit());
+        creditItem.setIssuanceDate(new Date());
+        creditItem.setPaidAmount(BigDecimal.ZERO);
+        creditItem.setPenaltyAmount(BigDecimal.ZERO);
+        creditItem.setTerm(creditRequest.getTerm());
+        creditItem.setState(CreditItemStateEnum.ACTIVE);
+        creditItem.setLastUpdated(new Date());
+
+        this.creditItemBusinessBean.storeCreditItem(creditItem);
+
 
         //send email notification
-        mailBusinessBean.sendCreditRequestConfirmMail(request);
+        mailBusinessBean.sendCreditRequestConfirmMail(creditRequest);
 
         unLockCreditRequest();
 

@@ -5,6 +5,7 @@ import by.kofi.scd.entity.SCDUser;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import by.kofi.scd.exceptions.SCDTechnicalException;
 import org.apache.log4j.Logger;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -21,13 +22,15 @@ public class AccountBusinessBean extends AbstractBusinessBean {
     private static final Logger LOGGER = Logger.getLogger(AccountBusinessBean.class);
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public Account getAccountByIdentityId(Long id) throws SCDBusinessException {
-        try {
-            Account account = getCRUDDataService().find(Account.class, id);
-            return account;
-        } catch (SCDTechnicalException e) {
-            throw new SCDBusinessException(e);
-        }
+    public Account getAccountByNumber(Long accountNumber) throws SCDBusinessException {
+//        try {
+            Query query = getCRUDDataService().getNativeHibernateSession()
+                    .createQuery(" from Account  acc where  acc.accountNumber = " + accountNumber);
+
+            return (Account) query.uniqueResult();
+//        } catch (SCDTechnicalException e) {
+//            throw new SCDBusinessException(e);
+//        }
     }
 
     @Transactional(propagation = Propagation.REQUIRED)

@@ -1,7 +1,7 @@
 package by.kofi.scd.business.credit;
 
 import by.kofi.scd.business.AbstractBusinessBean;
-import by.kofi.scd.dataservice.credit.CreditRequestDataService;
+import by.kofi.scd.dataservice.credit.request.CreditRequestDataService;
 import by.kofi.scd.entity.Client;
 import by.kofi.scd.entity.Credit;
 import by.kofi.scd.entity.CreditRequest;
@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 /**

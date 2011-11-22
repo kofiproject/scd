@@ -3,7 +3,7 @@ package by.kofi.scd.business.bank.expert.creditRequest;
 import by.kofi.scd.business.grid.AbstractGridBusinessBean;
 import by.kofi.scd.business.grid.GridColumn;
 import by.kofi.scd.common.FacesUtil;
-import by.kofi.scd.dataservice.credit.CreditRequestDataService;
+import by.kofi.scd.dataservice.credit.request.CreditRequestDataService;
 import by.kofi.scd.dto.UserContext;
 import by.kofi.scd.dto.client.creditRequest.CreditRequestResultRow;
 import by.kofi.scd.entity.CreditRequest;
@@ -63,8 +63,8 @@ public class ExpertConfirmedCreditRequestGridBean extends AbstractGridBusinessBe
                 GridColumn.CLIENT_NAME,
                 GridColumn.ACCOUNT_NUMBER,
                 GridColumn.SUM,
-                GridColumn.TERM,
-                GridColumn.CREDIT_EXPERT
+                GridColumn.TERM
+//                GridColumn.CREDIT_EXPERT
         };
     }
 }

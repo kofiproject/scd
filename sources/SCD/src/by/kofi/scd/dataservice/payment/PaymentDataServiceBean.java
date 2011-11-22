@@ -1,10 +1,6 @@
 package by.kofi.scd.dataservice.payment;
 
 import by.kofi.scd.dataservice.AbstractDataServiceBean;
-import by.kofi.scd.dataservice.credit.CreditRequestDataService;
-import by.kofi.scd.dataservice.credit.CreditRequestQueryBuilder;
-import by.kofi.scd.entity.CreditRequest;
-import by.kofi.scd.entity.CreditRequestStateEnum;
 import by.kofi.scd.entity.Payment;
 import by.kofi.scd.exceptions.SCDTechnicalException;
 import org.hibernate.HibernateException;

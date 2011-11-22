@@ -3,7 +3,7 @@ package by.kofi.scd.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author harchevnikov_m
@@ -64,27 +64,27 @@ public class CreditItem extends AbstractEntity {
         this.account = account;
     }
 
-    private Timestamp issuanceDate;
+    private Date issuanceDate;
 
     @javax.persistence.Column(name = "ISSUANCE_DATE")
     @Basic
-    public Timestamp getIssuanceDate() {
+    public Date getIssuanceDate() {
         return issuanceDate;
     }
 
-    public void setIssuanceDate(Timestamp issuanceDate) {
+    public void setIssuanceDate(Date issuanceDate) {
         this.issuanceDate = issuanceDate;
     }
 
-    private Timestamp closingDate;
+    private Date closingDate;
 
     @javax.persistence.Column(name = "CLOSING_DATE")
     @Basic
-    public Timestamp getClosingDate() {
+    public Date getClosingDate() {
         return closingDate;
     }
 
-    public void setClosingDate(Timestamp closingDate) {
+    public void setClosingDate(Date closingDate) {
         this.closingDate = closingDate;
     }
 
@@ -158,6 +158,17 @@ public class CreditItem extends AbstractEntity {
 
     public void setState(CreditItemStateEnum state) {
         this.state = state;
+    }
+
+    private Date lastUpdated;
+
+    @Column(name = "LAST_UPDATED")
+    public Date getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public void setLastUpdated(Date lastUpdated) {
+        this.lastUpdated = lastUpdated;
     }
 
     @Override

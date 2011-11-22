@@ -2,7 +2,6 @@ package by.kofi.scd.business.download;
 
 import by.kofi.scd.business.AccountBusinessBean;
 import by.kofi.scd.business.PaymentBusinessBean;
-import by.kofi.scd.common.FacesUtil;
 import by.kofi.scd.dto.UserContext;
 import by.kofi.scd.entity.Account;
 import by.kofi.scd.entity.Client;
@@ -18,13 +17,11 @@ import org.springframework.stereotype.Service;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Iterator;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -46,7 +43,7 @@ public class ReportGeneratorService implements ReportGenerator {
 
     public File generateReport(Long accountNumber, UserContext userContext) throws SCDBusinessException {
 
-        Account account = accountBusinessBean.getAccountByIdentityId(accountNumber);
+        Account account = accountBusinessBean.getAccountByNumber(accountNumber);
         List<Payment> paymentsByAccount = paymentBusinessBean.getPaymentsByAccount(accountNumber);
 
         SimpleDateFormat dateFormat = new SimpleDateFormat(REPORT_DATE_FORMAT);
@@ -143,7 +140,7 @@ public class ReportGeneratorService implements ReportGenerator {
         cell.setCellValue("Состояние");
 
         cell = row.createCell(1);
-        Timestamp closingDate = creditItem.getClosingDate();
+        Date closingDate = creditItem.getClosingDate();
         if (closingDate != null) {
             cell.setCellValue(closingDate);
         }

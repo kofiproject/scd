@@ -1,4 +1,4 @@
-package by.kofi.scd.dataservice.credit;
+package by.kofi.scd.dataservice.credit.request;
 
 import by.kofi.scd.exceptions.SCDTechnicalException;
 
@@ -20,7 +20,8 @@ public class CreditRequestQueryBuilder {
     }
 
     public static String getCreditRequestsByEmployee() {
-        return "from CreditRequest cr where cr.employee.id = :employeeId and cr.state = :state";
+        return "from CreditRequest cr where cr.employee.id = :employeeId and cr.state = :state " +
+                " order by cr.processingDate desc, cr.issuanceDate desc";
     }
     public static String getCreditRequests() {
         return "from CreditRequest cr where cr.state = :state and cr.lockedByEmployee is null";
