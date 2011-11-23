@@ -1,0 +1,35 @@
+<ui:composition template="/templates/employee/operator.xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:grid="http://java.sun.com/jsf/composite/components"
+                xmlns:c="http://java.sun.com/jstl/core"
+                xmlns:userPopup="http://java.sun.com/jsf/composite/components"
+        >
+
+    <ui:define name="header">
+        Process payment
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <h:outputText value="#{paymentController.client}"/>
+            <a4j:commandLink value="Show Details"
+                             styleClass="grid-report-col"
+                             immediate="true"
+                             action="#{cc.attrs.bean.loadClient}"
+                             oncomplete="#{rich:component('clientDetails')}.show()"
+                             render="clientDetails"
+                    >
+                <a4j:param value="#{item.clientId}"
+                           assignTo="#{cc.attrs.bean.clientId}"/>
+            </a4j:commandLink>
+            <userPopup:clientPopup bean="#{cc.attrs.bean}"/>
+
+            <h:outputText value="#{paymentController.clientIdentity}"/>
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>

@@ -11,7 +11,36 @@
     </ui:define>
 
     <ui:define name="content">
+        <h:form>
+            Client
 
+            <rich:autocomplete mode="cachedAjax"
+                               autocompleteMethod="#{clientAutocompleteController.suggestClient}"
+                               var="client"
+                               autocompleteList="#{clientAutocompleteController.returnList}"
+                               value="#{paymentController.clientIdentity}"
+                               fetchValue="#{client.user.userId}"
+                               required="true"
+                               validator="#{clientAutocompleteController.validateUserIdentity}"
+                               id="clientAutocomplete"
+                    >
+                <h:column>
+                    <h:outputText value="#{client.user.userId}"/>
+                </h:column>
+                -
+                <h:column>
+                    <h:outputText value="#{client}"/>
+                </h:column>
+            </rich:autocomplete>
+
+            <h:message styleClass="errorMsg" for="clientAutocomplete"/>
+
+            <br/>
+            <h:commandButton value="Process" action="process-payment">
+
+
+            </h:commandButton>
+        </h:form>
 
     </ui:define>
 

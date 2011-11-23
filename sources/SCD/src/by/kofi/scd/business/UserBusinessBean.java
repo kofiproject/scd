@@ -15,7 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
  *         Time: 18:55
  */
 @Service
-@Scope("session")
 public class UserBusinessBean extends AbstractBusinessBean {
 
     private static final Logger LOGGER = Logger.getLogger(UserBusinessBean.class);

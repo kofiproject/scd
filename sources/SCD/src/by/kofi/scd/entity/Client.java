@@ -320,5 +320,8 @@ public class Client extends AbstractEntity {
         return getClientId();
     }
 
-
+    @Override
+    public String toString() {
+        return getName() + " " + getSurname();
+    }
 }

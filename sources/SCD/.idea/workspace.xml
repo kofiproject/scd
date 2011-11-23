@@ -20,32 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0af7ff6-7d37-4e85-a424-2574461e7bb0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/credit/CreditItemBusinessBean.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/kofi/scd/dataservice/credit/item/CreditItemDataService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/kofi/scd/dataservice/credit/item/CreditItemDataServiceBean.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/kofi/scd/dataservice/credit/item/CreditItemQueryBuilder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/kofi/scd/util/DatesUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/business/AccountBusinessBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/AccountBusinessBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/business/bank/expert/creditRequest/ExpertActiveCreditRequestGridBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/bank/expert/creditRequest/ExpertActiveCreditRequestGridBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/business/bank/expert/creditRequest/ExpertConfirmedCreditRequestGridBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/bank/expert/creditRequest/ExpertConfirmedCreditRequestGridBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/business/bank/expert/creditRequest/ExpertRejectedCreditRequestGridBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/bank/expert/creditRequest/ExpertRejectedCreditRequestGridBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/business/bank/expert/creditRequest/bank/expert/ProcessRequestController.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/bank/expert/creditRequest/bank/expert/ProcessRequestController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/kofi/scd/controller/bank/operator/ClientAutocompleteController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/by/kofi/scd/controller/bank/operator/PaymentController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/bank/operator/process-payment.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/business/UserBusinessBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/UserBusinessBean.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/business/client/ActiveCreditsGridBusinessBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/client/ActiveCreditsGridBusinessBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/business/client/creditRequest/ConfirmedCreditRequestGridBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/client/creditRequest/ConfirmedCreditRequestGridBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/business/client/creditRequest/InProcessCreditRequestGridBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/client/creditRequest/InProcessCreditRequestGridBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/business/client/creditRequest/RejectedCreditRequestGridBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/client/creditRequest/RejectedCreditRequestGridBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/business/credit/CreditBusinessBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/credit/CreditBusinessBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/business/credit/CreditRequestBusinessBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/credit/CreditRequestBusinessBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/business/download/ReportGeneratorService.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/download/ReportGeneratorService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/dataservice/payment/PaymentDataServiceBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/dataservice/payment/PaymentDataServiceBean.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/entity/CreditItem.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/entity/CreditItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/beans.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/beans.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/business/client/ClientBusinessBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/business/client/ClientBusinessBean.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/controller/client/credit/CreditRequestController.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/controller/client/credit/CreditRequestController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/entity/Client.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/entity/Client.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/by/kofi/scd/entity/SCDUser.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/entity/SCDUser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/bank/operator/payments.xhtml" afterPath="$PROJECT_DIR$/web/bank/operator/payments.xhtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/resources/components/clientPopup.xhtml" afterPath="$PROJECT_DIR$/web/resources/components/clientPopup.xhtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/resources/components/grid.xhtml" afterPath="$PROJECT_DIR$/web/resources/components/grid.xhtml" />
-      <change type="MOVED" beforePath="D:\V\kofi\git\SCD\sources\SCD\src\by\kofi\scd\dataservice\credit\CreditRequestDataService.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/dataservice/credit/request/CreditRequestDataService.java" />
-      <change type="MOVED" beforePath="D:\V\kofi\git\SCD\sources\SCD\src\by\kofi\scd\dataservice\credit\CreditRequestDataServiceBean.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/dataservice/credit/request/CreditRequestDataServiceBean.java" />
-      <change type="MOVED" beforePath="D:\V\kofi\git\SCD\sources\SCD\src\by\kofi\scd\dataservice\credit\CreditRequestQueryBuilder.java" afterPath="$PROJECT_DIR$/src/by/kofi/scd/dataservice/credit/request/CreditRequestQueryBuilder.java" />
     </list>
     <ignored path="richfaces.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,21 +50,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints>
-      <breakpoint url="file://$PROJECT_DIR$/src/by/kofi/scd/quartz/CreditItemJob.java" line="55" class="by.kofi.scd.quartz.CreditItemJob" package="by.kofi.scd.quartz">
-        <option name="ENABLED" value="true" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -119,94 +90,98 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ActiveCreditsGridBusinessBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/client/ActiveCreditsGridBusinessBean.java">
+      <file leaf-file-name="credit-list.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/client/credit-list.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="36" selection-start="2354" selection-end="2354" vertical-scroll-proportion="0.0">
+            <state line="4" column="73" selection-start="324" selection-end="381" vertical-scroll-proportion="-2.6153846">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExpertActiveCreditRequestGridBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/bank/expert/creditRequest/ExpertActiveCreditRequestGridBean.java">
+      <file leaf-file-name="payments.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/bank/operator/payments.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="33" selection-start="2469" selection-end="2469" vertical-scroll-proportion="0.0">
+            <state line="23" column="84" selection-start="1138" selection-end="1138" vertical-scroll-proportion="-4.4615383">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExpertConfirmedCreditRequestGridBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/bank/expert/creditRequest/ExpertConfirmedCreditRequestGridBean.java">
+      <file leaf-file-name="process-payment.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/bank/operator/process-payment.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="21" selection-start="1189" selection-end="1189" vertical-scroll-proportion="0.0">
+            <state line="7" column="14" selection-start="468" selection-end="532" vertical-scroll-proportion="-4.576923">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ExpertRejectedCreditRequestGridBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/bank/expert/creditRequest/ExpertRejectedCreditRequestGridBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="81" selection-start="1633" selection-end="1633" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreditRequestDataService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/credit/request/CreditRequestDataService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="0" selection-start="1277" selection-end="1277" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreditRequestDataServiceBean.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/credit/request/CreditRequestDataServiceBean.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="84" selection-start="2174" selection-end="2174" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreditRequestQueryBuilder.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/credit/request/CreditRequestQueryBuilder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="17" selection-start="450" selection-end="450" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="grid.xhtml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="grid.xhtml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/resources/components/grid.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="145" column="12" selection-start="6611" selection-end="6619" vertical-scroll-proportion="-9.076923">
+            <state line="142" column="28" selection-start="6497" selection-end="6497" vertical-scroll-proportion="0.6909091">
               <folding>
-                <marker date="1321546278381" expanded="true" signature="6186:6200" placeholder="{...}" />
-                <marker date="1321546278381" expanded="true" signature="6186:6200" placeholder="{...}" />
+                <marker date="1322079769877" expanded="true" signature="6254:6268" placeholder="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="credit-list.xhtml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/client/credit-list.xhtml">
+      <file leaf-file-name="registrationTmpl.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/templates/login/registrationTmpl.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="44" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.2539185">
+            <state line="19" column="42" selection-start="814" selection-end="814" vertical-scroll-proportion="-6.5384617">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreditRequestController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/client/credit/CreditRequestController.java">
+      <file leaf-file-name="clientPopup.xhtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/resources/components/clientPopup.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="0" selection-start="2602" selection-end="2602" vertical-scroll-proportion="0.0">
+            <state line="13" column="35" selection-start="533" selection-end="537" vertical-scroll-proportion="-8.5">
+              <folding>
+                <marker date="1322079427300" expanded="true" signature="2687:2699" placeholder="{...}" />
+                <marker date="1322079427300" expanded="true" signature="2852:2882" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClientAutocompleteController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/bank/operator/ClientAutocompleteController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="77" column="21" selection-start="2343" selection-end="2343" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PaymentController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/bank/operator/PaymentController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="24" selection-start="819" selection-end="819" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserBusinessBean.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/UserBusinessBean.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="76" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProfileController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/client/ProfileController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="0" selection-start="791" selection-end="802" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -226,21 +201,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/credit/item/CreditItemDataServiceBean.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/credit/CreditItemBusinessBean.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/CreditItem.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/bank/expert/creditRequest/bank/expert/ProcessRequestController.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/util/DatesUtil.java" />
-        <option value="$PROJECT_DIR$/test-src/by/kofi/scd/util/DatesUtilTest.java" />
-        <option value="$PROJECT_DIR$/web/WEB-INF/beans.xml" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/quartz/CreditItemJob.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/download/ReportGeneratorService.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/AccountBusinessBean.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/client/ActiveCreditsGridBusinessBean.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/bank/expert/creditRequest/ExpertConfirmedCreditRequestGridBean.java" />
-        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/bank/expert/creditRequest/ExpertRejectedCreditRequestGridBean.java" />
         <option value="$PROJECT_DIR$/src/by/kofi/scd/dataservice/credit/request/CreditRequestQueryBuilder.java" />
         <option value="$PROJECT_DIR$/src/by/kofi/scd/common/FacesUtil.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/client/ActiveCreditsGridBusinessBean.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/client/ClientBusinessBean.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/SCDUser.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/entity/Client.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/bank/operator/ClientAutocompleteBean.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/bank/operator/ClientAutocompleteController.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/controller/bank/operator/ClientAutocompleteController.java" />
+        <option value="$PROJECT_DIR$/web/bank/operator/payments.xhtml" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/controller/bank/operator/PaymentController.java" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/controller/client/credit/CreditRequestController.java" />
+        <option value="$PROJECT_DIR$/web/resources/components/clientPopup.xhtml" />
+        <option value="$PROJECT_DIR$/web/bank/operator/process-payment.xhtml" />
+        <option value="$PROJECT_DIR$/src/by/kofi/scd/business/UserBusinessBean.java" />
         <option value="$PROJECT_DIR$/web/resources/components/grid.xhtml" />
       </list>
     </option>
@@ -335,6 +310,30 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Favorites">
+        <subPane subId="richfaces">
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.intellij.ide.favoritesTreeView.FavoritesTreeNodeDescriptor" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -372,6 +371,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -443,7 +460,69 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bank" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bank" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="registration" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -483,7 +562,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dataservice" />
+              <option name="myItemId" value="quartz" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -505,41 +584,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dataservice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="credit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="richfaces" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SCD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dataservice" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="credit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="request" />
+              <option name="myItemId" value="entity" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -639,32 +684,60 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="operator" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="richfaces" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="scd" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="business" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-        </subPane>
-      </pane>
-      <pane id="Favorites">
-        <subPane subId="richfaces">
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.intellij.ide.favoritesTreeView.FavoritesTreeNodeDescriptor" />
+              <option name="myItemId" value="richfaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SCD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="business" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -685,17 +758,17 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="options.lastSelected" value="preferences.sourceCode.Java EE Names" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="false" />
-    <property name="Persistence.ERD.MergeInherited" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
+    <property name="Persistence.ERD.MergeInherited" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -704,18 +777,18 @@
       <recent name="by.kofi.scd.validator.registration" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="by.kofi.scd.controller.bank.operator" />
       <recent name="by.kofi.scd.dataservice.credit.item" />
       <recent name="by.kofi.scd.business.credit" />
       <recent name="by.kofi.scd.dataservice.employee" />
       <recent name="by.kofi.scd.business.employee" />
-      <recent name="by.kofi.scd.dto.bank" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\V\kofi\git\SCD\sources\SCD\web\bank\operator" />
       <recent name="D:\V\kofi\git\SCD\sources\SCD\web\resources\js\bank" />
       <recent name="D:\V\kofi\git\SCD\sources\SCD\web\bank\expert\processRequest" />
       <recent name="D:\V\kofi\git\SCD\sources\SCD\web\resources\css\bank" />
       <recent name="D:\V\kofi\git\SCD\sources\SCD\web\resources\components" />
-      <recent name="D:\V\kofi\git\SCD\sources\SCD\web\bank\expert" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="by.kofi.scd.entity.generated" />
@@ -1139,15 +1212,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="1" width="1301" height="766" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32874495" sideWeight="0.7561375" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25101215" sideWeight="0.7201309" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33224222" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38297874" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25531915" sideWeight="0.0" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43371522" sideWeight="0.0" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -1160,7 +1233,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27530363" sideWeight="0.66775775" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22510122" sideWeight="0.5662848" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5253683" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290938" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1241,96 +1314,124 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/quartz/CreditItemJob.java">
+    <entry file="file://$PROJECT_DIR$/web/resources/components/registrationForm.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="16" selection-start="1319" selection-end="1319" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/AccountBusinessBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="26" selection-start="925" selection-end="925" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/entity/CreditRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="27" selection-start="1990" selection-end="2002" vertical-scroll-proportion="0.28959277" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/download/ReportGeneratorService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="1580" selection-end="1580" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/entity/CreditRequestStateEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="10" selection-start="188" selection-end="188" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/client/ActiveCreditsGridBusinessBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="36" selection-start="2354" selection-end="2354" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/bank/expert/creditRequest/ExpertActiveCreditRequestGridBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="33" selection-start="2469" selection-end="2469" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/bank/expert/creditRequest/ExpertConfirmedCreditRequestGridBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="21" selection-start="1189" selection-end="1189" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/bank/expert/creditRequest/ExpertRejectedCreditRequestGridBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="81" selection-start="1633" selection-end="1633" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/credit/request/CreditRequestDataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="0" selection-start="1277" selection-end="1277" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/credit/request/CreditRequestDataServiceBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="84" selection-start="2174" selection-end="2174" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/common/FacesUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="70" selection-start="622" selection-end="684" vertical-scroll-proportion="0.5565217">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/dataservice/credit/request/CreditRequestQueryBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="17" selection-start="450" selection-end="450" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/resources/components/grid.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="145" column="12" selection-start="6611" selection-end="6619" vertical-scroll-proportion="-9.076923">
+        <state line="35" column="81" selection-start="1229" selection-end="1277" vertical-scroll-proportion="0.73590505">
           <folding>
-            <marker date="1321546278381" expanded="true" signature="6186:6200" placeholder="{...}" />
-            <marker date="1321546278381" expanded="true" signature="6186:6200" placeholder="{...}" />
+            <marker date="1319888634244" expanded="true" signature="2916:2946" placeholder="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/bank/operator/ClientAutocompleteController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="21" selection-start="2343" selection-end="2343" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bank/operator/payments.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="84" selection-start="1138" selection-end="1138" vertical-scroll-proportion="-4.4615383">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/client/ClientBusinessBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="30" selection-start="3264" selection-end="3264" vertical-scroll-proportion="0.42699724">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/client/credit/CreditRequestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="0" selection-start="2602" selection-end="2602" vertical-scroll-proportion="0.0">
+        <state line="132" column="44" selection-start="4062" selection-end="4062" vertical-scroll-proportion="0.661157">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/client/ActiveCreditsGridBusinessBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="967" selection-end="975" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/client/ProfileController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="791" selection-end="802" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/entity/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="164" column="3" selection-start="4490" selection-end="4510" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/templates/login/registrationTmpl.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="42" selection-start="814" selection-end="814" vertical-scroll-proportion="-6.5384617">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/client/credit-list.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="44" selection-start="1001" selection-end="1001" vertical-scroll-proportion="0.2539185">
+        <state line="4" column="73" selection-start="324" selection-end="381" vertical-scroll-proportion="-2.6153846">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/resources/components/clientPopup.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="35" selection-start="533" selection-end="537" vertical-scroll-proportion="-8.5">
+          <folding>
+            <marker date="1322079427300" expanded="true" signature="2687:2699" placeholder="{...}" />
+            <marker date="1322079427300" expanded="true" signature="2852:2882" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/controller/bank/operator/PaymentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="24" selection-start="819" selection-end="819" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/bank/expert/creditRequest/ExpertConfirmedCreditRequestGridBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="48" selection-start="1267" selection-end="1267" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/by/kofi/scd/business/UserBusinessBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="76" selection-start="510" selection-end="510" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/bank/operator/process-payment.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="14" selection-start="468" selection-end="532" vertical-scroll-proportion="-4.576923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/resources/components/grid.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="142" column="28" selection-start="6497" selection-end="6497" vertical-scroll-proportion="0.6909091">
+          <folding>
+            <marker date="1322079769877" expanded="true" signature="6254:6268" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>

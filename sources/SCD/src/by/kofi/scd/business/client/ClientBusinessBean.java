@@ -16,6 +16,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * @author harchevnikov_m
  *         Date: 15/10/11
@@ -85,6 +87,14 @@ public class ClientBusinessBean extends AbstractBusinessBean {
     public Client getClientById(Long clientId) throws SCDBusinessException {
         try {
             return getCRUDDataService().find(Client.class, clientId);
+        } catch (SCDTechnicalException e) {
+            throw new SCDBusinessException(e);
+        }
+    }
+
+    public List<Client> getClients() throws SCDBusinessException {
+        try {
+            return getCRUDDataService().list(Client.class);
         } catch (SCDTechnicalException e) {
             throw new SCDBusinessException(e);
         }

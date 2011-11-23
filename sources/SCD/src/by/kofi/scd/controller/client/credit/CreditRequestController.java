@@ -130,6 +130,8 @@ public class CreditRequestController implements Serializable {
         return NavigationActionEnum.CLIENT_CREDIT_REQUEST_SEND_COMPLETE.getValue();
     }
 
+    //todo add validator for credit sum/term
+
     public boolean isExistInProcessRequest() throws SCDBusinessException {
         return this.creditRequestBusinessBean.existCreditRequestInProcess(getCredit(),
                 FacesUtil.getUserContext().getClient());

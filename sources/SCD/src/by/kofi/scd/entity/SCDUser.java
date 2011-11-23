@@ -12,17 +12,17 @@ import java.io.Serializable;
 @Table(name = "SCD_USER")
 @SequenceGenerator(name = "SQ_USER", sequenceName = "SQ_USER")
 public class SCDUser extends AbstractEntity {
-    private long userId;
+    private Long userId;
 
 
     @Column(name = "SCD_USER_ID")
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SQ_USER")
-    public long getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
