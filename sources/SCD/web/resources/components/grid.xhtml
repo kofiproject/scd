@@ -12,6 +12,11 @@
       xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:userPopup="http://java.sun.com/jsf/composite/components"
         >
+<h:head>
+    <h:outputScript library="js" name="jquery.numeric.js"/>
+
+</h:head>
+
 
 <!-- INTERFACE -->
 <composite:interface>
@@ -19,11 +24,12 @@
     <composite:attribute name="gridHeader"/>
     <composite:attribute name="reportColumn" required="false" default="true"/>
     <composite:attribute name="processRequestColumn" required="false" default="false"/>
+    <composite:attribute name="makePaymentColumn" required="false" default="false"/>
 </composite:interface>
 
 <!-- IMPLEMENTATION -->
 <composite:implementation>
-
+    <h:outputScript library="js" name="jquery.numeric.js"/>
     <h:form id="grid-form">
 
         <rich:dataTable
@@ -128,6 +134,26 @@
                 </rich:column>
             </c:if>
 
+            <c:if test="#{cc.attrs.makePaymentColumn}">
+                <rich:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle['grid.common.pay']}"/>
+                    </f:facet>
+
+                    <a4j:commandLink value="#{bundle['grid.common.pay']}"
+                                     styleClass="grid-report-col"
+                                     immediate="true"
+                                     action="#{cc.attrs.bean.loadCreditItem}"
+                                     oncomplete="#{rich:component('paymentPopup')}.show()"
+                                     render="paymentPopup"
+                            >
+                        <a4j:param value="#{item.rowId}"
+                                   assignTo="#{cc.attrs.bean.accountNo}"/>
+                    </a4j:commandLink>
+
+                </rich:column>
+            </c:if>
+
             <f:facet name="footer">
                 <rich:dataScroller page="#{cc.attrs.bean.currentPage}"/>
             </f:facet>
@@ -146,8 +172,8 @@
         </rich:popupPanel>
 
         <ui:include src="creditPopup.xhtml"/>
-        <userPopup:clientPopup bean="#{cc.attrs.bean}"/>
 
+        <userPopup:clientPopup bean="#{cc.attrs.bean}"/>
     </h:form>
 
 </composite:implementation>

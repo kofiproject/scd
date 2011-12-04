@@ -26,9 +26,10 @@ import javax.servlet.http.HttpSession;
 @Controller("loginBean")
 @Scope("request")
 public class LoginController {
-    private static final Long CLIENT_ROLE_ID = 1L;
-    private static final Long EXPERT_ROLE_ID = 2L;
-    private static final Long OPERATOR_ROLE_ID = 3L;
+    private static final int CLIENT_ROLE_ID = 1;
+    private static final int EXPERT_ROLE_ID = 2;
+    private static final int OPERATOR_ROLE_ID = 3;
+    private static final int ADMIN_ROLE_ID = 4;
 
     private Long uniqueId = null;
     private String password;
@@ -75,15 +76,19 @@ public class LoginController {
             Role role = user.getRole();
             long roleId = role.getRoleId();
 
-            if (roleId == CLIENT_ROLE_ID) {
-                return NavigationActionEnum.LOGIN_CLIENT.getValue();
-            } else if (roleId == EXPERT_ROLE_ID) {
-                return NavigationActionEnum.LOGIN_EXPERT.getValue();
-            } else if (roleId == OPERATOR_ROLE_ID) {
-                return NavigationActionEnum.LOGIN_OPERATOR.getValue();
-            } else {
-                return "";
+            switch ((int) roleId) {
+                case CLIENT_ROLE_ID:
+                    return NavigationActionEnum.LOGIN_CLIENT.getValue();
+                case EXPERT_ROLE_ID:
+                    return NavigationActionEnum.LOGIN_EXPERT.getValue();
+                case OPERATOR_ROLE_ID:
+                    return NavigationActionEnum.LOGIN_OPERATOR.getValue();
+                case ADMIN_ROLE_ID:
+                    return NavigationActionEnum.LOGIN_ADMIN.getValue();
+                default:
+                    return "";
             }
+
         } else {
             //to avoid 0 in input if uniqueId is null (jsf initialize it with 0)
             if (getUniqueId().equals(0L)) {

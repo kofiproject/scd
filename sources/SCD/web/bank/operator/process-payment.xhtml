@@ -18,17 +18,19 @@
             <a4j:commandLink value="Show Details"
                              styleClass="grid-report-col"
                              immediate="true"
-                             action="#{cc.attrs.bean.loadClient}"
-                             oncomplete="#{rich:component('clientDetails')}.show()"
-                             render="clientDetails"
-                    >
-                <a4j:param value="#{item.clientId}"
-                           assignTo="#{cc.attrs.bean.clientId}"/>
-            </a4j:commandLink>
-            <userPopup:clientPopup bean="#{cc.attrs.bean}"/>
-
+                             onclick="#{rich:component('clientDetails')}.show()"
+                    />
+            <userPopup:clientPopup bean="#{paymentController}"/>
             <h:outputText value="#{paymentController.clientIdentity}"/>
         </h:form>
+
+        <grid:grid id="active-credits-grid"
+                   bean="#{paymentController}"
+                   makePaymentColumn="true"
+                   reportColumn="false"
+                />
+
+        <ui:include src="/resources/components/paymentPopup.xhtml"/>
 
     </ui:define>
 

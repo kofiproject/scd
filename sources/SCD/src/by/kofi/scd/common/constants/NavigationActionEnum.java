@@ -11,6 +11,7 @@ public enum NavigationActionEnum {
     LOGIN_CLIENT("login-client"),
     LOGIN_EXPERT("login-expert"),
     LOGIN_OPERATOR("login-operator"),
+    LOGIN_ADMIN("login-admin"),
 
     LOGOUT("logout"),
     LOGIN_FAIL("fail"),

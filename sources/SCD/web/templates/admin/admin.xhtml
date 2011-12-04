@@ -1,0 +1,70 @@
+<ui:composition template="../base.xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="baseStyle">
+        <h:outputStylesheet library="css/client" name='client.css'/>
+        <h:outputStylesheet library="css/bank" name='bank.css'/>
+        <ui:insert name="style"/>
+    </ui:define>
+
+
+    <ui:define name="baseScript">
+        <ui:insert name="script"/>
+    </ui:define>
+
+    <ui:define name="contentHeader">
+        <div class="page-header">
+            <ui:insert name="header"/>
+        </div>
+    </ui:define>
+
+    <ui:define name="userLink">
+        <h:outputText value="#{sessionScope.userContext}"
+                      styleClass="menu"
+                />
+    </ui:define>
+
+    <ui:define name="left-menu">
+        <h:form id="menu-form">
+            <h:panelGrid columns="2" style="width: 140px; margin-left: 7px; background-color: #808080;">
+                <rich:panelMenu
+                        columnClasses="cols,cols"
+                        groupExpandedLeftIcon="triangleUp"
+                        groupCollapsedLeftIcon="triangleDown"
+                        topGroupExpandedRightIcon="chevronUp"
+                        topGroupCollapsedRightIcon="chevronDown"
+                        itemLeftIcon="disc"
+                        activeItem="#{menuController.activeMenuItem}"
+                        >
+
+                    <rich:panelMenuItem icon="disc" id="id1">
+                        <h:commandLink immediate="true"
+                                       styleClass="left-menu-item"
+                                       value="#{bundle['admin.menu.userManagement']}"
+                                       action="/admin/user-management"
+                                >
+                            <f:setPropertyActionListener target="#{menuController.activeMenuItem}"
+                                                         value="id1"/>
+                        </h:commandLink>
+                    </rich:panelMenuItem>
+
+                    <rich:panelMenuItem icon="disc" id="id2">
+                        <h:commandLink immediate="true"
+                                       styleClass="left-menu-item"
+                                       value="#{bundle['admin.menu.creditsManagement']}"
+                                       action="/admin/credit-management"
+                                       style="text-align: center;   "
+                                >
+                            <f:setPropertyActionListener target="#{menuController.activeMenuItem}"
+                                                         value="id2"/>
+                        </h:commandLink>
+                    </rich:panelMenuItem>
+
+                </rich:panelMenu>
+            </h:panelGrid>
+        </h:form>
+    </ui:define>
+</ui:composition>

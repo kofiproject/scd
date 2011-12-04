@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:f="http://java.sun.com/jsf/core"
+        >
+
+<h:form id="paymentForm">
+    <rich:popupPanel header="Pay" id="paymentPopup"
+                     autosized="true" modal="true">
+
+        Arrear: <h:outputText value="#{paymentController.sumArrear}"/>
+        <h:panelGrid columns="2" id="editGrid">
+            <h:outputText value="Sum"/>
+            <h:inputText required="true"
+                         id="paymentSum"
+                         styleClass="numeric"
+                         onfocus="$(this).numeric()"
+                         value="#{paymentController.paymentSum}"
+                    >
+                <f:validateDoubleRange/>
+            </h:inputText>
+
+        </h:panelGrid>
+
+        <a4j:commandButton value="Pay"
+                           action="#{paymentController.makePayment}"
+                           render="table"
+                           execute="paymentPopup"
+                           oncomplete="#{rich:component('paymentPopup')}.hide();"
+                           onclick="jQuery('[id *= paymentsumReal]').val(jQuery('[id *= paymentSum]').val());"
+                />
+
+        <a4j:commandButton value="Cancel"
+                           onclick="#{rich:component('paymentPopup')}.hide(); return false;"/>
+    </rich:popupPanel>
+
+</h:form>
+
+</html>

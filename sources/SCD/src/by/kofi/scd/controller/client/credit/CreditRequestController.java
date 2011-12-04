@@ -103,6 +103,14 @@ public class CreditRequestController implements Serializable {
     }
 
     public String sendRequestAction() throws SCDBusinessException {
+        if (getSum().compareTo(getMaxSum()) > 0) {
+            return "";
+        }
+
+        if (getTerm() > getCredit().getMaxTerm()) {
+            return "";
+        }
+
         UserContext userContext = FacesUtil.getUserContext();
         Client client = userContext.getClient();
 
@@ -129,8 +137,6 @@ public class CreditRequestController implements Serializable {
 
         return NavigationActionEnum.CLIENT_CREDIT_REQUEST_SEND_COMPLETE.getValue();
     }
-
-    //todo add validator for credit sum/term
 
     public boolean isExistInProcessRequest() throws SCDBusinessException {
         return this.creditRequestBusinessBean.existCreditRequestInProcess(getCredit(),

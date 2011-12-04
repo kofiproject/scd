@@ -5,6 +5,8 @@ import by.kofi.scd.dataservice.CRUDDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+import java.util.TreeSet;
+
 /**
  * @author harchevnikov_m
  *         Date: 15/10/11
@@ -16,6 +18,7 @@ public class AbstractBusinessBean {
     private AbstractDataServiceBean abstractDataServiceBean;
 
     protected CRUDDataService getCRUDDataService() {
+        new TreeSet<Integer>();
         return this.abstractDataServiceBean.getHibernateCRUDService();
     }
 }

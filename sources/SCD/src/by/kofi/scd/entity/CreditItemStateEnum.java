@@ -9,5 +9,6 @@ package by.kofi.scd.entity;
  */
 public enum CreditItemStateEnum {
     ACTIVE,
+    PAYED,
     CLOSED
 }

@@ -8,7 +8,7 @@ import java.io.Serializable;
  *         Date: 18.09.11
  *         Time: 18:36
  */
-public abstract class AbstractEntity {
+public abstract class AbstractEntity implements Serializable {
     public abstract Serializable getEntityId();
 
     public abstract boolean entityEquals(Object o);

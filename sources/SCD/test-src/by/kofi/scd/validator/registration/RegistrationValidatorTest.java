@@ -14,6 +14,5 @@ public class RegistrationValidatorTest {
         RegistrationValidator validator = new RegistrationValidator();
         //validator.validateEmail(null,  g);
 
-        //todo download mockito!!!!!
     }
 }

@@ -37,7 +37,6 @@ public class FileDownloadService {
      *          error
      */
     public void downloadFile(File file, UserContext userContext) throws SCDBusinessException {
-        //todo implement
         try {
             ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 
