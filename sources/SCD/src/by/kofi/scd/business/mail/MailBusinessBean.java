@@ -2,7 +2,6 @@ package by.kofi.scd.business.mail;
 
 import by.kofi.scd.business.AbstractBusinessBean;
 import by.kofi.scd.entity.Client;
-import by.kofi.scd.entity.CreditItem;
 import by.kofi.scd.entity.CreditRequest;
 import by.kofi.scd.entity.Employee;
 import by.kofi.scd.exceptions.SCDBusinessException;
@@ -50,7 +49,7 @@ public class MailBusinessBean extends AbstractBusinessBean {
     }
 
     /**
-     * Send email notification on  credit request complete
+     * Send email notification on credit request complete
      *
      * @param creditRequest creditRequest instance
      * @param client        Client
@@ -134,7 +133,12 @@ public class MailBusinessBean extends AbstractBusinessBean {
         } catch (MailException e) {
             LOGGER.error(e.getMessage());
             //todo uncomment !!
-//            throw new SCDBusinessException("Registration email error", e);
+// throw new SCDBusinessException("Registration email error", e);
         }
     }
+
+    public void sendMessageFromContactUs(String message, String name, String email) {
+        sendEmail(this.mailBundle.getString("mail.username"), "Contact us from " + name + ", from  " + email, message);
+    }
+
 }

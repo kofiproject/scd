@@ -7,6 +7,9 @@
                 xmlns:c="http://java.sun.com/jstl/core"
                 xmlns:userPopup="http://java.sun.com/jsf/composite/components"
         >
+    <ui:define name="script">
+        <h:outputScript library="js/login" name="numeric.js"/>
+    </ui:define>
 
     <ui:define name="header">
         Process payment
@@ -30,7 +33,9 @@
                    reportColumn="false"
                 />
 
-        <ui:include src="/resources/components/paymentPopup.xhtml"/>
+        <h:form id="pf">
+            <ui:include src="/resources/components/paymentPopup.xhtml"/>
+        </h:form>
 
     </ui:define>
 

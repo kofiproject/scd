@@ -10,6 +10,7 @@ import by.kofi.scd.common.constants.NavigationActionEnum;
 import by.kofi.scd.entity.*;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 import javax.faces.context.FacesContext;
@@ -36,7 +37,9 @@ public class ProcessRequestController {
     private MailBusinessBean mailBusinessBean;
     @Autowired
     private EmployeeBusinessBean employeeBusinessBean;
+
     @Autowired
+    @Qualifier("ciBB")
     private CreditItemBusinessBean creditItemBusinessBean;
 
     public boolean getLockedCreditRequest() {

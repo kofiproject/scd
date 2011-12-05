@@ -111,7 +111,7 @@ public class PaymentController extends AbstractGridBusinessBean {
         if try pay more than necessary ->  return;
          */
         if (getPaymentSum().intValue() > getSumArrear()) {
-            return;
+            setPaymentSum(new BigDecimal(getSumArrear()));
         }
 
         CreditItem item = getCreditItem();
@@ -120,7 +120,7 @@ public class PaymentController extends AbstractGridBusinessBean {
         paidAmount = paidAmount.add(getPaymentSum());
         item.setPaidAmount(paidAmount);
 
-        if (paidAmount.intValue() >= getSumArrear()) {
+        if (getPaymentSum().intValue() >= getSumArrear()) {
             item.setState(CreditItemStateEnum.PAYED);
         }
         clientDataService.getHibernateCRUDService().merge(item);

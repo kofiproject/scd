@@ -3,14 +3,39 @@
                 xmlns:a4j="http://richfaces.org/a4j"
                 xmlns:rich="http://richfaces.org/rich" xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:grid="http://java.sun.com/jsf/composite/components">
-    <ui:define name="header">
-        Credit calculator
-    </ui:define>
-
     <ui:define name="content">
-        Credit calculator ))
-
-
+        <h:form>
+        <h:selectOneRadio layout="pageDirection" value="#{creditCalculatorController.mode}">
+            <a4j:ajax onbegin="location.reload()" render="creditSum, incomeMonth"/>
+            <f:selectItem itemValue="0" itemLabel="Расчет суммы кредита"/>
+            <f:selectItem itemValue="1" itemLabel="Расчет ежемесячного платежа"/>
+        </h:selectOneRadio>
+        <br/>Credit plan <br/>
+        <rich:select value="#{creditCalculatorController.creditName}" >
+            <f:selectItems  value="#{creditCalculatorController.credits}"/>
+            <a4j:ajax event="change" render="percent, term"/>
+        </rich:select>
+        <br/>
+        Term <br/><h:inputText value="#{creditCalculatorController.term}"/>
+        <br/>Среднемесячный доход <br/>
+            <h:inputText id="incomeMonth"
+                         rendered="#{creditCalculatorController.mode == '0'}"
+                         value="#{creditCalculatorController.everageMonthlyIncome}"/>
+        <br/>Сумма кредита <br/>
+            <h:inputText id="creditSum"
+                         rendered="#{creditCalculatorController.mode == '1'}"
+                         value="#{creditCalculatorController.creditSum}"/>
+        <br/>
+        Percent <h:outputText id="percent" value="#{creditCalculatorController.credit.percent}"/>
+        <br/>
+        Max term <h:outputText id="term" value="#{creditCalculatorController.credit.maxTerm}"/>
+        <br/>
+        <h:commandButton action="#{creditCalculatorController.calculateAction}" value="Расчитать">
+        </h:commandButton>
+        <br/>
+        Result <h:outputText id="resultExecute" value="#{creditCalculatorController.result}">
+            <f:convertNumber pattern="#,###,##0"/>
+        </h:outputText>
+        </h:form>
     </ui:define>
-
 </ui:composition>

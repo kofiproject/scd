@@ -6,7 +6,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j">
 
 <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -16,7 +18,7 @@
 
     <h:outputScript library="js" name="jquery-1.6.4.js"/>
     <h:outputScript library="js" name="jquery.numeric.js"/>
-    <h:outputScript library="js/login" name="registration.js"/>
+    <h:outputScript library="js/login" name="numeric.js"/>
 </h:head>
 <h:body>
     <f:view>
@@ -56,7 +58,28 @@
                                         </tr>
                                         <tr>
                                             <td height="25" colspan="2" class="bg_menu">
+                                                <table border="0" cellpadding="0" cellspacing="0" class="height25">
+                                                    <tr>
+                                                        <td width="95%">
+                                                            <h:graphicImage library="images" name="el_1.gif" width="76"
+                                                                            height="25"/>
 
+                                                        </td>
+
+                                                        <td align="right">
+                                                            <h:form id="contact-form">
+                                                                <a4j:commandLink value="#{bundle['common.contactUs']}"
+                                                                                 style="padding-right: 20px;"
+                                                                                 styleClass="menu"
+                                                                                 immediate="true"
+                                                                                 action="#{contactUsController.init}"
+                                                                                 render="contactUsPane"
+                                                                                 oncomplete="#{rich:component('contactUsPane')}.show()"
+                                                                        />
+                                                            </h:form>
+                                                        </td>
+                                                    </tr>
+                                                </table>
                                             </td>
                                         </tr>
                                         <tr bgcolor="#FFFFFF">
@@ -152,5 +175,8 @@
                 </div>
         -->
     </f:view>
+
+    <ui:include src="contactUs.xhtml"/>
+
 </h:body>
 </html>

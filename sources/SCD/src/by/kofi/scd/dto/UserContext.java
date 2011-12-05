@@ -48,4 +48,13 @@ public class UserContext extends AbstractModel {
 
         return surName + ' ' + name + ' ' + middleName;
     }
+
+    public String getEmail() {
+        Client client = getClient();
+        Employee employee = getEmployee();
+
+        return client != null ? client.getEmail() : employee.getEmail();
+    }
 }
+
+

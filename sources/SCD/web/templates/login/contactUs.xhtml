@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:a4j="http://richfaces.org/a4j"
+    xmlns:rich="http://richfaces.org/rich">
+<head>
+    <title></title>
+</head>
+<body>
+<rich:popupPanel header="Contact us" id="contactUsPane" domElementAttachment="parent" autosized="true">
+            <h:panelGrid columns="1" id="editGrid">
+                <br/><h:outputText value="e-mail" /><br/>
+                <h:inputText value="#{contactUsController.email}">
+                    <f:validateDoubleRange/>
+                </h:inputText>
+                <br/><h:outputText value="You'r name" /><br/>
+                <h:inputText value="#{contactUsController.name}">
+                    <f:validateDoubleRange/>
+                </h:inputText>
+                <br/>
+                <h:outputText value="Message"/><br/>
+                <h:inputTextarea cols="59" rows="15" value="#{contactUsController.message}">
+                    <f:validateDoubleRange/>
+                </h:inputTextarea>
+            </h:panelGrid>
+        <br/>
+        <center>
+            <a4j:commandButton value="Send" action="#{contactUsController.contuctUsSendAction}"
+                render="table" execute="editPane"
+                oncomplete="#{rich:component('contactUsPane')}.hide(); return false;" />
+            <a4j:commandButton value="Cancel"
+                onclick="#{rich:component('contactUsPane')}.hide(); return false;" />
+        </center>
+
+    </rich:popupPanel>
+</body>
+</HTML>
