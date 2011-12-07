@@ -10,30 +10,37 @@
       xmlns:f="http://java.sun.com/jsf/core"
         >
 
+<h:outputScript library="js/components" name="payment.js"/>
+
 <rich:popupPanel header="Pay" id="paymentPopup"
                  autosized="true" modal="true">
 
-    Arrear: <h:outputText value="#{paymentController.sumArrear}"/>
-    <h:panelGrid columns="2" id="editGrid">
-        <h:outputText value="Sum"/>
-        <h:inputText required="true"
-                     id="paymentSum"
-                     styleClass="numeric"
-                >
-            <f:validateDoubleRange/>
-        </h:inputText>
-
-    </h:panelGrid>
-
-    <a4j:commandButton value="Pay"
-                       onclick="jQuery('[id $= paymentSumReal]').val(jQuery('[id $= paymentSum]').val());
+    <h:outputText value="#{paymentController.creditItem.credit.name}"/>
+    <br/>
+    Arrear: <h:outputText id="arrearSum"
+        value="#{paymentController.sumArrear}"/>
+    <br/>
+    <h:outputText value="Sum"/>
+    &#160;
+    <h:inputText required="true"
+                 id="paymentSum"
+                 styleClass="numeric"
+            >
+        <f:validateDoubleRange/>
+    </h:inputText>
+    <br/>
+    <br/>
+    <div style="text-align: center;">
+        <a4j:commandButton value="Pay"
+                           onclick="jQuery('[id $= paymentSumReal]').val(jQuery('[id $= paymentSum]').val());
                                     jQuery('[id $= processpaymentBtn]').click();
                                     "
-            />
-
-
-    <a4j:commandButton value="Cancel"
-                       onclick="#{rich:component('paymentPopup')}.hide(); return false;"/>
+                           id="paymentPaybtn"
+                />
+        &#160;&#160;
+        <a4j:commandButton value="Cancel"
+                           onclick="#{rich:component('paymentPopup')}.hide(); return false;"/>
+    </div>
 </rich:popupPanel>
 
 

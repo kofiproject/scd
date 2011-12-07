@@ -107,12 +107,9 @@ public class PaymentController extends AbstractGridBusinessBean {
         if (getPaymentSum() == null) {
             return;
         }
-        /*
-        if try pay more than necessary ->  return;
-         */
-        if (getPaymentSum().intValue() > getSumArrear()) {
-            setPaymentSum(new BigDecimal(getSumArrear()));
-        }
+//        if (getPaymentSum().intValue() > getSumArrear()) {
+//            setPaymentSum(new BigDecimal(getSumArrear()));
+//        }
 
         CreditItem item = getCreditItem();
 

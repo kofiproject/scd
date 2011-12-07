@@ -18,13 +18,14 @@
     <ui:define name="content">
         <h:form>
             <h:outputText value="#{paymentController.client}"/>
+            &#160;&#160;
             <a4j:commandLink value="Show Details"
                              styleClass="grid-report-col"
                              immediate="true"
                              onclick="#{rich:component('clientDetails')}.show()"
                     />
             <userPopup:clientPopup bean="#{paymentController}"/>
-            <h:outputText value="#{paymentController.clientIdentity}"/>
+
         </h:form>
 
         <grid:grid id="active-credits-grid"
