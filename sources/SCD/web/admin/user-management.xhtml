@@ -11,11 +11,25 @@
     </ui:define>
 
     <ui:define name="content">
-        <grid:grid id="requests-list"
-                   bean="#{expertActiveCreditRequestGridBean}"
-                   reportColumn="false"
-                   processRequestColumn="true"
-                />
+
+        <rich:tabPanel switchType="client"
+                       styleClass="tab-panel">
+            <rich:tab header="#{bundle['common.active']}">
+                <grid:grid id="active-clients"
+                           bean="#{activeClientsGridBusinessBean}"
+                           reportColumn="false"
+                        />
+            </rich:tab>
+
+            <rich:tab header="#{bundle['common.blocked']}">
+                <grid:grid id="blocked-clients"
+                           bean="#{blockedClientsGridBusinessBean}"
+                           reportColumn="false"
+                        />
+            </rich:tab>
+
+        </rich:tabPanel>
+
     </ui:define>
 
 </ui:composition>

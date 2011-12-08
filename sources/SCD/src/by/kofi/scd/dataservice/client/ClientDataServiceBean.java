@@ -70,4 +70,18 @@ public class ClientDataServiceBean extends AbstractDataServiceBean implements Cl
     }
 
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED)
+    public List<Client> getClients(boolean blocked) throws SCDTechnicalException {
+        try {
+            return getSession().createQuery(" from Client cl where cl.blocked = :blocked ")
+                    .setBoolean("blocked", blocked)
+                    .list();
+        } catch (HibernateException e) {
+            throw new SCDTechnicalException(e);
+        }
+    }
 }

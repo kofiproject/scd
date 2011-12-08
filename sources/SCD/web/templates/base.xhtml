@@ -6,7 +6,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:a4j="http://richfaces.org/a4j"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -68,11 +69,23 @@
 
                                                 <td align="center">
                                                     <h:form id="user-form">
-                                                        <h:commandLink value="#{sessionScope.userContext}"
-                                                                       styleClass="menu"
-                                                                       immediate="true"
-                                                                       action="client-profile"
-                                                                />
+
+                                                        <c:choose>
+                                                            <c:when test="#{sessionScope.userContext.employee eq null and sessionScope.userContext.client eq null}">
+                                                                <h:commandLink value="Admin"
+                                                                               styleClass="menu"
+                                                                               disabled="true"
+                                                                        />
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <h:commandLink value="#{sessionScope.userContext}"
+                                                                               styleClass="menu"
+                                                                               immediate="true"
+                                                                               action="client-profile"
+                                                                        />
+                                                            </c:otherwise>
+                                                        </c:choose>
+
                                                     </h:form>
                                                 </td>
                                                 <td width="56" align="center" class="menu"><span
@@ -91,12 +104,12 @@
                                                 <td align="center">
                                                     <h:form id="contact-form">
                                                         <a4j:commandLink value="#{bundle['common.contactUs']}"
-                                                                       style="padding-right: 20px;"
-                                                                       styleClass="menu"
-                                                                       immediate="true"
-                                                                       action="#{contactUsController.init}"
-                                                                       render="contactUsPane"
-                                                                       oncomplete="#{rich:component('contactUsPane')}.show()"
+                                                                         style="padding-right: 20px;"
+                                                                         styleClass="menu"
+                                                                         immediate="true"
+                                                                         action="#{contactUsController.init}"
+                                                                         render="contactUsPane"
+                                                                         oncomplete="#{rich:component('contactUsPane')}.show()"
                                                                 />
                                                     </h:form>
                                                 </td>

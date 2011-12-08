@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -46,6 +47,7 @@ public class ClientBusinessBean extends AbstractBusinessBean {
 
             //store client information
             client.setUser(user);
+            client.setRegistrationDate(new Date());
             client = dataService.merge(client);
 
             return client;

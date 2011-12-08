@@ -124,6 +124,18 @@ public class Client extends AbstractEntity {
         this.birthday = birthday;
     }
 
+    private Date registrationDate;
+
+    @javax.persistence.Column(name = "REGISTRATION_DATE")
+    @Basic
+    public Date getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
     private GenderEnum sex;
 
     @javax.persistence.Column(name = "SEX")

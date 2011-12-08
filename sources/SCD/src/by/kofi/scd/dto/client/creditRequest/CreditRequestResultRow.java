@@ -84,7 +84,7 @@ public class CreditRequestResultRow extends CreditRequest implements ResultRow {
     }
 
     @Override
-    public Long getCreditId() {
+    public long getCreditId() {
         return this.creditId;
     }
 

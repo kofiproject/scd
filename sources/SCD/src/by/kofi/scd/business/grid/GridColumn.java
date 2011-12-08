@@ -19,7 +19,25 @@ public enum GridColumn {
 
     PROCESSING_DATE("processingDate", "grid.client.request.processingDate", true),
     DESCRIPTION("description", "grid.client.request.description"),
-    CREDIT_EXPERT("expert", "grid.client.request.expert");
+    CREDIT_EXPERT("expert", "grid.client.request.expert"),
+
+    CLIENT_IDENTITY_NO("identityNo", "grid.client.identity"),
+    CLIENT_REGISTRATION_DATE("registrationDate", "grid.client.registrationDate", true),
+    CLIENT_PASSPORT("passport", "grid.client.passport"),
+    CLIENT_SEX("sex", "grid.client.sex"),
+    CLIENT_PERMANENT_RESIDENCE("permanentResidence", "grid.client.permanentResidence"),
+    CLIENT_CURRENT_RESIDENCE("currentResidence", "grid.client.currentResidence"),
+    CLIENT_PHONE_MOBILE("phoneMobile", "grid.client.mobile"),
+    CLIENT_PHONE("phone", "grid.client.phone"),
+    CLIENT_EMAIL("email", "grid.client.email"),
+    CLIENT_BIRTHDAY("birthday", "grid.client.birthday", true),
+    CLIENT_JOB_PLACE("jobPlace", "grid.client.jobPlace"),
+    CLIENT_JOB_POSITION("jobPosition", "grid.client.jobPosition"),
+
+    CREDIT_DETAILS_NAME("name", "grid.credit.name", true, false),
+    CREDIT_PERCENT("percent", "grid.credit.percent"),
+    CREDIT_PENALTY_PERCENT("penaltyPercent", "grid.credit.penaltyPercent"),
+    CREDIT_MAX_TERM("maxTerm", "grid.credit.maxTerm");
 
     private String text;
     private String header;

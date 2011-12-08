@@ -47,4 +47,12 @@ public interface ClientDataService extends AbstractDataService {
      */
     public int getCreditItemsCount(Long clientId, CreditItemStateEnum status) throws SCDTechnicalException;
 
+    /**
+     * Clients list
+     *
+     * @param forBlocked only blocked
+     * @return clients
+     * @throws SCDTechnicalException hql error
+     */
+    public List<Client> getClients(boolean forBlocked) throws SCDTechnicalException;
 }

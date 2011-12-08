@@ -1,6 +1,7 @@
 package by.kofi.scd.controller.bank.operator;
 
 import by.kofi.scd.business.AccountBusinessBean;
+import by.kofi.scd.business.PaymentBusinessBean;
 import by.kofi.scd.business.UserBusinessBean;
 import by.kofi.scd.business.grid.AbstractGridBusinessBean;
 import by.kofi.scd.business.grid.GridColumn;
@@ -41,6 +42,8 @@ public class PaymentController extends AbstractGridBusinessBean {
     private UserBusinessBean userBusinessBean;
     @Autowired
     private AccountBusinessBean accountBusinessBean;
+    @Autowired
+    private PaymentBusinessBean paymentBusinessBean;
 
     public BigDecimal getPaymentSum() {
         return paymentSum;
@@ -103,24 +106,14 @@ public class PaymentController extends AbstractGridBusinessBean {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public void makePayment() throws SCDTechnicalException {
+    public void makePayment() throws SCDBusinessException {
         if (getPaymentSum() == null) {
             return;
         }
-//        if (getPaymentSum().intValue() > getSumArrear()) {
-//            setPaymentSum(new BigDecimal(getSumArrear()));
-//        }
 
-        CreditItem item = getCreditItem();
+        CreditItem item = paymentBusinessBean.makePayment(getCreditItem(), getPaymentSum(), getSumArrear());
+        setCreditItem(item);
 
-        BigDecimal paidAmount = item.getPaidAmount();
-        paidAmount = paidAmount.add(getPaymentSum());
-        item.setPaidAmount(paidAmount);
-
-        if (getPaymentSum().intValue() >= getSumArrear()) {
-            item.setState(CreditItemStateEnum.PAYED);
-        }
-        clientDataService.getHibernateCRUDService().merge(item);
         setPaymentSum(null);
     }
 

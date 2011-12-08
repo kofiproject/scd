@@ -42,6 +42,10 @@ public class UserContext extends AbstractModel {
         Client client = getClient();
         Employee employee = getEmployee();
 
+        if(client == null && employee == null) {
+            return "";
+        }
+
         String name = client != null ? client.getName() : employee.getName();
         String surName = client != null ? client.getSurname() : employee.getSurname();
         String middleName = client != null ? client.getMiddleName() : employee.getMiddleName();
