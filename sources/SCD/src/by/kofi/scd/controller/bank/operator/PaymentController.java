@@ -5,6 +5,7 @@ import by.kofi.scd.business.PaymentBusinessBean;
 import by.kofi.scd.business.UserBusinessBean;
 import by.kofi.scd.business.grid.AbstractGridBusinessBean;
 import by.kofi.scd.business.grid.GridColumn;
+import by.kofi.scd.common.FacesUtil;
 import by.kofi.scd.dataservice.client.ClientDataService;
 import by.kofi.scd.dto.client.CreditItemResultRow;
 import by.kofi.scd.entity.*;
@@ -111,7 +112,9 @@ public class PaymentController extends AbstractGridBusinessBean {
             return;
         }
 
-        CreditItem item = paymentBusinessBean.makePayment(getCreditItem(), getPaymentSum(), getSumArrear());
+        Employee employee = FacesUtil.getUserContext().getEmployee();
+
+        CreditItem item = paymentBusinessBean.makePayment(getCreditItem(), employee, getPaymentSum(), getSumArrear());
         setCreditItem(item);
 
         setPaymentSum(null);

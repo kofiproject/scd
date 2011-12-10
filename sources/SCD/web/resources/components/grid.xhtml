@@ -25,156 +25,245 @@
     <composite:attribute name="reportColumn" required="false" default="true"/>
     <composite:attribute name="processRequestColumn" required="false" default="false"/>
     <composite:attribute name="makePaymentColumn" required="false" default="false"/>
+
+    <composite:attribute name="deleteClientColumn" required="false" default="false"/>
+    <composite:attribute name="blockClientColumn" required="false" default="false"/>
+    <composite:attribute name="unblockClientColumn" required="false" default="false"/>
+
+    <composite:attribute name="updateCreditColumn" required="false" default="false"/>
+
+    <composite:attribute name="dataTableId" required="false" default="table"/>
 </composite:interface>
 
 <!-- IMPLEMENTATION -->
 <composite:implementation>
-    <h:outputScript library="js" name="jquery.numeric.js"/>
-    <h:form id="grid-form">
+<h:outputScript library="js" name="jquery.numeric.js"/>
+<h:form id="grid-form">
 
-        <rich:dataTable
-                value="#{cc.attrs.bean.resultList}"
-                var="item"
-                iterationStatusVar="iter"
-                id="table"
-                rows="#{cc.attrs.bean.rowsPerPage}"
-                styleClass="grid"
-                headerClass="background: none;"
+<rich:dataTable
+        value="#{cc.attrs.bean.resultList}"
+        var="item"
+        iterationStatusVar="iter"
+        id="#{cc.attrs.dataTableId}"
+        rows="#{cc.attrs.bean.rowsPerPage}"
+        styleClass="grid"
+        headerClass="background: none;"
+        >
+
+<ui:remove>
+    <c:if test="#{not empty cc.attrs.gridHeader}">
+        <f:facet name="header">
+            <h:outputText value="#{bundle[cc.attrs.gridHeader]}"/>
+        </f:facet>
+    </c:if>
+</ui:remove>
+
+<rich:column styleClass="grid-number-col">
+    <f:facet name="header">
+        <h:outputText value="#{bundle['grid.common.number']}"/>
+    </f:facet>
+    <h:outputText value="#{iter.index+1}"/>
+</rich:column>
+
+<c:forEach var="column" items="#{cc.attrs.bean.columns}" varStatus="i">
+    <rich:column>
+        <f:facet name="header">
+            <h:outputText value="#{bundle[column.header]}"/>
+        </f:facet>
+        <c:choose>
+            <c:when test="#{column.creditField}">
+                <a4j:commandLink value="#{item[column.text]}"
+                                 styleClass="grid-report-col"
+                                 immediate="true"
+                                 action="#{cc.attrs.bean.loadCredit}"
+                                 oncomplete="#{rich:component('creditDetails')}.show()"
+                                 render="creditDetails"
+                        >
+                    <a4j:param value="#{item.creditId}"
+                               assignTo="#{cc.attrs.bean.creditId}"/>
+                </a4j:commandLink>
+            </c:when>
+            <c:when test="#{column.clientField}">
+                <a4j:commandLink value="#{item[column.text]}"
+                                 styleClass="grid-report-col"
+                                 immediate="true"
+                                 action="#{cc.attrs.bean.loadClient}"
+                                 oncomplete="#{rich:component('clientDetails')}.show()"
+                                 render="clientDetails"
+                        >
+                    <a4j:param value="#{item.clientId}"
+                               assignTo="#{cc.attrs.bean.clientId}"/>
+                </a4j:commandLink>
+            </c:when>
+            <c:otherwise>
+                <h:outputText value="#{item[column.text]}">
+                    <c:if test="#{column.dateField}">
+                        <f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
+                    </c:if>
+                </h:outputText>
+            </c:otherwise>
+        </c:choose>
+
+    </rich:column>
+</c:forEach>
+
+<c:if test="#{cc.attrs.reportColumn}">
+    <rich:column>
+        <f:facet name="header">
+            <h:outputText value="#{bundle['grid.common.report']}"/>
+        </f:facet>
+
+        <a4j:commandLink value="#{bundle['grid.common.generateReport']}"
+                         styleClass="grid-report-col"
+                         immediate="true"
+                         action="#{cc.attrs.bean.generateReport}"
+                         onclick="#{rich:component('panel_loading')}.show()"
+                         oncomplete='document.getElementById("#{cc.attrs.id}:grid-form:report-btn").click()'
                 >
+            <a4j:param value="#{item.rowId}"
+                       assignTo="#{cc.attrs.bean.selectedRowId}"/>
+        </a4j:commandLink>
+    </rich:column>
+</c:if>
 
-            <ui:remove>
-                <c:if test="#{not empty cc.attrs.gridHeader}">
-                    <f:facet name="header">
-                        <h:outputText value="#{bundle[cc.attrs.gridHeader]}"/>
-                    </f:facet>
-                </c:if>
-            </ui:remove>
+<c:if test="#{cc.attrs.processRequestColumn}">
+    <rich:column>
+        <f:facet name="header">
+            <h:outputText value="#{bundle['grid.common.process']}"/>
+        </f:facet>
 
-            <rich:column styleClass="grid-number-col">
-                <f:facet name="header">
-                    <h:outputText value="#{bundle['grid.common.number']}"/>
-                </f:facet>
-                <h:outputText value="#{iter.index+1}"/>
-            </rich:column>
+        <h:commandLink value="#{bundle['grid.common.process']}"
+                       styleClass="grid-report-col"
+                       action="expert-process-request"
+                >
+            <f:setPropertyActionListener value="#{item.creditRequestId}"
+                                         target="#{processRequestController.creditRequestId}"/>
+        </h:commandLink>
+    </rich:column>
+</c:if>
 
-            <c:forEach var="column" items="#{cc.attrs.bean.columns}" varStatus="i">
-                <rich:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{bundle[column.header]}"/>
-                    </f:facet>
-                    <c:choose>
-                        <c:when test="#{column.creditField}">
-                            <a4j:commandLink value="#{item[column.text]}"
-                                             styleClass="grid-report-col"
-                                             immediate="true"
-                                             action="#{cc.attrs.bean.loadCredit}"
-                                             oncomplete="#{rich:component('creditDetails')}.show()"
-                                             render="creditDetails"
-                                    >
-                                <a4j:param value="#{item.creditId}"
-                                           assignTo="#{cc.attrs.bean.creditId}"/>
-                            </a4j:commandLink>
-                        </c:when>
-                        <c:when test="#{column.clientField}">
-                            <a4j:commandLink value="#{item[column.text]}"
-                                             styleClass="grid-report-col"
-                                             immediate="true"
-                                             action="#{cc.attrs.bean.loadClient}"
-                                             oncomplete="#{rich:component('clientDetails')}.show()"
-                                             render="clientDetails"
-                                    >
-                                <a4j:param value="#{item.clientId}"
-                                           assignTo="#{cc.attrs.bean.clientId}"/>
-                            </a4j:commandLink>
-                        </c:when>
-                        <c:otherwise>
-                            <h:outputText value="#{item[column.text]}">
-                                <c:if test="#{column.dateField}">
-                                    <f:convertDateTime pattern="dd/MM/yyyy HH:mm"/>
-                                </c:if>
-                            </h:outputText>
-                        </c:otherwise>
-                    </c:choose>
+<c:if test="#{cc.attrs.makePaymentColumn}">
+    <rich:column>
+        <f:facet name="header">
+            <h:outputText value="#{bundle['grid.common.pay']}"/>
+        </f:facet>
 
-                </rich:column>
-            </c:forEach>
+        <a4j:commandLink value="#{bundle['grid.common.pay']}"
+                         styleClass="grid-report-col"
+                         immediate="true"
+                         action="#{cc.attrs.bean.loadCreditItem}"
+                         oncomplete="#{rich:component('paymentPopup')}.show()"
+                         render="paymentPopup"
+                >
+            <a4j:param value="#{item.rowId}"
+                       assignTo="#{cc.attrs.bean.accountNo}"/>
+        </a4j:commandLink>
 
-            <c:if test="#{cc.attrs.reportColumn}">
-                <rich:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{bundle['grid.common.report']}"/>
-                    </f:facet>
+    </rich:column>
+</c:if>
 
-                    <a4j:commandLink value="#{bundle['grid.common.generateReport']}"
-                                     styleClass="grid-report-col"
-                                     immediate="true"
-                                     action="#{cc.attrs.bean.generateReport}"
-                                     onclick="#{rich:component('panel_loading')}.show()"
-                                     oncomplete='document.getElementById("#{cc.attrs.id}:grid-form:report-btn").click()'
-                            >
-                        <a4j:param value="#{item.rowId}"
-                                   assignTo="#{cc.attrs.bean.selectedRowId}"/>
-                    </a4j:commandLink>
-                </rich:column>
-            </c:if>
+<c:if test="#{cc.attrs.blockClientColumn}">
+    <rich:column>
+        <f:facet name="header">
+            <h:outputText value="#{bundle['grid.common.block']}"/>
+        </f:facet>
 
-            <c:if test="#{cc.attrs.processRequestColumn}">
-                <rich:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{bundle['grid.common.process']}"/>
-                    </f:facet>
+        <a4j:commandLink value="#{bundle['grid.common.block']}"
+                         styleClass="grid-report-col"
+                         immediate="true"
+                         action="#{userManagementController.loadClientDetails}"
+                         oncomplete="#{rich:component('blockClientPopup')}.show()"
+                         render="blockClientPopup"
+                >
+            <a4j:param value="#{item.rowId}"
+                       assignTo="#{userManagementController.clientId}"/>
+        </a4j:commandLink>
 
-                    <h:commandLink value="#{bundle['grid.common.process']}"
-                                   styleClass="grid-report-col"
-                                   action="expert-process-request"
-                            >
-                        <f:setPropertyActionListener value="#{item.creditRequestId}"
-                                                     target="#{processRequestController.creditRequestId}"/>
-                    </h:commandLink>
-                </rich:column>
-            </c:if>
+    </rich:column>
+</c:if>
 
-            <c:if test="#{cc.attrs.makePaymentColumn}">
-                <rich:column>
-                    <f:facet name="header">
-                        <h:outputText value="#{bundle['grid.common.pay']}"/>
-                    </f:facet>
+<c:if test="#{cc.attrs.unblockClientColumn}">
+    <rich:column>
+        <f:facet name="header">
+            <h:outputText value="#{bundle['grid.common.unblock']}"/>
+        </f:facet>
 
-                    <a4j:commandLink value="#{bundle['grid.common.pay']}"
-                                     styleClass="grid-report-col"
-                                     immediate="true"
-                                     action="#{cc.attrs.bean.loadCreditItem}"
-                                     oncomplete="#{rich:component('paymentPopup')}.show()"
-                                     render="paymentPopup"
-                            >
-                        <a4j:param value="#{item.rowId}"
-                                   assignTo="#{cc.attrs.bean.accountNo}"/>
-                    </a4j:commandLink>
+        <a4j:commandLink value="#{bundle['grid.common.unblock']}"
+                         styleClass="grid-report-col"
+                         immediate="true"
+                         action="#{userManagementController.loadClientDetails}"
+                         oncomplete="#{rich:component('unblockClientPopup')}.show()"
+                         render="unblockClientPopup"
+                >
+            <a4j:param value="#{item.rowId}"
+                       assignTo="#{userManagementController.clientId}"/>
+        </a4j:commandLink>
 
-                </rich:column>
-            </c:if>
+    </rich:column>
+</c:if>
 
-            <f:facet name="footer">
-                <rich:dataScroller page="#{cc.attrs.bean.currentPage}"/>
-            </f:facet>
-        </rich:dataTable>
+<c:if test="#{cc.attrs.deleteClientColumn}">
+    <rich:column>
+        <f:facet name="header">
+            <h:outputText value="#{bundle['grid.common.delete']}"/>
+        </f:facet>
 
-        <h:commandLink id="report-btn"
-                       style="display: none;"
-                       immediate="true"
-                       action="#{cc.attrs.bean.downloadReport}"
-                       onclick="#{rich:component('panel_loading')}.hide()"
-                />
+        <a4j:commandLink value="#{bundle['grid.common.delete']}"
+                         styleClass="grid-report-col"
+                         immediate="true"
+                         action="#{userManagementController.loadClientDetails}"
+                         oncomplete="#{rich:component('deleteClientPopup')}.show()"
+                         render="deleteClientPopup"
+                >
+            <a4j:param value="#{item.rowId}"
+                       assignTo="#{userManagementController.clientId}"/>
+        </a4j:commandLink>
 
-        <rich:popupPanel id="panel_loading" autosized="true">
-            <h:graphicImage library="images" name="loader.gif" alt=""/>
-            <h:outputText value="#{bundle['common.loading']}"/>
-        </rich:popupPanel>
+    </rich:column>
+</c:if>
 
-        <ui:include src="creditPopup.xhtml"/>
-        <userPopup:clientPopup bean="#{cc.attrs.bean}"/>
+<c:if test="#{cc.attrs.updateCreditColumn}">
+    <rich:column>
+        <f:facet name="header">
+            <h:outputText value="#{bundle['grid.common.edit']}"/>
+        </f:facet>
 
-    </h:form>
+        <a4j:commandLink value="#{bundle['grid.common.edit']}"
+                         styleClass="grid-report-col"
+                         immediate="true"
+                         action="#{creditManagementController.loadCreditDetails}"
+                         oncomplete="#{rich:component('updateCreditPopup')}.show()"
+                         render="updateCreditPopup"
+                >
+            <a4j:param value="#{item.rowId}"
+                       assignTo="#{creditManagementController.creditId}"/>
+        </a4j:commandLink>
+
+    </rich:column>
+</c:if>
+
+<f:facet name="footer">
+    <rich:dataScroller page="#{cc.attrs.bean.currentPage}"/>
+</f:facet>
+</rich:dataTable>
+
+<h:commandLink id="report-btn"
+               style="display: none;"
+               immediate="true"
+               action="#{cc.attrs.bean.downloadReport}"
+               onclick="#{rich:component('panel_loading')}.hide()"
+        />
+
+<rich:popupPanel id="panel_loading" autosized="true">
+    <h:graphicImage library="images" name="loader.gif" alt=""/>
+    <h:outputText value="#{bundle['common.loading']}"/>
+</rich:popupPanel>
+
+<ui:include src="creditPopup.xhtml"/>
+<userPopup:clientPopup bean="#{cc.attrs.bean}"/>
+
+
+</h:form>
 
 </composite:implementation>
 </html>

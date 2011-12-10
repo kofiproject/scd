@@ -1,10 +1,8 @@
 package by.kofi.scd.business;
 
+import by.kofi.scd.dataservice.CRUDDataService;
 import by.kofi.scd.dataservice.payment.PaymentDataService;
-import by.kofi.scd.entity.Account;
-import by.kofi.scd.entity.CreditItem;
-import by.kofi.scd.entity.CreditItemStateEnum;
-import by.kofi.scd.entity.Payment;
+import by.kofi.scd.entity.*;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import by.kofi.scd.exceptions.SCDTechnicalException;
 import org.apache.log4j.Logger;
@@ -15,6 +13,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 
@@ -36,7 +35,7 @@ public class PaymentBusinessBean extends AbstractBusinessBean {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public CreditItem makePayment(CreditItem item, BigDecimal paymentSum, Integer arrearSum) throws SCDBusinessException {
+    public CreditItem makePayment(CreditItem item, Employee employee, BigDecimal paymentSum, Integer arrearSum) throws SCDBusinessException {
 
         BigDecimal paidAmount = item.getPaidAmount();
         paidAmount = paidAmount.add(paymentSum);
@@ -46,8 +45,18 @@ public class PaymentBusinessBean extends AbstractBusinessBean {
             item.setState(CreditItemStateEnum.PAYED);
         }
 
+        Payment payment = new Payment();
+        payment.setAccount(item.getAccount());
+        payment.setAmount(paymentSum);
+        payment.setClient(item.getClient());
+        payment.setEmployee(employee);
+        payment.setPaymentDate(new Date());
+
         try {
-            return getCRUDDataService().merge(item);
+
+            CRUDDataService crudDataService = getCRUDDataService();
+            crudDataService.merge(payment);
+            return crudDataService.merge(item);
         } catch (SCDTechnicalException e) {
             throw new SCDBusinessException(e.getMessage(), e);
         }

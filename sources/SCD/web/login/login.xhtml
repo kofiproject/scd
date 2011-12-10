@@ -47,7 +47,7 @@
                                 <div style="height: 50px; padding-top: 10px;">
                                     <h:outputText styleClass="login-error-label"
                                                   rendered="#{loginBean.loginFailed}"
-                                                  value="#{bundle['login.error']}"/>
+                                                  value="#{!loginBean.clientBlocked ? bundle['login.error'] : bundle['login.client.blocked']}"/>
                                 </div>
 
                                 <h:commandButton value="#{bundle['login.submit']}"

@@ -33,7 +33,7 @@ import java.util.List;
 public class ReportGeneratorService implements ReportGenerator {
     private static final Logger LOGGER = Logger.getLogger(ReportGeneratorService.class);
     private static final String DATE_FORMAT = "yyyyMMdd";
-    private static final String REPORT_DATE_FORMAT = "dd-MM-yyyy HH:MM";
+    private static final String REPORT_DATE_FORMAT = "dd-MM-yyyy HH:mm";
 
     @Autowired
     private AccountBusinessBean accountBusinessBean;

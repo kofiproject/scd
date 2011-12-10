@@ -55,4 +55,13 @@ public interface ClientDataService extends AbstractDataService {
      * @throws SCDTechnicalException hql error
      */
     public List<Client> getClients(boolean forBlocked) throws SCDTechnicalException;
+
+    /**
+     * Block/ unblock client
+     *
+     * @param clientId clientId
+     * @param blocked block value
+     * @throws SCDTechnicalException  error
+     */
+    public void blockClient(Long clientId, boolean blocked) throws SCDTechnicalException;
 }

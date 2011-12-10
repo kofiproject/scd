@@ -74,5 +74,12 @@ public class CreditBusinessBean extends AbstractBusinessBean {
         return BigDecimal.ONE.add(credit.getMaxSumPercent()).multiply(monthlyCacheIncome).multiply(termBD);
     }
 
-
+    @Transactional(propagation = Propagation.REQUIRED)
+    public Credit mergeCredit(Credit credit) throws SCDBusinessException {
+        try {
+            return getCRUDDataService().merge(credit);
+        } catch (SCDTechnicalException e) {
+            throw new SCDBusinessException(e);
+        }
+    }
 }

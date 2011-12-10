@@ -34,6 +34,15 @@ public class LoginController {
     private Long uniqueId = null;
     private String password;
     private Boolean isLoginFailed;
+    private Boolean isClientBlocked;
+
+    public Boolean getClientBlocked() {
+        return isClientBlocked;
+    }
+
+    public void setClientBlocked(Boolean clientBlocked) {
+        isClientBlocked = clientBlocked;
+    }
 
     public Boolean getLoginFailed() {
         return isLoginFailed;
@@ -78,7 +87,18 @@ public class LoginController {
 
             switch ((int) roleId) {
                 case CLIENT_ROLE_ID:
-                    return NavigationActionEnum.LOGIN_CLIENT.getValue();
+                    if (client.getBlocked()) {
+                        //to avoid 0 in input if uniqueId is null (jsf initialize it with 0)
+                        if (getUniqueId().equals(0L)) {
+                            setUniqueId(null);
+                        }
+                        setLoginFailed(true);
+                        setClientBlocked(true);
+                        return NavigationActionEnum.LOGIN_FAIL.getValue();
+
+                    } else {
+                        return NavigationActionEnum.LOGIN_CLIENT.getValue();
+                    }
                 case EXPERT_ROLE_ID:
                     return NavigationActionEnum.LOGIN_EXPERT.getValue();
                 case OPERATOR_ROLE_ID:
@@ -89,14 +109,18 @@ public class LoginController {
                     return "";
             }
 
-        } else {
+        } else
+
+        {
             //to avoid 0 in input if uniqueId is null (jsf initialize it with 0)
             if (getUniqueId().equals(0L)) {
                 setUniqueId(null);
             }
             setLoginFailed(true);
+            setClientBlocked(false);
             return NavigationActionEnum.LOGIN_FAIL.getValue();
         }
+
     }
 
     public String logoutAction() throws SCDBusinessException {

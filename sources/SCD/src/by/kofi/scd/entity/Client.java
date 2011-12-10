@@ -222,7 +222,7 @@ public class Client extends AbstractEntity {
 
     private Set<CreditItem> creditItems;
 
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE)
     public Set<CreditItem> getCreditItems() {
         return creditItems;
     }
@@ -234,7 +234,7 @@ public class Client extends AbstractEntity {
 
     private Set<CreditRequest> creditRequests;
 
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE)
     public Set<CreditRequest> getCreditRequests() {
         return creditRequests;
     }
@@ -257,7 +257,7 @@ public class Client extends AbstractEntity {
 
     private Set<Payment> payments;
 
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE)
     public Set<Payment> getPayments() {
         return payments;
     }

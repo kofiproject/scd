@@ -7,6 +7,7 @@ import by.kofi.scd.entity.CreditItemStateEnum;
 import by.kofi.scd.entity.Department;
 import by.kofi.scd.exceptions.SCDTechnicalException;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -80,6 +81,20 @@ public class ClientDataServiceBean extends AbstractDataServiceBean implements Cl
             return getSession().createQuery(" from Client cl where cl.blocked = :blocked ")
                     .setBoolean("blocked", blocked)
                     .list();
+        } catch (HibernateException e) {
+            throw new SCDTechnicalException(e);
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void blockClient(Long clientId, boolean blocked) throws SCDTechnicalException {
+        try {
+            Client client = getHibernateCRUDService().find(Client.class, clientId);
+            client.setBlocked(blocked);
         } catch (HibernateException e) {
             throw new SCDTechnicalException(e);
         }

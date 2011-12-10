@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+        >
+<!-- INTERFACE -->
+<composite:interface>
+    <composite:attribute name="bean"/>
+</composite:interface>
+
+<!-- IMPLEMENTATION -->
+<composite:implementation>
+
+    <rich:popupPanel header="Update" id="updateCreditPopup"
+                     autosized="true" modal="true"
+            >
+
+        <h:inputText value="#{creditManagementController.creditId}"
+                     id="creditId"
+                     styleClass="invisible"/>
+
+        <h:panelGrid columns="2" id="editGrid">
+            <h:panelGroup>
+                <h:outputText value="Name"/>
+            </h:panelGroup>
+            <h:panelGroup>
+                <h:inputText value="#{creditManagementController.name}"
+                             id="creditname"
+                             required="true"
+                             requiredMessage="#{bundle['registration.validator.required']}"
+                             size="40"/>
+            </h:panelGroup>
+
+            <h:panelGroup>
+                <h:outputText value="Description"/>
+            </h:panelGroup>
+            <h:panelGroup>
+                <h:inputTextarea id="description"
+                                 value="#{creditManagementController.description}"
+                                 required="true"
+                                 requiredMessage="#{bundle['registration.validator.required']}"
+                                 cols="37"
+                                 rows="4"
+                        />
+            </h:panelGroup>
+
+            <h:panelGroup>
+                <h:outputText value="Percent"/>
+            </h:panelGroup>
+            <h:panelGroup>
+                <h:inputText id="percent"
+                             value="#{creditManagementController.percent}"
+                             required="true"
+                             requiredMessage="#{bundle['registration.validator.required']}"
+                             styleClass="numeric"
+                             size="40"/>
+            </h:panelGroup>
+
+            <h:panelGroup>
+                <h:outputText value="Penalty Percent"/>
+            </h:panelGroup>
+            <h:panelGroup>
+                <h:inputText id="penaltypercent"
+                             value="#{creditManagementController.penaltyPercent}"
+                             required="true"
+                             requiredMessage="#{bundle['registration.validator.required']}"
+                             styleClass="numeric"
+                             size="40"/>
+                &#160;&#160;&#160;
+            </h:panelGroup>
+
+            <h:panelGroup>
+                <h:outputText value="Max term"/>
+            </h:panelGroup>
+            <h:panelGroup>
+                <h:inputText id="term"
+                             value="#{creditManagementController.maxTerm}"
+                             required="true"
+                             requiredMessage="#{bundle['registration.validator.required']}"
+                             styleClass="numeric"
+                             size="40"/>
+            </h:panelGroup>
+
+        </h:panelGrid>
+
+        <div style="text-align: center;">
+            <a4j:commandButton value="Ok"
+                               onclick="
+                                    jQuery('[id $= creditnameSubmit]').val(jQuery('[id $= creditname]').val());
+                                    jQuery('[id $= descriptionSubmit]').val(jQuery('[id $= description]').val());
+                                    jQuery('[id $= percentSubmit]').val(jQuery('[id $= percent]').val());
+                                    jQuery('[id $= penaltypercentSubmit]').val(jQuery('[id $= penaltypercent]').val());
+                                    jQuery('[id $= termSubmit]').val(jQuery('[id $= term]').val());
+                                    jQuery('[id $= creditIdSubmit]').val(jQuery('[id $= creditId]').val());
+                                    jQuery('[id $= updateCreditBtnSubmit]').click();
+                                    "
+                               styleClass="popup-btn"
+                               id="updateCreditBtn"
+                    >
+            </a4j:commandButton>
+            &#160;&#160;
+            <a4j:commandButton value="Cancel"
+                               onclick="#{rich:component('updateCreditPopup')}.hide(); return false;"
+                               styleClass="popup-btn"
+                    />
+        </div>
+    </rich:popupPanel>
+
+
+    <h:form>
+        <div class="invisible">
+            <h:commandButton action="#{creditManagementController.updateCredit}"
+                             id="updateCreditBtnSubmit"
+                    />
+
+            <h:inputText value="#{creditManagementController.creditId}"
+                         id="creditIdSubmit"/>
+
+            <h:inputText value="#{creditManagementController.name}"
+                         id="creditnameSubmit"/>
+
+            <h:inputTextarea id="descriptionSubmit"
+                             value="#{creditManagementController.description}"/>
+
+
+            <h:inputText id="percentSubmit"
+                         value="#{creditManagementController.percent}"/>
+
+            <h:inputText id="penaltypercentSubmit"
+                         value="#{creditManagementController.penaltyPercent}"/>
+
+            <h:inputText id="termSubmit"
+                         value="#{creditManagementController.maxTerm}"/>
+        </div>
+    </h:form>
+
+
+</composite:implementation>
+
+</html>

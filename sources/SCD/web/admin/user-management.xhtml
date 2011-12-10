@@ -4,6 +4,7 @@
                 xmlns:rich="http://richfaces.org/rich" xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:grid="http://java.sun.com/jsf/composite/components"
                 xmlns:c="http://java.sun.com/jstl/core"
+                xmlns:popup="http://java.sun.com/jsf/composite/components/admin"
         >
 
     <ui:define name="header">
@@ -18,6 +19,9 @@
                 <grid:grid id="active-clients"
                            bean="#{activeClientsGridBusinessBean}"
                            reportColumn="false"
+                           blockClientColumn="true"
+                           deleteClientColumn="true"
+                           dataTableId="activeTable"
                         />
             </rich:tab>
 
@@ -25,10 +29,20 @@
                 <grid:grid id="blocked-clients"
                            bean="#{blockedClientsGridBusinessBean}"
                            reportColumn="false"
+                           unblockClientColumn="true"
+                           deleteClientColumn="true"
+                           dataTableId="blockedTable"
                         />
             </rich:tab>
 
         </rich:tabPanel>
+
+
+            <popup:blockClientPopup bean="#{userManagementController}"/>
+            <popup:unblockClientPopup bean="#{userManagementController}"/>
+            <popup:deleteClientPopup bean="#{userManagementController}"/>
+
+
 
     </ui:define>
 

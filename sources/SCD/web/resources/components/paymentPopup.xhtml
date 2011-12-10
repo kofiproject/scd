@@ -18,7 +18,7 @@
     <h:outputText value="#{paymentController.creditItem.credit.name}"/>
     <br/>
     Arrear: <h:outputText id="arrearSum"
-        value="#{paymentController.sumArrear}"/>
+                          value="#{paymentController.sumArrear}"/>
     <br/>
     <h:outputText value="Sum"/>
     &#160;
@@ -30,9 +30,12 @@
     </h:inputText>
     <br/>
     <br/>
+
     <div style="text-align: center;">
         <a4j:commandButton value="Pay"
-                           onclick="jQuery('[id $= paymentSumReal]').val(jQuery('[id $= paymentSum]').val());
+                           onclick="#{rich:component('paymentPopup')}.hide();
+                                    #{rich:component('panel_loading')}.show();
+                                    jQuery('[id $= paymentSumReal]').val(jQuery('[id $= paymentSum]').val());
                                     jQuery('[id $= processpaymentBtn]').click();
                                     "
                            id="paymentPaybtn"
@@ -49,7 +52,7 @@
         <a4j:commandButton id="processpaymentBtn"
                            action="#{paymentController.makePayment}"
                            render="table"
-                           oncomplete="#{rich:component('paymentPopup')}.hide();"
+                           oncomplete="#{rich:component('panel_loading')}.hide();"
                 />
 
         <h:inputText id="paymentSumReal"

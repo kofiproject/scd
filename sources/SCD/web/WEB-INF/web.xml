@@ -60,4 +60,13 @@
         <url-pattern>/faces/*</url-pattern>
     </filter-mapping>
 
+   <!-- <filter>
+        <filter-name>BlockedClientFilter</filter-name>
+        <filter-class>by.kofi.scd.filter.BlockedClientFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>BlockedClientFilter</filter-name>
+        <url-pattern>/faces/client/*</url-pattern>
+    </filter-mapping>
+-->
 </web-app>

@@ -102,4 +102,37 @@ public class ClientBusinessBean extends AbstractBusinessBean {
         }
     }
 
+    /**
+     * Block/unblock client
+     *
+     * @param clientId
+     * @param blocked
+     * @throws SCDBusinessException
+     */
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void blockClient(Long clientId, boolean blocked) throws SCDBusinessException {
+        try {
+            clientDataService.blockClient(clientId, blocked);
+        } catch (SCDTechnicalException e) {
+            throw new SCDBusinessException(e);
+        }
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void deleteClient(Long clientId) throws SCDBusinessException {
+        try {
+            //
+            CRUDDataService crudDataService = getCRUDDataService();
+            Client client = crudDataService.find(Client.class, clientId);
+
+            client.getCreditItems();
+            client.getCreditRequests();
+            SCDUser user = client.getUser();
+            client.getPayments();
+
+            crudDataService.delete(Client.class, clientId);
+        } catch (SCDTechnicalException e) {
+            throw new SCDBusinessException(e);
+        }
+    }
 }

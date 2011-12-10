@@ -12,7 +12,7 @@ import by.kofi.scd.exceptions.SCDTechnicalException;
 public class PaymentQueryBuilder {
 
     public static String getPaymentsByAccount() throws SCDTechnicalException {
-        return "from Payment p where p.account.id = :account";
+        return "from Payment p where p.account.accountNumber = :account order by p.paymentDate ";
     }
 
 }
