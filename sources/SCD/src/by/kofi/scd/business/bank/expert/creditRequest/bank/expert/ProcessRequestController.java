@@ -38,10 +38,6 @@ public class ProcessRequestController {
     @Autowired
     private EmployeeBusinessBean employeeBusinessBean;
 
-    @Autowired
-    @Qualifier("ciBB")
-    private CreditItemBusinessBean creditItemBusinessBean;
-
     public boolean getLockedCreditRequest() {
         return lockedCreditRequest;
     }
@@ -90,22 +86,6 @@ public class ProcessRequestController {
         creditRequest.setProcessingDate(new Date());
         creditRequest.setState(CreditRequestStateEnum.CONFIRMED);
         creditRequest = creditRequestBusinessBean.storeCreditRequest(creditRequest);
-
-        CreditItem creditItem = new CreditItem();
-        creditItem.setAccount(account);
-        creditItem.setAmount(creditRequest.getAmount());
-        creditItem.setCalculatedAmount(creditRequest.getAmount());
-        creditItem.setClient(creditRequest.getClient());
-        creditItem.setCredit(creditRequest.getCredit());
-        creditItem.setIssuanceDate(new Date());
-        creditItem.setPaidAmount(BigDecimal.ZERO);
-        creditItem.setPenaltyAmount(BigDecimal.ZERO);
-        creditItem.setTerm(creditRequest.getTerm());
-        creditItem.setState(CreditItemStateEnum.ACTIVE);
-        creditItem.setLastUpdated(new Date());
-
-        this.creditItemBusinessBean.storeCreditItem(creditItem);
-
 
         //send email notification
         mailBusinessBean.sendCreditRequestConfirmMail(creditRequest);

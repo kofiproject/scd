@@ -4,36 +4,24 @@
                 xmlns:rich="http://richfaces.org/rich" xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:grid="http://java.sun.com/jsf/composite/components"
                 xmlns:c="http://java.sun.com/jstl/core"
-                xmlns:popup="http://java.sun.com/jsf/composite/components/admin"
+                xmlns:popup="http://java.sun.com/jsf/composite/components/manager"
         >
     <ui:define name="script">
         <h:outputScript library="js/login" name="numeric.js"/>
     </ui:define>
 
     <ui:define name="header">
-        Credit plan management
+        Credits to close
     </ui:define>
 
     <ui:define name="content">
         <grid:grid id="credits-grid"
-                   bean="#{creditGridBusinessBean}"
+                   bean="#{payedCreditsGridBean}"
                    reportColumn="false"
-                   updateCreditColumn="true"
+                   managerCloseCredit="true"
                 />
 
-        <br/>
-        <h:form>
-            <a4j:commandButton value="Create"
-                               action="#{creditManagementController.loadCreditDetails}"
-                               oncomplete="#{rich:component('updateCreditPopup')}.show()"
-                               render="updateCreditPopup">
-                <a4j:param value="-1"
-                           assignTo="#{creditManagementController.creditId}"/>
-            </a4j:commandButton>
-
-        </h:form>
-
-        <popup:updateCreditPopup bean="#{userManagementController}"/>
+        <popup:closeCreditPopup />
 
     </ui:define>
 

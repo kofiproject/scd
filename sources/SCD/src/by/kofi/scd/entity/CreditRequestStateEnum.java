@@ -10,5 +10,6 @@ package by.kofi.scd.entity;
 public enum CreditRequestStateEnum {
     IN_PROCESS,
     CONFIRMED,
-    REJECTED
+    REJECTED,
+    ISSUED
 }

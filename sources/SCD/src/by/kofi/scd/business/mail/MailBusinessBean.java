@@ -14,6 +14,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 
 import java.text.MessageFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 /**
@@ -138,7 +139,19 @@ public class MailBusinessBean extends AbstractBusinessBean {
     }
 
     public void sendMessageFromContactUs(String message, String name, String email) {
-        sendEmail(this.mailBundle.getString("mail.username"), "Contact us from " + name + ", from  " + email, message);
+        sendEmail(this.mailBundle.getString("mail.username"), "Contact us. Name = " + name + ", email =  " + email, message);
+    }
+
+    public void blockClientSendMessage(Client client) {
+        sendEmail(client.getEmail(), "Your account was blocked.", "Your account was blocked. Message was generated at " + new Date());
+    }
+
+    public void unblockClientSendMessage(Client client) {
+        sendEmail(client.getEmail(), "Your account was unblocked.", "Your account was unblocked. Message was generated at " + new Date());
+    }
+
+    public void deleteClientSendMessage(Client client) {
+        sendEmail(client.getEmail(), "Your account was deleted.", "Your account was deleted. Message was generated at " + new Date());
     }
 
 }

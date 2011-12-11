@@ -53,6 +53,19 @@ public class ClientDataServiceBean extends AbstractDataServiceBean implements Cl
             throw new SCDTechnicalException(e);
         }
     }
+    /**
+     * {@inheritDoc}
+     */
+    @Transactional(propagation = Propagation.REQUIRED)
+    public List<CreditItem> getCreditItems(CreditItemStateEnum status) throws SCDTechnicalException {
+        try {
+            return getSession().createQuery(ClientQueryBuilder.buildCreditItemsByStateQuery())
+                    .setLong("state", status.ordinal())
+                    .list();
+        } catch (HibernateException e) {
+            throw new SCDTechnicalException(e);
+        }
+    }
 
 
     /**

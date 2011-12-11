@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+        >
+<!-- INTERFACE -->
+<composite:interface>
+    <composite:attribute name="bean"/>
+</composite:interface>
+
+<!-- IMPLEMENTATION -->
+<composite:implementation>
+
+        <rich:popupPanel header="Issue" id="issueCreditPopup"
+                         autosized="true" modal="true"
+                >
+
+
+            Are you sure you want to issue credit?
+            <div style="text-align: center;">
+                <a4j:commandButton value="Ok"
+                                 oncomplete="#{rich:component('issueCreditPopup')}.hide(); return false;"
+                                 styleClass="popup-btn"
+                                 action="#{creditsToIssueController.issueCreditRequest}"
+                                 render="table"
+                                 execute="issueCreditPopup"
+                        >
+                    <f:param name="creditRequestId" value="#{creditsToIssueController.creditRequestId}"/>
+                </a4j:commandButton>
+                &#160;&#160;
+                <a4j:commandButton value="Cancel"
+                                   onclick="#{rich:component('issueCreditPopup')}.hide(); return false;"
+                                   styleClass="popup-btn"
+                        />
+            </div>
+        </rich:popupPanel>
+
+
+</composite:implementation>
+
+</html>

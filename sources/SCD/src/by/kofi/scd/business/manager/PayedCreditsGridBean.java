@@ -35,10 +35,8 @@ public class PayedCreditsGridBean extends AbstractGridBusinessBean {
 
     @Transactional(propagation = Propagation.REQUIRED)
     public List<CreditItemResultRow> executeSearch() throws SCDBusinessException {
-        UserContext userContext = FacesUtil.getUserContext();
-        Long clientId = userContext.getClient().getClientId();
         try {
-            List<CreditItem> creditItems = clientDataService.getCreditItems(clientId, CreditItemStateEnum.PAYED);
+            List<CreditItem> creditItems = clientDataService.getCreditItems(CreditItemStateEnum.PAYED);
 
             List<CreditItemResultRow> result = new ArrayList<CreditItemResultRow>(creditItems.size());
             for (CreditItem creditItem : creditItems) {

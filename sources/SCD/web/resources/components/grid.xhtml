@@ -32,6 +32,9 @@
 
     <composite:attribute name="updateCreditColumn" required="false" default="false"/>
 
+    <composite:attribute name="managerIssueCredit" required="false" default="false"/>
+    <composite:attribute name="managerCloseCredit" required="false" default="false"/>
+
     <composite:attribute name="dataTableId" required="false" default="table"/>
 </composite:interface>
 
@@ -242,6 +245,44 @@
     </rich:column>
 </c:if>
 
+<c:if test="#{cc.attrs.managerIssueCredit}">
+    <rich:column>
+        <f:facet name="header">
+            <h:outputText value="#{bundle['grid.common.issue']}"/>
+        </f:facet>
+
+        <a4j:commandLink value="#{bundle['grid.common.issue']}"
+                         styleClass="grid-report-col"
+                         immediate="true"
+                         oncomplete="#{rich:component('issueCreditPopup')}.show()"
+                         render="issueCreditPopup"
+                >
+            <a4j:param value="#{item.creditRequestId}"
+                       assignTo="#{creditsToIssueController.creditRequestId}"/>
+        </a4j:commandLink>
+
+    </rich:column>
+</c:if>
+
+<c:if test="#{cc.attrs.managerCloseCredit}">
+    <rich:column>
+        <f:facet name="header">
+            <h:outputText value="#{bundle['grid.common.close']}"/>
+        </f:facet>
+
+        <a4j:commandLink value="#{bundle['grid.common.close']}"
+                         styleClass="grid-report-col"
+                         immediate="true"
+                         oncomplete="#{rich:component('closeCreditPopup')}.show()"
+                         render="closeCreditPopup"
+                >
+            <a4j:param value="#{item.rowId}"
+                       assignTo="#{creditsToCloseController.accountNo}"/>
+        </a4j:commandLink>
+
+    </rich:column>
+</c:if>
+
 <f:facet name="footer">
     <rich:dataScroller page="#{cc.attrs.bean.currentPage}"/>
 </f:facet>
@@ -253,11 +294,6 @@
                action="#{cc.attrs.bean.downloadReport}"
                onclick="#{rich:component('panel_loading')}.hide()"
         />
-
-<rich:popupPanel id="panel_loading" autosized="true">
-    <h:graphicImage library="images" name="loader.gif" alt=""/>
-    <h:outputText value="#{bundle['common.loading']}"/>
-</rich:popupPanel>
 
 <ui:include src="creditPopup.xhtml"/>
 <userPopup:clientPopup bean="#{cc.attrs.bean}"/>

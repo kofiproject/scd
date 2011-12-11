@@ -1,6 +1,7 @@
 package by.kofi.scd.controller.admin;
 
 import by.kofi.scd.business.client.ClientBusinessBean;
+import by.kofi.scd.business.mail.MailBusinessBean;
 import by.kofi.scd.common.FacesUtil;
 import by.kofi.scd.common.constants.NavigationActionEnum;
 import by.kofi.scd.controller.login.RegistrationController;
@@ -28,6 +29,9 @@ public class UserManagementController {
 
     @Autowired
     private ClientBusinessBean clientBusinessBean;
+
+    @Autowired
+    private MailBusinessBean mailBusinessBean;
 
     public Long getClientId() {
         return clientId;
@@ -59,6 +63,9 @@ public class UserManagementController {
             long clientId = getClientIdFromRequest();
 
             clientBusinessBean.blockClient(clientId, true);
+
+            Client clientById = clientBusinessBean.getClientById(clientId);
+            mailBusinessBean.blockClientSendMessage(clientById);
         } catch (SCDBusinessException e) {
             throw new SCDBusinessException(e.getMessage(), e);
         }
@@ -69,6 +76,9 @@ public class UserManagementController {
             long clientId = getClientIdFromRequest();
 
             clientBusinessBean.blockClient(clientId, false);
+
+            Client clientById = clientBusinessBean.getClientById(clientId);
+            mailBusinessBean.unblockClientSendMessage(clientById);
         } catch (SCDBusinessException e) {
             throw new SCDBusinessException(e.getMessage(), e);
         }
@@ -80,6 +90,9 @@ public class UserManagementController {
             long clientId = getClientIdFromRequest();
 
             clientBusinessBean.deleteClient(clientId);
+
+            Client clientById = clientBusinessBean.getClientById(clientId);
+            mailBusinessBean.deleteClientSendMessage(clientById);
         } catch (SCDBusinessException e) {
             throw new SCDBusinessException(e.getMessage(), e);
         }

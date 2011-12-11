@@ -33,8 +33,7 @@
 
     <div style="text-align: center;">
         <a4j:commandButton value="Pay"
-                           onclick="#{rich:component('paymentPopup')}.hide();
-                                    #{rich:component('panel_loading')}.show();
+                           onclick="#{rich:component('panel_loading')}.show();
                                     jQuery('[id $= paymentSumReal]').val(jQuery('[id $= paymentSum]').val());
                                     jQuery('[id $= processpaymentBtn]').click();
                                     "
@@ -52,7 +51,8 @@
         <a4j:commandButton id="processpaymentBtn"
                            action="#{paymentController.makePayment}"
                            render="table"
-                           oncomplete="#{rich:component('panel_loading')}.hide();"
+                           oncomplete="#{rich:component('panel_loading')}.hide();
+                                       #{rich:component('paymentPopup')}.hide();"
                 />
 
         <h:inputText id="paymentSumReal"
