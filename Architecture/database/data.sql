@@ -15,6 +15,11 @@ Insert into ROLE
    (ROLE_ID, NAME)
  Values
    (3, 'operator');
+Insert into ROLE
+   (ROLE_ID, NAME)
+ Values
+   (4, 'manager');
+
 
 
 /*

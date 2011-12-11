@@ -1,0 +1,40 @@
+<ui:composition template="/templates/manager/manager.xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich" xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:grid="http://java.sun.com/jsf/composite/components"
+                xmlns:c="http://java.sun.com/jstl/core"
+                xmlns:popup="http://java.sun.com/jsf/composite/components/admin"
+        >
+    <ui:define name="script">
+        <h:outputScript library="js/login" name="numeric.js"/>
+    </ui:define>
+
+    <ui:define name="header">
+        Credit plan management
+    </ui:define>
+
+    <ui:define name="content">
+        <grid:grid id="credits-grid"
+                   bean="#{creditGridBusinessBean}"
+                   reportColumn="false"
+                   updateCreditColumn="true"
+                />
+
+        <br/>
+        <h:form>
+            <a4j:commandButton value="Create"
+                               action="#{creditManagementController.loadCreditDetails}"
+                               oncomplete="#{rich:component('updateCreditPopup')}.show()"
+                               render="updateCreditPopup">
+                <a4j:param value="-1"
+                           assignTo="#{creditManagementController.creditId}"/>
+            </a4j:commandButton>
+
+        </h:form>
+
+        <popup:updateCreditPopup bean="#{userManagementController}"/>
+
+    </ui:define>
+
+</ui:composition>

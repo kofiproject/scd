@@ -30,6 +30,7 @@ public class LoginController {
     private static final int EXPERT_ROLE_ID = 2;
     private static final int OPERATOR_ROLE_ID = 3;
     private static final int ADMIN_ROLE_ID = 4;
+    private static final int MANAGER_ROLE_ID = 4;
 
     private Long uniqueId = null;
     private String password;
