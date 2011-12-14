@@ -18,7 +18,12 @@ Insert into ROLE
 Insert into ROLE
    (ROLE_ID, NAME)
  Values
-   (4, 'manager');
+   (4, 'admin');
+
+Insert into ROLE
+   (ROLE_ID, NAME)
+ Values
+   (5, 'manager');
 
 
 
