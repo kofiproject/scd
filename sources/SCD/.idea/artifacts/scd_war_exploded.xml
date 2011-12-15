@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="scd:war exploded">
-    <output-path>$PROJECT_DIR$/../../../SCD_OUT/expl/</output-path>
+    <output-path>$PROJECT_DIR$/../../../SCD_OUT</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">

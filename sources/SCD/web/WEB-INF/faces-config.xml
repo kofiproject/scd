@@ -10,7 +10,6 @@
 
         <locale-config>
             <default-locale>en</default-locale>
-            <supported-locale>ru</supported-locale>
         </locale-config>
         <resource-bundle>
             <base-name>i18n</base-name>

@@ -87,14 +87,14 @@ public class ReportGeneratorService implements ReportGenerator {
 
         row = sheet.createRow(3); // номер счета
         cell = row.createCell(0);
-        cell.setCellValue("№ счета");
+        cell.setCellValue("Account");
 
         cell = row.createCell(1);
         cell.setCellValue(account.getAccountNumber());
 
         row = sheet.createRow(4); // кредитный план
         cell = row.createCell(0);
-        cell.setCellValue("Кредитный план");
+        cell.setCellValue("Credit");
 
         cell = row.createCell(1);
         CreditItem creditItem = account.getCreditItem();
@@ -102,42 +102,42 @@ public class ReportGeneratorService implements ReportGenerator {
 
         row = sheet.createRow(5); // сумма кредита
         cell = row.createCell(0);
-        cell.setCellValue("Сумма кредита");
+        cell.setCellValue("Credit sum");
 
         cell = row.createCell(1);
         cell.setCellValue(creditItem.getAmount().toString());
 
         row = sheet.createRow(6); // срок
         cell = row.createCell(0);
-        cell.setCellValue("Срок");
+        cell.setCellValue("Term");
 
         cell = row.createCell(1);
         cell.setCellValue(creditItem.getTerm().toString());
 
         row = sheet.createRow(7); // сумма для погашения
         cell = row.createCell(0);
-        cell.setCellValue("Сумма для погашения");
+        cell.setCellValue("Sum to pay");
 
         cell = row.createCell(1);
         cell.setCellValue(creditItem.getCalculatedAmount().toString());
 
         row = sheet.createRow(8); // погашенная сумма
         cell = row.createCell(0);
-        cell.setCellValue("Погашенная сумма");
+        cell.setCellValue("Paid sum");
 
         cell = row.createCell(1);
         cell.setCellValue(creditItem.getPaidAmount().toString());
 
         row = sheet.createRow(9); // пеня
         cell = row.createCell(0);
-        cell.setCellValue("Пеня");
+        cell.setCellValue("Penalty");
 
         cell = row.createCell(1);
         cell.setCellValue(creditItem.getPenaltyAmount().toString());
 
         row = sheet.createRow(10); // состояние
         cell = row.createCell(0);
-        cell.setCellValue("Состояние");
+        cell.setCellValue("State");
 
         cell = row.createCell(1);
         Date closingDate = creditItem.getClosingDate();
@@ -147,7 +147,7 @@ public class ReportGeneratorService implements ReportGenerator {
 
         row = sheet.createRow(12); // отчет сформирован
         cell = row.createCell(0);
-        cell.setCellValue("Отчет сформирован");
+        cell.setCellValue("Report was generated");
         cell = row.createCell(1);
         java.util.Date currentDate = new java.util.Date();
         cell.setCellValue(dateFormat.format(currentDate));
@@ -162,15 +162,15 @@ public class ReportGeneratorService implements ReportGenerator {
 
         cell = row.createCell(0);
         cell.setCellStyle(headerStyle);
-        cell.setCellValue("Дата");
+        cell.setCellValue("Date");
 
         cell = row.createCell(1);
         cell.setCellStyle(headerStyle);
-        cell.setCellValue("Сумма");
+        cell.setCellValue("Sum");
 
         cell = row.createCell(2);
         cell.setCellStyle(headerStyle);
-        cell.setCellValue("Отделение");
+        cell.setCellValue("Department");
 
         headerStyle = null;
 

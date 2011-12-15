@@ -54,7 +54,13 @@ public class ClientAutocompleteController {
     }
 
     public List<Client> getClients() {
-        return clients;
+        try {
+            return clientBusinessBean.getClients();
+        } catch (SCDBusinessException e) {
+            e.printStackTrace();
+            return new ArrayList<Client>();
+        }
+///        return clients;
     }
 
     public void setClients(List<Client> clients) {
