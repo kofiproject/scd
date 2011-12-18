@@ -67,8 +67,10 @@ public class CreditCalculatorController {
     @PostConstruct
     public void init() throws SCDBusinessException {
         credits = creditBusinessBean.getCredits();
-        credit = credits.get(0);
-        creditName = credit.getName();
+        if (credits.size() > 0) {
+            credit = credits.get(0);
+            creditName = credit.getName();
+        }
     }
 
     public void setCredits(List<Credit> credits) {
@@ -130,13 +132,13 @@ public class CreditCalculatorController {
         BigDecimal con1 = new BigDecimal(1);
         MathContext mathContext = new MathContext(2);
 
-        if(mode.equals("0")){
+        if (mode.equals("0")) {
             chislitel = everageMonthlyIncome.multiply(temp).multiply(con600);
             znamenatel = credit.getPercent().multiply(temp).add(con1200);
-            kofficient = credit.getMaxSumPercent().add(con100).divide(con100,mathContext);
-            result = chislitel.divide(znamenatel,mathContext).multiply(kofficient);
-        } else if(mode.equals("1")){
-            chislitel = con1.add(credit.getPercent().divide(con100,mathContext)).multiply(creditSum);
+            kofficient = credit.getMaxSumPercent().add(con100).divide(con100, mathContext);
+            result = chislitel.divide(znamenatel, mathContext).multiply(kofficient);
+        } else if (mode.equals("1")) {
+            chislitel = con1.add(credit.getPercent().divide(con100, mathContext)).multiply(creditSum);
             znamenatel = temp;
             result = chislitel.divide(znamenatel, mathContext);
         }

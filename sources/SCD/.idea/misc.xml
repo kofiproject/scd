@@ -19,6 +19,15 @@
           <module name="scd" />
         </modules>
       </facet-type>
+      <facet-type id="WebBeans">
+        <modules>
+          <module name="scd">
+            <files>
+              <file url="file://$PROJECT_DIR$/web/WEB-INF/beans.xml" />
+            </files>
+          </module>
+        </modules>
+      </facet-type>
     </autodetection-disabled>
   </component>
   <component name="IdProvider" IDEtalkID="1CDB818DF503A64C09C64F5E8B54C5F2" />
