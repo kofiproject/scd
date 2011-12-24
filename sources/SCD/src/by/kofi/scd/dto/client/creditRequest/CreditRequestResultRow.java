@@ -25,12 +25,13 @@ public class CreditRequestResultRow extends CreditRequest implements ResultRow {
     public CreditRequestResultRow(CreditRequest creditRequest) {
         setCreditRequestId(creditRequest.getCreditRequestId());
         setIssuanceDate(creditRequest.getIssuanceDate());
-        setAmount(creditRequest.getAmount());
+        setSum(creditRequest.getSum());
         setTerm(creditRequest.getTerm());
         this.creditName = creditRequest.getCredit().getName();
 
         setProcessingDate(creditRequest.getProcessingDate());
         setDescription(creditRequest.getDescription());
+        setIssuanceDate(creditRequest.getIssuanceDate());
 
         Employee employee = creditRequest.getEmployee();
         if (employee != null) {

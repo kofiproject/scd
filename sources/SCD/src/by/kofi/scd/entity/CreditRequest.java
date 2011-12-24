@@ -101,16 +101,16 @@ public class CreditRequest extends AbstractEntity {
         this.processingDate = processingDate;
     }
 
-    private BigDecimal amount;
+    private BigDecimal sum;
 
     @javax.persistence.Column(name = "AMOUNT")
     @Basic
-    public BigDecimal getAmount() {
-        return amount;
+    public BigDecimal getSum() {
+        return sum;
     }
 
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
+    public void setSum(BigDecimal sum) {
+        this.sum = sum;
     }
 
     private long term;
@@ -182,7 +182,7 @@ public class CreditRequest extends AbstractEntity {
 
         if (creditRequestId != that.creditRequestId) return false;
         if (term != that.term) return false;
-        if (amount != null ? !amount.equals(that.amount) : that.amount != null) return false;
+        if (sum != null ? !sum.equals(that.sum) : that.sum != null) return false;
         if (client != null ? !client.equals(that.client) : that.client != null) return false;
         if (credit != null ? !credit.equals(that.credit) : that.credit != null) return false;
         if (description != null ? !description.equals(that.description) : that.description != null) return false;
@@ -203,7 +203,7 @@ public class CreditRequest extends AbstractEntity {
         result = 31 * result + (employee != null ? employee.hashCode() : 0);
         result = 31 * result + (issuanceDate != null ? issuanceDate.hashCode() : 0);
         result = 31 * result + (processingDate != null ? processingDate.hashCode() : 0);
-        result = 31 * result + (amount != null ? amount.hashCode() : 0);
+        result = 31 * result + (sum != null ? sum.hashCode() : 0);
         result = 31 * result + (int) (term ^ (term >>> 32));
         result = 31 * result + (state != null ? state.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);

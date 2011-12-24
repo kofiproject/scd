@@ -1,5 +1,6 @@
 package by.kofi.scd.business;
 
+import by.kofi.scd.business.credit.CreditItemBusinessBean;
 import by.kofi.scd.dataservice.CRUDDataService;
 import by.kofi.scd.dataservice.payment.PaymentDataService;
 import by.kofi.scd.entity.*;
@@ -7,6 +8,7 @@ import by.kofi.scd.exceptions.SCDBusinessException;
 import by.kofi.scd.exceptions.SCDTechnicalException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,6 +26,10 @@ public class PaymentBusinessBean extends AbstractBusinessBean {
     @Autowired
     private PaymentDataService paymentDataService;
 
+    @Autowired
+    @Qualifier("ciBB")
+    private CreditItemBusinessBean creditItemBusinessBean;
+
     @Transactional(propagation = Propagation.REQUIRED)
     public List<Payment> getPaymentsByAccount(Long accountNumber) throws SCDBusinessException {
         try {
@@ -35,6 +41,9 @@ public class PaymentBusinessBean extends AbstractBusinessBean {
 
     @Transactional(propagation = Propagation.REQUIRED)
     public CreditItem makePayment(CreditItem item, Employee employee, BigDecimal paymentSum, Integer arrearSum) throws SCDBusinessException {
+
+        Account bankAccount = creditItemBusinessBean.getBankAccount();
+        bankAccount.setSum(bankAccount.getSum().add(paymentSum));
 
         Account paymentsAccount = item.getPaymentsAccount();
         paymentsAccount.setSum(paymentsAccount.getSum().add(paymentSum));
@@ -54,8 +63,8 @@ public class PaymentBusinessBean extends AbstractBusinessBean {
         payment.setPaymentDate(new Date());
 
         try {
-
             CRUDDataService crudDataService = getCRUDDataService();
+            crudDataService.merge(paymentsAccount);
             crudDataService.merge(payment);
             return crudDataService.merge(item);
         } catch (SCDTechnicalException e) {

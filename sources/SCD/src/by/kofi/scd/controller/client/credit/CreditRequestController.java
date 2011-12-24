@@ -122,7 +122,7 @@ public class CreditRequestController implements Serializable {
         CreditRequest creditRequest = new CreditRequest();
         creditRequest.setMonthlyCacheIncome(getMonthlyCacheIncome());
         creditRequest.setTerm(getTerm());
-        creditRequest.setAmount(getSum());
+        creditRequest.setSum(getSum());
         creditRequest.setCredit(getCredit());
         creditRequest.setClient(client);
         creditRequest.setIssuanceDate(issuanceDate);

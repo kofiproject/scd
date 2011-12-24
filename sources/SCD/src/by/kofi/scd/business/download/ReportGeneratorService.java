@@ -45,7 +45,10 @@ public class ReportGeneratorService implements ReportGenerator {
     public File generateReport(Long accountNumber, UserContext userContext) throws SCDBusinessException {
 
         Account account = accountBusinessBean.getAccountByNumber(accountNumber);
-        List<Payment> paymentsByAccount = paymentBusinessBean.getPaymentsByAccount(accountNumber);
+        CreditItem creditItem = account.getCreditItem();
+
+        account = account.getCreditItem().getPaymentsAccount();
+        List<Payment> paymentsByAccount = paymentBusinessBean.getPaymentsByAccount(account.getAccountNumber());
 
         SimpleDateFormat dateFormat = new SimpleDateFormat(REPORT_DATE_FORMAT);
 
@@ -98,7 +101,6 @@ public class ReportGeneratorService implements ReportGenerator {
         cell.setCellValue("Credit");
 
         cell = row.createCell(1);
-        CreditItem creditItem = account.getCreditItem();
         cell.setCellValue(creditItem.getCredit().getName());
 
         row = sheet.createRow(5); // сумма кредита
@@ -135,7 +137,7 @@ public class ReportGeneratorService implements ReportGenerator {
         cell.setCellValue("Penalty");
 
         cell = row.createCell(1);
-        cell.setCellValue(sumToPay.min(creditItem.getSum()).toString());
+        cell.setCellValue(sumToPay.subtract(creditItem.getSum()).toString());
 
         row = sheet.createRow(10); // состояние
         cell = row.createCell(0);

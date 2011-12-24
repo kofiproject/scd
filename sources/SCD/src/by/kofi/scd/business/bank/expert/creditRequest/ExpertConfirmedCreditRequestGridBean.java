@@ -61,7 +61,7 @@ public class ExpertConfirmedCreditRequestGridBean extends AbstractGridBusinessBe
                 GridColumn.PROCESSING_DATE,
                 GridColumn.CREDIT_NAME,
                 GridColumn.CLIENT_NAME,
-                GridColumn.ACCOUNT_NUMBER,
+//                GridColumn.ACCOUNT_NUMBER,
                 GridColumn.SUM,
                 GridColumn.TERM
 //                GridColumn.CREDIT_EXPERT

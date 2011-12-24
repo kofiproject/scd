@@ -143,4 +143,9 @@ public class Credit extends AbstractEntity {
     public Serializable getEntityId() {
         return getCreditId();
     }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
 }

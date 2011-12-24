@@ -3,36 +3,59 @@
                 xmlns:a4j="http://richfaces.org/a4j"
                 xmlns:rich="http://richfaces.org/rich" xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:grid="http://java.sun.com/jsf/composite/components">
+
+    <ui:define name="script">
+        <h:outputScript library="js/login" name="numeric.js"/>
+    </ui:define>
+
     <ui:define name="content">
         <h:form>
-        <h:selectOneRadio layout="pageDirection" value="#{creditCalculatorController.mode}">
-            <a4j:ajax render="creditSum, incomeMonth"/>
-            <f:selectItem itemValue="0" itemLabel="Расчет суммы кредита"/>
-            <f:selectItem itemValue="1" itemLabel="Расчет ежемесячного платежа"/>
-        </h:selectOneRadio>
-        <br/>Credit plan <br/>
-        <rich:select value="#{creditCalculatorController.creditName}" >
-            <f:selectItems  value="#{creditCalculatorController.credits}"/>
-        </rich:select>
-        <br/>
-        Term <br/><h:inputText value="#{creditCalculatorController.term}"/>
-        <br/>Среднемесячный доход <br/>
+            Mode:
+            <h:selectOneRadio layout="pageDirection" value="#{creditCalculatorController.mode}">
+                <a4j:ajax render="creditSum, incomeMonth"/>
+                <f:selectItem itemValue="0" itemLabel="Max credit sum"/>
+                <f:selectItem itemValue="1" itemLabel="Monthly payment during period"/>
+            </h:selectOneRadio>
+            <br/>Credit plan <br/>
+            <rich:select value="#{creditCalculatorController.creditName}" selectFirst="true">
+                <f:selectItems value="#{creditCalculatorController.credits}"/>
+            </rich:select>
+
+            <br/>
+            Percent <h:outputText id="percent" value="#{creditCalculatorController.credit.percent}"/>
+            <br/>
+            Max term <h:outputText id="term" value="#{creditCalculatorController.credit.maxTerm}"/>
+            <br/><br/>
+
+
+            <br/>
+            Term(months) <br/><h:inputText value="#{creditCalculatorController.term}"
+                                           id="creditTerm"
+                                           required="true"
+                                           styleClass="numeric">
+        </h:inputText>
+            <h:message styleClass="errorMsg" for="creditTerm"/>
+            <br/>Average monthly income <br/>
             <h:inputText id="incomeMonth"
                          disabled="#{creditCalculatorController.mode == '1'}"
-                         value="#{creditCalculatorController.everageMonthlyIncome}"/>
-        <br/>Сумма кредита <br/>
+                         value="#{creditCalculatorController.everageMonthlyIncome}"
+                         required="true"
+                         styleClass="numeric">
+            </h:inputText>
+            <h:message styleClass="errorMsg" for="incomeMonth"/>
+            <br/>Credit sum <br/>
             <h:inputText id="creditSum"
                          disabled="#{creditCalculatorController.mode == '0'}"
-                         value="#{creditCalculatorController.creditSum}"/>
-        <br/>
-        Percent <h:outputText id="percent" value="#{creditCalculatorController.credit.percent}"/>
-        <br/>
-        Max term <h:outputText id="term" value="#{creditCalculatorController.credit.maxTerm}"/>
-        <br/>
-        <h:commandButton action="#{creditCalculatorController.calculateAction}" value="Расчитать">
-        </h:commandButton>
-        <br/>
-        Result <h:outputText id="resultExecute" value="#{creditCalculatorController.result}">
+                         value="#{creditCalculatorController.creditSum}"
+                         required="true"
+                         styleClass="numeric">
+            </h:inputText>
+            <h:message styleClass="errorMsg" for="creditSum"/>
+            <br/>
+            <h:commandButton action="#{creditCalculatorController.calculateAction}" value="Calculate">
+            </h:commandButton>
+            <br/>
+            Result <h:outputText id="resultExecute" value="#{creditCalculatorController.result}">
             <f:convertNumber pattern="#,###,##0"/>
         </h:outputText>
         </h:form>

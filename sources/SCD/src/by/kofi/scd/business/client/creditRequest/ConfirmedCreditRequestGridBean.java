@@ -60,7 +60,7 @@ public class ConfirmedCreditRequestGridBean extends AbstractGridBusinessBean {
                 GridColumn.ISSUENCE_DATE,
                 GridColumn.PROCESSING_DATE,
                 GridColumn.CREDIT_NAME,
-                GridColumn.ACCOUNT_NUMBER,
+//                GridColumn.ACCOUNT_NUMBER,
                 GridColumn.SUM,
                 GridColumn.TERM,
                 GridColumn.CREDIT_EXPERT

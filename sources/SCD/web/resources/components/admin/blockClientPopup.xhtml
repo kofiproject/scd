@@ -27,7 +27,8 @@
 
             <div style="text-align: center;">
                 <a4j:commandButton value="Ok"
-                                 oncomplete="#{rich:component('blockClientPopup')}.hide(); return false;"
+                                 onclick="#{rich:component('panel_loading')}.show()"
+                                 oncomplete="#{rich:component('blockClientPopup')}.hide(); #{rich:component('panel_loading')}.hide()"
                                  styleClass="popup-btn"
                                  action="#{cc.attrs.bean.blockClient}"
                                  render="activeTable blockedTable"

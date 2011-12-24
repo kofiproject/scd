@@ -53,10 +53,7 @@
             <h:outputLabel value="#{bundle['registration.middlename']}"/>
         </h:panelGroup>
         <h:panelGroup>
-            <h:inputText id="middleName" size="20" value="#{cc.attrs.bean.client.middleName}"
-                         validator="#{registrationValidator.validateShortString}"
-                         required="true"
-                         requiredMessage="#{bundle['registration.validator.required']}"/>
+            <h:inputText id="middleName" size="20" value="#{cc.attrs.bean.client.middleName}"/>
         </h:panelGroup>
         <h:panelGroup>
             <h:message styleClass="errorMsg" for="middleName"/>

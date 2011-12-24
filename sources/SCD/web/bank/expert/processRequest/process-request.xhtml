@@ -36,13 +36,15 @@
     <h:outputText value="#{processRequestController.creditRequest.credit.name}"
                   styleClass="credit-plan-link"
                   style="font-size: 20px;font-weight: bold; "/>
-    <a href="#" class="show-description">Details</a>
+    <!--<a href="#" class="show-description">Details</a>-->
 
     <div class="credit-description-content-wrapper" style="margin-right: 10px; background: none;">
         <h:outputText value="#{processRequestController.creditRequest.credit.description}" escape="false"/>
     </div>
 
-
+<br/>
+<br/>
+<br/>
     <div class="credit-details-form-div">
         <h:panelGrid columns="2">
 
@@ -73,7 +75,7 @@
             </h:panelGroup>
             <h:panelGroup>
                 <h:outputText id="sum" size="20"
-                              value="#{processRequestController.creditRequest.amount}"
+                              value="#{processRequestController.creditRequest.sum}"
                         />
                 &#160;
                 <h:outputText value="#{bundle['client.credit.details.by']}"/>

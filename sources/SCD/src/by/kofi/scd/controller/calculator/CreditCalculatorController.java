@@ -1,13 +1,17 @@
 package by.kofi.scd.controller.calculator;
 
 import by.kofi.scd.business.credit.CreditBusinessBean;
+import by.kofi.scd.common.i18n.I18nSupport;
 import by.kofi.scd.entity.Credit;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.component.UIComponent;
+import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
@@ -23,7 +27,7 @@ import java.util.Set;
  * Time: 20:20
  * To change this template use File | Settings | File Templates.
  */
-@Service
+@Service("creditCalculatorController")
 public class CreditCalculatorController {
     private BigDecimal creditSum = new BigDecimal(0);
     private Credit credit;
@@ -35,6 +39,38 @@ public class CreditCalculatorController {
     private static final BigDecimal con2 = new BigDecimal(2);
     private List<Credit> credits;
     private String mode = "0";
+
+    public void isValidTerm(FacesContext facesContext, UIComponent uiComponent, Object o,
+                                      String messageStr, Integer minLength) {
+        validateStringLength(facesContext, uiComponent, o,
+                I18nSupport.getText("registration.validator.stringMsg", 2),
+                1);
+    }
+
+    public void isValidIncome(FacesContext facesContext, UIComponent uiComponent, Object o,
+                                      String messageStr, Integer minLength) {
+       validateStringLength(facesContext, uiComponent, o,
+                I18nSupport.getText("registration.validator.stringMsg", 5),
+                1);
+    }
+
+    public void isValidCreditSum(FacesContext facesContext, UIComponent uiComponent, Object o,
+                                      String messageStr, Integer minLength) {
+        validateStringLength(facesContext, uiComponent, o,
+                I18nSupport.getText("registration.validator.stringMsg", 5),
+                1);
+    }
+
+    private void validateStringLength(FacesContext facesContext, UIComponent uiComponent, Object o,
+                                      String messageStr, Integer minLength) {
+        String value = o != null ? o.toString() : "";
+
+        if (value.length() < minLength) {
+            ((UIInput) uiComponent).setValid(false);
+            FacesMessage message = new FacesMessage(messageStr);
+            facesContext.addMessage(uiComponent.getClientId(facesContext), message);
+        }
+    }
 
     public void setMode(String mode) {
         this.mode = mode;
@@ -67,10 +103,8 @@ public class CreditCalculatorController {
     @PostConstruct
     public void init() throws SCDBusinessException {
         credits = creditBusinessBean.getCredits();
-        if (credits.size() > 0) {
-            credit = credits.get(0);
-            creditName = credit.getName();
-        }
+        credit = credits.get(0);
+        creditName = credit.getName();
     }
 
     public void setCredits(List<Credit> credits) {
@@ -132,13 +166,13 @@ public class CreditCalculatorController {
         BigDecimal con1 = new BigDecimal(1);
         MathContext mathContext = new MathContext(2);
 
-        if (mode.equals("0")) {
+        if(mode.equals("0")){
             chislitel = everageMonthlyIncome.multiply(temp).multiply(con600);
             znamenatel = credit.getPercent().multiply(temp).add(con1200);
-            kofficient = credit.getMaxSumPercent().add(con100).divide(con100, mathContext);
-            result = chislitel.divide(znamenatel, mathContext).multiply(kofficient);
-        } else if (mode.equals("1")) {
-            chislitel = con1.add(credit.getPercent().divide(con100, mathContext)).multiply(creditSum);
+            kofficient = credit.getMaxSumPercent().add(con100).divide(con100,mathContext);
+            result = chislitel.divide(znamenatel,mathContext).multiply(kofficient);
+        } else if(mode.equals("1")){
+            chislitel = con1.add(credit.getPercent().divide(con100,mathContext)).multiply(creditSum);
             znamenatel = temp;
             result = chislitel.divide(znamenatel, mathContext);
         }

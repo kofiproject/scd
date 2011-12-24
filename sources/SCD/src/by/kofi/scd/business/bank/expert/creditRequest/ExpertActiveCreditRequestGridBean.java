@@ -60,7 +60,7 @@ public class ExpertActiveCreditRequestGridBean extends AbstractGridBusinessBean 
     public GridColumn[] getColumns() {
         return new GridColumn[]{
                 GridColumn.ISSUENCE_DATE,
-                GridColumn.PROCESSING_DATE,
+//                GridColumn.PROCESSING_DATE,
                 GridColumn.CREDIT_NAME,
                 GridColumn.CLIENT_NAME,
                 GridColumn.SUM,

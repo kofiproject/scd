@@ -50,7 +50,7 @@ public class UserContext extends AbstractModel {
         String surName = client != null ? client.getSurname() : employee.getSurname();
         String middleName = client != null ? client.getMiddleName() : employee.getMiddleName();
 
-        return surName + ' ' + name + ' ' + middleName;
+        return surName + ' ' + name + ' ' + (middleName == null? "" : middleName);
     }
 
     public String getEmail() {

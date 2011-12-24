@@ -63,7 +63,7 @@ public class MailBusinessBean extends AbstractBusinessBean {
         String body = MessageFormat.format(
                 this.mailBundle.getString("mail.creditRequest.body"),
                 creditRequest.getCredit().getName(),
-                creditRequest.getAmount(),
+                creditRequest.getSum(),
                 creditRequest.getTerm(),
                 creditRequest.getIssuanceDate());
 
@@ -85,7 +85,7 @@ public class MailBusinessBean extends AbstractBusinessBean {
         String body = MessageFormat.format(
                 this.mailBundle.getString("mail.creditRequest.confirm.body"),
                 creditRequest.getCredit().getName(),
-                creditRequest.getAmount(),
+                creditRequest.getSum(),
                 creditRequest.getTerm(),
                 creditRequest.getIssuanceDate(),
                 creditRequest.getProcessingDate(),
@@ -109,7 +109,7 @@ public class MailBusinessBean extends AbstractBusinessBean {
         String body = MessageFormat.format(
                 this.mailBundle.getString("mail.creditRequest.confirm.body"),
                 creditRequest.getCredit().getName(),
-                creditRequest.getAmount(),
+                creditRequest.getSum(),
                 creditRequest.getTerm(),
                 creditRequest.getIssuanceDate(),
                 creditRequest.getProcessingDate(),

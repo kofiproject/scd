@@ -66,7 +66,7 @@ public class CreditItemBusinessBean extends AbstractBusinessBean {
 
         creditRequest.setState(CreditRequestStateEnum.ISSUED);
 
-        BigDecimal creditSum = creditRequest.getAmount();
+        BigDecimal creditSum = creditRequest.getSum();
 
         CreditItem creditItem = new CreditItem();
         creditItem.setSum(creditSum);
@@ -79,6 +79,7 @@ public class CreditItemBusinessBean extends AbstractBusinessBean {
 
         Account debitAccount = accountBusinessBean.createAccount(AccountTypeEnum.DEBIT);
         Account creditAccount = accountBusinessBean.createAccount(AccountTypeEnum.CREDIT);
+        creditAccount.setSum(creditSum);
         Account paymentsAccount = accountBusinessBean.createAccount(AccountTypeEnum.PAYMENT);
 
         creditItem.setDebitAccount(debitAccount);
@@ -87,6 +88,7 @@ public class CreditItemBusinessBean extends AbstractBusinessBean {
 
         Account bankAccount = getBankAccount();
         transfer(bankAccount, debitAccount, creditSum);
+
 
         try {
             crudDataService.merge(creditRequest);
@@ -125,7 +127,7 @@ public class CreditItemBusinessBean extends AbstractBusinessBean {
     @Transactional(propagation = Propagation.REQUIRED)
     public void transfer(Account from, Account to, BigDecimal sum) throws SCDBusinessException {
         try {
-            from.setSum(from.getSum().min(sum));
+            from.setSum(from.getSum().subtract(sum));
             to.setSum(from.getSum().add(sum));
 
             CRUDDataService crudDataService = getCRUDDataService();

@@ -57,11 +57,10 @@ public class PayedCreditsGridBean extends AbstractGridBusinessBean {
         return new GridColumn[]{
                 GridColumn.ISSUENCE_DATE,
                 GridColumn.CREDIT_NAME,
-                GridColumn.ACCOUNT_NUMBER,
+//                GridColumn.ACCOUNT_NUMBER,
                 GridColumn.SUM,
                 GridColumn.TERM,
                 GridColumn.SUM_TO_PAY,
-                GridColumn.SUM_PAYED,
-                GridColumn.ACCOUNT_NUMBER};
+                GridColumn.SUM_PAYED};
     }
 }
