@@ -29,6 +29,8 @@
 .login-label, .login-input {
     text-align: left;
     float: left;
+    color:#0066cc;
+    font-style:italic;
 }
 
 .login-input {
@@ -37,14 +39,18 @@
 
 .login-form-container, .login-label, login-input {
 /*width: 300px;*/
+    color:blue;
+    font-style:italic;
 }
 
 .login-label, .login-input, .login-dig-label {
     font-family: Arial;
     font-size: 14px;
     font-weight: bold;
+    font-style:italic;
     margin: 0;
     float: left;
+    color:#000066;
 }
 
 .reg-link {
@@ -52,6 +58,8 @@
     float: right;
     font-size: 12px;
     margin-top: 10px;
+    color:#009966;
+    font-style:italic;
 }
 
 .login-btn {

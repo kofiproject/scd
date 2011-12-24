@@ -63,6 +63,7 @@ public class CreditRequest extends AbstractEntity {
         this.employee = employee;
     }
 
+/*
     private Account account;
 
     @OneToOne
@@ -74,6 +75,7 @@ public class CreditRequest extends AbstractEntity {
     public void setAccount(Account account) {
         this.account = account;
     }
+*/
 
     private Date issuanceDate;
 
@@ -180,7 +182,6 @@ public class CreditRequest extends AbstractEntity {
 
         if (creditRequestId != that.creditRequestId) return false;
         if (term != that.term) return false;
-        if (account != null ? !account.equals(that.account) : that.account != null) return false;
         if (amount != null ? !amount.equals(that.amount) : that.amount != null) return false;
         if (client != null ? !client.equals(that.client) : that.client != null) return false;
         if (credit != null ? !credit.equals(that.credit) : that.credit != null) return false;
@@ -200,7 +201,6 @@ public class CreditRequest extends AbstractEntity {
         result = 31 * result + (client != null ? client.hashCode() : 0);
         result = 31 * result + (credit != null ? credit.hashCode() : 0);
         result = 31 * result + (employee != null ? employee.hashCode() : 0);
-        result = 31 * result + (account != null ? account.hashCode() : 0);
         result = 31 * result + (issuanceDate != null ? issuanceDate.hashCode() : 0);
         result = 31 * result + (processingDate != null ? processingDate.hashCode() : 0);
         result = 31 * result + (amount != null ? amount.hashCode() : 0);

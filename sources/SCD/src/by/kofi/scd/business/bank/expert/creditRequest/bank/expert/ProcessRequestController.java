@@ -79,10 +79,8 @@ public class ProcessRequestController {
 
     public String confirmAction() throws SCDBusinessException {
         //update request
-        Account account = accountBusinessBean.createAccount();
         Employee employee = FacesUtil.getUserContext().getEmployee();
         creditRequest.setEmployee(employee);
-        creditRequest.setAccount(account);
         creditRequest.setProcessingDate(new Date());
         creditRequest.setState(CreditRequestStateEnum.CONFIRMED);
         creditRequest = creditRequestBusinessBean.storeCreditRequest(creditRequest);

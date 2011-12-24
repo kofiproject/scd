@@ -3,7 +3,6 @@ package by.kofi.scd.business.credit;
 import by.kofi.scd.business.AbstractBusinessBean;
 import by.kofi.scd.business.AccountBusinessBean;
 import by.kofi.scd.dataservice.CRUDDataService;
-import by.kofi.scd.dataservice.credit.CreditDataService;
 import by.kofi.scd.dataservice.credit.item.CreditItemDataService;
 import by.kofi.scd.entity.*;
 import by.kofi.scd.exceptions.SCDBusinessException;
@@ -66,18 +65,29 @@ public class CreditItemBusinessBean extends AbstractBusinessBean {
         CRUDDataService crudDataService = getCRUDDataService();
 
         creditRequest.setState(CreditRequestStateEnum.ISSUED);
+
+        BigDecimal creditSum = creditRequest.getAmount();
+
         CreditItem creditItem = new CreditItem();
-        creditItem.setAccount(creditRequest.getAccount());
-        creditItem.setAmount(creditRequest.getAmount());
-        creditItem.setCalculatedAmount(creditRequest.getAmount());
+        creditItem.setSum(creditSum);
         creditItem.setClient(creditRequest.getClient());
         creditItem.setCredit(creditRequest.getCredit());
         creditItem.setIssuanceDate(new Date());
-        creditItem.setPaidAmount(BigDecimal.ZERO);
-        creditItem.setPenaltyAmount(BigDecimal.ZERO);
         creditItem.setTerm(creditRequest.getTerm());
         creditItem.setState(CreditItemStateEnum.ACTIVE);
         creditItem.setLastUpdated(new Date());
+
+        Account debitAccount = accountBusinessBean.createAccount(AccountTypeEnum.DEBIT);
+        Account creditAccount = accountBusinessBean.createAccount(AccountTypeEnum.CREDIT);
+        Account paymentsAccount = accountBusinessBean.createAccount(AccountTypeEnum.PAYMENT);
+
+        creditItem.setDebitAccount(debitAccount);
+        creditItem.setCreditAccount(creditAccount);
+        creditItem.setPaymentsAccount(paymentsAccount);
+
+        Account bankAccount = getBankAccount();
+        transfer(bankAccount, debitAccount, creditSum);
+
         try {
             crudDataService.merge(creditRequest);
             return crudDataService.merge(creditItem);
@@ -98,6 +108,30 @@ public class CreditItemBusinessBean extends AbstractBusinessBean {
             creditItem.setState(CreditItemStateEnum.CLOSED);
 
             return crudDataService.merge(creditItem);
+        } catch (SCDTechnicalException e) {
+            throw new SCDBusinessException(e);
+        }
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public Account getBankAccount() throws SCDBusinessException {
+        try {
+            return getCRUDDataService().find(Account.class, 0L);
+        } catch (SCDTechnicalException e) {
+            throw new SCDBusinessException(e);
+        }
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public void transfer(Account from, Account to, BigDecimal sum) throws SCDBusinessException {
+        try {
+            from.setSum(from.getSum().min(sum));
+            to.setSum(from.getSum().add(sum));
+
+            CRUDDataService crudDataService = getCRUDDataService();
+            crudDataService.merge(from);
+            crudDataService.merge(to);
+
         } catch (SCDTechnicalException e) {
             throw new SCDBusinessException(e);
         }

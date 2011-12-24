@@ -102,7 +102,7 @@ public class PaymentController extends AbstractGridBusinessBean {
         CreditItem item = account.getCreditItem();
         setCreditItem(item);
 
-        BigDecimal arrear = item.getCalculatedAmount().subtract(item.getPaidAmount()).subtract(item.getPenaltyAmount());
+        BigDecimal arrear = item.getCreditAccount().getSum().subtract(item.getPaymentsAccount().getSum());
         setSumArrear(arrear.intValue());
     }
 

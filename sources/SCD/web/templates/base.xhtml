@@ -30,198 +30,203 @@
 <h:body>
 
 
-<rich:popupPanel id="panel_loading" autosized="true">
-    <h:graphicImage library="images" name="loader.gif" alt=""/>
-    <h:outputText value="#{bundle['common.loading']}"/>
-</rich:popupPanel>
+    <rich:popupPanel id="panel_loading" autosized="true">
+        <h:graphicImage library="images" name="loader.gif" alt=""/>
+        <h:outputText value="#{bundle['common.loading']}"/>
+    </rich:popupPanel>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" class="table-h100">
-    <tr>
-        <td height="1" class="bg_head">
-            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                <tr>
-                    <td width="179">
-                        <h:graphicImage library="images" name="el_1.jpg" width="179" height="117"/>
-                    </td>
-                    <td>
-                        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="height117">
-                            <tr>
-                                <td width="388" valign="top" class="el_2">
-                                    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="height91">
-                                        <tr>
-                                            <td height="20" colspan="3">
-                                                <h:graphicImage library="images" name="spacer.gif"/>
-                                            </td>
-                                        </tr>
-                                        <tr>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="table-h100">
+        <tr>
+            <td height="1" class="bg_head">
+                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td width="179">
+                            <h:graphicImage library="images" name="el_1.jpg" width="179" height="117"/>
+                        </td>
+                        <td>
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="height117">
+                                <tr>
+                                    <td width="388" valign="top" class="el_2">
+                                        <table width="100%" border="0" cellpadding="0" cellspacing="0" class="height91">
+                                            <tr>
+                                                <td height="20" colspan="3">
+                                                    <h:graphicImage library="images" name="spacer.gif"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
 
-                                            <td valign="top" class="slogan">Some slogan here</td>
-                                        </tr>
-                                    </table>
-                                </td>
-                                <td>
-                                    <h:graphicImage library="images" name="el_3.jpg" width="178" height="91"/>
+                                                <td valign="top" class="slogan">Some slogan here</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <h:graphicImage library="images" name="el_3.jpg" width="178" height="91"/>
 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td height="25" colspan="2" class="bg_menu">
-                                    <table border="0" cellpadding="0" cellspacing="0" class="height25">
-                                        <tr>
-                                            <td width="95%">
-                                                <h:graphicImage library="images" name="el_1.gif" width="76"
-                                                                height="25"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="25" colspan="2" class="bg_menu">
+                                        <table border="0" cellpadding="0" cellspacing="0" class="height25">
+                                            <tr>
+                                                <td width="95%">
+                                                    <h:graphicImage library="images" name="el_1.gif" width="76"
+                                                                    height="25"/>
 
-                                            </td>
+                                                </td>
 
-                                            <td align="center">
-                                                <h:form id="user-form">
+                                                <td align="center">
+                                                    <h:form id="user-form">
 
-                                                    <c:choose>
-                                                        <c:when test="#{sessionScope.userContext.employee eq null and sessionScope.userContext.client eq null}">
-                                                            <h:commandLink value="Admin"
-                                                                           styleClass="menu"
-                                                                           disabled="true"
+                                                        <c:choose>
+                                                            <c:when test="#{sessionScope.userContext.employee eq null and sessionScope.userContext.client eq null}">
+                                                                <h:commandLink value="Admin"
+                                                                               styleClass="menu"
+                                                                               disabled="true"
+                                                                        />
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <c:choose>
+                                                                    <c:when test="#{sessionScope.userContext.client eq null}">
+                                                                        <h:outputText
+                                                                                value="#{sessionScope.userContext}"
+                                                                                styleClass="menu"
+                                                                                disabled="true"
+                                                                                />
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <h:commandLink
+                                                                                value="#{sessionScope.userContext}"
+                                                                                styleClass="menu"
+                                                                                immediate="true"
+                                                                                action="client-profile"
+                                                                                />
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            </c:otherwise>
+                                                        </c:choose>
+
+                                                    </h:form>
+                                                </td>
+                                                <td width="56" align="center" class="menu"><span
+                                                        style="padding: 0 20px;">|</span></td>
+                                                <td align="center">
+                                                    <h:form id="logout-form">
+                                                        <h:commandLink value="#{bundle['common.logout']}"
+                                                                       action="#{loginBean.logoutAction}"
+                                                                       styleClass="menu"
+                                                                       immediate="true"
+                                                                />
+                                                    </h:form>
+                                                </td>
+                                                <td width="56" align="center" class="menu"><span
+                                                        style="padding: 0 20px;">|</span></td>
+                                                <td align="center">
+                                                    <h:form id="contact-form">
+                                                        <c:if test="#{sessionScope.userContext.employee != null or sessionScope.userContext.client != null}">
+                                                            <a4j:commandLink value="#{bundle['common.contactUs']}"
+                                                                             style="padding-right: 20px;"
+                                                                             styleClass="menu"
+                                                                             immediate="true"
+                                                                             action="#{contactUsController.init}"
+                                                                             render="contactUsPane"
+                                                                             oncomplete="#{rich:component('contactUsPane')}.show()"
                                                                     />
-                                                        </c:when>
-                                                        <c:otherwise>
-                                                            <c:choose>
-                                                                <c:when test="#{sessionScope.userContext.client eq null}">
-                                                                    <h:outputText value="#{sessionScope.userContext}"
-                                                                                   styleClass="menu"
-                                                                                   disabled="true"
-                                                                            />
-                                                                </c:when>
-                                                                <c:otherwise>
-                                                                    <h:commandLink value="#{sessionScope.userContext}"
-                                                                                   styleClass="menu"
-                                                                                   immediate="true"
-                                                                                   action="client-profile"
-                                                                            />
-                                                                </c:otherwise>
-                                                            </c:choose>
-                                                        </c:otherwise>
-                                                    </c:choose>
+                                                        </c:if>
 
-                                                </h:form>
-                                            </td>
-                                            <td width="56" align="center" class="menu"><span
-                                                    style="padding: 0 20px;">|</span></td>
-                                            <td align="center">
-                                                <h:form id="logout-form">
-                                                    <h:commandLink value="#{bundle['common.logout']}"
-                                                                   action="#{loginBean.logoutAction}"
-                                                                   styleClass="menu"
-                                                                   immediate="true"
-                                                            />
-                                                </h:form>
-                                            </td>
-                                            <td width="56" align="center" class="menu"><span
-                                                    style="padding: 0 20px;">|</span></td>
-                                            <td align="center">
-                                                <h:form id="contact-form">
-                                                    <a4j:commandLink value="#{bundle['common.contactUs']}"
-                                                                     style="padding-right: 20px;"
-                                                                     styleClass="menu"
-                                                                     immediate="true"
-                                                                     action="#{contactUsController.init}"
-                                                                     render="contactUsPane"
-                                                                     oncomplete="#{rich:component('contactUsPane')}.show()"
-                                                            />
-                                                </h:form>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr bgcolor="#FFFFFF">
-                                <td height="1" colspan="2">
-                                    <h:graphicImage library="images" name="el_2.gif" width="12" height="1"/>
+                                                    </h:form>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr bgcolor="#FFFFFF">
+                                    <td height="1" colspan="2">
+                                        <h:graphicImage library="images" name="el_2.gif" width="12" height="1"/>
 
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-    <tr>
-        <td height="100%" valign="top">
-            <table width="100%" class="table-h100" border="0" cellpadding="0" cellspacing="0">
-                <tr>
-                    <td width="179" valign="top" class="bg_left">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                            <tr>
-                                <td height="52">
-                                    <h:graphicImage library="images" name="el_4.jpg" width="179" height="52"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td height="100%" valign="top">
+                <table width="100%" class="table-h100" border="0" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="179" valign="top" class="bg_left">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td height="52">
+                                        <h:graphicImage library="images" name="el_4.jpg" width="179" height="52"/>
 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td height="18">
-                                    <h:graphicImage library="images" name="el_5.jpg" width="179" height="18"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="18">
+                                        <h:graphicImage library="images" name="el_5.jpg" width="179" height="18"/>
 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td height="15">
-                                    <h:graphicImage library="images" name="spacer.gif" width="1" height="15"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="15">
+                                        <h:graphicImage library="images" name="spacer.gif" width="1" height="15"/>
 
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
 
-                            <tr>
-                                <td class="left-menu-bgr">
+                                <tr>
+                                    <td class="left-menu-bgr">
 
-                                    <ui:insert name="left-menu"/>
+                                        <ui:insert name="left-menu"/>
 
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                    <td height="100%" valign="top" class="clock">
-                        <table width="100%" class="table-h100" border="0" cellpadding="0" cellspacing="0">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td height="100%" valign="top" class="clock">
+                            <table width="100%" class="table-h100" border="0" cellpadding="0" cellspacing="0">
 
-                            <tr>
-                                <td width="18">
-                                    <h:graphicImage library="images" name="spacer.gif" width="18" height="1"/>
+                                <tr>
+                                    <td width="18">
+                                        <h:graphicImage library="images" name="spacer.gif" width="18" height="1"/>
 
-                                </td>
-                                <td width="100%" height="100%" valign="top">
+                                    </td>
+                                    <td width="100%" height="100%" valign="top">
 
-                                    <div id="main-content">
-                                        <ui:insert name="contentHeader"/>
-                                        <ui:insert name="content"/>
-                                    </div>
+                                        <div id="main-content">
+                                            <ui:insert name="contentHeader"/>
+                                            <ui:insert name="content"/>
+                                        </div>
 
-                                    <br/></td>
-                                <td width="29">
-                                    <h:graphicImage library="images" name="spacer.gif" width="29" height="1"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td height="10" colspan="3">
-                                    <h:graphicImage library="images" name="spacer.gif" width="1" height="10"/>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-    <tr>
-        <!--<td height="1" align="right" bgcolor="#88CCE6" class="bgrx bg_bottom">-->
-        <td>
-            <ui:include src="footer.xhtml"/>
-        </td>
-    </tr>
-</table>
+                                        <br/></td>
+                                    <td width="29">
+                                        <h:graphicImage library="images" name="spacer.gif" width="29" height="1"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="10" colspan="3">
+                                        <h:graphicImage library="images" name="spacer.gif" width="1" height="10"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <!--<td height="1" align="right" bgcolor="#88CCE6" class="bgrx bg_bottom">-->
+            <td>
+                <ui:include src="footer.xhtml"/>
+            </td>
+        </tr>
+    </table>
 
-<div style="display: none">
-    <ui:insert name="invisible-content"/>
-</div>
-<ui:include src="login/contactUs.xhtml"/>
+    <div style="display: none">
+        <ui:insert name="invisible-content"/>
+    </div>
+    <ui:include src="login/contactUs.xhtml"/>
 </h:body>
 </html>

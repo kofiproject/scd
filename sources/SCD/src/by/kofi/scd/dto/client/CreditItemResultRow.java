@@ -14,6 +14,9 @@ public class CreditItemResultRow extends CreditItem implements ResultRow {
     private Long clientId;
     private String creditName;
     private long accountNumber;
+    private long calculatedAmount;
+    private long paidAmount;
+
 
     /**
      * Constructor to init fields from CreditItem instance
@@ -23,11 +26,11 @@ public class CreditItemResultRow extends CreditItem implements ResultRow {
     public CreditItemResultRow(CreditItem creditItem) {
         setIssuanceDate(creditItem.getIssuanceDate());
         this.creditName = creditItem.getCredit().getName();
-        this.accountNumber = creditItem.getAccount().getAccountNumber();
-        setAmount(creditItem.getAmount());
+        this.accountNumber = creditItem.getCreditAccount().getAccountNumber();
+        setSum(creditItem.getSum());
         setTerm(creditItem.getTerm());
-        setCalculatedAmount(creditItem.getCalculatedAmount());
-        setPaidAmount(creditItem.getPaidAmount());
+        setCalculatedAmount(creditItem.getCreditAccount().getSum().longValue());
+        setPaidAmount(creditItem.getPaymentsAccount().getSum().longValue());
         this.creditId = creditItem.getCredit().getCreditId();
         this.clientId = creditItem.getClient().getClientId();
     }
@@ -65,4 +68,19 @@ public class CreditItemResultRow extends CreditItem implements ResultRow {
         return  this.clientId;
     }
 
+    public long getCalculatedAmount() {
+        return calculatedAmount;
+    }
+
+    public void setCalculatedAmount(long calculatedAmount) {
+        this.calculatedAmount = calculatedAmount;
+    }
+
+    public long getPaidAmount() {
+        return paidAmount;
+    }
+
+    public void setPaidAmount(long paidAmount) {
+        this.paidAmount = paidAmount;
+    }
 }

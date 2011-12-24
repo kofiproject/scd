@@ -19,6 +19,7 @@ import javax.faces.context.FacesContext;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -105,7 +106,7 @@ public class ReportGeneratorService implements ReportGenerator {
         cell.setCellValue("Credit sum");
 
         cell = row.createCell(1);
-        cell.setCellValue(creditItem.getAmount().toString());
+        cell.setCellValue(creditItem.getSum().toString());
 
         row = sheet.createRow(6); // срок
         cell = row.createCell(0);
@@ -119,21 +120,22 @@ public class ReportGeneratorService implements ReportGenerator {
         cell.setCellValue("Sum to pay");
 
         cell = row.createCell(1);
-        cell.setCellValue(creditItem.getCalculatedAmount().toString());
+        BigDecimal sumToPay = creditItem.getCreditAccount().getSum();
+        cell.setCellValue(sumToPay.toString());
 
         row = sheet.createRow(8); // погашенная сумма
         cell = row.createCell(0);
         cell.setCellValue("Paid sum");
 
         cell = row.createCell(1);
-        cell.setCellValue(creditItem.getPaidAmount().toString());
+        cell.setCellValue(creditItem.getPaymentsAccount().getSum().toString());
 
         row = sheet.createRow(9); // пеня
         cell = row.createCell(0);
         cell.setCellValue("Penalty");
 
         cell = row.createCell(1);
-        cell.setCellValue(creditItem.getPenaltyAmount().toString());
+        cell.setCellValue(sumToPay.min(creditItem.getSum()).toString());
 
         row = sheet.createRow(10); // состояние
         cell = row.createCell(0);

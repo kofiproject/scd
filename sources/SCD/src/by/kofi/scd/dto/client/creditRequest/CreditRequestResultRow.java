@@ -1,7 +1,9 @@
 package by.kofi.scd.dto.client.creditRequest;
 
 import by.kofi.scd.business.grid.ResultRow;
-import by.kofi.scd.entity.*;
+import by.kofi.scd.entity.Client;
+import by.kofi.scd.entity.CreditRequest;
+import by.kofi.scd.entity.Employee;
 
 /**
  * @author harchevnikov_m
@@ -10,7 +12,6 @@ import by.kofi.scd.entity.*;
  */
 public class CreditRequestResultRow extends CreditRequest implements ResultRow {
     private String creditName;
-    private long accountNumber;
     private String expert;
     private String clientName;
     private Long creditId;
@@ -27,8 +28,6 @@ public class CreditRequestResultRow extends CreditRequest implements ResultRow {
         setAmount(creditRequest.getAmount());
         setTerm(creditRequest.getTerm());
         this.creditName = creditRequest.getCredit().getName();
-        Account account = creditRequest.getAccount();
-        this.accountNumber = account != null ? account.getAccountNumber() : -1L;
 
         setProcessingDate(creditRequest.getProcessingDate());
         setDescription(creditRequest.getDescription());
@@ -47,7 +46,7 @@ public class CreditRequestResultRow extends CreditRequest implements ResultRow {
 
     @Override
     public Long getRowId() {
-        return accountNumber;
+        return getCreditRequestId();
     }
 
     public String getCreditName() {
@@ -58,13 +57,6 @@ public class CreditRequestResultRow extends CreditRequest implements ResultRow {
         this.creditName = creditName;
     }
 
-    public long getAccountNumber() {
-        return accountNumber;
-    }
-
-    public void setAccountNumber(long accountNumber) {
-        this.accountNumber = accountNumber;
-    }
 
     public String getExpert() {
         return expert;

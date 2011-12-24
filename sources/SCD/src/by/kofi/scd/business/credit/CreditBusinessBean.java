@@ -12,6 +12,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.List;
 
 /**
@@ -63,15 +65,16 @@ public class CreditBusinessBean extends AbstractBusinessBean {
      * @return max available credit sum
      */
     public BigDecimal calculateMaxAvailableSum(Credit credit, Long term, BigDecimal monthlyCacheIncome) {
+
         if (credit == null) {
             return BigDecimal.ZERO;
         }
-        term = term != null ? term : 0L;
         monthlyCacheIncome = monthlyCacheIncome != null ? monthlyCacheIncome : BigDecimal.ZERO;
 
-        BigDecimal termBD = new BigDecimal(term);
-
-        return BigDecimal.ONE.add(credit.getMaxSumPercent()).multiply(monthlyCacheIncome).multiply(termBD);
+        MathContext mathContext = new MathContext(10, RoundingMode.HALF_UP);
+//       term/12 * (S * %/100) = (income * term) / 2
+        return monthlyCacheIncome.divide(new BigDecimal(2), mathContext)
+                .multiply(new BigDecimal(1200)).divide(credit.getPercent(), mathContext);
     }
 
     @Transactional(propagation = Propagation.REQUIRED)

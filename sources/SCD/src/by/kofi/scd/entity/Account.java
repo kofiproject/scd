@@ -2,6 +2,7 @@ package by.kofi.scd.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Set;
 
 /**
@@ -38,20 +39,35 @@ public class Account extends AbstractEntity {
         this.accountNumber = accountNumber;
     }
 
-    private CreditRequest creditRequest;
+    private BigDecimal sum;
 
-    @OneToOne(mappedBy = "account")
-    public CreditRequest getCreditRequest() {
-        return creditRequest;
+    @javax.persistence.Column(name = "SUM")
+    @Basic
+    public BigDecimal getSum() {
+        return sum;
     }
 
-    public void setCreditRequest(CreditRequest creditRequest) {
-        this.creditRequest = creditRequest;
+    public void setSum(BigDecimal sum) {
+        this.sum = sum;
     }
+
+
+    private AccountTypeEnum type;
+
+    @javax.persistence.Column(name = "TYPE")
+    @Enumerated(EnumType.ORDINAL)
+    public AccountTypeEnum getType() {
+        return type;
+    }
+
+    public void setType(AccountTypeEnum type) {
+        this.type = type;
+    }
+
 
     private CreditItem creditItem;
 
-    @OneToOne(mappedBy = "account")
+    @OneToOne(mappedBy = "creditAccount")
     public CreditItem getCreditItem() {
         return creditItem;
     }
@@ -81,8 +97,6 @@ public class Account extends AbstractEntity {
 
         if (accountId != account.accountId) return false;
         if (accountNumber != account.accountNumber) return false;
-        if (creditRequest != null ? !creditRequest.equals(account.creditRequest) : account.creditRequest != null)
-            return false;
 
         return true;
     }
@@ -92,7 +106,6 @@ public class Account extends AbstractEntity {
         int result = super.hashCode();
         result = 31 * result + (int) (accountId ^ (accountId >>> 32));
         result = 31 * result + (int) (accountNumber ^ (accountNumber >>> 32));
-        result = 31 * result + (creditRequest != null ? creditRequest.hashCode() : 0);
         return result;
     }
 

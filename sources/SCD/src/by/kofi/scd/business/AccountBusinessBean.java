@@ -1,6 +1,7 @@
 package by.kofi.scd.business;
 
 import by.kofi.scd.entity.Account;
+import by.kofi.scd.entity.AccountTypeEnum;
 import by.kofi.scd.entity.SCDUser;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import by.kofi.scd.exceptions.SCDTechnicalException;
@@ -34,13 +35,15 @@ public class AccountBusinessBean extends AbstractBusinessBean {
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
-    public Account createAccount() throws SCDBusinessException {
+    public Account createAccount(AccountTypeEnum type) throws SCDBusinessException {
         try {
             Session session = getCRUDDataService().getNativeHibernateSession();
             BigDecimal accountNo = (BigDecimal) session.createSQLQuery("select SQ_ACCOUNT_NO.nextval from dual").uniqueResult();
 
             Account account = new Account();
             account.setAccountNumber(accountNo.longValue());
+            account.setSum(BigDecimal.ZERO);
+            account.setType(type);
 
             return getCRUDDataService().merge(account);
         } catch (SCDTechnicalException e) {

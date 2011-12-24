@@ -52,16 +52,40 @@ public class CreditItem extends AbstractEntity {
         this.client = client;
     }
 
-    private Account account;
+    private Account debitAccount;
 
     @OneToOne
-    @JoinColumn(name = "ACCOUNT_ID", referencedColumnName = "ACCOUNT_ID")
-    public Account getAccount() {
-        return account;
+    @JoinColumn(name = "DEBIT_ACCOUNT_ID", referencedColumnName = "ACCOUNT_ID")
+    public Account getDebitAccount() {
+        return debitAccount;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
+    public void setDebitAccount(Account debitAccount) {
+        this.debitAccount = debitAccount;
+    }
+
+    private Account creditAccount;
+
+    @OneToOne
+    @JoinColumn(name = "CREDIT_ACCOUNT_ID", referencedColumnName = "ACCOUNT_ID")
+    public Account getCreditAccount() {
+        return creditAccount;
+    }
+
+    public void setCreditAccount(Account creditAccount) {
+        this.creditAccount = creditAccount;
+    }
+
+    private Account paymentsAccount;
+
+    @OneToOne
+    @JoinColumn(name = "PAYMENT_ACCOUNT_ID", referencedColumnName = "ACCOUNT_ID")
+    public Account getPaymentsAccount() {
+        return paymentsAccount;
+    }
+
+    public void setPaymentsAccount(Account paymentsAccount) {
+        this.paymentsAccount = paymentsAccount;
     }
 
     private Date issuanceDate;
@@ -88,16 +112,16 @@ public class CreditItem extends AbstractEntity {
         this.closingDate = closingDate;
     }
 
-    private BigDecimal amount;
+    private BigDecimal sum;
 
-    @javax.persistence.Column(name = "AMOUNT")
+    @javax.persistence.Column(name = "SUM")
     @Basic
-    public BigDecimal getAmount() {
-        return amount;
+    public BigDecimal getSum() {
+        return sum;
     }
 
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
+    public void setSum(BigDecimal sum) {
+        this.sum = sum;
     }
 
     private Long term;
@@ -110,42 +134,6 @@ public class CreditItem extends AbstractEntity {
 
     public void setTerm(Long term) {
         this.term = term;
-    }
-
-    private BigDecimal calculatedAmount;
-
-    @javax.persistence.Column(name = "CALCULATED_AMOUNT")
-    @Basic
-    public BigDecimal getCalculatedAmount() {
-        return calculatedAmount;
-    }
-
-    public void setCalculatedAmount(BigDecimal calculatedAmount) {
-        this.calculatedAmount = calculatedAmount;
-    }
-
-    private BigDecimal paidAmount;
-
-    @javax.persistence.Column(name = "PAID_AMOUNT")
-    @Basic
-    public BigDecimal getPaidAmount() {
-        return paidAmount;
-    }
-
-    public void setPaidAmount(BigDecimal paidAmount) {
-        this.paidAmount = paidAmount;
-    }
-
-    private BigDecimal penaltyAmount;
-
-    @javax.persistence.Column(name = "PENALTY_AMOUNT")
-    @Basic
-    public BigDecimal getPenaltyAmount() {
-        return penaltyAmount;
-    }
-
-    public void setPenaltyAmount(BigDecimal penaltyAmount) {
-        this.penaltyAmount = penaltyAmount;
     }
 
     private CreditItemStateEnum state;
@@ -179,19 +167,13 @@ public class CreditItem extends AbstractEntity {
 
         CreditItem that = (CreditItem) o;
 
-        if (account != that.account) return false;
         if (creditItemId != that.creditItemId) return false;
         if (term != that.term) return false;
-        if (amount != null ? !amount.equals(that.amount) : that.amount != null) return false;
-        if (calculatedAmount != null ? !calculatedAmount.equals(that.calculatedAmount) : that.calculatedAmount != null)
-            return false;
+        if (sum != null ? !sum.equals(that.sum) : that.sum != null) return false;
         if (client != null ? !client.equals(that.client) : that.client != null) return false;
         if (closingDate != null ? !closingDate.equals(that.closingDate) : that.closingDate != null) return false;
         if (credit != null ? !credit.equals(that.credit) : that.credit != null) return false;
         if (issuanceDate != null ? !issuanceDate.equals(that.issuanceDate) : that.issuanceDate != null) return false;
-        if (paidAmount != null ? !paidAmount.equals(that.paidAmount) : that.paidAmount != null) return false;
-        if (penaltyAmount != null ? !penaltyAmount.equals(that.penaltyAmount) : that.penaltyAmount != null)
-            return false;
         if (state != that.state) return false;
 
         return true;
@@ -205,11 +187,8 @@ public class CreditItem extends AbstractEntity {
         result = 31 * result + (client != null ? client.hashCode() : 0);
         result = 31 * result + (issuanceDate != null ? issuanceDate.hashCode() : 0);
         result = 31 * result + (closingDate != null ? closingDate.hashCode() : 0);
-        result = 31 * result + (amount != null ? amount.hashCode() : 0);
+        result = 31 * result + (sum != null ? sum.hashCode() : 0);
         result = 31 * result + (int) (term ^ (term >>> 32));
-        result = 31 * result + (calculatedAmount != null ? calculatedAmount.hashCode() : 0);
-        result = 31 * result + (paidAmount != null ? paidAmount.hashCode() : 0);
-        result = 31 * result + (penaltyAmount != null ? penaltyAmount.hashCode() : 0);
         result = 31 * result + (state != null ? state.hashCode() : 0);
         return result;
     }

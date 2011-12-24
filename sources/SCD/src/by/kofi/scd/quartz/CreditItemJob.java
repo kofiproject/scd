@@ -1,6 +1,7 @@
 package by.kofi.scd.quartz;
 
 import by.kofi.scd.business.credit.CreditItemBusinessBean;
+import by.kofi.scd.entity.Account;
 import by.kofi.scd.entity.CreditItem;
 import by.kofi.scd.entity.CreditItemStateEnum;
 import by.kofi.scd.exceptions.SCDBusinessException;
@@ -8,11 +9,10 @@ import by.kofi.scd.util.DatesUtil;
 import org.apache.log4j.Logger;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -38,6 +38,7 @@ public class CreditItemJob extends QuartzJobBean {
     private static final int INT_100 = 100;
 
     private CreditItemBusinessBean creditItemBusinessBean;
+//    private AccountBusinessBean accountBusinessBean;
 
     public CreditItemBusinessBean getCreditItemBusinessBean() {
         return creditItemBusinessBean;
@@ -47,6 +48,14 @@ public class CreditItemJob extends QuartzJobBean {
         this.creditItemBusinessBean = creditItemBusinessBean;
     }
 
+    /*  public AccountBusinessBean getAccountBusinessBean() {
+            return accountBusinessBean;
+        }
+
+        public void setAccountBusinessBean(AccountBusinessBean accountBusinessBean) {
+            this.accountBusinessBean = accountBusinessBean;
+        }
+    */
     @Override
     protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         Calendar currentDate = new GregorianCalendar();
@@ -67,6 +76,7 @@ public class CreditItemJob extends QuartzJobBean {
 //        System.out.println("----------------------------------------------------");
     }
 
+    @Transactional(propagation = Propagation.REQUIRED)
     private void processCreditItem(CreditItem creditItem, Calendar currentDate, BigDecimal percentDivider) throws SCDBusinessException {
         Calendar itemLastUpdated = new GregorianCalendar();
         itemLastUpdated.setTime(creditItem.getLastUpdated());
@@ -77,7 +87,7 @@ public class CreditItemJob extends QuartzJobBean {
             return;
         }
 
-        BigDecimal creditSum = creditItem.getAmount();
+        BigDecimal creditSum = creditItem.getSum();
         BigDecimal percent = creditItem.getCredit().getPercent();
         BigDecimal oneDayPercent = percent.divide(percentDivider, MATH_CONTEXT);
 
@@ -88,9 +98,18 @@ public class CreditItemJob extends QuartzJobBean {
         BigDecimal penaltyDebt = creditItem.getCredit().getPenaltyPercent().multiply(creditSum).multiply(penaltyDays);
 
 
+        creditItem.setLastUpdated(currentDate.getTime());
+
+        BigDecimal commonDebt = percentsDebt.add(penaltyDebt);
+
+        Account creditAccount = creditItem.getCreditAccount();
+        creditAccount.setSum(creditAccount.getSum().add(commonDebt));
+
+/*
+
         creditItem.setCalculatedAmount(creditItem.getCalculatedAmount().add(percentsDebt).add(penaltyDebt));
         creditItem.setPenaltyAmount(creditItem.getPenaltyAmount().add(penaltyDebt));
-        creditItem.setLastUpdated(currentDate.getTime());
+*/
 
         creditItemBusinessBean.storeCreditItem(creditItem);
     }

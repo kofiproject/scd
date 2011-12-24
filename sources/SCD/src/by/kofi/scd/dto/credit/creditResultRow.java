@@ -17,7 +17,7 @@ public class CreditResultRow extends Credit implements ResultRow {
         setCreditId(credit.getCreditId());
         setName(credit.getName());
         setPercent(credit.getPercent());
-        setPenaltyPercent(credit.getPenaltyPercent().multiply(new BigDecimal(100)));
+        setPenaltyPercent(credit.getPenaltyPercent());
         setMaxTerm(credit.getMaxTerm());
     }
 

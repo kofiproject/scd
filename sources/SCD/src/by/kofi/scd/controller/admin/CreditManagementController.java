@@ -92,7 +92,7 @@ public class CreditManagementController {
                 setDescription(credit.getDescription());
                 setPercent(credit.getPercent());
                 setPercent(credit.getPercent());
-                setPenaltyPercent(credit.getPenaltyPercent().multiply(new BigDecimal(100)));
+                setPenaltyPercent(credit.getPenaltyPercent());
                 setMaxTerm(credit.getMaxTerm());
 
             } else {
@@ -115,7 +115,7 @@ public class CreditManagementController {
             credit.setName(this.name);
             credit.setDescription(this.description);
             credit.setPercent(this.percent);
-            credit.setPenaltyPercent(this.penaltyPercent.divide(new BigDecimal(100)));
+            credit.setPenaltyPercent(this.penaltyPercent);
             credit.setMaxTerm(this.maxTerm);
             credit.setMaxSumPercent(BigDecimal.ZERO);
 
@@ -125,21 +125,5 @@ public class CreditManagementController {
         }
     }
 
-    private Credit getCreditDetailsFromRequest() {
-        FacesContext context = FacesContext.getCurrentInstance();
-        HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
 
-        Credit credit = new Credit();
-        credit.setCreditId(new Long(request.getParameter("creditId")));
-        credit.setDescription(request.getParameter("description"));
-        credit.setName(request.getParameter("name"));
-        BigDecimal percent = new BigDecimal(request.getParameter("percent"));
-        credit.setPercent(percent.divide(new BigDecimal(100)));
-        BigDecimal penaltyPercent = new BigDecimal(request.getParameter("penaltyPercent"));
-        credit.setPenaltyPercent(penaltyPercent);
-
-        credit.setMaxSumPercent(BigDecimal.ZERO);
-
-        return credit;
-    }
 }

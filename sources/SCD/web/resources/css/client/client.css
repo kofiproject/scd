@@ -17,17 +17,26 @@
 }
 
 .credit-plan-link {
-    font-size: 25px !important;
-    color: red;
+    font-size: 20px;
+    color:blue;
+    font-style:italic;
 }
 
 .credit-description-content-wrapper {
-    background: #f1f0f0;
+    background: #e0ffff;
     padding: 5px;
+    color: purple;
 }
 
 .show-description {
-    color: #000099 !important;
+    color:#666666;
+    font-style:italic;
+}
+
+.show-description:visited
+{
+    color:#666666;
+    font-style:italic;
 }
 
 .credit-li {
@@ -39,6 +48,8 @@
 .credit-details-wrapper {
     padding: 40px;
     font-size: 16px;
+    color:blue;
+    font-style:italic;
 }
 
 .credit-details-back-link {
