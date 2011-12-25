@@ -9,7 +9,7 @@
     </ui:define>
 
     <ui:define name="content">
-        <h:form>
+        <h:form id="form">
             Mode:
             <h:selectOneRadio layout="pageDirection" value="#{creditCalculatorController.mode}">
                 <a4j:ajax render="creditSum, incomeMonth"/>
@@ -17,9 +17,18 @@
                 <f:selectItem itemValue="1" itemLabel="Monthly payment during period"/>
             </h:selectOneRadio>
             <br/>Credit plan <br/>
-            <rich:select value="#{creditCalculatorController.creditName}" selectFirst="true">
+            <rich:select value="#{creditCalculatorController.creditName}"
+                         defaultLabel="#{creditCalculatorController.creditName}"
+                         onselectitem="jQuery('[id $=btn]').click();"
+                    >
                 <f:selectItems value="#{creditCalculatorController.credits}"/>
             </rich:select>
+
+            <a4j:commandButton value="qqqqqq"
+                               id="btn"
+                               render="percent, term"
+                               style="display: none;"
+                    />
 
             <br/>
             Percent <h:outputText id="percent" value="#{creditCalculatorController.credit.percent}"/>
