@@ -24,6 +24,10 @@ public class ClientQueryBuilder {
         return "from CreditItem  ci where ci.state = :state";
     }
 
+    public static String buildCreditItems() throws SCDTechnicalException {
+        return "from CreditItem  ci";
+    }
+
     public static String buildClientByPassportDataQuery() throws SCDTechnicalException {
         return "from Client cl where upper(cl.passportSeries) = upper(:passportSeries) and cl.passportNo = :passportNo";
     }

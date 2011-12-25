@@ -55,6 +55,8 @@ public interface ClientDataService extends AbstractDataService {
      */
     public int getCreditItemsCount(Long clientId, CreditItemStateEnum status) throws SCDTechnicalException;
 
+    public List<CreditItem> getCreditItems() throws SCDTechnicalException;
+
     /**
      * Clients list
      *

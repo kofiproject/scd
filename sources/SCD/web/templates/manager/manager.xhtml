@@ -63,6 +63,30 @@
                         </h:commandLink>
                     </rich:panelMenuItem>
 
+                    <rich:panelMenuItem icon="disc" id="id3">
+                        <h:commandLink immediate="true"
+                                       styleClass="left-menu-item"
+                                       value="#{bundle['manager.menu.credits']}"
+                                       action="/manager/credits"
+                                       style="text-align: center;"
+                                >
+                            <f:setPropertyActionListener target="#{menuController.activeMenuItem}"
+                                                         value="id3"/>
+                        </h:commandLink>
+                    </rich:panelMenuItem>
+
+                    <rich:panelMenuItem icon="disc" id="id4">
+                        <h:commandLink immediate="true"
+                                       styleClass="left-menu-item"
+                                       value="#{bundle['manager.menu.statistics']}"
+                                       action="/manager/statistics"
+                                       style="text-align: center;"
+                                >
+                            <f:setPropertyActionListener target="#{menuController.activeMenuItem}"
+                                                         value="id4"/>
+                        </h:commandLink>
+                    </rich:panelMenuItem>
+
                 </rich:panelMenu>
             </h:panelGrid>
         </h:form>

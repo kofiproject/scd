@@ -37,7 +37,9 @@ public enum GridColumn {
     CREDIT_DETAILS_NAME("name", "grid.credit.name", true, false),
     CREDIT_PERCENT("percent", "grid.credit.percent"),
     CREDIT_PENALTY_PERCENT("penaltyPercent", "grid.credit.penaltyPercent"),
-    CREDIT_MAX_TERM("maxTerm", "grid.credit.maxTerm");
+    CREDIT_MAX_TERM("maxTerm", "grid.credit.maxTerm"),
+    CREDIT_ITEM_STATE("state", "grid.credit.state");
+
 
     private String text;
     private String header;

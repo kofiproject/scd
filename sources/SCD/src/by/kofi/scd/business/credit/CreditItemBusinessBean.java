@@ -8,12 +8,15 @@ import by.kofi.scd.entity.*;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import by.kofi.scd.exceptions.SCDTechnicalException;
 import org.apache.log4j.Logger;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -137,6 +140,50 @@ public class CreditItemBusinessBean extends AbstractBusinessBean {
         } catch (SCDTechnicalException e) {
             throw new SCDBusinessException(e);
         }
+    }
+/*
+ private int newCreditsCount;
+    private int closedCreditsCount;
+    private int withPenaltyCreditsCount;
+*/
+    @Transactional(propagation = Propagation.REQUIRED)
+    public int getNewCreditsCount(Date start, Date end) {
+        Session session = getCRUDDataService().getNativeHibernateSession();
+        Query query = session.createQuery("select count(ci) from CreditItem ci where ci.issuanceDate between :start and :end")
+                .setDate("start", start).setDate("end", end);
+        Object o = query.uniqueResult();
+        return ((Long)o).intValue();
+    }
+
+     @Transactional(propagation = Propagation.REQUIRED)
+     public int getClosedCount(Date start, Date end) {
+        Session session = getCRUDDataService().getNativeHibernateSession();
+        Query query = session.createQuery("select count(ci) from CreditItem ci where ci.closingDate between :start and :end")
+                .setDate("start", start).setDate("end", end);
+        Object o = query.uniqueResult();
+        return ((Long)o).intValue();
+    }
+
+     @Transactional(propagation = Propagation.REQUIRED)
+    public int getWithPenaltyCount(Date start, Date end) {
+        Session session = getCRUDDataService().getNativeHibernateSession();
+        Query query = session.createQuery("select ci from CreditItem ci where ci.issuanceDate >= :start")
+                .setDate("start", start);
+        List<CreditItem> list = query.list();
+        Calendar calendar = Calendar.getInstance();
+        int result = 0;
+        for (CreditItem creditItem : list) {
+            Date issuanceDate = creditItem.getIssuanceDate();
+            if (issuanceDate.compareTo(start) >= 0) {
+                calendar.setTime(issuanceDate);
+                calendar.add(Calendar.MONTH, creditItem.getTerm().intValue());
+                if (calendar.getTime().compareTo(end) <= 0) {
+                    result++;
+                }
+            }
+        }
+
+        return result;
     }
 
 }

@@ -1,0 +1,48 @@
+<ui:composition template="/templates/manager/manager.xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich" xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:grid="http://java.sun.com/jsf/composite/components"
+                xmlns:c="http://java.sun.com/jstl/core"
+                xmlns:popup="http://java.sun.com/jsf/composite/components/manager"
+        >
+    <ui:define name="script">
+        <h:outputScript library="js/login" name="numeric.js"/>
+    </ui:define>
+
+    <ui:define name="header">
+        Statistics
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+
+            <br/>
+
+            <h:outputText value="Period start  "/>
+            <rich:calendar value="#{creditsStatisticsController.startDate}" inputSize="17"
+                           id="start"
+                           locale="en"
+                    />
+            <h:outputText value="  Period end  "/>
+            <rich:calendar value="#{creditsStatisticsController.endDate}" inputSize="17"
+                           id="end"
+                           locale="en"
+                    />
+            <br/>
+            <br/>
+            <h:commandButton value="Calculate statistics" action="#{creditsStatisticsController.updateStatistics}"/>
+
+            <br/>
+            <br/>
+            <br/>
+            <h:outputText value="New credits count: "/>
+            <h:outputText value="#{creditsStatisticsController.statistics.newCreditsCount}"/>
+            <br/><h:outputText value="Closed credits count: "/>
+            <h:outputText value="#{creditsStatisticsController.statistics.closedCreditsCount}"/>
+            <br/><h:outputText value="Credits with penalty count: "/>
+            <h:outputText value="#{creditsStatisticsController.statistics.withPenaltyCreditsCount}"/>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

@@ -1,6 +1,7 @@
 package by.kofi.scd.dto.client;
 
 import by.kofi.scd.business.grid.ResultRow;
+import by.kofi.scd.entity.Client;
 import by.kofi.scd.entity.CreditItem;
 
 /**
@@ -16,7 +17,7 @@ public class CreditItemResultRow extends CreditItem implements ResultRow {
     private long accountNumber;
     private long calculatedAmount;
     private long paidAmount;
-
+    private String clientName;
 
     /**
      * Constructor to init fields from CreditItem instance
@@ -32,7 +33,11 @@ public class CreditItemResultRow extends CreditItem implements ResultRow {
         setCalculatedAmount(creditItem.getCreditAccount().getSum().longValue());
         setPaidAmount(creditItem.getPaymentsAccount().getSum().longValue());
         this.creditId = creditItem.getCredit().getCreditId();
-        this.clientId = creditItem.getClient().getClientId();
+        Client client = creditItem.getClient();
+        this.clientId = client.getClientId();
+
+        this.clientName = client.getSurname() + " " + client.getName();
+        setState(creditItem.getState());
     }
 
 
@@ -82,5 +87,13 @@ public class CreditItemResultRow extends CreditItem implements ResultRow {
 
     public void setPaidAmount(long paidAmount) {
         this.paidAmount = paidAmount;
+    }
+
+    public String getClientName() {
+        return clientName;
+    }
+
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
     }
 }

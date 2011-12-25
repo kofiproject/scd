@@ -72,7 +72,7 @@ public class ReportGeneratorService implements ReportGenerator {
         // declare a cell object reference
         Cell cell = null;
 
-        Client client = userContext.getClient();
+        Client client = creditItem.getClient();
         sheet.setColumnWidth(0, 6000);
         sheet.setColumnWidth(1, 3000);
         sheet.setColumnWidth(2, 6000);
@@ -232,7 +232,7 @@ public class ReportGeneratorService implements ReportGenerator {
         SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
         Calendar calendar = Calendar.getInstance(); // today
 
-        String fileName = userContext.getClient().getUser().getUserId() +
+        String fileName = userContext.hashCode() +
                 "_" +
                 sdf.format(calendar.getTime()) +
                 ".xls";
