@@ -58,20 +58,24 @@ public class CreditItemJob extends QuartzJobBean {
     */
     @Override
     protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-        Calendar currentDate = new GregorianCalendar();
-        currentDate.setTime(new Date());
-
-        BigDecimal daysInYear = new BigDecimal(DatesUtil.getDaysInYear(currentDate));
-        BigDecimal percentDivider = new BigDecimal(INT_100).multiply(daysInYear);
-
-
         try {
-            List<CreditItem> creditItems = this.creditItemBusinessBean.getCreditItemsByState(CreditItemStateEnum.ACTIVE);
-            for (CreditItem creditItem : creditItems) {
-                processCreditItem(creditItem, currentDate, percentDivider);
+            Calendar currentDate = new GregorianCalendar();
+            currentDate.setTime(new Date());
+            currentDate.add(Calendar.MINUTE, 10);
+
+            BigDecimal daysInYear = new BigDecimal(DatesUtil.getDaysInYear(currentDate));
+            BigDecimal percentDivider = new BigDecimal(INT_100).multiply(daysInYear);
+
+
+            try {
+                List<CreditItem> creditItems = this.creditItemBusinessBean.getCreditItemsByState(CreditItemStateEnum.ACTIVE);
+                for (CreditItem creditItem : creditItems) {
+                    processCreditItem(creditItem, currentDate, percentDivider);
+                }
+            } catch (SCDBusinessException e) {
+                //e.printStackTrace();
             }
-        } catch (SCDBusinessException e) {
-            //e.printStackTrace();
+        } catch (Throwable e) {
         }
 //        System.out.println("----------------------------------------------------");
     }
@@ -87,30 +91,25 @@ public class CreditItemJob extends QuartzJobBean {
             return;
         }
 
-        BigDecimal creditSum = creditItem.getSum();
-        BigDecimal percent = creditItem.getCredit().getPercent();
-        BigDecimal oneDayPercent = percent.divide(percentDivider, MATH_CONTEXT);
+        if (daysBetween > 0) {
+            BigDecimal creditSum = creditItem.getSum();
+            BigDecimal percent = creditItem.getCredit().getPercent();
+            BigDecimal oneDayPercent = percent.divide(percentDivider, MATH_CONTEXT);
 
-        // debt by percents
-        BigDecimal percentsDebt = oneDayPercent.multiply(creditSum);
-        //debt by penalty
-        BigDecimal penaltyDays = new BigDecimal(getOverdueDaysToPay(creditItem, currentDate, itemLastUpdated));
-        BigDecimal penaltyDebt = creditItem.getCredit().getPenaltyPercent().multiply(creditSum).multiply(penaltyDays);
+            // debt by percents
+            BigDecimal percentsDebt = oneDayPercent.multiply(creditSum).multiply(new BigDecimal(daysBetween));
+            //debt by penalty
+            BigDecimal penaltyDays = new BigDecimal(getOverdueDaysToPay(creditItem, currentDate, itemLastUpdated));
+            BigDecimal penaltyDebt = creditItem.getCredit().getPenaltyPercent().multiply(creditSum).multiply(penaltyDays);
 
+            BigDecimal commonDebt = percentsDebt.add(penaltyDebt);
+
+            Account creditAccount = creditItem.getCreditAccount();
+            creditAccount.setSum(creditAccount.getSum().add(commonDebt));
+
+        }
 
         creditItem.setLastUpdated(currentDate.getTime());
-
-        BigDecimal commonDebt = percentsDebt.add(penaltyDebt);
-
-        Account creditAccount = creditItem.getCreditAccount();
-        creditAccount.setSum(creditAccount.getSum().add(commonDebt));
-
-/*
-
-        creditItem.setCalculatedAmount(creditItem.getCalculatedAmount().add(percentsDebt).add(penaltyDebt));
-        creditItem.setPenaltyAmount(creditItem.getPenaltyAmount().add(penaltyDebt));
-*/
-
         creditItemBusinessBean.storeCreditItem(creditItem);
     }
 

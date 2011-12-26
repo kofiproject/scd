@@ -48,7 +48,10 @@ public class CreditItemBusinessBean extends AbstractBusinessBean {
     @Transactional(propagation = Propagation.REQUIRED)
     public CreditItem storeCreditItem(CreditItem creditItem) throws SCDBusinessException {
         try {
-            return getCRUDDataService().merge(creditItem);
+
+            CRUDDataService crudDataService = getCRUDDataService();
+            crudDataService.merge(creditItem.getCreditAccount());
+            return crudDataService.merge(creditItem);
         } catch (SCDTechnicalException e) {
             throw new SCDBusinessException(e);
         }
@@ -111,6 +114,7 @@ public class CreditItemBusinessBean extends AbstractBusinessBean {
 
             CreditItem creditItem = account.getCreditItem();
             creditItem.setState(CreditItemStateEnum.CLOSED);
+            creditItem.setClosingDate(new Date());
 
             return crudDataService.merge(creditItem);
         } catch (SCDTechnicalException e) {
