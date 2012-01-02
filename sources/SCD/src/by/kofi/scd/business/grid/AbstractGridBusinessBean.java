@@ -161,7 +161,7 @@ public abstract class AbstractGridBusinessBean<T extends ResultRow> extends Abst
      */
     public void downloadReport() throws SCDBusinessException {
         UserContext userContext = FacesUtil.getUserContext();
-        fileDownloadService.downloadFile(getGeneratedReport(), userContext);
+        fileDownloadService.downloadFile(getGeneratedReport(), userContext, true);
     }
 
     /**

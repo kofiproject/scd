@@ -190,4 +190,15 @@ public class CreditItemBusinessBean extends AbstractBusinessBean {
         return result;
     }
 
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public PercentHistory storePercentHistory(PercentHistory percentHistory) throws SCDBusinessException {
+        try {
+
+            CRUDDataService crudDataService = getCRUDDataService();
+            return crudDataService.merge(percentHistory);
+        } catch (SCDTechnicalException e) {
+            throw new SCDBusinessException(e);
+        }
+    }
 }

@@ -10,8 +10,6 @@
       xmlns:f="http://java.sun.com/jsf/core"
         >
 
-<h:outputScript library="js/components" name="payment.js"/>
-
 <rich:popupPanel header="Pay" id="paymentPopup"
                  autosized="true" modal="true">
 
@@ -38,6 +36,7 @@
                                     jQuery('[id $= processpaymentBtn]').click();
                                     "
                            id="paymentPaybtn"
+                           disabled="true"
                 />
         &#160;&#160;
         <a4j:commandButton value="Cancel"

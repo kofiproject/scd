@@ -31,9 +31,8 @@ import java.util.List;
  *         Time: 21:53
  */
 @Service
-public class ReportGeneratorService implements ReportGenerator {
+public class ReportGeneratorService extends AbstractReportGenerator implements ReportGenerator {
     private static final Logger LOGGER = Logger.getLogger(ReportGeneratorService.class);
-    private static final String DATE_FORMAT = "yyyyMMdd";
     private static final String REPORT_DATE_FORMAT = "dd-MM-yyyy HH:mm";
 
     @Autowired
@@ -55,7 +54,7 @@ public class ReportGeneratorService implements ReportGenerator {
         FileOutputStream out = null;
         File file = null;
         try {
-            file = createFile(userContext);
+            file = createFile(userContext, ".xls");
             out = new FileOutputStream(file);
         } catch (IOException e) {
             LOGGER.error(e);
@@ -219,34 +218,6 @@ public class ReportGeneratorService implements ReportGenerator {
         }
 
         return file;
-    }
-
-    /**
-     * Create empty file with predefined name
-     *
-     * @param userContext userContext
-     * @return file
-     * @throws IOException file creation error
-     */
-    private File createFile(UserContext userContext) throws IOException {
-        SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT);
-        Calendar calendar = Calendar.getInstance(); // today
-
-        String fileName = userContext.hashCode() +
-                "_" +
-                sdf.format(calendar.getTime()) +
-                ".xls";
-        File file = new File(getRootPath(), fileName);
-        file.createNewFile();
-        return file;
-    }
-
-    /**
-     * @return root path for generated file
-     */
-    private String getRootPath() {
-        ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
-        return externalContext.getRealPath("../");
     }
 
 }

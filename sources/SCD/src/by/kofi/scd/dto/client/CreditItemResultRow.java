@@ -18,6 +18,7 @@ public class CreditItemResultRow extends CreditItem implements ResultRow {
     private long calculatedAmount;
     private long paidAmount;
     private String clientName;
+    private Long percentsSum;
 
     /**
      * Constructor to init fields from CreditItem instance
@@ -30,14 +31,16 @@ public class CreditItemResultRow extends CreditItem implements ResultRow {
         this.accountNumber = creditItem.getCreditAccount().getAccountNumber();
         setSum(creditItem.getSum());
         setTerm(creditItem.getTerm());
-        setCalculatedAmount(creditItem.getCreditAccount().getSum().longValue());
         setPaidAmount(creditItem.getPaymentsAccount().getSum().longValue());
+        setCalculatedAmount(creditItem.getCreditAccount().getSum().longValue() - getPaidAmount());
         this.creditId = creditItem.getCredit().getCreditId();
         Client client = creditItem.getClient();
         this.clientId = client.getClientId();
 
         this.clientName = client.getSurname() + " " + client.getName();
         setState(creditItem.getState());
+
+        setPercentsSum(creditItem.getCreditAccount().getSum().longValue() - creditItem.getSum().longValue());
     }
 
 
@@ -70,7 +73,7 @@ public class CreditItemResultRow extends CreditItem implements ResultRow {
 
     @Override
     public Long getClientId() {
-        return  this.clientId;
+        return this.clientId;
     }
 
     public long getCalculatedAmount() {
@@ -95,5 +98,13 @@ public class CreditItemResultRow extends CreditItem implements ResultRow {
 
     public void setClientName(String clientName) {
         this.clientName = clientName;
+    }
+
+    public Long getPercentsSum() {
+        return percentsSum;
+    }
+
+    public void setPercentsSum(Long percentsSum) {
+        this.percentsSum = percentsSum;
     }
 }

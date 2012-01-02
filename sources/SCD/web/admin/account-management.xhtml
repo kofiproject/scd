@@ -1,0 +1,77 @@
+<ui:composition template="/templates/admin/admin.xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:grid="http://java.sun.com/jsf/composite/components"
+                xmlns:c="http://java.sun.com/jstl/core"
+                xmlns:popup="http://java.sun.com/jsf/composite/components/admin"
+        >
+    <ui:define name="script">
+        <h:outputScript library="js/login" name="numeric.js"/>
+        <h:outputScript library="js/components" name="payment.js"/>
+    </ui:define>
+
+    <ui:define name="header">
+        Account management
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <br/>
+            <h:outputText value="Bank account state:  "/>
+            <h:outputText value="#{accountManagementController.account.sum}"/>
+            <br/>
+            <br/>
+
+            <a4j:commandButton value="Add money"
+                               onclick="#{rich:component('updateAccountPopUp')}.show()"
+                    />
+
+        </h:form>
+
+
+        <rich:popupPanel header="Pay" id="updateAccountPopUp"
+                         autosized="true" modal="true">
+
+            <h:inputText required="true"
+                         id="paymentSum"
+                         styleClass="numeric"
+                    >
+                <f:validateDoubleRange/>
+            </h:inputText>
+            <br/>
+            <br/>
+
+            <div style="text-align: center;">
+                <h:commandButton value="Pay"
+                                   onclick="#{rich:component('panel_loading')}.show();
+                                    jQuery('[id $= paymentSumReal]').val(jQuery('[id $= paymentSum]').val());
+                                    jQuery('[id $= processpaymentBtn]').click();
+                                    "
+                                   id="paymentPaybtn"
+                                   disabled="true"
+                        />
+                &#160;&#160;
+                <a4j:commandButton value="Cancel"
+                                   onclick="#{rich:component('updateAccountPopUp')}.hide(); return false;"/>
+            </div>
+        </rich:popupPanel>
+
+        <h:form>
+            <div class="invisible">
+                <h:commandButton id="processpaymentBtn"
+                                   action="#{accountManagementController.addSum}"
+                                   oncomplete="#{rich:component('panel_loading')}.hide();
+                                       #{rich:component('updateAccountPopUp')}.hide();"
+                        />
+
+                <h:inputText id="paymentSumReal"
+                             value="#{accountManagementController.sum}"/>
+            </div>
+        </h:form>
+
+
+    </ui:define>
+
+</ui:composition>

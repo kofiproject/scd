@@ -44,7 +44,7 @@ public class UnauthorizedAccessFilter implements javax.servlet.Filter {
 
             if (userContext == null) {
                 HttpServletResponse response = (HttpServletResponse) resp;
-                response.sendRedirect("/");
+                response.sendRedirect("/scd");
             } else {
                 chain.doFilter(req, resp);
             }

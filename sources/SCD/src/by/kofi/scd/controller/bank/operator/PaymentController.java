@@ -149,8 +149,9 @@ public class PaymentController extends AbstractGridBusinessBean {
                 GridColumn.ISSUENCE_DATE,
                 GridColumn.CREDIT_NAME,
 //                GridColumn.ACCOUNT_NUMBER,
-                GridColumn.SUM,
                 GridColumn.TERM,
+                GridColumn.SUM,
+                GridColumn.SUM_PERCENTS,
                 GridColumn.SUM_TO_PAY,
                 GridColumn.SUM_PAYED};
     }

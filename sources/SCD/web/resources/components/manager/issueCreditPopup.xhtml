@@ -18,31 +18,43 @@
 <!-- IMPLEMENTATION -->
 <composite:implementation>
 
-        <rich:popupPanel header="Issue" id="issueCreditPopup"
-                         autosized="true" modal="true"
+    <rich:popupPanel header="Issue" id="issueCreditPopup"
+                     autosized="true" modal="true"
+            >
+
+        Are you sure you want to issue credit?
+        <div style="text-align: center;">
+            <a4j:commandButton value="Ok"
+                               styleClass="popup-btn"
+                               action="#{creditsToIssueController.issueCreditRequest}"
+                               onclick="#{rich:component('panel_loading')}.show()"
+                               oncomplete="jQuery('[id $= contract-btn]').click();"
+                               render="table"
+                               execute="issueCreditPopup"
+                    >
+                <f:param name="creditRequestId" value="#{creditsToIssueController.creditRequestId}"/>
+            </a4j:commandButton>
+            &#160;&#160;
+            <a4j:commandButton value="Cancel"
+                               onclick="#{rich:component('issueCreditPopup')}.hide(); return false;"
+                               styleClass="popup-btn"
+                    />
+
+
+        </div>
+
+
+    </rich:popupPanel>
+
+    <h:form>
+        <h:commandLink id="contract-btn"
+                       style="display: none;"
+                       action="#{creditsToIssueController.downloadContract}"
+                       onclick="#{rich:component('panel_loading')}.hide();#{rich:component('issueCreditPopup')}.hide()"
                 >
-
-
-            Are you sure you want to issue credit?
-            <div style="text-align: center;">
-                <a4j:commandButton value="Ok"
-                                 oncomplete="#{rich:component('issueCreditPopup')}.hide(); return false;"
-                                 styleClass="popup-btn"
-                                 action="#{creditsToIssueController.issueCreditRequest}"
-                                 render="table"
-                                 execute="issueCreditPopup"
-                        >
-                    <f:param name="creditRequestId" value="#{creditsToIssueController.creditRequestId}"/>
-                </a4j:commandButton>
-                &#160;&#160;
-                <a4j:commandButton value="Cancel"
-                                   onclick="#{rich:component('issueCreditPopup')}.hide(); return false;"
-                                   styleClass="popup-btn"
-                        />
-            </div>
-        </rich:popupPanel>
-
-
+            <f:param name="creditRequestId" value="#{creditsToIssueController.creditRequestId}"/>
+        </h:commandLink>
+    </h:form>
 </composite:implementation>
 
 </html>

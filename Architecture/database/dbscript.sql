@@ -513,6 +513,35 @@ Credit is given for up to one year within the solvency of the borrower:
 12, 0);
 
 
+DROP SEQUENCE SQ_PERCENT_HISTORY;
+
+CREATE SEQUENCE SQ_PERCENT_HISTORY
+    START WITH 1
+    INCREMENT BY 1
+    NOMINVALUE
+    NOMAXVALUE
+    CACHE 20
+    NOORDER
+;
+
+
+DROP TABLE PERCENT_HISTORY CASCADE CONSTRAINTS ;
+
+CREATE TABLE PERCENT_HISTORY(
+    ID        NUMBER(38, 0)    NOT NULL,
+    charge_date   DATE    NOT NULL, /* ???? ?????????? */
+    credit_item_id        NUMBER(38, 0)    NOT NULL,
+    percent_sum        NUMBER(20, 10)    NOT NULL,
+    debt_sum        NUMBER(20, 10)    NOT NULL,
+    CONSTRAINT PK4_1_8_2 PRIMARY KEY (ID)
+)
+;
+
+ALTER TABLE PERCENT_HISTORY ADD CONSTRAINT RefCreditItem4433
+    FOREIGN KEY (credit_item_id)
+    REFERENCES CREDIT_ITEM(CREDIT_ITEM_ID)
+;
+
     
 insert into SCD_USER
 values (0, 'admin', 4)

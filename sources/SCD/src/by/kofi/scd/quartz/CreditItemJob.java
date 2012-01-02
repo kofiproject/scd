@@ -59,7 +59,7 @@ public class CreditItemJob extends QuartzJobBean {
     @Override
     protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         try {
-            Calendar currentDate = new GregorianCalendar();
+           Calendar currentDate = new GregorianCalendar();
             currentDate.setTime(new Date());
             currentDate.add(Calendar.MINUTE, 10);
 
@@ -70,7 +70,7 @@ public class CreditItemJob extends QuartzJobBean {
             try {
                 List<CreditItem> creditItems = this.creditItemBusinessBean.getCreditItemsByState(CreditItemStateEnum.ACTIVE);
                 for (CreditItem creditItem : creditItems) {
-                    processCreditItem(creditItem, currentDate, percentDivider);
+                    //processCreditItem(creditItem, currentDate, percentDivider);
                 }
             } catch (SCDBusinessException e) {
                 //e.printStackTrace();

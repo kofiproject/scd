@@ -1,10 +1,11 @@
 package by.kofi.scd.controller.manager;
 
-import by.kofi.scd.business.client.ClientBusinessBean;
 import by.kofi.scd.business.credit.CreditItemBusinessBean;
 import by.kofi.scd.business.credit.CreditRequestBusinessBean;
-import by.kofi.scd.business.mail.MailBusinessBean;
-import by.kofi.scd.entity.Client;
+import by.kofi.scd.business.download.FileDownloadService;
+import by.kofi.scd.business.download.contract.ContractGeneratorService;
+import by.kofi.scd.common.FacesUtil;
+import by.kofi.scd.dto.UserContext;
 import by.kofi.scd.entity.CreditRequest;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Controller;
 
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 
 /**
  * @author harchevnikov_m
@@ -24,12 +26,26 @@ import javax.servlet.http.HttpServletRequest;
 @Scope("request")
 public class CreditsToIssueController {
     private Long creditRequestId;
+    private File generatedContract;
 
     @Autowired
     @Qualifier("ciBB")
     private CreditItemBusinessBean creditItemBusinessBean;
     @Autowired
     private CreditRequestBusinessBean creditRequestBusinessBean;
+
+    @Autowired
+    private ContractGeneratorService contractGeneratorService;
+    @Autowired
+    private FileDownloadService fileDownloadService;
+
+    public File getGeneratedContract() {
+        return generatedContract;
+    }
+
+    public void setGeneratedContract(File generatedContract) {
+        this.generatedContract = generatedContract;
+    }
 
     public Long getCreditRequestId() {
         return creditRequestId;
@@ -48,8 +64,30 @@ public class CreditsToIssueController {
             CreditRequest creditRequest = creditRequestBusinessBean.getCreditRequestById(creditRequestId);
 
             creditItemBusinessBean.createCreditItem(creditRequest);
+
+             FacesUtil.getSession().setAttribute("req_id", creditRequestId);
+
         } catch (SCDBusinessException e) {
             throw new SCDBusinessException(e.getMessage(), e);
         }
     }
+
+    /**
+     * Write report in http response and remove file
+     *
+     * @throws SCDBusinessException report download error
+     */
+    public void downloadContract() throws SCDBusinessException {
+        FacesContext context = FacesContext.getCurrentInstance();
+
+        Object req_id = FacesUtil.getSession().getAttribute("req_id");
+        Long creditRequestId = Long.parseLong(req_id.toString());
+
+        CreditRequest creditRequest = creditRequestBusinessBean.getCreditRequestById(creditRequestId);
+
+        UserContext userContext = FacesUtil.getUserContext();
+        File contract = contractGeneratorService.generateReport(creditRequest, userContext);
+        fileDownloadService.downloadFile(contract, userContext, true);
+    }
+
 }

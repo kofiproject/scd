@@ -1,5 +1,6 @@
 package by.kofi.scd.business;
 
+import by.kofi.scd.dataservice.CRUDDataService;
 import by.kofi.scd.entity.Account;
 import by.kofi.scd.entity.AccountTypeEnum;
 import by.kofi.scd.entity.SCDUser;
@@ -56,6 +57,16 @@ public class AccountBusinessBean extends AbstractBusinessBean {
             return getCRUDDataService().list(Account.class);
         } catch (SCDTechnicalException e) {
             throw new SCDBusinessException(e);
+        }
+    }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public Account merge(Account account) throws SCDBusinessException {
+         try {
+            CRUDDataService crudDataService = getCRUDDataService();
+            return crudDataService.merge(account);
+        } catch (SCDTechnicalException e) {
+            throw new SCDBusinessException(e.getMessage(), e);
         }
     }
 

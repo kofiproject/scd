@@ -36,7 +36,7 @@ public class FileDownloadService {
      * @throws by.kofi.scd.exceptions.SCDBusinessException
      *          error
      */
-    public void downloadFile(File file, UserContext userContext) throws SCDBusinessException {
+    public void downloadFile(File file, UserContext userContext, boolean deleteFile) throws SCDBusinessException {
         try {
             ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 
@@ -50,7 +50,9 @@ public class FileDownloadService {
             outputStream.flush();
             outputStream.close();
 
-            file.delete();
+            if (deleteFile) {
+                file.delete();
+            }
         } catch (IOException e) {
             LOGGER.error("download report for: " + userContext);
             throw new SCDBusinessException("download report for: " + userContext, e);

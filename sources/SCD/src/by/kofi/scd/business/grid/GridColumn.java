@@ -14,6 +14,7 @@ public enum GridColumn {
 //    ACCOUNT_NUMBER("accountNumber", "grid.client.credits.accountNo"),
     SUM("sum", "grid.client.credits.sum"),
     TERM("term", "grid.client.credits.term"),
+    SUM_PERCENTS("percentsSum", "grid.client.credits.percentsSum"),
     SUM_TO_PAY("calculatedAmount", "grid.client.credits.sumToPay"),
     SUM_PAYED("paidAmount", "grid.client.credits.sumPayed"),
 

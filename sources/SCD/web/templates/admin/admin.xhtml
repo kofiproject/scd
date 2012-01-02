@@ -63,6 +63,18 @@
                         </h:commandLink>
                     </rich:panelMenuItem>
 
+                    <rich:panelMenuItem icon="disc" id="id3">
+                        <h:commandLink immediate="true"
+                                       styleClass="left-menu-item"
+                                       value="Account management"
+                                       action="/admin/account-management"
+                                       style="text-align: center;   "
+                                >
+                            <f:setPropertyActionListener target="#{menuController.activeMenuItem}"
+                                                         value="id3"/>
+                        </h:commandLink>
+                    </rich:panelMenuItem>
+
                 </rich:panelMenu>
             </h:panelGrid>
         </h:form>

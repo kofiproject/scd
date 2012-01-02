@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * @author harchevnikov_m
@@ -198,4 +199,16 @@ public class CreditItem extends AbstractEntity {
     public Serializable getEntityId() {
         return getCreditItemId();
     }
+
+    private Set<PercentHistory> percentHistories;
+
+    @OneToMany(mappedBy = "creditItem", cascade = CascadeType.REMOVE)
+    public Set<PercentHistory> getPercentHistories() {
+        return percentHistories;
+    }
+
+    public void setPercentHistories(Set<PercentHistory> percentHistories) {
+        this.percentHistories = percentHistories;
+    }
+
 }

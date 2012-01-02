@@ -6,7 +6,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:rich="http://richfaces.org/rich"
-      xmlns:a4j="http://richfaces.org/a4j" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:composite="http://java.sun.com/jsf/composite"
         >
 <!-- INTERFACE -->
@@ -20,7 +21,8 @@
 
         <rich:popupPanel header="Client Details" id="clientDetails"
                          autosized="true" modal="true"
-                         onmaskclick="#{rich:component('clientDetails')}.hide()">
+                         onmaskclick="#{rich:component('clientDetails')}.hide()"
+                >
 
 
             <h:panelGrid columns="2"
