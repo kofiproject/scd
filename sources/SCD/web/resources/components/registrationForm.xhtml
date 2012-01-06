@@ -30,6 +30,7 @@
             <h:inputText id="surname" size="20" value="#{cc.attrs.bean.client.surname}"
                          validator="#{registrationValidator.validateShortString}"
                          required="true"
+                         styleClass="word"
                          requiredMessage="#{bundle['registration.validator.required']}"/>
         </h:panelGroup>
         <h:panelGroup>
@@ -43,6 +44,7 @@
             <h:inputText id="name" size="20" value="#{cc.attrs.bean.client.name}"
                          validator="#{registrationValidator.validateShortString}"
                          required="true"
+                         styleClass="word"
                          requiredMessage="#{bundle['registration.validator.required']}"/>
         </h:panelGroup>
         <h:panelGroup>
@@ -53,7 +55,8 @@
             <h:outputLabel value="#{bundle['registration.middlename']}"/>
         </h:panelGroup>
         <h:panelGroup>
-            <h:inputText id="middleName" size="20" value="#{cc.attrs.bean.client.middleName}"/>
+            <h:inputText id="middleName" size="20" value="#{cc.attrs.bean.client.middleName}"
+                    styleClass="word"/>
         </h:panelGroup>
         <h:panelGroup>
             <h:message styleClass="errorMsg" for="middleName"/>

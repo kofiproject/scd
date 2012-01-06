@@ -30,7 +30,7 @@
     <br/>
 
     <div style="text-align: center;">
-        <a4j:commandButton value="Pay"
+        <h:commandButton value="Pay"
                            onclick="#{rich:component('panel_loading')}.show();
                                     jQuery('[id $= paymentSumReal]').val(jQuery('[id $= paymentSum]').val());
                                     jQuery('[id $= processpaymentBtn]').click();
@@ -39,7 +39,7 @@
                            disabled="true"
                 />
         &#160;&#160;
-        <a4j:commandButton value="Cancel"
+        <h:commandButton value="Cancel"
                            onclick="#{rich:component('paymentPopup')}.hide(); return false;"/>
     </div>
 </rich:popupPanel>
@@ -47,7 +47,7 @@
 
 <h:form>
     <div class="invisible">
-        <a4j:commandButton id="processpaymentBtn"
+        <h:commandButton id="processpaymentBtn"
                            action="#{paymentController.makePayment}"
                            render="table"
                            oncomplete="#{rich:component('panel_loading')}.hide();

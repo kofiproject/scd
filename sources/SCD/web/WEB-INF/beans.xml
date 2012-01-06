@@ -78,7 +78,7 @@
         <property name="jobDetail" ref="creditJob"/>
         <!--every 2 seconds -->
         <property name="cronExpression" value="0 0 23 * * ?"/>
-        <!--<property name="cronExpression" value="0/10 * * * * ?"/>-->
+         <!--<property name="cronExpression" value="0/20 * * * * ?"/>-->
     </bean>
 
     <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">

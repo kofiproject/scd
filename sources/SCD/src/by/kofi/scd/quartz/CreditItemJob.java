@@ -1,9 +1,7 @@
 package by.kofi.scd.quartz;
 
 import by.kofi.scd.business.credit.CreditItemBusinessBean;
-import by.kofi.scd.entity.Account;
-import by.kofi.scd.entity.CreditItem;
-import by.kofi.scd.entity.CreditItemStateEnum;
+import by.kofi.scd.entity.*;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import by.kofi.scd.util.DatesUtil;
 import org.apache.log4j.Logger;
@@ -17,10 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
+import java.util.*;
 
 /**
  * Job to update creditItems sum to pay
@@ -39,6 +34,7 @@ public class CreditItemJob extends QuartzJobBean {
 
     private CreditItemBusinessBean creditItemBusinessBean;
 //    private AccountBusinessBean accountBusinessBean;
+//    private AccountBusinessBean accountBusinessBean;
 
     public CreditItemBusinessBean getCreditItemBusinessBean() {
         return creditItemBusinessBean;
@@ -48,49 +44,98 @@ public class CreditItemJob extends QuartzJobBean {
         this.creditItemBusinessBean = creditItemBusinessBean;
     }
 
-    /*  public AccountBusinessBean getAccountBusinessBean() {
-            return accountBusinessBean;
-        }
-
-        public void setAccountBusinessBean(AccountBusinessBean accountBusinessBean) {
-            this.accountBusinessBean = accountBusinessBean;
-        }
-    */
     @Override
     protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         try {
-           Calendar currentDate = new GregorianCalendar();
-            currentDate.setTime(new Date());
-            currentDate.add(Calendar.MINUTE, 10);
+            Date date = new Date();
+
+            final Calendar currentDate = new GregorianCalendar();
+            currentDate.clear();
+            currentDate.setTime(date);
 
             BigDecimal daysInYear = new BigDecimal(DatesUtil.getDaysInYear(currentDate));
             BigDecimal percentDivider = new BigDecimal(INT_100).multiply(daysInYear);
 
 
             try {
-                List<CreditItem> creditItems = this.creditItemBusinessBean.getCreditItemsByState(CreditItemStateEnum.ACTIVE);
+                List<CreditItem> creditItems = this.creditItemBusinessBean.getCreditItemsWithPaymentsByState(CreditItemStateEnum.ACTIVE);
                 for (CreditItem creditItem : creditItems) {
-                    //processCreditItem(creditItem, currentDate, percentDivider);
+                    processCreditItem(creditItem, currentDate, percentDivider);
                 }
             } catch (SCDBusinessException e) {
                 //e.printStackTrace();
             }
         } catch (Throwable e) {
         }
-//        System.out.println("----------------------------------------------------");
+    }
+
+    private void clearTimepart(Calendar date) {
+        date.set(Calendar.HOUR_OF_DAY, 0);
+        date.set(Calendar.MINUTE, 0);
+        date.set(Calendar.SECOND, 0);
+        date.set(Calendar.MILLISECOND, 0);
     }
 
     @Transactional(propagation = Propagation.REQUIRED)
     private void processCreditItem(CreditItem creditItem, Calendar currentDate, BigDecimal percentDivider) throws SCDBusinessException {
         Calendar itemLastUpdated = new GregorianCalendar();
         itemLastUpdated.setTime(creditItem.getLastUpdated());
+        clearTimepart(itemLastUpdated);
 
-        long daysBetween = DatesUtil.getDaysBetween(itemLastUpdated, currentDate);
-        if (daysBetween < 0) {
-            LOGGER.error("processCreditItem: negative days delta form creditItem id= " + creditItem.getCreditItemId());
-            return;
+        Calendar currentCleared = Calendar.getInstance();
+        currentCleared.setTime(currentDate.getTime());
+        clearTimepart(currentCleared);
+
+        Calendar penaltyDeadLine = new GregorianCalendar();
+        penaltyDeadLine.setTime(creditItem.getIssuanceDate());
+        penaltyDeadLine.add(Calendar.MONTH, creditItem.getTerm().intValue());
+
+        Set<Payment> payments = creditItem.getPayments();
+        Account creditAccount = creditItem.getCreditAccount();
+        Account debtAccount = creditItem.getDebitAccount();
+
+        long daysBetween = DatesUtil.getDaysBetween(itemLastUpdated, currentCleared);
+
+        BigDecimal creditSum = debtAccount.getSum();
+        BigDecimal totalDebtSum = creditAccount.getSum();
+        BigDecimal percent = creditItem.getCredit().getPercent();
+        BigDecimal oneDayPercent = percent.divide(percentDivider, MATH_CONTEXT);
+
+        for (int i = 1; i <= daysBetween; i++) {
+            itemLastUpdated.add(Calendar.DAY_OF_YEAR, 1);
+
+            BigDecimal payedSum = getPaymentSumIncludingDate(payments, itemLastUpdated);
+            BigDecimal debtSum = totalDebtSum.subtract(payedSum);
+
+            if(debtSum.compareTo(creditSum) < 0) {
+                creditSum = debtSum;
+            }
+
+            debtSum = debtSum.min(creditSum);
+            debtSum = debtSum.multiply(oneDayPercent);
+
+            //penalty
+            if (itemLastUpdated.after(penaltyDeadLine)) {
+                debtSum = debtSum.add(creditSum.multiply(creditItem.getCredit().getPenaltyPercent()));
+            }
+
+            totalDebtSum = totalDebtSum.add(debtSum);
+
+            PercentHistory history = new PercentHistory();
+            history.setChargeDate(itemLastUpdated.getTime());
+            history.setCreditItem(creditItem);
+            history.setDebtSum(creditSum);
+            history.setPercentSum(debtSum);
+            creditItemBusinessBean.storePercentHistory(history);
         }
 
+//        creditAccount.setSum(totalDebtSum);
+//        debtAccount.setSum(creditSum);
+
+        creditItem.setLastUpdated(currentDate.getTime());
+        creditItemBusinessBean.storeCreditItem(creditItem);
+
+/*
         if (daysBetween > 0) {
             BigDecimal creditSum = creditItem.getSum();
             BigDecimal percent = creditItem.getCredit().getPercent();
@@ -107,10 +152,17 @@ public class CreditItemJob extends QuartzJobBean {
             Account creditAccount = creditItem.getCreditAccount();
             creditAccount.setSum(creditAccount.getSum().add(commonDebt));
 
+            PercentHistory history = new PercentHistory();
+            history.setChargeDate(currentDate.getTime());
+            history.setCreditItem(creditItem);
+            history.setDebtSum(creditSum);
+            history.setPercentSum(commonDebt);
+            creditItemBusinessBean.storePercentHistory(history);
         }
 
         creditItem.setLastUpdated(currentDate.getTime());
         creditItemBusinessBean.storeCreditItem(creditItem);
+*/
     }
 
     /**
@@ -135,4 +187,21 @@ public class CreditItemJob extends QuartzJobBean {
             return DatesUtil.getDaysBetween(itemIssuanceDate, currentDate);
         }
     }
+
+    private BigDecimal getPaymentSumIncludingDate(Set<Payment> payments, Calendar calendar) {
+        Calendar dateC = Calendar.getInstance();
+        dateC.setTimeInMillis(calendar.getTimeInMillis());
+        dateC.add(Calendar.DAY_OF_YEAR, 1);
+        Date date = dateC.getTime();
+
+        BigDecimal result = BigDecimal.ZERO;
+        for (Payment payment : payments) {
+            if (payment.getPaymentDate().before(date)) {
+                result = result.add(payment.getAmount());
+            }
+        }
+
+        return result;
+    }
+
 }

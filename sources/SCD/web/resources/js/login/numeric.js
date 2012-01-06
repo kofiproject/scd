@@ -6,17 +6,21 @@ $(document).ready(function() {
         var isControlKey = controlKeys.join(",").match(new RegExp(event.which));
 
         if (isControlKey) {
-        return;
+            return;
         }
 
         var currVal = $(this).val();
 
-        if(event.which == 46) {
-            if(currVal.length == 0) {
+        if (currVal.length > 15) {
+            return false;
+        }
+
+        if (event.which == 46) {
+            if (currVal.length == 0) {
                 return false;
             }
             var existDot = currVal.match(new RegExp(/\./g));
-            if(existDot) {
+            if (existDot) {
                 return false;
             }
         }
@@ -47,5 +51,14 @@ $(document).ready(function() {
          return false;
          }
          */
+    });
+
+
+    jQuery('.word').live('keypress', function (event) {
+        // Allow only backspace and delete
+        if (event.which <= 57 && event.which >= 48) {
+            event.preventDefault();
+            return false;
+        }
     });
 });

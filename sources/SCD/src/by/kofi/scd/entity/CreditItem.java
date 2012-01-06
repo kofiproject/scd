@@ -160,6 +160,7 @@ public class CreditItem extends AbstractEntity {
         this.lastUpdated = lastUpdated;
     }
 
+
     @Override
     public boolean entityEquals(Object o) {
         if (this == o) return true;
@@ -211,4 +212,14 @@ public class CreditItem extends AbstractEntity {
         this.percentHistories = percentHistories;
     }
 
+    private Set<Payment> payments;
+
+    @OneToMany(mappedBy = "creditItem")
+    public Set<Payment> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(Set<Payment> payments) {
+        this.payments = payments;
+    }
 }

@@ -89,6 +89,17 @@ public class Payment extends AbstractEntity {
         this.employee = employee;
     }
 
+    private CreditItem creditItem;
+
+    @ManyToOne
+    @JoinColumn(name = "CREDIT_ITEM_ID", referencedColumnName = "CREDIT_ITEM_ID")
+    public CreditItem getCreditItem() {
+        return creditItem;
+    }
+
+    public void setCreditItem(CreditItem creditItem) {
+        this.creditItem = creditItem;
+    }
 
     @Override
     public boolean entityEquals(Object o) {

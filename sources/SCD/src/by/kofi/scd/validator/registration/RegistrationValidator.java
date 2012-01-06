@@ -52,9 +52,9 @@ public class RegistrationValidator {
      */
     private static final Integer CACHE_INCOME_MIN_LENGTH = 5;
     /**
-     * Passport number min length
+     * Passport number length
      */
-    private static final Integer PASSPORT_NO_MIN_LENGTH = 5;
+    private static final Integer PASSPORT_NO_LENGTH = 7;
     /**
      * Email pattern
      */
@@ -170,9 +170,9 @@ public class RegistrationValidator {
     public void validatePassportData(FacesContext facesContext, UIComponent uiComponent, Object o) {
         //first check passport length
         Long passportNo = o != null ? Long.parseLong(o.toString()) : null;
-        if (passportNo.toString().length() < PASSPORT_NO_MIN_LENGTH) {
+        if (passportNo.toString().length() != PASSPORT_NO_LENGTH) {
             ((UIInput) uiComponent).setValid(false);
-            FacesMessage message = new FacesMessage(I18nSupport.getText("registration.validator.stringMsg", PASSPORT_NO_MIN_LENGTH));
+            FacesMessage message = new FacesMessage(I18nSupport.getText("registration.validator.stringMsg", PASSPORT_NO_LENGTH));
             facesContext.addMessage(uiComponent.getClientId(facesContext), message);
 
             return;
@@ -215,7 +215,7 @@ public class RegistrationValidator {
 
     private void validateStringLength(FacesContext facesContext, UIComponent uiComponent, Object o,
                                       String messageStr, Integer minLength) {
-        String value = o != null ? o.toString() : "";
+        String value = o != null ? o.toString().trim() : "";
 
         if (value.length() < minLength) {
             ((UIInput) uiComponent).setValid(false);

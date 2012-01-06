@@ -19,6 +19,7 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author harchevnikov_m
@@ -39,7 +40,20 @@ public class CreditItemBusinessBean extends AbstractBusinessBean {
     @Transactional(propagation = Propagation.REQUIRED)
     public CreditItem getCreditItemById(long creditItemId) throws SCDBusinessException {
         try {
-            return getCRUDDataService().find(CreditItem.class, creditItemId);
+            CreditItem result = getCRUDDataService().find(CreditItem.class, creditItemId);
+
+            try {
+                Set<PercentHistory> p = result.getPercentHistories();
+
+                if (p != null) {
+                    for (PercentHistory i : p) {
+                        i.getEntityId();
+                    }
+                }
+            } catch (Exception ex) {
+
+            }
+            return result;
         } catch (SCDTechnicalException e) {
             throw new SCDBusinessException(e);
         }
@@ -65,6 +79,24 @@ public class CreditItemBusinessBean extends AbstractBusinessBean {
             throw new SCDBusinessException(e);
         }
     }
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    public List<CreditItem> getCreditItemsWithPaymentsByState(CreditItemStateEnum state) throws SCDBusinessException {
+        try {
+            List<CreditItem> items = creditItemDataService.getCreditItemsByState(state);
+            for (CreditItem item : items) {
+                Set<Payment> payments = item.getPayments();
+                for (Payment payment : payments) {
+                    payment.getPaymentId();
+                }
+            }
+            return items;
+        } catch (SCDTechnicalException e) {
+            throw new SCDBusinessException(e);
+        }
+    }
+
+
 
     @Transactional(propagation = Propagation.REQUIRED)
     public CreditItem createCreditItem(CreditRequest creditRequest) throws SCDBusinessException {
@@ -145,30 +177,31 @@ public class CreditItemBusinessBean extends AbstractBusinessBean {
             throw new SCDBusinessException(e);
         }
     }
-/*
- private int newCreditsCount;
-    private int closedCreditsCount;
-    private int withPenaltyCreditsCount;
-*/
+
+    /*
+     private int newCreditsCount;
+        private int closedCreditsCount;
+        private int withPenaltyCreditsCount;
+    */
     @Transactional(propagation = Propagation.REQUIRED)
     public int getNewCreditsCount(Date start, Date end) {
         Session session = getCRUDDataService().getNativeHibernateSession();
         Query query = session.createQuery("select count(ci) from CreditItem ci where ci.issuanceDate between :start and :end")
                 .setDate("start", start).setDate("end", end);
         Object o = query.uniqueResult();
-        return ((Long)o).intValue();
+        return ((Long) o).intValue();
     }
 
-     @Transactional(propagation = Propagation.REQUIRED)
-     public int getClosedCount(Date start, Date end) {
+    @Transactional(propagation = Propagation.REQUIRED)
+    public int getClosedCount(Date start, Date end) {
         Session session = getCRUDDataService().getNativeHibernateSession();
         Query query = session.createQuery("select count(ci) from CreditItem ci where ci.closingDate between :start and :end")
                 .setDate("start", start).setDate("end", end);
         Object o = query.uniqueResult();
-        return ((Long)o).intValue();
+        return ((Long) o).intValue();
     }
 
-     @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.REQUIRED)
     public int getWithPenaltyCount(Date start, Date end) {
         Session session = getCRUDDataService().getNativeHibernateSession();
         Query query = session.createQuery("select ci from CreditItem ci where ci.issuanceDate >= :start")

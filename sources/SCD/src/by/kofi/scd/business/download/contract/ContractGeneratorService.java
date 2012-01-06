@@ -1,25 +1,15 @@
 package by.kofi.scd.business.download.contract;
 
-import by.kofi.scd.business.AccountBusinessBean;
-import by.kofi.scd.business.PaymentBusinessBean;
 import by.kofi.scd.business.download.AbstractReportGenerator;
-import by.kofi.scd.business.download.ReportGenerator;
 import by.kofi.scd.dto.UserContext;
-import by.kofi.scd.entity.*;
+import by.kofi.scd.entity.CreditRequest;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import org.apache.log4j.Logger;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.*;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.poi.hwpf.HWPFDocument;
+import org.apache.poi.hwpf.extractor.WordExtractor;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
+import java.io.*;
 
 /**
  * @author harchevnikov_m
@@ -33,18 +23,42 @@ public class ContractGeneratorService extends AbstractReportGenerator {
 
     public File generateReport(CreditRequest creditRequest, UserContext userContext) throws SCDBusinessException {
 
-        //todo generate report
-
-        FileOutputStream out = null;
         File file = null;
         try {
+            //todo generate report
+            String name = creditRequest.getClient().toString();
+            String oldName = "_name_";
+            String summ = creditRequest.getSum().toString();
+            String oldSum = "_summ_";
+            String percent = creditRequest.getCredit().getPercent().toString();
+            String oldPer = "_percent_";
+            String penu = creditRequest.getCredit().getPenaltyPercent().toString();
+                String oldPenu = "_penu_";
+
+            File template = new File(getRootPath() + "/contract.doc");
+
             file = createFile(userContext, ".doc");
-            out = new FileOutputStream(file);
+
+            FileWriter fos = new FileWriter(file);
+            FileInputStream fis = new FileInputStream(template);
+            HWPFDocument doc = new HWPFDocument(fis);
+
+            WordExtractor extractor = new WordExtractor(doc);
+
+            String[] dataArray = extractor.getParagraphText();
+            for (int i = 0; i < dataArray.length; i++) {
+                dataArray[i] = dataArray[i].replaceAll(oldName, name);
+                dataArray[i] = dataArray[i].replaceAll(oldSum, summ);
+                dataArray[i] = dataArray[i].replaceAll(oldPer, percent);
+                dataArray[i] = dataArray[i].replaceAll(oldPenu, penu);
+                fos.write(dataArray[i]);
+            }
+            fos.close();
+            fis.close();
         } catch (IOException e) {
             LOGGER.error(e);
             throw new SCDBusinessException("FileOutputStream error", e);
         }
-
 
         return file;
     }
