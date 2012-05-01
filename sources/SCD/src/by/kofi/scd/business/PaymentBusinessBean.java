@@ -61,6 +61,7 @@ public class PaymentBusinessBean extends AbstractBusinessBean {
         payment.setClient(item.getClient());
         payment.setEmployee(employee);
         payment.setPaymentDate(new Date());
+        payment.setCreditItem(item);
 
         try {
             CRUDDataService crudDataService = getCRUDDataService();

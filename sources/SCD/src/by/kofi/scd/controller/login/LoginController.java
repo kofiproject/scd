@@ -1,5 +1,6 @@
 package by.kofi.scd.controller.login;
 
+import by.kofi.scd.business.credit.CreditItemBusinessBean;
 import by.kofi.scd.business.employee.EmployeeBusinessBean;
 import by.kofi.scd.business.mail.MailBusinessBean;
 import by.kofi.scd.business.UserBusinessBean;
@@ -11,8 +12,12 @@ import by.kofi.scd.entity.Employee;
 import by.kofi.scd.entity.Role;
 import by.kofi.scd.entity.SCDUser;
 import by.kofi.scd.exceptions.SCDBusinessException;
+import by.kofi.scd.quartz.CreditItemJob;
+import org.quartz.JobExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
+import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.stereotype.Controller;
 
 import javax.faces.context.FacesContext;
@@ -36,6 +41,13 @@ public class LoginController {
     private String password;
     private Boolean isLoginFailed;
     private Boolean isClientBlocked;
+
+    @Autowired
+    private CreditItemJob cij;
+
+    @Autowired
+    @Qualifier("ciBB")
+    private CreditItemBusinessBean cibb;
 
     public Boolean getClientBlocked() {
         return isClientBlocked;
@@ -75,6 +87,15 @@ public class LoginController {
     private EmployeeBusinessBean employeeBusinessBean;
 
     public String loginAction() throws SCDBusinessException {
+/*
+        try {
+            cij.setCreditItemBusinessBean(cibb);
+            cij.executeInternal(null);
+        } catch (JobExecutionException e) {
+            e.printStackTrace();
+        }
+*/
+
         SCDUser user = this.userBusinessBean.getUserByIdentityId(getUniqueId());
         if (user != null && user.getPassword().equals(getPassword())) {
             Client client = user.getClient();

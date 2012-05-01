@@ -47,7 +47,7 @@ public class ReportGeneratorService extends AbstractReportGenerator implements R
         CreditItem creditItem = creditItemBusinessBean.getCreditItemById(account.getCreditItem().getCreditItemId()); //account.getCreditItem();
 
 
-        account = account.getCreditItem().getPaymentsAccount();
+        account = creditItem.getPaymentsAccount();
         List<Payment> paymentsByAccount = paymentBusinessBean.getPaymentsByAccount(account.getAccountNumber());
 
         SimpleDateFormat dateFormat = new SimpleDateFormat(REPORT_DATE_FORMAT);

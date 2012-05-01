@@ -255,11 +255,13 @@
         <a4j:commandLink value="#{bundle['grid.common.issue']}"
                          styleClass="grid-report-col"
                          immediate="true"
-                         oncomplete="#{rich:component('issueCreditPopup')}.show()"
+                         action="${creditsToIssueController.updateEnoughMoney}"
+                         oncomplete="#{rich:component('issueCreditPopup')}.show(); "
                          render="issueCreditPopup"
                 >
             <a4j:param value="#{item.creditRequestId}"
                        assignTo="#{creditsToIssueController.creditRequestId}"/>
+            <f:param name="creditRequestId" value="#{item.creditRequestId}"/>
         </a4j:commandLink>
 
     </rich:column>

@@ -56,8 +56,18 @@ $(document).ready(function() {
 
     jQuery('.word').live('keypress', function (event) {
         // Allow only backspace and delete
-        if (event.which <= 57 && event.which >= 48) {
-            event.preventDefault();
+        var controlKeys = [0, 8, 9, 13, 35, 36, 37, 39];
+        // IE doesn't support indexOf
+        var isControlKey = controlKeys.join(",").match(new RegExp(event.which));
+
+        if (isControlKey) {
+            return;
+        }
+
+        var reg = /[a-zа-я-]+/i;
+        var inCh = String.fromCharCode(event.which)
+        var ws = reg.test(inCh);
+        if (!reg.test(inCh)) {
             return false;
         }
     });

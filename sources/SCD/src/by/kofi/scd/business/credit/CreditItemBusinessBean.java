@@ -65,6 +65,9 @@ public class CreditItemBusinessBean extends AbstractBusinessBean {
 
             CRUDDataService crudDataService = getCRUDDataService();
             crudDataService.merge(creditItem.getCreditAccount());
+            crudDataService.merge(creditItem.getPaymentsAccount());
+            crudDataService.merge(creditItem.getDebitAccount());
+
             return crudDataService.merge(creditItem);
         } catch (SCDTechnicalException e) {
             throw new SCDBusinessException(e);

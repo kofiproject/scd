@@ -69,6 +69,7 @@
             <h:inputText id="passportSeries" size="4"
                          value="#{cc.attrs.bean.client.passportSeries}"
                          style="float: left;"
+                         styleClass="word"
                     />
             <h:inputText id="passportNo" size="12" value="#{cc.attrs.bean.client.passportNo}"
                          style="float: left; margin-left: 5px;" styleClass="numeric"
@@ -168,7 +169,7 @@
             <h:outputLabel value="#{bundle['registration.password']}"/>
         </h:panelGroup>
         <h:panelGroup>
-            <h:inputText id="password" size="20" value="#{cc.attrs.bean.password}"
+            <h:inputSecret id="password" size="20" value="#{cc.attrs.bean.password}"
                          validator="#{registrationValidator.validatePassword}"
                          required="true"
                          requiredMessage="#{bundle['registration.validator.required']}"/>

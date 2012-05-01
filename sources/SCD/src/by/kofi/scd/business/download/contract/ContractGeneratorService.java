@@ -9,7 +9,13 @@ import org.apache.poi.hwpf.HWPFDocument;
 import org.apache.poi.hwpf.extractor.WordExtractor;
 import org.springframework.stereotype.Service;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @author harchevnikov_m
@@ -19,9 +25,12 @@ import java.io.*;
 @Service
 public class ContractGeneratorService extends AbstractReportGenerator {
     private static final Logger LOGGER = Logger.getLogger(ContractGeneratorService.class);
-    private static final String REPORT_DATE_FORMAT = "dd-MM-yyyy HH:mm";
+    private static final String REPORT_DATE_FORMAT = "dd.MM.yyyy";
 
     public File generateReport(CreditRequest creditRequest, UserContext userContext) throws SCDBusinessException {
+
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat(REPORT_DATE_FORMAT);
 
         File file = null;
         try {
@@ -33,7 +42,20 @@ public class ContractGeneratorService extends AbstractReportGenerator {
             String percent = creditRequest.getCredit().getPercent().toString();
             String oldPer = "_percent_";
             String penu = creditRequest.getCredit().getPenaltyPercent().toString();
-                String oldPenu = "_penu_";
+            String oldPenu = "_penu_";
+
+            String addressStr = creditRequest.getClient().getPermanentResidence();
+            String address = "_address_";
+
+            String currDate = "_currentdate_";
+            String currDateStr = dateFormat.format(new Date());
+
+            Calendar cl = Calendar.getInstance();
+            cl.setTime(new Date());
+            cl.add(Calendar.MONTH, (int)creditRequest.getTerm());
+            String toDate = "_todate_";
+            String toDateStr = dateFormat.format(cl.getTime());
+
 
             File template = new File(getRootPath() + "/contract.doc");
 
@@ -51,6 +73,11 @@ public class ContractGeneratorService extends AbstractReportGenerator {
                 dataArray[i] = dataArray[i].replaceAll(oldSum, summ);
                 dataArray[i] = dataArray[i].replaceAll(oldPer, percent);
                 dataArray[i] = dataArray[i].replaceAll(oldPenu, penu);
+
+                dataArray[i] = dataArray[i].replaceAll(address, addressStr);
+                dataArray[i] = dataArray[i].replaceAll(currDate, currDateStr);
+                dataArray[i] = dataArray[i].replaceAll(toDate, toDateStr);
+
                 fos.write(dataArray[i]);
             }
             fos.close();

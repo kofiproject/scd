@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:oracle:thin:@127.0.0.1:1521:XE</property>
+        <property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <property name="connection.username">SCD</property>
+        <property name="connection.password">SCD</property>
+        <mapping class="by.kofi.scd.entity.Account"/>
+        <mapping class="by.kofi.scd.entity.Client"/>
+        <mapping class="by.kofi.scd.entity.Credit"/>
+        <mapping class="by.kofi.scd.entity.CreditItem"/>
+        <mapping class="by.kofi.scd.entity.CreditRequest"/>
+        <mapping class="by.kofi.scd.entity.Department"/>
+        <mapping class="by.kofi.scd.entity.Employee"/>
+        <mapping class="by.kofi.scd.entity.Role"/>
+        <mapping class="by.kofi.scd.entity.SCDUser"/>
+        <mapping class="by.kofi.scd.entity.Payment"/>
+        <mapping class="by.kofi.scd.entity.PercentHistory"/>
+    </session-factory>
+</hibernate-configuration>

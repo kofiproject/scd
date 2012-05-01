@@ -45,7 +45,7 @@ public class CreditItemJob extends QuartzJobBean {
     }
 
     @Override
-    protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
+    public synchronized void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
         try {
             Date date = new Date();
 
@@ -56,7 +56,6 @@ public class CreditItemJob extends QuartzJobBean {
             BigDecimal daysInYear = new BigDecimal(DatesUtil.getDaysInYear(currentDate));
             BigDecimal percentDivider = new BigDecimal(INT_100).multiply(daysInYear);
 
-
             try {
                 List<CreditItem> creditItems = this.creditItemBusinessBean.getCreditItemsWithPaymentsByState(CreditItemStateEnum.ACTIVE);
                 for (CreditItem creditItem : creditItems) {
@@ -66,6 +65,7 @@ public class CreditItemJob extends QuartzJobBean {
                 //e.printStackTrace();
             }
         } catch (Throwable e) {
+            e.printStackTrace();
         }
     }
 
@@ -101,6 +101,10 @@ public class CreditItemJob extends QuartzJobBean {
         BigDecimal percent = creditItem.getCredit().getPercent();
         BigDecimal oneDayPercent = percent.divide(percentDivider, MATH_CONTEXT);
 
+        if(creditSum.intValue() <= 0) {
+            return;
+        }
+
         for (int i = 1; i <= daysBetween; i++) {
             itemLastUpdated.add(Calendar.DAY_OF_YEAR, 1);
 
@@ -127,10 +131,11 @@ public class CreditItemJob extends QuartzJobBean {
             history.setDebtSum(creditSum);
             history.setPercentSum(debtSum);
             creditItemBusinessBean.storePercentHistory(history);
+
         }
 
-//        creditAccount.setSum(totalDebtSum);
-//        debtAccount.setSum(creditSum);
+        creditAccount.setSum(totalDebtSum);
+        debtAccount.setSum(creditSum);
 
         creditItem.setLastUpdated(currentDate.getTime());
         creditItemBusinessBean.storeCreditItem(creditItem);

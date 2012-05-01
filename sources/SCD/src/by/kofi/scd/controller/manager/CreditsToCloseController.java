@@ -1,6 +1,5 @@
 package by.kofi.scd.controller.manager;
 
-import by.kofi.scd.business.AccountBusinessBean;
 import by.kofi.scd.business.credit.CreditItemBusinessBean;
 import by.kofi.scd.entity.Account;
 import by.kofi.scd.exceptions.SCDBusinessException;

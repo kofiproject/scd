@@ -6,6 +6,7 @@ import by.kofi.scd.business.download.FileDownloadService;
 import by.kofi.scd.business.download.contract.ContractGeneratorService;
 import by.kofi.scd.common.FacesUtil;
 import by.kofi.scd.dto.UserContext;
+import by.kofi.scd.entity.Account;
 import by.kofi.scd.entity.CreditRequest;
 import by.kofi.scd.exceptions.SCDBusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,8 @@ public class CreditsToIssueController {
     private Long creditRequestId;
     private File generatedContract;
 
+    private boolean enoughMoney;
+
     @Autowired
     @Qualifier("ciBB")
     private CreditItemBusinessBean creditItemBusinessBean;
@@ -38,6 +41,35 @@ public class CreditsToIssueController {
     private ContractGeneratorService contractGeneratorService;
     @Autowired
     private FileDownloadService fileDownloadService;
+
+    public void updateEnoughMoney() {
+        try {
+            FacesContext context = FacesContext.getCurrentInstance();
+            HttpServletRequest myRequest = (HttpServletRequest) context.getExternalContext().getRequest();
+            Long creditRequestId = Long.parseLong(myRequest.getParameter("creditRequestId"));
+
+//            Long creditRequestId = Long.parseLong(req_id.toString());
+            CreditRequest creditRequest = creditRequestBusinessBean.getCreditRequestById(creditRequestId);
+            Account bankAccount = creditItemBusinessBean.getBankAccount();
+            if (creditRequest.getSum().compareTo(bankAccount.getSum()) > 0) {
+                enoughMoney = false;
+            } else {
+                enoughMoney = true;
+            }
+
+        } catch (SCDBusinessException e) {
+
+        }
+    }
+
+    public boolean getEnoughMoney() {
+            return enoughMoney;
+    }
+
+    public void setEnoughMoney(boolean enoughMoney) {
+        this.enoughMoney = enoughMoney;
+    }
+
 
     public File getGeneratedContract() {
         return generatedContract;
@@ -65,7 +97,7 @@ public class CreditsToIssueController {
 
             creditItemBusinessBean.createCreditItem(creditRequest);
 
-             FacesUtil.getSession().setAttribute("req_id", creditRequestId);
+            FacesUtil.getSession().setAttribute("req_id", creditRequestId);
 
         } catch (SCDBusinessException e) {
             throw new SCDBusinessException(e.getMessage(), e);

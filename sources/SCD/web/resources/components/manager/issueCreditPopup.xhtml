@@ -9,6 +9,7 @@
       xmlns:a4j="http://richfaces.org/a4j"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
         >
 <!-- INTERFACE -->
 <composite:interface>
@@ -18,28 +19,60 @@
 <!-- IMPLEMENTATION -->
 <composite:implementation>
 
+
     <rich:popupPanel header="Issue" id="issueCreditPopup"
                      autosized="true" modal="true"
             >
 
-        Are you sure you want to issue credit?
-        <div style="text-align: center;">
-            <a4j:commandButton value="Ok"
-                               styleClass="popup-btn"
-                               action="#{creditsToIssueController.issueCreditRequest}"
-                               onclick="#{rich:component('panel_loading')}.show()"
-                               oncomplete="jQuery('[id $= contract-btn]').click();"
-                               render="table"
-                               execute="issueCreditPopup"
-                    >
-                <f:param name="creditRequestId" value="#{creditsToIssueController.creditRequestId}"/>
-            </a4j:commandButton>
-            &#160;&#160;
-            <a4j:commandButton value="Cancel"
-                               onclick="#{rich:component('issueCreditPopup')}.hide(); return false;"
-                               styleClass="popup-btn"
-                    />
 
+        <h:outputText value="${creditsToIssueController.enoughMoney}" id="enm"
+                styleClass="invisible"/>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            if ('true' == jQuery('[id $= enm]').text()) {
+                jQuery('[id $= enough-money]').show();
+                jQuery('[id $= notenmoney]').hide();
+            } else {
+                jQuery('[id $= notenmoney]').show();
+                jQuery('[id $= enough-money]').hide();
+            }
+
+            //]]>
+        </script>
+        <div id="enough-money">
+
+            Are you sure you want to issue credit?
+            <div style="text-align: center;">
+                <a4j:commandButton value="Ok"
+                                   styleClass="popup-btn"
+                                   action="#{creditsToIssueController.issueCreditRequest}"
+                                   onclick="#{rich:component('panel_loading')}.show()"
+                                   oncomplete="jQuery('[id $= contract-btn]').click();"
+                                   render="table"
+                                   execute="issueCreditPopup"
+                        >
+                    <f:param name="creditRequestId" value="#{creditsToIssueController.creditRequestId}"/>
+                </a4j:commandButton>
+                &#160;&#160;
+                <a4j:commandButton value="Cancel"
+                                   onclick="#{rich:component('issueCreditPopup')}.hide(); return false;"
+                                   styleClass="popup-btn"
+                        />
+
+
+            </div>
+        </div>
+
+        <div id="notenmoney">
+            Not enough money.
+            <div style="text-align: center;">
+                &#160;&#160;
+                <a4j:commandButton value="Ok"
+                                   onclick="#{rich:component('issueCreditPopup')}.hide(); return false;"
+                                   styleClass="popup-btn"
+                        />
+            </div>
 
         </div>
 
